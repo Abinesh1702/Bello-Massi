@@ -1,0 +1,2377 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Functional Requirements Document (Consolidated)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Functional Requirements Document (Consolidated)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-SYS-003</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>System Requirements</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Business Analyst</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>List every functional requirement of the platform with a unique ID, priority, expected result and implementation label.</p>
+<h2 id="scope">Scope</h2>
+<p>All 35 modules; detailed specifications per module are in folder 04.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>BM-SYS-002</strong> (Software Requirements Specification (SRS))</li>
+<li><strong>BM-SYS-008</strong> (Requirement Traceability Matrix)</li>
+<li><strong>BM-BRD-001</strong> (Business Requirements Document (BRD))</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Requirement summary</li>
+</ol></li>
+<li>Authentication and Login (AUTH)</li>
+<li>User Management (USR)</li>
+<li>Role and Permission Management (RBAC)</li>
+<li>Dashboards and Analytics (DASH)</li>
+<li>Customer Management (CUS)</li>
+<li>Product Catalogue (PRD)</li>
+<li>Hubs, Suppliers and Organisation Master (HUB)</li>
+<li>Salesman Order Management (ORD)</li>
+<li>Sales Manager Approval (APR)</li>
+<li>Credit Validation (CRD)</li>
+<li>Order Consolidation (Customer Service) (CON)</li>
+<li>Dispatch Management (DSP)</li>
+<li>Zone Management (ZON)</li>
+<li>Driver and Vehicle Assignment (DRA)</li>
+<li>Driver Application (DRV)</li>
+<li>Customer Application (CAP)</li>
+<li>Delivery Tracking (TRK)</li>
+<li>Delivery OTP (OTP)</li>
+<li>Proof of Delivery (POD)</li>
+<li>Delivery Notes (DN)</li>
+<li>Delivery Exception Review (EXC)</li>
+<li>Inventory Management (INV)</li>
+<li>Scrap Management (SCR)</li>
+<li>Warehouse and QA Dashboards (WQA)</li>
+<li>Vehicle Management System (VMS)</li>
+<li>Document Management and OCR (DOC)</li>
+<li>Invoice Customisation and Invoicing (INVC)</li>
+<li>Email Communication (EML)</li>
+<li>OpenWA (WhatsApp) Communication (OWA)</li>
+<li>Automated Notifications (AUTO)</li>
+<li>Call History (CALL)</li>
+<li>Notifications (in-app) (NOTF)</li>
+<li>Reports (RPT)</li>
+<li>AI Assistant, Forecasting and Replenishment (AI)</li>
+<li>System Settings and Audit (SET)</li>
+</ul>
+<h2 id="1-requirement-summary">1. Requirement summary</h2>
+<table class="wide">
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>FRs</th>
+<th>VERIFIED</th>
+<th>PROTOTYPE</th>
+<th>PROPOSED</th>
+<th>PENDING</th>
+<th>NOT IMPL.</th>
+<th>NOT VERIFIED</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Authentication and Login (AUTH)</td>
+<td>13</td>
+<td>10</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>User Management (USR)</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Role and Permission Management (RBAC)</td>
+<td>6</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Dashboards and Analytics (DASH)</td>
+<td>6</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Customer Management (CUS)</td>
+<td>5</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Product Catalogue (PRD)</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Hubs, Suppliers and Organisation Master (HUB)</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Salesman Order Management (ORD)</td>
+<td>11</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Sales Manager Approval (APR)</td>
+<td>8</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Credit Validation (CRD)</td>
+<td>5</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Order Consolidation (Customer Service) (CON)</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Dispatch Management (DSP)</td>
+<td>9</td>
+<td>7</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Zone Management (ZON)</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Driver and Vehicle Assignment (DRA)</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Driver Application (DRV)</td>
+<td>11</td>
+<td>9</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Customer Application (CAP)</td>
+<td>8</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Delivery Tracking (TRK)</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Delivery OTP (OTP)</td>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Proof of Delivery (POD)</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Delivery Notes (DN)</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Delivery Exception Review (EXC)</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Inventory Management (INV)</td>
+<td>8</td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Scrap Management (SCR)</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Warehouse and QA Dashboards (WQA)</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Vehicle Management System (VMS)</td>
+<td>5</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Document Management and OCR (DOC)</td>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Invoice Customisation and Invoicing (INVC)</td>
+<td>6</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Email Communication (EML)</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>OpenWA (WhatsApp) Communication (OWA)</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Automated Notifications (AUTO)</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Call History (CALL)</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Notifications (in-app) (NOTF)</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Reports (RPT)</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>AI Assistant, Forecasting and Replenishment (AI)</td>
+<td>5</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>System Settings and Audit (SET)</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>179</strong></td>
+<td>136</td>
+<td>8</td>
+<td>17</td>
+<td>7</td>
+<td>8</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication-and-login-auth">Authentication and Login (AUTH)</h2>
+<p>Detail: <strong>BM-FRD-AUTH</strong> (Functional Requirements — Authentication and Login)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-AUTH-001</td>
+<td>P1</td>
+<td>The system shall authenticate office users by email or username and password and open the role landing page.</td>
+<td>Valid credentials open the landing page of the user’s role.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-002</td>
+<td>P1</td>
+<td>The driver app shall accept mobile number, email or username as the identifier.</td>
+<td>Driver signs in with +91 98400 11206 / Driver@123 and lands on /driver/dashboard.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-003</td>
+<td>P1</td>
+<td>The customer app shall accept mobile number, email or username as the identifier.</td>
+<td>Customer signs in with +91 98410 22310 / Customer@123 and lands on /customer/dashboard.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-004</td>
+<td>P1</td>
+<td>The system shall lock an account for the configured lockout period after the configured number of failed attempts (default 5 attempts, 15 minutes).</td>
+<td>Sixth attempt shows “Too many failed attempts. This account is locked for 15 minutes.”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-005</td>
+<td>P1</td>
+<td>The system shall block sign-in for inactive accounts with a clear message.</td>
+<td>“This account is inactive. Contact your administrator to reactivate it.”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-006</td>
+<td>P1</td>
+<td>The system shall sign users out after the configured idle period (default 60 minutes).</td>
+<td>Session ends after inactivity; user returns to the sign-in page of the same app.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-007</td>
+<td>P2</td>
+<td>“Keep me signed in” shall persist the session across browser restarts; otherwise the session ends with the tab.</td>
+<td>Session stored in localStorage when ticked, sessionStorage otherwise.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-008</td>
+<td>P2</td>
+<td>Users shall reset a forgotten password with a 6-digit code valid for 15 minutes.</td>
+<td>Code is displayed on screen in the prototype (no email is sent).</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-009</td>
+<td>P1</td>
+<td>Users shall be forced to change their password after an administrator reset when the setting is enabled.</td>
+<td>User is redirected to /account/change-password?required=1 until the password is changed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-010</td>
+<td>P1</td>
+<td>Sign-out shall return the user to the sign-in page of the app they were using.</td>
+<td>Driver → /driver/login, customer → /customer/login, office → /login.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-011</td>
+<td>P1</td>
+<td>Every route shall require sign-in and the route’s permission; unauthorised users see the Unauthorized page.</td>
+<td>Opening /admin/users as Salesman shows /unauthorized.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTH-012</td>
+<td>P1</td>
+<td>Production authentication shall use server-side hashed passwords (Argon2/PBKDF2) and short-lived JWT access tokens with refresh tokens.</td>
+<td>No credentials or password hashes are stored in the browser.</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="odd">
+<td>FR-AUTH-013</td>
+<td>P2</td>
+<td>Privileged roles shall use multi-factor authentication (TOTP) in production.</td>
+<td>Admin sign-in requires a second factor.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-management-usr">User Management (USR)</h2>
+<p>Detail: <strong>BM-FRD-USR</strong> (Functional Requirements — User Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-USR-001</td>
+<td>P1</td>
+<td>Administrators shall create users with name, username, email, phone, role, home hub and (for portal users) the linked customer, driver or supplier.</td>
+<td>User appears in the list and can sign in.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-USR-002</td>
+<td>P1</td>
+<td>Administrators shall activate, deactivate, unlock and reset passwords of users.</td>
+<td>Status changes are effective at the next sign-in and recorded in the audit log.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-USR-003</td>
+<td>P1</td>
+<td>The system shall prevent users from deactivating their own account and only a Super Admin shall change a Super Admin.</td>
+<td>“You cannot deactivate your own account.” / “Only a Super Admin can change a Super Admin account.”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-USR-004</td>
+<td>P2</td>
+<td>Administrators shall assign roles and the home hub to users in bulk.</td>
+<td>Assignments saved; drivers require a home hub.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-USR-005</td>
+<td>P2</td>
+<td>Users shall update their own name and phone and change their password.</td>
+<td>Profile saved after validation (name 2–60 characters).</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="role-and-permission-management-rbac">Role and Permission Management (RBAC)</h2>
+<p>Detail: <strong>BM-FRD-RBAC</strong> (Functional Requirements — Role and Permission Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-RBAC-001</td>
+<td>P1</td>
+<td>The system shall provide 13 system roles with default permissions, data scopes and landing pages.</td>
+<td>Roles listed with permission counts; locked roles cannot be deleted.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-RBAC-002</td>
+<td>P1</td>
+<td>Administrators shall create custom roles with a name, data scope, landing page and any set of the 110 permission keys.</td>
+<td>Users with the custom role see only permitted menus and a workspace launcher dashboard.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-RBAC-003</td>
+<td>P1</td>
+<td>Administrators shall view and edit the permission matrix for editable roles.</td>
+<td>Matrix changes take effect immediately in menus and services.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-RBAC-004</td>
+<td>P1</td>
+<td>Every business action shall be checked against the user’s permissions in the service layer, not only by hiding buttons.</td>
+<td>Service returns a permission error when called without the key.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-RBAC-005</td>
+<td>P1</td>
+<td>Lists shall be limited by data scope: own records (Salesman), linked customer (Customer), own deliveries (Driver), etc.</td>
+<td>Salesman sees only own orders; driver cannot open another driver’s delivery.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-RBAC-006</td>
+<td>P1</td>
+<td>Production APIs shall enforce the same permission keys and data scopes server-side.</td>
+<td>API returns 403 for missing permission and 404 for out-of-scope records.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dashboards-and-analytics-dash">Dashboards and Analytics (DASH)</h2>
+<p>Detail: <strong>BM-FRD-DASH</strong> (Functional Requirements — Dashboards and Analytics)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DASH-001</td>
+<td>P1</td>
+<td>Each role shall see a dashboard with the KPIs and work queues for that role.</td>
+<td>Dashboard component matches the role (Admin, Salesman, Sales Manager, CS, Dispatcher, Finance, Warehouse, QA, Supplier).</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DASH-002</td>
+<td>P1</td>
+<td>Every dashboard shall offer period presets (Today … All Time), custom range and specific periods including the April–March financial year.</td>
+<td>KPIs, tables and charts follow the selected period.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DASH-003</td>
+<td>P2</td>
+<td>Dashboards shall optionally compare the selected period with the previous equivalent period.</td>
+<td>KPI shows % change, difference and previous value.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DASH-004</td>
+<td>P2</td>
+<td>Current positions (stock, credit balance, fleet) shall be labelled Current and not filtered by period.</td>
+<td>“Current” label shown on those KPIs.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DASH-005</td>
+<td>P2</td>
+<td>KPI cards and queue rows shall drill down into the filtered module list.</td>
+<td>Clicking “Pending approval” opens the approval queue.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DASH-006</td>
+<td>P2</td>
+<td>Management shall have a live order monitor with real-time status updates (server push).</td>
+<td>Status changes appear without page refresh.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customer-management-cus">Customer Management (CUS)</h2>
+<p>Detail: <strong>BM-FRD-CUS</strong> (Functional Requirements — Customer Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-CUS-001</td>
+<td>P1</td>
+<td>Administrators shall create customers with code, type, contacts, address, tax IDs, hub, zone, sales representative, VIP flag and credit settings.</td>
+<td>Customer saved and available for ordering.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CUS-002</td>
+<td>P1</td>
+<td>Customer data shall be validated (unique code, 10-digit mobile, email, PAN AAAAA9999A, GSTIN containing PAN, 6-digit pincode).</td>
+<td>Invalid fields show messages; record is not saved.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CUS-003</td>
+<td>P2</td>
+<td>Users shall view customer details with credit position, orders, deliveries and documents within their scope.</td>
+<td>Salesman sees only assigned customers’ documents.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CUS-004</td>
+<td>P2</td>
+<td>Customers referenced by orders or other records shall not be deletable.</td>
+<td>Delete is blocked and the blocking records are listed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CUS-005</td>
+<td>P1</td>
+<td>Customer address and tax fields shall follow the operating country (UAE: emirate, TRN, +971 vs India: pincode, GSTIN/PAN, +91).</td>
+<td>Client confirms country rules before production.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="product-catalogue-prd">Product Catalogue (PRD)</h2>
+<p>Detail: <strong>BM-FRD-PRD</strong> (Functional Requirements — Product Catalogue)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-PRD-001</td>
+<td>P1</td>
+<td>Administrators shall maintain products with code, SKU, barcode, category, unit, price, tax %, maximum discount, storage condition and stock settings.</td>
+<td>Product saved and orderable when Active.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-PRD-002</td>
+<td>P1</td>
+<td>Product codes, SKUs and barcodes shall be unique; tax 0–100%; maximum stock greater than minimum.</td>
+<td>Duplicate or invalid values are rejected.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-PRD-003</td>
+<td>P2</td>
+<td>Inactive or discontinued products shall not be orderable and shall block approval of orders containing them.</td>
+<td>Approval check “Products active” fails.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-PRD-004</td>
+<td>P2</td>
+<td>Item master and quantities shall be synchronised from SAP in stage two (today updated manually from emails).</td>
+<td>Items updated automatically from SAP.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hubs-suppliers-and-organisation-master-hub">Hubs, Suppliers and Organisation Master (HUB)</h2>
+<p>Detail: <strong>BM-FRD-HUB</strong> (Functional Requirements — Hubs, Suppliers and Organisation Master)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-HUB-001</td>
+<td>P1</td>
+<td>Administrators shall maintain hubs (type, address, contacts, status).</td>
+<td>Hub available for stock, orders and dispatch when Active.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-HUB-002</td>
+<td>P2</td>
+<td>Administrators shall maintain suppliers with lead time and products for replenishment.</td>
+<td>Supplier selectable on replenishment requests.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-HUB-003</td>
+<td>P3</td>
+<td>Administrators shall maintain the company profile and organisation structure (branches, business units, departments, designations, employees, warehouses).</td>
+<td>Records saved and used on documents.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="salesman-order-management-ord">Salesman Order Management (ORD)</h2>
+<p>Detail: <strong>BM-FRD-ORD</strong> (Functional Requirements — Salesman Order Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-ORD-001</td>
+<td>P1</td>
+<td>Salesmen shall create orders for a customer and hub with order type, priority, payment terms, order and requested delivery dates, delivery address and product lines.</td>
+<td>Order saved as DRAFT with totals (subtotal, discount, tax, total).</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ORD-002</td>
+<td>P1</td>
+<td>Salesmen shall submit orders for approval; the system assigns an order number and notifies the Sales Manager.</td>
+<td>Status SUBMITTED, approval PENDING, number BM-ORD-…, notification “New order for approval”.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-ORD-003</td>
+<td>P1</td>
+<td>The system shall validate order data: customer, salesman, hub, type, priority, payment terms, valid dates, address, 6-digit pincode, at least one line, total &gt; 0.</td>
+<td>Errors shown per field; order not submitted.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ORD-004</td>
+<td>P1</td>
+<td>The system shall show credit and stock warnings at submission without blocking it.</td>
+<td>Warning flags stored on the order and shown to the approver.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-ORD-005</td>
+<td>P1</td>
+<td>Salesmen shall correct and resubmit returned orders; the section matching the return reason is highlighted.</td>
+<td>Status returns to SUBMITTED; timeline records the resubmission.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ORD-006</td>
+<td>P2</td>
+<td>Only the creator’s draft orders shall be deletable; submitted orders are kept for audit.</td>
+<td>“Only draft orders can be deleted…”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-ORD-007</td>
+<td>P2</td>
+<td>Users shall duplicate an existing order into a new draft.</td>
+<td>New DRAFT with copied lines.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ORD-008</td>
+<td>P1</td>
+<td>Every order shall have a timeline of all events (created, submitted, decided, consolidated, dispatched, delivered).</td>
+<td>Timeline shows each event with user and time.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-ORD-009</td>
+<td>P2</td>
+<td>Salesmen shall see only their own orders; other roles see orders according to their scope.</td>
+<td>Order list filtered by scope.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ORD-010</td>
+<td>P2</td>
+<td>Cancelling a submitted order on customer request.</td>
+<td>Not available; Sales Manager may reject with reason “Customer cancelled”. PENDING CONFIRMATION of the cancellation rule.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+<tr class="odd">
+<td>FR-ORD-011</td>
+<td>P2</td>
+<td>Orders shall record the source channel (call, email, WhatsApp, customer app) as described in the SOW.</td>
+<td>Customer-app orders are tagged customer_app; office channel field to be confirmed.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sales-manager-approval-apr">Sales Manager Approval (APR)</h2>
+<p>Detail: <strong>BM-FRD-APR</strong> (Functional Requirements — Sales Manager Approval)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-APR-001</td>
+<td>P1</td>
+<td>Sales Managers shall see an approval queue of submitted orders, oldest first.</td>
+<td>Queue lists SUBMITTED / PENDING orders.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-APR-002</td>
+<td>P1</td>
+<td>The system shall run six checks: customer active, hub active, credit within limit, stock available, total valid, products active.</td>
+<td>Checks displayed with pass / warn / block.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-APR-003</td>
+<td>P1</td>
+<td>Sales Managers shall approve orders; warnings must be acknowledged and remarks entered when required by settings.</td>
+<td>Status APPROVED, consolidation PENDING, Customer Service and salesman notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-APR-004</td>
+<td>P1</td>
+<td>Sales Managers shall return orders for correction with a reason from a list and remarks.</td>
+<td>Status RETURNED; salesman notified with edit link.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-APR-005</td>
+<td>P1</td>
+<td>Sales Managers shall reject orders with a reason from a list and remarks.</td>
+<td>Status REJECTED (final); salesman notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-APR-006</td>
+<td>P1</td>
+<td>Draft or already-decided orders shall not be decided again.</td>
+<td>“…has already been approved. No change was made.”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-APR-007</td>
+<td>P1</td>
+<td>The Sales Manager shall be able to set the approved value and quantity (SOW slide 8).</td>
+<td>Not implemented: the prototype approves the order as submitted; return for correction is used instead.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="even">
+<td>FR-APR-008</td>
+<td>P1</td>
+<td>Finance shall be notified of approved orders, flagged when the credit limit is exceeded (SOW slides 8 and 16).</td>
+<td>Not implemented: approval notifies Customer Service and the salesman only.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="credit-validation-crd">Credit Validation (CRD)</h2>
+<p>Detail: <strong>BM-FRD-CRD</strong> (Functional Requirements — Credit Validation)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-CRD-001</td>
+<td>P1</td>
+<td>The system shall calculate the projected balance (current balance + order total) against the credit limit for every order.</td>
+<td>Credit position shown on order and approval screens.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CRD-002</td>
+<td>P1</td>
+<td>Exceeding the credit limit shall be a warning by default and a blocking check when “Block when credit exceeded” is enabled.</td>
+<td>Approve is disabled when blocking is on and the limit is exceeded.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CRD-003</td>
+<td>P2</td>
+<td>Users shall view credit limits, balances and utilisation for all customers.</td>
+<td>Customer Credit page lists utilisation and over-limit customers.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CRD-004</td>
+<td>P1</td>
+<td>Customer balances shall be updated from invoices and payments.</td>
+<td>Not implemented: balance is a manually maintained field; payments are not recorded.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+<tr class="odd">
+<td>FR-CRD-005</td>
+<td>P2</td>
+<td>Credit balances shall be synchronised from the finance system (SAP) in production.</td>
+<td>Balance reflects ERP receivables.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="order-consolidation-customer-service-con">Order Consolidation (Customer Service) (CON)</h2>
+<p>Detail: <strong>BM-FRD-CON</strong> (Functional Requirements — Order Consolidation (Customer Service))</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-CON-001</td>
+<td>P1</td>
+<td>Customer Service shall see approved orders grouped per salesman, oldest approval first.</td>
+<td>Queue by salesman displayed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CON-002</td>
+<td>P1</td>
+<td>Customer Service shall confirm five verification checks and review hub stock before consolidating.</td>
+<td>Status CONSOLIDATED; Dispatcher notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CON-003</td>
+<td>P1</td>
+<td>Customer Service shall release consolidated orders to dispatch.</td>
+<td>Status READY_<wbr>FOR_<wbr>DISPATCH; Dispatcher and salesman notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CON-004</td>
+<td>P2</td>
+<td>Only approved orders shall be consolidated and only once.</td>
+<td>“Only approved orders can be consolidated.”</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dispatch-management-dsp">Dispatch Management (DSP)</h2>
+<p>Detail: <strong>BM-FRD-DSP</strong> (Functional Requirements — Dispatch Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DSP-001</td>
+<td>P1</td>
+<td>Dispatchers shall create dispatches from ready orders for a hub, zone and date, saved as draft or planned.</td>
+<td>Dispatch BM-DSP-… in DRAFT or PLANNED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DSP-002</td>
+<td>P1</td>
+<td>Orders not ready, already on another active dispatch or without a complete address shall be refused.</td>
+<td>Specific refusal message per order.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DSP-003</td>
+<td>P1</td>
+<td>Dispatchers shall set the stop sequence by drag and drop or move buttons; a suggested sequence (priority, pincode) is offered.</td>
+<td>Sequence saved; driver notified of changes.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DSP-004</td>
+<td>P1</td>
+<td>Dispatchers shall confirm loading after a review tick; stock is deducted once and one delivery is created per order.</td>
+<td>Status CONFIRMED; orders DISPATCHED; Stock Dispatch movements.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DSP-005</td>
+<td>P1</td>
+<td>Dispatchers shall cancel dispatches with a reason before any stop starts; confirmed dispatches reverse stock once.</td>
+<td>Status CANCELLED; orders back to READY_<wbr>FOR_<wbr>DISPATCH.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DSP-006</td>
+<td>P2</td>
+<td>Dispatches shall be editable only while DRAFT, PLANNED or ASSIGNED.</td>
+<td>“…is confirmed and can no longer be edited.”</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DSP-007</td>
+<td>P1</td>
+<td>Dispatch status shall close automatically: COMPLETED when all stops are delivered, PARTIALLY_<wbr>DELIVERED (Closed with exceptions) otherwise.</td>
+<td>Status updates when the last stop closes.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DSP-008</td>
+<td>P1</td>
+<td>Dispatchers shall place orders into zones by drag and drop on a zone board (SOW slide 10).</td>
+<td>Prototype: zone chosen in the dispatch form; drag and drop exists for stop sequence only.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>FR-DSP-009</td>
+<td>P1</td>
+<td>The system shall suggest the fastest route using distance and live traffic and warn when a VIP requested time may be missed.</td>
+<td>Prototype suggests sequence by priority and pincode only.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zone-management-zon">Zone Management (ZON)</h2>
+<p>Detail: <strong>BM-FRD-ZON</strong> (Functional Requirements — Zone Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-ZON-001</td>
+<td>P1</td>
+<td>Administrators shall maintain zones per hub with a list of pincodes.</td>
+<td>Zone saved; code unique; at least one pincode.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-ZON-002</td>
+<td>P2</td>
+<td>The system shall warn when a dispatch mixes orders from non-neighbouring zones.</td>
+<td>Neighbouring-zone warning shown.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="driver-and-vehicle-assignment-dra">Driver and Vehicle Assignment (DRA)</h2>
+<p>Detail: <strong>BM-FRD-DRA</strong> (Functional Requirements — Driver and Vehicle Assignment)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DRA-001</td>
+<td>P1</td>
+<td>Dispatchers shall assign a driver and a vehicle to a planned dispatch.</td>
+<td>Status ASSIGNED; driver notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRA-002</td>
+<td>P1</td>
+<td>Drivers shall be refused when inactive, busy on another active dispatch, offline, from another hub, or with an expired or missing licence.</td>
+<td>Specific refusal messages.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRA-003</td>
+<td>P1</td>
+<td>Vehicles shall be refused when inactive, in maintenance, busy, from another hub, over capacity, or with expired required documents.</td>
+<td>“Load of N exceeds … capacity” etc.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRA-004</td>
+<td>P1</td>
+<td>Administrators shall maintain drivers (licence, hub, zone, vehicle, app login) and vehicles (number, type, capacity, hub, documents).</td>
+<td>Records validated (Indian vehicle number format, unique licence).</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="driver-application-drv">Driver Application (DRV)</h2>
+<p>Detail: <strong>BM-FRD-DRV</strong> (Functional Requirements — Driver Application)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DRV-001</td>
+<td>P1</td>
+<td>Drivers shall see today’s and tomorrow’s stops published by the Dispatcher, the next stop and their performance.</td>
+<td>Today plan listed; tomorrow plan visible with Start disabled.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRV-002</td>
+<td>P1</td>
+<td>Drivers shall start a stop only when the dispatch is confirmed, the date has arrived, no other stop is active and it is next in sequence.</td>
+<td>Blocker message shown otherwise; status OUT_<wbr>FOR_<wbr>DELIVERY when allowed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRV-003</td>
+<td>P1</td>
+<td>Drivers shall record arrival at the customer, which issues the delivery OTP.</td>
+<td>arrivedAt recorded; OTP issued (simulated).</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRV-004</td>
+<td>P1</td>
+<td>Drivers shall complete a stop with delivered / damaged quantities, receiver name, optional signature and photo, and the customer’s OTP.</td>
+<td>DELIVERED or PARTIALLY_<wbr>DELIVERED; delivery note generated.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRV-005</td>
+<td>P1</td>
+<td>Drivers shall report a failed delivery with a reason from the list and remarks.</td>
+<td>FAILED; Dispatcher and customer notified.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRV-006</td>
+<td>P2</td>
+<td>Drivers shall view the route of their stops on a map.</td>
+<td>DEMO route map displayed (simulated).</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRV-007</td>
+<td>P2</td>
+<td>Drivers shall call or message the customer contact from the stop screen.</td>
+<td>Phone / WhatsApp links open the device app.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRV-008</td>
+<td>P2</td>
+<td>Drivers shall view and upload their own documents (licence, medical).</td>
+<td>Upload goes to the review queue.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRV-009</td>
+<td>P1</td>
+<td>VIP stops shall show a VIP badge; the driver follows the sequence published by the Dispatcher.</td>
+<td>VIP badge displayed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DRV-010</td>
+<td>P1</td>
+<td>The production driver app shall be a React Native app with background GPS (10–15 s updates) during active deliveries only.</td>
+<td>Location continues when the phone is locked; last update time shown.</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="odd">
+<td>FR-DRV-011</td>
+<td>P2</td>
+<td>The production driver app shall queue status updates when offline and sync when connectivity returns.</td>
+<td>No data loss in poor coverage.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customer-application-cap">Customer Application (CAP)</h2>
+<p>Detail: <strong>BM-FRD-CAP</strong> (Functional Requirements — Customer Application)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-CAP-001</td>
+<td>P1</td>
+<td>Customers shall browse and search active products with prices and add them to a cart.</td>
+<td>Cart persists per customer.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CAP-002</td>
+<td>P1</td>
+<td>Customers shall place orders with delivery address, requested date (tomorrow to 60 days), time slot, reference and remarks.</td>
+<td>Order SUBMITTED with source customer_app; cart cleared.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CAP-003</td>
+<td>P1</td>
+<td>Customers shall follow each order with a stage tracker and customer-friendly labels.</td>
+<td>Stages from Order placed to Delivered.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CAP-004</td>
+<td>P1</td>
+<td>Customers shall track their own delivery on a map and see the OTP when the driver arrives.</td>
+<td>Only own order’s vehicle is visible.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CAP-005</td>
+<td>P2</td>
+<td>Customers shall view and print delivery notes and invoices.</td>
+<td>Documents listed for the linked customer only.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CAP-006</td>
+<td>P2</td>
+<td>Customers shall reorder a past order into the cart.</td>
+<td>Orderable lines copied to cart.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-CAP-007</td>
+<td>P2</td>
+<td>Customers shall pay online and see payment history.</td>
+<td>Page shows balance and “No payments recorded in this prototype”.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+<tr class="even">
+<td>FR-CAP-008</td>
+<td>P2</td>
+<td>The customer app is an addition beyond the SOW (which lists Order Taking App, Drivers App and Admin Panel); inclusion in the production scope needs confirmation.</td>
+<td>Client decision recorded.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delivery-tracking-trk">Delivery Tracking (TRK)</h2>
+<p>Detail: <strong>BM-FRD-TRK</strong> (Functional Requirements — Delivery Tracking)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-TRK-001</td>
+<td>P1</td>
+<td>Office users shall track every stop on active dispatches with status and times.</td>
+<td>List shows live statuses.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-TRK-002</td>
+<td>P2</td>
+<td>Administrators and Dispatchers shall see vehicle positions on a fleet map.</td>
+<td>DEMO GPS positions move along a straight-line route.</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="odd">
+<td>FR-TRK-003</td>
+<td>P1</td>
+<td>Production tracking shall push real GPS positions to the admin map (all vehicles) and the customer map (own order only) over WSS.</td>
+<td>Updates appear without refresh; customers never see the fleet.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delivery-otp-otp">Delivery OTP (OTP)</h2>
+<p>Detail: <strong>BM-FRD-OTP</strong> (Functional Requirements — Delivery OTP)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-OTP-001</td>
+<td>P1</td>
+<td>A 6-digit OTP shall be issued on arrival, valid 10 minutes by default (1–60), shown to the customer.</td>
+<td>OTP visible in the customer app; no SMS in the prototype.</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>FR-OTP-002</td>
+<td>P1</td>
+<td>Completion shall require the correct, unexpired OTP; 5 wrong attempts lock the OTP.</td>
+<td>Wrong OTP blocks completion; LOCKED after 5 attempts.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-OTP-003</td>
+<td>P2</td>
+<td>Drivers shall generate a new OTP when it has expired or is locked; the previous one is invalidated.</td>
+<td>New OTP ACTIVE; old INVALIDATED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-OTP-004</td>
+<td>P2</td>
+<td>Dispatchers shall be able to inspect a delivery’s OTP status (dispatch.otp.inspect).</td>
+<td>OTP state visible to the Dispatcher.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-OTP-005</td>
+<td>P1</td>
+<td>Production OTPs shall be sent to the customer by SMS or WhatsApp and stored hashed.</td>
+<td>Customer receives the code on their phone.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="proof-of-delivery-pod">Proof of Delivery (POD)</h2>
+<p>Detail: <strong>BM-FRD-POD</strong> (Functional Requirements — Proof of Delivery)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-POD-001</td>
+<td>P1</td>
+<td>Proof of delivery shall capture receiver name, optional signature and photo (≤ 350 KB each) and customer remarks (≤ 300 characters).</td>
+<td>POD stored with the delivery.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-POD-002</td>
+<td>P1</td>
+<td>Delivered quantity shall not exceed the dispatched quantity; damaged and rejected quantities are recorded.</td>
+<td>Validation messages per line.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-POD-003</td>
+<td>P1</td>
+<td>Production POD images shall be stored in object storage with signed URLs and retention rules.</td>
+<td>No images in browser storage.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delivery-notes-dn">Delivery Notes (DN)</h2>
+<p>Detail: <strong>BM-FRD-DN</strong> (Functional Requirements — Delivery Notes)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DN-001</td>
+<td>P1</td>
+<td>A numbered delivery note (BM-DN-YYYY-NNNNN) shall be generated when a stop is completed (full or partial).</td>
+<td>Note lists delivered, short and damaged quantities and receiver.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DN-002</td>
+<td>P1</td>
+<td>Delivery notes shall be printable and visible to office roles with permission, the driver and the customer.</td>
+<td>Print layout available.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DN-003</td>
+<td>P1</td>
+<td>The delivery note shall be sent to the customer instantly by SMS / WhatsApp / email (SOW slide 13).</td>
+<td>Prototype: visible in the customer app only.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delivery-exception-review-exc">Delivery Exception Review (EXC)</h2>
+<p>Detail: <strong>BM-FRD-EXC</strong> (Functional Requirements — Delivery Exception Review)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-EXC-001</td>
+<td>P1</td>
+<td>Dispatchers shall review failed and partial deliveries with remarks.</td>
+<td>Review status REVIEWED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-EXC-002</td>
+<td>P1</td>
+<td>The review may return undelivered (not damaged) stock to the hub once.</td>
+<td>Delivery Return movement posted once.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-EXC-003</td>
+<td>P1</td>
+<td>A failed delivery whose goods are returned may be re-queued for a new dispatch.</td>
+<td>Order READY_<wbr>FOR_<wbr>DISPATCH.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inventory-management-inv">Inventory Management (INV)</h2>
+<p>Detail: <strong>BM-FRD-INV</strong> (Functional Requirements — Inventory Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-INV-001</td>
+<td>P1</td>
+<td>Warehouse users shall record goods receipts that increase hub stock immediately.</td>
+<td>GRN created; Stock Receipt movement.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-INV-002</td>
+<td>P1</td>
+<td>Warehouse users shall transfer stock between hubs as a draft or completed immediately.</td>
+<td>Transfer Out / In movements on completion.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-INV-003</td>
+<td>P1</td>
+<td>Authorised users shall adjust stock (increase, decrease, damaged, lost, correction) with a reason.</td>
+<td>Movement posted immediately.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-INV-004</td>
+<td>P1</td>
+<td>Every stock change shall be written to the movement ledger.</td>
+<td>Ledger shows type, quantity, reference, user and time.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-INV-005</td>
+<td>P2</td>
+<td>Users shall set minimum, reorder and maximum levels per stock line.</td>
+<td>Low Stock list uses the reorder level.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-INV-006</td>
+<td>P1</td>
+<td>Stock cannot go negative unless the product allows it; completed transfers are not posted twice.</td>
+<td>“Only N available…” / “already completed”.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-INV-007</td>
+<td>P2</td>
+<td>Batch and expiry tracking per stock line, FEFO picking and cycle counting.</td>
+<td>Settings exist (UI only); not enforced.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+<tr class="even">
+<td>FR-INV-008</td>
+<td>P2</td>
+<td>Stock positions shall be synchronised with SAP in stage two.</td>
+<td>Stock reconciled with ERP.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scrap-management-scr">Scrap Management (SCR)</h2>
+<p>Detail: <strong>BM-FRD-SCR</strong> (Functional Requirements — Scrap Management)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-SCR-001</td>
+<td>P1</td>
+<td>Users shall raise scrap requests with reason, quantity, stock source, batch and photo evidence.</td>
+<td>DRAFT or PENDING_<wbr>APPROVAL.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-SCR-002</td>
+<td>P1</td>
+<td>Quantity shall not exceed eligible stock; photo required for Damaged, Packaging Damage and Contamination; batch required for batch-controlled products; no duplicate open request.</td>
+<td>Validation messages.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-SCR-003</td>
+<td>P1</td>
+<td>Approvers shall approve or reject requests; requesters cannot approve their own.</td>
+<td>APPROVED / REJECTED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-SCR-004</td>
+<td>P1</td>
+<td>Approvers shall post the stock write-off exactly once.</td>
+<td>COMPLETED; Scrap Write-off movement.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-SCR-005</td>
+<td>P3</td>
+<td>A printable scrap note shall be available.</td>
+<td>Print layout.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="warehouse-and-qa-dashboards-wqa">Warehouse and QA Dashboards (WQA)</h2>
+<p>Detail: <strong>BM-FRD-WQA</strong> (Functional Requirements — Warehouse and QA Dashboards)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-WQA-001</td>
+<td>P2</td>
+<td>Warehouse users shall see picking &amp; loading, inventory alerts, damaged stock and document expiry.</td>
+<td>Dashboard lists consolidated / ready orders per hub.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-WQA-002</td>
+<td>P2</td>
+<td>QA users shall see inspection queues, quarantine, expired documents and the cold-chain card.</td>
+<td>Cold-chain card states “No sensor integration”.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-WQA-003</td>
+<td>P2</td>
+<td>Live cold-chain temperature monitoring and excursion alerts.</td>
+<td>Not available (ranges configured only).</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vehicle-management-system-vms">Vehicle Management System (VMS)</h2>
+<p>Detail: <strong>BM-FRD-VMS</strong> (Functional Requirements — Vehicle Management System)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-VMS-001</td>
+<td>P1</td>
+<td>The system shall compute compliance per vehicle and driver document (Valid, 30 days, 7 days, today, expired, missing).</td>
+<td>Expiry register sorted by urgency.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-VMS-002</td>
+<td>P1</td>
+<td>Administrators shall define required documents and blocking rules; an expired required document always blocks assignment.</td>
+<td>Assignment blocked with the specific document message.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-VMS-003</td>
+<td>P2</td>
+<td>Authorised users shall upload vehicle and driver documents with expiry dates.</td>
+<td>Document enters the review flow.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-VMS-004</td>
+<td>P2</td>
+<td>Opening the expiry register shall raise DOCUMENT_<wbr>EXPIRING / DOCUMENT_<wbr>EXPIRED events.</td>
+<td>Automated notification when a rule is enabled.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-VMS-005</td>
+<td>P3</td>
+<td>Fuel, maintenance and trip cost tracking.</td>
+<td>Related reports show “no source data”.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="document-management-and-ocr-doc">Document Management and OCR (DOC)</h2>
+<p>Detail: <strong>BM-FRD-DOC</strong> (Functional Requirements — Document Management and OCR)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-DOC-001</td>
+<td>P1</td>
+<td>Users shall upload documents for records they may access, with type, linked record, file and key fields.</td>
+<td>Status PENDING_<wbr>OCR, PENDING_<wbr>REVIEW or VERIFIED by type settings.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DOC-002</td>
+<td>P1</td>
+<td>The system shall extract fields with OCR and let reviewers correct them (originals kept).</td>
+<td>MOCK OCR pre-fills from the linked record (labelled Simulated OCR).</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="odd">
+<td>FR-DOC-003</td>
+<td>P1</td>
+<td>Reviewers shall verify or reject documents; rejection requires a reason.</td>
+<td>VERIFIED (locked) or REJECTED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-DOC-004</td>
+<td>P2</td>
+<td>Administrators shall maintain document types (fields, expiry, OCR, verification).</td>
+<td>Built-in VMS codes cannot be changed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-DOC-005</td>
+<td>P1</td>
+<td>Production OCR shall run server-side (e.g. Tesseract / cloud OCR) with virus scanning of uploads.</td>
+<td>Real field extraction; files never executed.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="invoice-customisation-and-invoicing-invc">Invoice Customisation and Invoicing (INVC)</h2>
+<p>Detail: <strong>BM-FRD-INVC</strong> (Functional Requirements — Invoice Customisation and Invoicing)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-INVC-001</td>
+<td>P2</td>
+<td>Finance shall maintain invoice templates (layout, fonts, colours, sections, default).</td>
+<td>Template preview available.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-INVC-002</td>
+<td>P2</td>
+<td>Finance shall issue one invoice per approved-or-later order on ordered or delivered quantities with discounts and charges.</td>
+<td>Invoice BM-INV-YYYY-NNNNN ISSUED with frozen snapshot.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-INVC-003</td>
+<td>P2</td>
+<td>Finance shall cancel an invoice with a reason, after which a new invoice can be issued.</td>
+<td>CANCELLED; order invoiceable again.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-INVC-004</td>
+<td>P2</td>
+<td>Finance shall configure invoice numbering (prefix, year, digits).</td>
+<td>Next number follows settings.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-INVC-005</td>
+<td>P1</td>
+<td>The SOW states invoicing stays outside the application; the prototype includes invoicing. Production scope must be confirmed.</td>
+<td>Client decision recorded.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="even">
+<td>FR-INVC-006</td>
+<td>P2</td>
+<td>Payments, receipts, credit notes and refunds.</td>
+<td>Not available.</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="email-communication-eml">Email Communication (EML)</h2>
+<p>Detail: <strong>BM-FRD-EML</strong> (Functional Requirements — Email Communication)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-EML-001</td>
+<td>P2</td>
+<td>Users shall compose and send emails with templates and document attachments.</td>
+<td>Demo mode records SENT_<wbr>DEMO (“not sent”).</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>FR-EML-002</td>
+<td>P2</td>
+<td>Administrators shall maintain email templates with variables.</td>
+<td>Templates render with record values.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-EML-003</td>
+<td>P3</td>
+<td>Users shall read the mailbox.</td>
+<td>Seeded demo mailbox.</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>FR-EML-004</td>
+<td>P2</td>
+<td>Live SMTP / IMAP through the integration gateway.</td>
+<td>Not verified (no gateway available).</td>
+<td>NOT VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="openwa-whatsapp-communication-owa">OpenWA (WhatsApp) Communication (OWA)</h2>
+<p>Detail: <strong>BM-FRD-OWA</strong> (Functional Requirements — OpenWA (WhatsApp) Communication)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-OWA-001</td>
+<td>P2</td>
+<td>Users shall send WhatsApp messages using templates.</td>
+<td>Mock provider records “Sent · demo”.</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>FR-OWA-002</td>
+<td>P2</td>
+<td>Live OpenWA session (QR, start / stop) through the gateway.</td>
+<td>Not verified.</td>
+<td>NOT VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-OWA-003</td>
+<td>P1</td>
+<td>The customer messaging provider (SMS or WhatsApp; OpenWA is unofficial) must be confirmed at kickoff (SOW slide 16).</td>
+<td>Decision recorded in the decision log.</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="automated-notifications-auto">Automated Notifications (AUTO)</h2>
+<p>Detail: <strong>BM-FRD-AUTO</strong> (Functional Requirements — Automated Notifications)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-AUTO-001</td>
+<td>P2</td>
+<td>Administrators shall configure per-event rules (channel, recipients, templates) and a master switch.</td>
+<td>11 events configurable.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AUTO-002</td>
+<td>P2</td>
+<td>Workflow events shall trigger messages once per record (de-duplicated) and be logged in history.</td>
+<td>History shows SENT_<wbr>DEMO / SKIPPED with reason.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="call-history-call">Call History (CALL)</h2>
+<p>Detail: <strong>BM-FRD-CALL</strong> (Functional Requirements — Call History)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-CALL-001</td>
+<td>P3</td>
+<td>Users shall log calls with direction, status, outcome, duration and notes.</td>
+<td>Call saved; salesmen see their own calls only.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-CALL-002</td>
+<td>P3</td>
+<td>Users shall schedule and complete follow-ups and link orders to calls.</td>
+<td>Follow-ups grouped overdue / today / upcoming.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notifications-in-app-notf">Notifications (in-app) (NOTF)</h2>
+<p>Detail: <strong>BM-FRD-NOTF</strong> (Functional Requirements — Notifications (in-app))</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-NOTF-001</td>
+<td>P1</td>
+<td>Users shall receive in-app notifications for workflow events addressed to their role, user, driver or customer record.</td>
+<td>Bell count and Notification Center.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-NOTF-002</td>
+<td>P3</td>
+<td>Users shall mark notifications read and mute categories.</td>
+<td>Preferences saved per user.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-NOTF-003</td>
+<td>P2</td>
+<td>Production apps shall send push notifications to drivers and customers.</td>
+<td>Push received on the phone.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reports-rpt">Reports (RPT)</h2>
+<p>Detail: <strong>BM-FRD-RPT</strong> (Functional Requirements — Reports)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-RPT-001</td>
+<td>P2</td>
+<td>Users shall browse 118 reports in 11 categories filtered by permission, with search, favourites and recent.</td>
+<td>Only permitted categories visible.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-RPT-002</td>
+<td>P2</td>
+<td>Reports shall run with date, month, year and grouping filters within the user’s data scope and export to CSV or print.</td>
+<td>CSV downloaded; print layout.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-RPT-003</td>
+<td>P3</td>
+<td>Reports without source data shall say so with the reason.</td>
+<td>24 reports show “no source data”.</td>
+<td>VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-assistant-forecasting-and-replenishment-ai">AI Assistant, Forecasting and Replenishment (AI)</h2>
+<p>Detail: <strong>BM-FRD-AI</strong> (Functional Requirements — AI Assistant, Forecasting and Replenishment)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-AI-001</td>
+<td>P3</td>
+<td>Users shall ask business questions in natural language and receive tables and charts from permission-checked tools.</td>
+<td>Demo intent engine answers; write actions need confirmation.</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>FR-AI-002</td>
+<td>P3</td>
+<td>Users shall generate demand forecasts with selectable models and accuracy metrics.</td>
+<td>Forecast saved and exportable.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AI-003</td>
+<td>P2</td>
+<td>Users shall raise replenishment requests; Administrators approve, reject and convert them; stock receipts complete them.</td>
+<td>DRAFT → SUBMITTED → APPROVED → CONVERTED → RECEIVED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-AI-004</td>
+<td>P3</td>
+<td>The system shall generate rule-based insights that users mark reviewed or resolved.</td>
+<td>NEW → REVIEWED → RESOLVED.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-AI-005</td>
+<td>P3</td>
+<td>External AI providers (OpenJarvis, Ollama, Gemini, OpenAI-compatible).</td>
+<td>Not verified.</td>
+<td>NOT VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-settings-and-audit-set">System Settings and Audit (SET)</h2>
+<p>Detail: <strong>BM-FRD-SET</strong> (Functional Requirements — System Settings and Audit)</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Expected result</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FR-SET-001</td>
+<td>P1</td>
+<td>Administrators shall configure security, approval, localisation, numbering, inventory, warehouse and cold-chain settings.</td>
+<td>Settings validated and applied.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-SET-002</td>
+<td>P1</td>
+<td>Administrative and security events shall be recorded in the audit log.</td>
+<td>User, role, settings and lockout events listed.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>FR-SET-003</td>
+<td>P2</td>
+<td>Administrators shall reset demo data and export / import the application data.</td>
+<td>Data reset to seed; JSON export validated on import.</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>FR-SET-004</td>
+<td>P1</td>
+<td>Production data shall be stored in PostgreSQL with daily backups, point-in-time recovery and audit fields on every table.</td>
+<td>Data shared across users and devices.</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

@@ -1,0 +1,4 @@
+flowchart TD
+    A[APPROVED order in queue] --> B[Open order] --> C{All 5 checks ticked?}
+    C -->|No| D[Complete the verification checklist first] --> B
+    C -->|Yes| E[CONSOLIDATED - Dispatcher notified] --> F[Mark ready for dispatch] --> G[READY_FOR_DISPATCH]

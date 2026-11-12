@@ -1,0 +1,245 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Customer App User Manual</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Customer App User Manual</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-MAN-002</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>User Manuals</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Training Lead</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Guide for customer staff to order products, follow orders, track deliveries, share the OTP and get delivery notes and invoices.</p>
+<h2 id="scope">Scope</h2>
+<p>Customer app of the prototype (VERIFIED with real screenshots captured 2026-11-12). The customer app is an extension beyond the SOW (X-01) — production scope PENDING CONFIRMATION.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Workflow documentation chapter 09 — Customer workflow (existing document, reused)</li>
+<li><strong>BM-MAN-112</strong> (Role User Manual — Customer (portal / customer app))</li>
+<li><strong>BM-UX-007</strong> (Mobile UX — Driver App and Customer App)</li>
+<li><strong>BM-WF-09</strong> (WF-09 — Driver Assignment Workflow)</li>
+<li><strong>BM-FRD-CAP</strong> (Functional Requirements — Customer Application)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Sign in</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Home</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Place an order</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Follow your order</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Track the delivery and share the OTP</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Delivery notes, invoices, payments and profile</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>What you cannot do</li>
+</ol></li>
+<li><ol start="8" type="1">
+<li>Prototype limitations</li>
+</ol></li>
+</ul>
+<h2 id="1-sign-in">1. Sign in</h2>
+<p>Open the customer app and sign in with the mobile number, email or user name given by Bellomassi. Your login is linked to one customer account; you see only that account’s data.</p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-CUS-LOGIN.png" style="width:6.5cm" alt="Customer sign-in" /> <img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-CUS-DASH.png" style="width:6.5cm" alt="Home" /></p>
+<h2 id="2-home">2. Home</h2>
+<p>Active orders, pending approval, delivered, outstanding balance, a card for any delivery on its way (<strong>Track delivery</strong>), recent orders, delivery notes and notifications. Bottom bar: <strong>Home, Catalog, Cart, Orders, Account</strong>.</p>
+<h2 id="3-place-an-order">3. Place an order</h2>
+<ol type="1">
+<li><strong>Catalog</strong> → search by name, code, SKU or brand, or choose a category.</li>
+<li>Set the quantity and tap <strong>Add</strong>. Availability is shown (limited stock does not stop ordering).</li>
+<li><strong>Cart</strong> → change quantities or remove lines; check subtotal, discount, tax and total.</li>
+<li>Choose the delivery address (registered or another), requested date (tomorrow up to 60 days), optional time, PO / reference and remarks.</li>
+<li>Tap <strong>Place order</strong> and confirm. The order goes to the Sales Manager for approval (status <em>Pending approval</em>). A credit warning may appear; the order can still be placed and the Sales Manager decides.</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/MAN-CUS-01-catalog-added.png" style="width:6cm" alt="Catalog — product added" /> <img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/MAN-CUS-02-cart.png" style="width:6cm" alt="Cart" /></p>
+<p>Known issue (prototype): in the cart, the amount shown on each product line is “AED 0” although subtotal, tax and total are correct (see known issues list <strong>BM-HND-010</strong> (Known Issues Register)).</p>
+<h2 id="4-follow-your-order">4. Follow your order</h2>
+<p><strong>Orders</strong> lists your orders with filters; open one to see a 9-step tracker: Order placed → Pending approval → Approved → Prepared → Dispatch planned → Out for delivery → Driver arrived → OTP verified → Delivered. <strong>Reorder</strong> copies a past order into the cart.</p>
+<h2 id="5-track-the-delivery-and-share-the-otp">5. Track the delivery and share the OTP</h2>
+<ol type="1">
+<li>When the driver is on the way, open <strong>Track delivery</strong> — driver, vehicle and a map (DEMO GPS in the prototype).</li>
+<li>When the driver arrives, the <strong>OTP</strong> appears in large digits with its expiry time.</li>
+<li>Read the OTP to the driver <strong>only when you have checked the goods</strong>. Never share it before the driver is with you.</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/MAN-CUS-04-tracking.png" style="width:6.5cm" alt="Track delivery" /></p>
+<h2 id="6-delivery-notes-invoices-payments-and-profile">6. Delivery notes, invoices, payments and profile</h2>
+<ul>
+<li><strong>Delivery notes</strong>: notes with quantities, signature and remarks; printable.</li>
+<li><strong>Invoices</strong>: issued invoices; printable.</li>
+<li><strong>Payments</strong>: not available in the prototype (shows an explanation and the balance).</li>
+<li><strong>Account / Profile</strong>: your details and <strong>Sign out</strong>.</li>
+</ul>
+<h2 id="7-what-you-cannot-do">7. What you cannot do</h2>
+<p>Cancel or change an order after placing it (contact your sales representative); pay online; see other customers’ data; approve anything.</p>
+<h2 id="8-prototype-limitations">8. Prototype limitations</h2>
+<p>No SMS / WhatsApp messages are sent; the OTP is shown only in the app; map positions are simulated; data is stored in the browser.</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

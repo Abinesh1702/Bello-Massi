@@ -1,0 +1,4 @@
+flowchart LR
+    D[Detect - alert or report] --> T[Triage and classify] --> C[Contain - revoke tokens, block IP, disable account, isolate service]
+    C --> E[Eradicate - patch, remove malware, rotate secrets] --> R[Recover - restore, verify, monitor]
+    R --> N[Notify - client management, affected users, regulator if required] --> L[Lessons learned - report within 5 days]

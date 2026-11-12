@@ -1,0 +1,13 @@
+flowchart TD
+    APP[App.jsx] --> PROV[Providers: Theme, Auth]
+    PROV --> RT[AppRoutes - from NAV_ITEMS]
+    RT --> PR[ProtectedRoute - signed in + permission]
+    PR --> L1[AppLayout - Sidebar, Header, SessionWatcher]
+    PR --> L2[DriverLayout - bottom tabs]
+    PR --> L3[CustomerLayout - bottom tabs]
+    L1 --> PG[Page - lazy loaded]
+    L2 --> PG
+    L3 --> PG
+    PG --> HK[Hook]
+    HK --> SV[Service]
+    SV --> ST[storageService]

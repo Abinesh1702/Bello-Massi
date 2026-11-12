@@ -1,0 +1,332 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Office Web Application User Manual (All Office Roles)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Office Web Application User Manual (All Office Roles)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-MAN-003</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>User Manuals</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Training Lead</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Common guide to the office web application and the main order-to-delivery procedures; role details are in the role manuals.</p>
+<h2 id="scope">Scope</h2>
+<p>Office web app of the prototype (VERIFIED with real screenshots captured 2026-11-12, demo data).</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>BM-MAN-101</strong> (Role User Manual — Super Admin)</li>
+<li><strong>BM-MAN-102</strong> (Role User Manual — Administrator)</li>
+<li><strong>BM-MAN-103</strong> (Role User Manual — Sales Executive (SALESMAN))</li>
+<li><strong>BM-MAN-104</strong> (Role User Manual — Sales Manager)</li>
+<li><strong>BM-MAN-105</strong> (Role User Manual — Customer Service)</li>
+<li><strong>BM-MAN-106</strong> (Role User Manual — Dispatcher)</li>
+<li><strong>BM-MAN-108</strong> (Role User Manual — Finance Executive)</li>
+<li><strong>BM-MAN-120</strong> (Role Responsibility Matrix)</li>
+<li><strong>BM-UX-005</strong> (Screen Specifications)</li>
+</ul>
+<h2 id="1-signing-in-and-out">1. Signing in and out</h2>
+<ol type="1">
+<li>Open the application and sign in with your user name or email and password.</li>
+<li>Tick <em>Remember username</em> / <em>Keep me signed in</em> only on your own computer.</li>
+<li>After 5 wrong passwords the account is locked for 15 minutes (default) — an Administrator can unlock it.</li>
+<li>Inactivity signs you out after 60 minutes (default setting).</li>
+<li>Sign out from the profile menu (top right).</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-LOGIN.png" style="width:15cm" alt="Sign-in screen (prototype — demo accounts panel will not exist in production)" /></p>
+<h2 id="2-finding-your-way">2. Finding your way</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sidebar</td>
+<td>Menu groups for your role; collapse with the arrow; on small screens it opens as a drawer</td>
+</tr>
+<tr class="even">
+<td>Breadcrumbs</td>
+<td>Shows where you are; click to go back</td>
+</tr>
+<tr class="odd">
+<td>Global search (Ctrl K)</td>
+<td>Find pages, customers, orders, deliveries, drivers, vehicles, reports</td>
+</tr>
+<tr class="even">
+<td>Bell</td>
+<td>Notifications; open the Notification Center for history</td>
+</tr>
+<tr class="odd">
+<td>Theme</td>
+<td>Light / dark mode</td>
+</tr>
+<tr class="even">
+<td>Profile menu</td>
+<td>My profile, change password, preferences, sign out</td>
+</tr>
+<tr class="odd">
+<td>Dashboard period filter</td>
+<td>All time, date range, specific period, compare with previous period</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-working-with-lists-and-forms">3. Working with lists and forms</h2>
+<ul>
+<li>Lists: search box, filters, sorting by column header, paging, row actions (view, edit, more).</li>
+<li>Forms: fields with <code>*</code> are mandatory; errors appear below the field; <strong>Save draft</strong> keeps unfinished work; destructive actions ask for confirmation.</li>
+<li>Every important change is written to the audit log.</li>
+</ul>
+<h2 id="4-main-procedures">4. Main procedures</h2>
+<h3 id="41-create-and-submit-an-order-salesman">4.1 Create and submit an order (Salesman)</h3>
+<ol type="1">
+<li><strong>Orders → Create Order</strong>. Choose customer, order type, priority, payment terms, fulfilment hub; delivery address and requested date.</li>
+<li>Add products and quantities; review warnings (stock, credit).</li>
+<li><strong>Preview</strong>, then <strong>Submit for approval</strong> (or <strong>Save draft</strong>).</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-ORDER-CREATE.png" style="width:15cm" alt="Create order" /></p>
+<h3 id="42-approve-return-or-reject-sales-manager">4.2 Approve, return or reject (Sales Manager)</h3>
+<ol type="1">
+<li><strong>Order Approval</strong> shows submitted orders.</li>
+<li>Open an order; review the 6 automatic checks (including credit).</li>
+<li><strong>Approve</strong>, <strong>Return for correction</strong> (reason required) or <strong>Reject</strong> (reason required).</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-APPROVAL.png" style="width:15cm" alt="Approval queue" /></p>
+<h3 id="43-consolidate-customer-service">4.3 Consolidate (Customer Service)</h3>
+<p><strong>Order Consolidation</strong> → open approved orders per salesman → verify (5 checks) → consolidate → <strong>Ready for dispatch</strong>.</p>
+<h3 id="44-plan-and-confirm-a-dispatch-dispatcher">4.4 Plan and confirm a dispatch (Dispatcher)</h3>
+<ol type="1">
+<li><strong>Ready Orders</strong> → select orders (by zone / date).</li>
+<li><strong>New Dispatch</strong>: orders, zone, date, stop sequence; assign a compliant driver and vehicle of the same hub.</li>
+<li><strong>Confirm</strong> after loading review — stock is deducted at this point and the driver can start.</li>
+<li>Follow progress in <strong>Delivery Tracking</strong> / <strong>Live Tracking</strong> (DEMO GPS).</li>
+<li>Review failed / partial deliveries: return stock or re-queue.</li>
+</ol>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/15_USER_MANUALS/screenshots/UX-PLANNING.png" style="width:15cm" alt="Dispatch planning" /></p>
+<h3 id="45-delivery-notes-and-invoices">4.5 Delivery notes and invoices</h3>
+<p>Delivery notes are created automatically for each completed stop (<strong>Dispatch → delivery note</strong>). Invoices (Finance) are an extension module; whether invoicing is in scope is PENDING CONFIRMATION.</p>
+<h3 id="46-reports">4.6 Reports</h3>
+<p><strong>Reports Center</strong>: 118 reports in 11 categories — search, filter, group, export CSV, print. 24 reports show “No source data” because the prototype does not capture that data.</p>
+<h2 id="5-role-manuals">5. Role manuals</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Manual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Super Admin</td>
+<td><strong>BM-MAN-101</strong> (Role User Manual — Super Admin)</td>
+</tr>
+<tr class="even">
+<td>Administrator</td>
+<td><strong>BM-MAN-102</strong> (Role User Manual — Administrator)</td>
+</tr>
+<tr class="odd">
+<td>Sales Executive</td>
+<td><strong>BM-MAN-103</strong> (Role User Manual — Sales Executive (SALESMAN))</td>
+</tr>
+<tr class="even">
+<td>Sales Manager</td>
+<td><strong>BM-MAN-104</strong> (Role User Manual — Sales Manager)</td>
+</tr>
+<tr class="odd">
+<td>Customer Service</td>
+<td><strong>BM-MAN-105</strong> (Role User Manual — Customer Service)</td>
+</tr>
+<tr class="even">
+<td>Dispatcher</td>
+<td><strong>BM-MAN-106</strong> (Role User Manual — Dispatcher)</td>
+</tr>
+<tr class="odd">
+<td>Finance</td>
+<td><strong>BM-MAN-108</strong> (Role User Manual — Finance Executive)</td>
+</tr>
+<tr class="even">
+<td>Warehouse Manager</td>
+<td><strong>BM-MAN-109</strong> (Role User Manual — Warehouse Manager)</td>
+</tr>
+<tr class="odd">
+<td>Inventory Executive</td>
+<td><strong>BM-MAN-110</strong> (Role User Manual — Inventory Executive)</td>
+</tr>
+<tr class="even">
+<td>QA Manager</td>
+<td><strong>BM-MAN-111</strong> (Role User Manual — QA Manager)</td>
+</tr>
+<tr class="odd">
+<td>Supplier</td>
+<td><strong>BM-MAN-113</strong> (Role User Manual — Supplier (portal))</td>
+</tr>
+<tr class="even">
+<td>Management (proposed)</td>
+<td><strong>BM-MAN-114</strong> (Role User Manual — Management (Read-only Oversight))</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-prototype-notes">6. Prototype notes</h2>
+<p>Data is stored in your browser only — another computer does not see your changes. Email, WhatsApp, GPS, OCR and AI functions are simulated and labelled. Do not enter real customer data in the prototype.</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

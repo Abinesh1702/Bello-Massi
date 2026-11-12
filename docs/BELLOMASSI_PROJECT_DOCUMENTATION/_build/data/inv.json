@@ -1,0 +1,4530 @@
+{
+ "nav": [
+  {
+   "group": null,
+   "id": "dashboard",
+   "label": "Dashboard",
+   "path": "/dashboard",
+   "page": "dashboard",
+   "hidden": false,
+   "public": true,
+   "description": "Role-specific overview of orders, approvals, dispatch and deliveries."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-create",
+   "label": "Create Order",
+   "path": "/orders/create",
+   "permission": "orders.create",
+   "page": "orderForm",
+   "hidden": false,
+   "public": false,
+   "description": "Capture orders received by call, email or WhatsApp — customer first, then items and quantities, then submit for approval."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-mine",
+   "label": "My Orders",
+   "path": "/orders/my-orders",
+   "permission": "orders.mine",
+   "page": "myOrders",
+   "hidden": false,
+   "public": false,
+   "description": "Your drafts and submitted orders with their approval and consolidation status."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-list",
+   "label": "Order List",
+   "path": "/orders",
+   "permission": "orders.view",
+   "page": "orderList",
+   "hidden": false,
+   "public": false,
+   "description": "Every order with its live status, full history, search, filters and export."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-approval",
+   "label": "Order Approval",
+   "path": "/orders/approval",
+   "permission": "orders.approval.view",
+   "page": "approvalQueue",
+   "hidden": false,
+   "public": false,
+   "description": "Approval inbox for the Sales Manager — approve, return for correction or reject with a mandatory reason, including the credit-limit decision."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-consolidation",
+   "label": "Order Consolidation",
+   "path": "/orders/consolidation",
+   "permission": "orders.consolidation.view",
+   "page": "consolidationQueue",
+   "hidden": false,
+   "public": false,
+   "description": "Approved orders grouped per salesman, verified, consolidated and released to the Dispatcher."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-returned",
+   "label": "Returned Orders",
+   "path": "/orders/returned",
+   "permission": "orders.corrections.view",
+   "page": "returnedOrders",
+   "hidden": false,
+   "public": false,
+   "description": "Orders the Sales Manager sent back for correction — edit and resubmit."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-rejected",
+   "label": "Rejected Orders",
+   "path": "/orders/rejected",
+   "permission": "orders.corrections.view",
+   "page": "rejectedOrders",
+   "hidden": false,
+   "public": false,
+   "description": "Orders rejected by the Sales Manager, with the reason and remarks."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-reports",
+   "label": "Order Reports",
+   "path": "/orders/reports",
+   "permission": "orders.reports",
+   "page": "orderReports",
+   "hidden": false,
+   "public": false,
+   "description": "Order register, salesman, customer, status, approval, rejection and consolidation reports — exportable."
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-edit",
+   "label": "Edit Order",
+   "path": "/orders/:id/edit",
+   "permission": "orders.create",
+   "page": "orderForm",
+   "hidden": true,
+   "parent": "orders-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-approval-detail",
+   "label": "Review Order",
+   "path": "/orders/approval/:id",
+   "permission": "orders.approval.view",
+   "page": "approvalDetail",
+   "hidden": true,
+   "parent": "orders-approval",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-consolidation-detail",
+   "label": "Consolidate Order",
+   "path": "/orders/consolidation/:id",
+   "permission": "orders.consolidation.view",
+   "page": "consolidationDetail",
+   "hidden": true,
+   "parent": "orders-consolidation",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "orders",
+    "label": "Order Management"
+   },
+   "id": "orders-detail",
+   "label": "Order Details",
+   "path": "/orders/:id",
+   "permission": "orders.view",
+   "page": "orderDetail",
+   "hidden": true,
+   "parent": "orders-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customers",
+    "label": "Customers"
+   },
+   "id": "customers-list",
+   "label": "Customer List",
+   "path": "/customers",
+   "permission": "customers.view",
+   "page": "customerList",
+   "hidden": false,
+   "public": false,
+   "description": "Customer accounts with contacts, addresses, credit configuration and VIP passes."
+  },
+  {
+   "group": {
+    "id": "customers",
+    "label": "Customers"
+   },
+   "id": "customers-credit",
+   "label": "Customer Credit",
+   "path": "/customers/credit",
+   "permission": "customers.credit.view",
+   "page": "customerCredit",
+   "hidden": false,
+   "public": false,
+   "description": "Credit limits, balances, available credit and credit status."
+  },
+  {
+   "group": {
+    "id": "customers",
+    "label": "Customers"
+   },
+   "id": "customers-create",
+   "label": "Add Customer",
+   "path": "/customers/create",
+   "permission": "customers.manage",
+   "page": "customerForm",
+   "hidden": true,
+   "parent": "customers-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customers",
+    "label": "Customers"
+   },
+   "id": "customers-detail",
+   "label": "Customer Details",
+   "path": "/customers/:id",
+   "permission": "customers.view",
+   "page": "customerDetail",
+   "hidden": true,
+   "parent": "customers-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customers",
+    "label": "Customers"
+   },
+   "id": "customers-edit",
+   "label": "Edit Customer",
+   "path": "/customers/:id/edit",
+   "permission": "customers.manage",
+   "page": "customerForm",
+   "hidden": true,
+   "parent": "customers-list",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "products",
+   "label": "Products",
+   "path": "/products",
+   "permission": "products.view",
+   "page": "productList",
+   "hidden": false,
+   "public": false,
+   "description": "Product catalogue with pricing, units and inventory rules."
+  },
+  {
+   "group": null,
+   "id": "suppliers",
+   "label": "Suppliers",
+   "path": "/suppliers",
+   "permission": "suppliers.view",
+   "page": "supplierList",
+   "hidden": false,
+   "public": false,
+   "description": "Supplier directory with lead times, minimum order values and replenishment history."
+  },
+  {
+   "group": null,
+   "id": "hubs",
+   "label": "Hubs",
+   "path": "/hubs",
+   "permission": "hubs.view",
+   "page": "hubList",
+   "hidden": false,
+   "public": false,
+   "description": "Hubs and warehouses with managers, locations and stock valuation."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-dashboard",
+   "label": "Inventory Dashboard",
+   "path": "/inventory",
+   "permission": "inventory.dashboard",
+   "page": "inventoryDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Stock quantity, value, low-stock alerts and recent movements across all hubs."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-warehouse",
+   "label": "Warehouse Dashboard",
+   "path": "/warehouse",
+   "permission": "warehouse.dashboard",
+   "page": "warehouseDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Receiving, stock, picking readiness, expiry and inventory alerts per hub."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-quality",
+   "label": "QA & Cold Chain",
+   "path": "/quality",
+   "permission": "warehouse.qa.view",
+   "page": "qaDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Inspection queue, quarantined stock, document expiry and cold-chain ranges."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-stock",
+   "label": "Stock Overview",
+   "path": "/inventory/stock",
+   "permission": "inventory.stock.view",
+   "page": "stockOverview",
+   "hidden": false,
+   "public": false,
+   "description": "Hub-wise stock: total, reserved, damaged and available quantities."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-low",
+   "label": "Low Stock",
+   "path": "/inventory/low-stock",
+   "permission": "inventory.lowstock.view",
+   "page": "lowStock",
+   "hidden": false,
+   "public": false,
+   "description": "Stock lines at or below their reorder level, and out-of-stock lines."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-receipts",
+   "label": "Stock Receipts",
+   "path": "/inventory/stock-receipts",
+   "permission": "inventory.documents.view",
+   "page": "receiptList",
+   "hidden": false,
+   "public": false,
+   "description": "Goods received at hubs (GRN)."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-transfers",
+   "label": "Stock Transfers",
+   "path": "/inventory/stock-transfers",
+   "permission": "inventory.documents.view",
+   "page": "transferList",
+   "hidden": false,
+   "public": false,
+   "description": "Move stock between hubs — draft, complete or cancel."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-adjustments",
+   "label": "Stock Adjustments",
+   "path": "/inventory/stock-adjustments",
+   "permission": "inventory.documents.view",
+   "page": "adjustmentList",
+   "hidden": false,
+   "public": false,
+   "description": "Increase, decrease, damaged, lost and correction adjustments with reasons."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-movements",
+   "label": "Stock Movements",
+   "path": "/inventory/movements",
+   "permission": "inventory.movements.view",
+   "page": "movementList",
+   "hidden": false,
+   "public": false,
+   "description": "The read-only stock ledger with every movement."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap",
+   "label": "Scrap Management",
+   "path": "/inventory/scrap",
+   "permission": "inventory.scrap.view",
+   "page": "scrapDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Scrap requests for expired, damaged or rejected stock — approval, stock write-off, valuation and reports."
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap-requests",
+   "label": "Scrap Requests",
+   "path": "/inventory/scrap/requests",
+   "permission": "inventory.scrap.view",
+   "page": "scrapList",
+   "hidden": true,
+   "parent": "inventory-scrap",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap-create",
+   "label": "New Scrap Request",
+   "path": "/inventory/scrap/requests/create",
+   "permission": "scrap.create",
+   "page": "scrapForm",
+   "hidden": true,
+   "parent": "inventory-scrap",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap-edit",
+   "label": "Edit Scrap Request",
+   "path": "/inventory/scrap/requests/:id/edit",
+   "permission": "scrap.create",
+   "page": "scrapForm",
+   "hidden": true,
+   "parent": "inventory-scrap",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap-print",
+   "label": "Scrap Note",
+   "path": "/inventory/scrap/requests/:id/print",
+   "permission": "inventory.scrap.view",
+   "page": "scrapPrint",
+   "hidden": true,
+   "parent": "inventory-scrap",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-scrap-detail",
+   "label": "Scrap Request",
+   "path": "/inventory/scrap/requests/:id",
+   "permission": "inventory.scrap.view",
+   "page": "scrapDetail",
+   "hidden": true,
+   "parent": "inventory-scrap",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-stock-detail",
+   "label": "Stock Details",
+   "path": "/inventory/stock/:id",
+   "permission": "inventory.stock.view",
+   "page": "stockDetail",
+   "hidden": true,
+   "parent": "inventory-stock",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-receipt-create",
+   "label": "New Receipt",
+   "path": "/inventory/stock-receipts/create",
+   "permission": "inventory.receipts.manage",
+   "page": "receiptCreate",
+   "hidden": true,
+   "parent": "inventory-receipts",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-transfer-create",
+   "label": "New Transfer",
+   "path": "/inventory/stock-transfers/create",
+   "permission": "inventory.transfers.manage",
+   "page": "transferCreate",
+   "hidden": true,
+   "parent": "inventory-transfers",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-adjustment-create",
+   "label": "New Adjustment",
+   "path": "/inventory/stock-adjustments/create",
+   "permission": "inventory.adjustments.manage",
+   "page": "adjustmentCreate",
+   "hidden": true,
+   "parent": "inventory-adjustments",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "inventory",
+    "label": "Inventory"
+   },
+   "id": "inventory-hub-stock",
+   "label": "Hub Stock",
+   "path": "/inventory/hub-stock",
+   "permission": "hubs.view",
+   "hidden": true,
+   "redirectTo": "/hubs",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-overview",
+   "label": "Dispatch Dashboard",
+   "path": "/dispatch",
+   "permission": "dispatch.view",
+   "page": "dispatchDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Ready orders, dispatch plans, drivers on the road and delivery outcomes."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-ready",
+   "label": "Ready for Dispatch",
+   "path": "/dispatch/ready-orders",
+   "permission": "dispatch.ready.view",
+   "page": "readyOrders",
+   "hidden": false,
+   "public": false,
+   "description": "Orders released by Customer Service, waiting to be planned into a dispatch."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-planning",
+   "label": "Dispatch Planning",
+   "path": "/dispatch/planning",
+   "permission": "dispatch.view",
+   "page": "dispatchPlanning",
+   "hidden": false,
+   "public": false,
+   "description": "Plan multi-order dispatches by hub and zone, set the delivery sequence and confirm loading."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-assignments",
+   "label": "Driver Assignment",
+   "path": "/dispatch/assignments",
+   "permission": "dispatch.manage",
+   "page": "dispatchAssignments",
+   "hidden": false,
+   "public": false,
+   "description": "Assign drivers and vehicles to planned dispatches and confirm them."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-tracking",
+   "label": "Delivery Tracking",
+   "path": "/dispatch/delivery-tracking",
+   "permission": "dispatch.tracking",
+   "page": "deliveryTracking",
+   "hidden": false,
+   "public": false,
+   "description": "Live status of every delivery stop: out for delivery, delivered, partial or failed."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-history",
+   "label": "Delivery History",
+   "path": "/dispatch/delivery-history",
+   "permission": "dispatch.history",
+   "page": "deliveryHistory",
+   "hidden": false,
+   "public": false,
+   "description": "Closed deliveries, delivery notes and failed / partial deliveries awaiting review."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-zones",
+   "label": "Dispatch Zones",
+   "path": "/dispatch/zones",
+   "permission": "fleet.view",
+   "page": "zoneList",
+   "hidden": false,
+   "public": false,
+   "description": "Delivery zones per hub with their pincodes."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-drivers",
+   "label": "Drivers",
+   "path": "/dispatch/drivers",
+   "permission": "fleet.view",
+   "page": "driverList",
+   "hidden": false,
+   "public": false,
+   "description": "Driver records, licences, availability and delivery performance."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-vehicles",
+   "label": "Vehicles",
+   "path": "/dispatch/vehicles",
+   "permission": "fleet.view",
+   "page": "vehicleList",
+   "hidden": false,
+   "public": false,
+   "description": "Delivery vehicles, capacity and status."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-reports",
+   "label": "Delivery Reports",
+   "path": "/dispatch/reports",
+   "permission": "dispatch.reports",
+   "page": "dispatchReports",
+   "hidden": false,
+   "public": false,
+   "description": "Dispatch register, driver performance, failed and partial deliveries, delivery notes, hub and zone reports."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-create",
+   "label": "New Dispatch",
+   "path": "/dispatch/create",
+   "permission": "dispatch.manage",
+   "page": "dispatchForm",
+   "hidden": true,
+   "parent": "dispatch-planning",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-zone-create",
+   "label": "New Zone",
+   "path": "/dispatch/zones/create",
+   "permission": "fleet.manage",
+   "page": "zoneForm",
+   "hidden": true,
+   "parent": "dispatch-zones",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-zone-edit",
+   "label": "Edit Zone",
+   "path": "/dispatch/zones/:id/edit",
+   "permission": "fleet.manage",
+   "page": "zoneForm",
+   "hidden": true,
+   "parent": "dispatch-zones",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-live-tracking",
+   "label": "Live Tracking (Demo GPS)",
+   "path": "/dispatch/live-tracking",
+   "permission": "tracking.fleet",
+   "page": "fleetTracking",
+   "hidden": false,
+   "public": false,
+   "description": "Drivers on the road with simulated DEMO GPS positions, ETAs and VIP late-arrival warnings."
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-driver-create",
+   "label": "New Driver",
+   "path": "/dispatch/drivers/create",
+   "permission": "fleet.manage",
+   "page": "driverForm",
+   "hidden": true,
+   "parent": "dispatch-drivers",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-driver-edit",
+   "label": "Edit Driver",
+   "path": "/dispatch/drivers/:id/edit",
+   "permission": "fleet.manage",
+   "page": "driverForm",
+   "hidden": true,
+   "parent": "dispatch-drivers",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-driver-detail",
+   "label": "Driver Details",
+   "path": "/dispatch/drivers/:id",
+   "permission": "fleet.view",
+   "page": "driverDetail",
+   "hidden": true,
+   "parent": "dispatch-drivers",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-vehicle-create",
+   "label": "New Vehicle",
+   "path": "/dispatch/vehicles/create",
+   "permission": "fleet.manage",
+   "page": "vehicleForm",
+   "hidden": true,
+   "parent": "dispatch-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-vehicle-edit",
+   "label": "Edit Vehicle",
+   "path": "/dispatch/vehicles/:id/edit",
+   "permission": "fleet.manage",
+   "page": "vehicleForm",
+   "hidden": true,
+   "parent": "dispatch-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-delivery-detail",
+   "label": "Delivery Details",
+   "path": "/dispatch/deliveries/:id",
+   "permission": "deliveries.view",
+   "page": "deliveryDetail",
+   "hidden": true,
+   "parent": "dispatch-tracking",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-note",
+   "label": "Delivery Note",
+   "path": "/dispatch/delivery-notes/:id",
+   "permission": "deliveryNotes.view",
+   "page": "deliveryNote",
+   "hidden": true,
+   "parent": "dispatch-history",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-edit",
+   "label": "Edit Dispatch",
+   "path": "/dispatch/:id/edit",
+   "permission": "dispatch.manage",
+   "page": "dispatchForm",
+   "hidden": true,
+   "parent": "dispatch-planning",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-detail",
+   "label": "Dispatch Details",
+   "path": "/dispatch/:id",
+   "permission": "dispatch.view",
+   "page": "dispatchDetail",
+   "hidden": true,
+   "parent": "dispatch-planning",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "dispatch-tracking-legacy",
+   "label": "Delivery Tracking",
+   "path": "/dispatch/tracking",
+   "permission": "dispatch.tracking",
+   "hidden": true,
+   "redirectTo": "/dispatch/delivery-tracking",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "dispatch",
+    "label": "Dispatch"
+   },
+   "id": "my-deliveries-legacy",
+   "label": "My Deliveries",
+   "path": "/deliveries",
+   "permission": "driver.app",
+   "hidden": true,
+   "redirectTo": "/driver/deliveries",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-dashboard",
+   "label": "Today",
+   "path": "/driver/dashboard",
+   "permission": "driver.app",
+   "page": "driverHome",
+   "hidden": false,
+   "public": false,
+   "description": "Today's dispatch, progress and next delivery."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-deliveries",
+   "label": "My Deliveries",
+   "path": "/driver/deliveries",
+   "permission": "driver.app",
+   "page": "driverDeliveries",
+   "hidden": false,
+   "public": false,
+   "description": "Your delivery stops in sequence, upcoming dispatches and history."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-route",
+   "label": "Route",
+   "path": "/driver/route",
+   "permission": "driver.app",
+   "page": "driverRoute",
+   "hidden": false,
+   "public": false,
+   "description": "Your stops on a DEMO GPS route map with ETAs."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-completed",
+   "label": "Completed",
+   "path": "/driver/completed",
+   "permission": "driver.app",
+   "page": "driverCompleted",
+   "hidden": false,
+   "public": false,
+   "description": "Deliveries you completed today with OTP and POD status."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-notes",
+   "label": "My Delivery Notes",
+   "path": "/driver/delivery-notes",
+   "permission": "driver.app",
+   "page": "driverNotes",
+   "hidden": false,
+   "public": false,
+   "description": "Delivery notes for your deliveries."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-profile",
+   "label": "Driver Profile",
+   "path": "/driver/profile",
+   "permission": "driver.app",
+   "page": "driverProfile",
+   "hidden": false,
+   "public": false,
+   "description": "Your driver details, licence and performance."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-documents",
+   "label": "My Documents",
+   "path": "/driver/documents",
+   "permission": "driver.app",
+   "page": "driverDocuments",
+   "hidden": false,
+   "public": false,
+   "description": "Your documents, your vehicle’s documents and expiry alerts."
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-document",
+   "label": "Document",
+   "path": "/driver/documents/:id",
+   "permission": "driver.app",
+   "page": "driverDocument",
+   "hidden": true,
+   "parent": "driver-documents",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-delivery-confirm",
+   "label": "Confirm Delivery",
+   "path": "/driver/deliveries/:id/confirm",
+   "permission": "driver.app",
+   "page": "driverConfirm",
+   "hidden": true,
+   "parent": "driver-deliveries",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-delivery",
+   "label": "Delivery",
+   "path": "/driver/deliveries/:id",
+   "permission": "driver.app",
+   "page": "driverDelivery",
+   "hidden": true,
+   "parent": "driver-deliveries",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "driver",
+    "label": "My Deliveries"
+   },
+   "id": "driver-note",
+   "label": "Delivery Note",
+   "path": "/driver/delivery-notes/:id",
+   "permission": "driver.app",
+   "page": "driverNote",
+   "hidden": true,
+   "parent": "driver-notes",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-dashboard",
+   "label": "Home",
+   "path": "/customer/dashboard",
+   "permission": "customer.app",
+   "page": "customerHome",
+   "hidden": false,
+   "public": false,
+   "description": "Your orders, deliveries and documents."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-catalog",
+   "label": "Catalog",
+   "path": "/customer/catalog",
+   "permission": "customer.app",
+   "page": "customerCatalog",
+   "hidden": false,
+   "public": false,
+   "description": "Browse products and add them to your cart."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-cart",
+   "label": "Cart",
+   "path": "/customer/cart",
+   "permission": "customer.order",
+   "page": "customerCart",
+   "hidden": false,
+   "public": false,
+   "description": "Review your cart and place an order."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-orders",
+   "label": "My Orders",
+   "path": "/customer/orders",
+   "permission": "customer.app",
+   "page": "customerOrders",
+   "hidden": false,
+   "public": false,
+   "description": "Your orders with approval and delivery status."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-order",
+   "label": "Order",
+   "path": "/customer/orders/:id",
+   "permission": "customer.app",
+   "page": "customerOrder",
+   "hidden": true,
+   "parent": "customer-orders",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-tracking",
+   "label": "Track Delivery",
+   "path": "/customer/tracking/:id",
+   "permission": "customer.app",
+   "page": "customerTracking",
+   "hidden": true,
+   "parent": "customer-orders",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-notes",
+   "label": "Delivery Notes",
+   "path": "/customer/delivery-notes",
+   "permission": "customer.app",
+   "page": "customerNotes",
+   "hidden": false,
+   "public": false,
+   "description": "Delivery notes for your delivered orders."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-note",
+   "label": "Delivery Note",
+   "path": "/customer/delivery-notes/:id",
+   "permission": "customer.app",
+   "page": "customerNote",
+   "hidden": true,
+   "parent": "customer-notes",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-invoices",
+   "label": "Invoices",
+   "path": "/customer/invoices",
+   "permission": "customer.app",
+   "page": "customerInvoices",
+   "hidden": false,
+   "public": false,
+   "description": "Your invoices."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-invoice",
+   "label": "Invoice",
+   "path": "/customer/invoices/:id",
+   "permission": "customer.app",
+   "page": "customerInvoice",
+   "hidden": true,
+   "parent": "customer-invoices",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-payments",
+   "label": "Payments",
+   "path": "/customer/payments",
+   "permission": "customer.app",
+   "page": "customerPayments",
+   "hidden": false,
+   "public": false,
+   "description": "Outstanding balance and credit."
+  },
+  {
+   "group": {
+    "id": "customer",
+    "label": "My Account (Customer)"
+   },
+   "id": "customer-profile",
+   "label": "Profile",
+   "path": "/customer/profile",
+   "permission": "customer.app",
+   "page": "customerProfile",
+   "hidden": false,
+   "public": false,
+   "description": "Your company details, addresses and credit."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-dashboard",
+   "label": "VMS Dashboard",
+   "path": "/vms",
+   "permission": "vms.view",
+   "page": "vmsDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Fleet status, compliance and document expiry."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-vehicles",
+   "label": "Vehicles",
+   "path": "/vms/vehicles",
+   "permission": "vms.view",
+   "page": "vmsVehicles",
+   "hidden": false,
+   "public": false,
+   "description": "Vehicle register with specification, insurance and compliance."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-drivers",
+   "label": "Driver Documents",
+   "path": "/vms/drivers",
+   "permission": "vms.view",
+   "page": "vmsDrivers",
+   "hidden": false,
+   "public": false,
+   "description": "Licence, ID, address proof and medical certificates."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-expiry",
+   "label": "Document Expiry",
+   "path": "/vms/document-expiry",
+   "permission": "vms.view",
+   "page": "vmsExpiry",
+   "hidden": false,
+   "public": false,
+   "description": "Expired and expiring vehicle and driver documents."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-reports",
+   "label": "VMS Reports",
+   "path": "/vms/reports",
+   "permission": "vms.view",
+   "page": "vmsReports",
+   "hidden": false,
+   "public": false,
+   "description": "Vehicle register, expiry, document status and utilisation reports."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-settings",
+   "label": "Compliance Rules",
+   "path": "/vms/settings",
+   "permission": "vms.settings",
+   "page": "vmsSettings",
+   "hidden": false,
+   "public": false,
+   "description": "Required documents and expiry blocking for dispatch assignment."
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-dashboard-alias",
+   "label": "VMS Dashboard",
+   "path": "/vms/dashboard",
+   "permission": "vms.view",
+   "hidden": true,
+   "redirectTo": "/vms",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-vehicle-create",
+   "label": "New Vehicle",
+   "path": "/vms/vehicles/create",
+   "permission": "vms.manage",
+   "page": "vehicleForm",
+   "hidden": true,
+   "parent": "vms-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-vehicle-edit",
+   "label": "Edit Vehicle",
+   "path": "/vms/vehicles/:id/edit",
+   "permission": "vms.manage",
+   "page": "vehicleForm",
+   "hidden": true,
+   "parent": "vms-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-vehicle-docs",
+   "label": "Vehicle Documents",
+   "path": "/vms/vehicles/:id/documents",
+   "permission": "vms.view",
+   "page": "vmsVehicleDetail",
+   "hidden": true,
+   "parent": "vms-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-vehicle-detail",
+   "label": "Vehicle Details",
+   "path": "/vms/vehicles/:id",
+   "permission": "vms.view",
+   "page": "vmsVehicleDetail",
+   "hidden": true,
+   "parent": "vms-vehicles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "vms",
+    "label": "Vehicle Management"
+   },
+   "id": "vms-driver-docs",
+   "label": "Driver Documents",
+   "path": "/vms/drivers/:id/documents",
+   "permission": "vms.view",
+   "page": "vmsDriverDocuments",
+   "hidden": true,
+   "parent": "vms-drivers",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-repository",
+   "label": "Document Repository",
+   "path": "/documents",
+   "permission": "documents.view",
+   "page": "documentRepository",
+   "hidden": false,
+   "public": false,
+   "description": "All proofs and documents with OCR review and verification."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-upload",
+   "label": "Upload Documents",
+   "path": "/documents/upload",
+   "permission": "documents.view",
+   "page": "documentUpload",
+   "hidden": false,
+   "public": false,
+   "description": "Upload one or more documents for an existing record."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-queue",
+   "label": "OCR Queue",
+   "path": "/documents/ocr-queue",
+   "permission": "documents.view",
+   "page": "ocrQueue",
+   "hidden": false,
+   "public": false,
+   "description": "Documents waiting for OCR or review."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-verified",
+   "label": "Verified",
+   "path": "/documents/verified",
+   "permission": "documents.view",
+   "page": "verifiedDocuments",
+   "hidden": false,
+   "public": false,
+   "description": "Verified documents."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-rejected",
+   "label": "Rejected",
+   "path": "/documents/rejected",
+   "permission": "documents.view",
+   "page": "rejectedDocuments",
+   "hidden": false,
+   "public": false,
+   "description": "Rejected documents awaiting replacement."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-types",
+   "label": "Document Types",
+   "path": "/documents/types",
+   "permission": "documents.types",
+   "page": "documentTypes",
+   "hidden": false,
+   "public": false,
+   "description": "Configure document types and OCR fields."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-reports",
+   "label": "Document Reports",
+   "path": "/documents/reports",
+   "permission": "documents.reports",
+   "page": "documentReports",
+   "hidden": false,
+   "public": false,
+   "description": "Document register, expiry and OCR reports."
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-type-create",
+   "label": "New Document Type",
+   "path": "/documents/types/create",
+   "permission": "documents.types",
+   "page": "documentTypeForm",
+   "hidden": true,
+   "parent": "docs-types",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-type-edit",
+   "label": "Edit Document Type",
+   "path": "/documents/types/:id/edit",
+   "permission": "documents.types",
+   "page": "documentTypeForm",
+   "hidden": true,
+   "parent": "docs-types",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-review",
+   "label": "OCR Review",
+   "path": "/documents/:id/review",
+   "permission": "documents.view",
+   "page": "documentReview",
+   "hidden": true,
+   "parent": "docs-queue",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "documents",
+    "label": "Documents"
+   },
+   "id": "docs-detail",
+   "label": "Document",
+   "path": "/documents/:id",
+   "permission": "documents.view",
+   "page": "documentDetail",
+   "hidden": true,
+   "parent": "docs-repository",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-dashboard",
+   "label": "Invoice Dashboard",
+   "path": "/invoices/dashboard",
+   "permission": "invoices.view",
+   "page": "invoiceDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Invoiced value and delivered orders still to invoice."
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-list",
+   "label": "Invoices",
+   "path": "/invoices",
+   "permission": "invoices.view",
+   "page": "invoiceList",
+   "hidden": false,
+   "public": false,
+   "description": "Issued and cancelled invoices."
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-create",
+   "label": "New Invoice",
+   "path": "/invoices/create",
+   "permission": "invoices.manage",
+   "page": "invoiceCreate",
+   "hidden": false,
+   "public": false,
+   "description": "Generate an invoice for an approved order."
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-templates",
+   "label": "Invoice Templates",
+   "path": "/invoices/templates",
+   "permission": "invoices.templates",
+   "page": "invoiceTemplates",
+   "hidden": false,
+   "public": false,
+   "description": "Template builder and invoice numbering."
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-reports",
+   "label": "Invoice Reports",
+   "path": "/invoices/reports",
+   "permission": "invoices.reports",
+   "page": "invoiceReports",
+   "hidden": false,
+   "public": false,
+   "description": "Invoice register and summaries."
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-tpl-create",
+   "label": "New Template",
+   "path": "/invoices/templates/create",
+   "permission": "invoices.templates",
+   "page": "invoiceTemplateForm",
+   "hidden": true,
+   "parent": "inv-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-tpl-edit",
+   "label": "Edit Template",
+   "path": "/invoices/templates/:id/edit",
+   "permission": "invoices.templates",
+   "page": "invoiceTemplateForm",
+   "hidden": true,
+   "parent": "inv-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-tpl-preview",
+   "label": "Template Preview",
+   "path": "/invoices/templates/:id/preview",
+   "permission": "invoices.view",
+   "page": "invoiceTemplatePreview",
+   "hidden": true,
+   "parent": "inv-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-print",
+   "label": "Print Invoice",
+   "path": "/invoices/:id/print",
+   "permission": "invoices.view",
+   "page": "invoicePrint",
+   "hidden": true,
+   "parent": "inv-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "invoices",
+    "label": "Invoices"
+   },
+   "id": "inv-detail",
+   "label": "Invoice",
+   "path": "/invoices/:id",
+   "permission": "invoices.view",
+   "page": "invoiceDetail",
+   "hidden": true,
+   "parent": "inv-list",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-center",
+   "label": "Communication Center",
+   "path": "/communication",
+   "permission": "communication.view",
+   "page": "communicationCenter",
+   "hidden": false,
+   "public": false,
+   "description": "Email and WhatsApp drafts, inbox, sent, failed and templates."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-email",
+   "label": "Email",
+   "path": "/communication/email",
+   "permission": "communication.view",
+   "page": "emailHome",
+   "hidden": false,
+   "public": false,
+   "description": "SMTP sending and IMAP inbox through the backend gateway."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-whatsapp",
+   "label": "WhatsApp",
+   "path": "/communication/whatsapp",
+   "permission": "whatsapp.view",
+   "page": "whatsappHome",
+   "hidden": false,
+   "public": false,
+   "description": "WhatsApp through OpenWA, with a clearly labelled demo mode."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-automation",
+   "label": "Automated Notifications",
+   "path": "/communication/automation",
+   "permission": "communication.automation",
+   "page": "automationSettings",
+   "hidden": false,
+   "public": false,
+   "description": "Event-driven email / WhatsApp notifications."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-calls",
+   "label": "Call History",
+   "path": "/communication/calls",
+   "permission": "communication.calls",
+   "page": "callDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Customer call log (manually recorded — no telephony connected) linked to customers, salesmen and the orders they produced."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-followups",
+   "label": "Call Follow-ups",
+   "path": "/communication/calls/follow-ups",
+   "permission": "communication.calls",
+   "page": "callFollowUps",
+   "hidden": false,
+   "public": false,
+   "description": "Follow-ups due today, upcoming, overdue and completed."
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-calls-list",
+   "label": "All Calls",
+   "path": "/communication/calls/list",
+   "permission": "communication.calls",
+   "page": "callList",
+   "hidden": true,
+   "parent": "comm-calls",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-calls-create",
+   "label": "Log a Call",
+   "path": "/communication/calls/create",
+   "permission": "calls.manage",
+   "page": "callForm",
+   "hidden": true,
+   "parent": "comm-calls",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-calls-edit",
+   "label": "Edit Call",
+   "path": "/communication/calls/:id/edit",
+   "permission": "calls.manage",
+   "page": "callForm",
+   "hidden": true,
+   "parent": "comm-calls",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "comm-calls-detail",
+   "label": "Call Details",
+   "path": "/communication/calls/:id",
+   "permission": "communication.calls",
+   "page": "callDetail",
+   "hidden": true,
+   "parent": "comm-calls",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-compose",
+   "label": "Compose Email",
+   "path": "/communication/email/compose",
+   "permission": "communication.send",
+   "page": "emailCompose",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-inbox",
+   "label": "Inbox",
+   "path": "/communication/email/inbox",
+   "permission": "communication.inbox",
+   "page": "emailInbox",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-sent",
+   "label": "Sent",
+   "path": "/communication/email/sent",
+   "permission": "communication.view",
+   "page": "emailSent",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-drafts",
+   "label": "Drafts",
+   "path": "/communication/email/drafts",
+   "permission": "communication.send",
+   "page": "emailDrafts",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-history",
+   "label": "History",
+   "path": "/communication/email/history",
+   "permission": "communication.view",
+   "page": "emailHistory",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-templates",
+   "label": "Email Templates",
+   "path": "/communication/email/templates",
+   "permission": "communication.view",
+   "page": "emailTemplateList",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-template-create",
+   "label": "New Template",
+   "path": "/communication/email/templates/create",
+   "permission": "communication.templates",
+   "page": "emailTemplateForm",
+   "hidden": true,
+   "parent": "email-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-template-edit",
+   "label": "Edit Template",
+   "path": "/communication/email/templates/:id/edit",
+   "permission": "communication.templates",
+   "page": "emailTemplateForm",
+   "hidden": true,
+   "parent": "email-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "email-settings",
+   "label": "Email Settings",
+   "path": "/communication/email/settings",
+   "permission": "communication.settings",
+   "page": "emailSettings",
+   "hidden": true,
+   "parent": "comm-email",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-compose",
+   "label": "Compose",
+   "path": "/communication/whatsapp/compose",
+   "permission": "whatsapp.send",
+   "page": "whatsappCompose",
+   "hidden": true,
+   "parent": "comm-whatsapp",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-history",
+   "label": "History",
+   "path": "/communication/whatsapp/history",
+   "permission": "whatsapp.view",
+   "page": "whatsappHistory",
+   "hidden": true,
+   "parent": "comm-whatsapp",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-templates",
+   "label": "WhatsApp Templates",
+   "path": "/communication/whatsapp/templates",
+   "permission": "whatsapp.view",
+   "page": "whatsappTemplateList",
+   "hidden": true,
+   "parent": "comm-whatsapp",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-template-create",
+   "label": "New Template",
+   "path": "/communication/whatsapp/templates/create",
+   "permission": "communication.templates",
+   "page": "whatsappTemplateForm",
+   "hidden": true,
+   "parent": "wa-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-template-edit",
+   "label": "Edit Template",
+   "path": "/communication/whatsapp/templates/:id/edit",
+   "permission": "communication.templates",
+   "page": "whatsappTemplateForm",
+   "hidden": true,
+   "parent": "wa-templates",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "communication",
+    "label": "Communication"
+   },
+   "id": "wa-settings",
+   "label": "OpenWA Settings",
+   "path": "/communication/whatsapp/settings",
+   "permission": "communication.settings",
+   "page": "whatsappSettings",
+   "hidden": true,
+   "parent": "comm-whatsapp",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-users",
+   "label": "User Management",
+   "path": "/admin/users",
+   "permission": "users.view",
+   "page": "userList",
+   "hidden": false,
+   "public": false,
+   "description": "Users, their roles, hubs and status — create, edit, activate, reset demo passwords and export."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-roles",
+   "label": "Role Management",
+   "path": "/admin/roles",
+   "permission": "roles.view",
+   "page": "roleList",
+   "hidden": false,
+   "public": false,
+   "description": "System and custom roles — create, edit, duplicate and delete, with module, page and action permissions."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-permissions",
+   "label": "Permission Matrix",
+   "path": "/admin/permissions",
+   "permission": "roles.view",
+   "page": "permissionMatrix",
+   "hidden": false,
+   "public": false,
+   "description": "Every role against every module and action in one grid."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-assignment",
+   "label": "User Role Assignment",
+   "path": "/admin/role-assignment",
+   "permission": "users.manage",
+   "page": "roleAssignment",
+   "hidden": false,
+   "public": false,
+   "description": "Assign primary and additional roles and hubs to users."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-audit",
+   "label": "Audit Log",
+   "path": "/admin/audit-logs",
+   "permission": "audit.view",
+   "page": "auditLog",
+   "hidden": false,
+   "public": false,
+   "description": "Who did what and when — logins, creates, edits, deletes, approvals, rejections, status and settings changes."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-settings",
+   "label": "Application Settings",
+   "path": "/admin/settings",
+   "permission": "settings.view",
+   "page": "appSettings",
+   "hidden": false,
+   "public": false,
+   "description": "General, localization, currency, numbering, notifications, security, approval, inventory, warehouse, cold chain, integration and AI settings."
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-user-create",
+   "label": "Create User",
+   "path": "/admin/users/create",
+   "permission": "users.create",
+   "page": "userForm",
+   "hidden": true,
+   "parent": "admin-users",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-user-edit",
+   "label": "Edit User",
+   "path": "/admin/users/:id/edit",
+   "permission": "users.edit",
+   "page": "userForm",
+   "hidden": true,
+   "parent": "admin-users",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-user-detail",
+   "label": "User Details",
+   "path": "/admin/users/:id",
+   "permission": "users.view",
+   "page": "userDetail",
+   "hidden": true,
+   "parent": "admin-users",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-role-create",
+   "label": "Create Role",
+   "path": "/admin/roles/create",
+   "permission": "roles.create",
+   "page": "roleForm",
+   "hidden": true,
+   "parent": "admin-roles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-role-edit",
+   "label": "Edit Role",
+   "path": "/admin/roles/:id/edit",
+   "permission": "roles.edit",
+   "page": "roleForm",
+   "hidden": true,
+   "parent": "admin-roles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "admin",
+    "label": "Administration"
+   },
+   "id": "admin-role-detail",
+   "label": "Role Details",
+   "path": "/admin/roles/:id",
+   "permission": "roles.view",
+   "page": "roleDetail",
+   "hidden": true,
+   "parent": "admin-roles",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-company",
+   "label": "Company",
+   "path": "/admin/organization/company",
+   "permission": "organization.view",
+   "page": "companyProfile",
+   "hidden": false,
+   "public": false,
+   "description": "Company name, logo, address, country, currency and tax registration number."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-branches",
+   "label": "Branches",
+   "path": "/admin/organization/branches",
+   "permission": "organization.view",
+   "page": "orgBranches",
+   "hidden": false,
+   "public": false,
+   "description": "Head office and branch offices."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-units",
+   "label": "Business Units",
+   "path": "/admin/organization/business-units",
+   "permission": "organization.view",
+   "page": "orgBusinessUnits",
+   "hidden": false,
+   "public": false,
+   "description": "Business units for reporting and ownership."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-departments",
+   "label": "Departments",
+   "path": "/admin/organization/departments",
+   "permission": "organization.view",
+   "page": "orgDepartments",
+   "hidden": false,
+   "public": false,
+   "description": "Departments by branch and business unit."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-designations",
+   "label": "Designations",
+   "path": "/admin/organization/designations",
+   "permission": "organization.view",
+   "page": "orgDesignations",
+   "hidden": false,
+   "public": false,
+   "description": "Job titles per department."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-employees",
+   "label": "Employee Master",
+   "path": "/admin/organization/employees",
+   "permission": [
+    "organization.view",
+    "users.view"
+   ],
+   "page": "employeeMaster",
+   "hidden": false,
+   "public": false,
+   "description": "Employees with ID, department, designation, hub and role."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-hubs",
+   "label": "Hub Master",
+   "path": "/admin/organization/hubs",
+   "permission": "hubs.view",
+   "hidden": false,
+   "redirectTo": "/hubs",
+   "public": false,
+   "description": "Hubs are managed in the Hubs master (Phase 2)."
+  },
+  {
+   "group": {
+    "id": "organization",
+    "label": "Organization"
+   },
+   "id": "org-warehouses",
+   "label": "Warehouse Master",
+   "path": "/admin/organization/warehouses",
+   "permission": "organization.view",
+   "page": "orgWarehouses",
+   "hidden": false,
+   "public": false,
+   "description": "Storage areas inside each hub with type, temperature range and capacity."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-overview",
+   "label": "AI Overview",
+   "path": "/ai",
+   "permission": "ai.assistant.view",
+   "page": "aiOverview",
+   "hidden": false,
+   "public": false,
+   "description": "AI insights, recommendations, provider status and recent AI activity."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-assistant",
+   "label": "AI Assistant",
+   "path": "/ai/assistant",
+   "permission": "ai.assistant.view",
+   "page": "aiAssistant",
+   "hidden": false,
+   "public": false,
+   "description": "Ask questions about orders, stock, deliveries and sales in plain language."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-jarvis",
+   "label": "Jarvis",
+   "path": "/ai/jarvis",
+   "permission": "jarvis.view",
+   "page": "jarvis",
+   "hidden": false,
+   "public": false,
+   "description": "Voice and text command assistant."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecasting",
+   "label": "Forecasting",
+   "path": "/ai/forecasting",
+   "permission": "forecasting.view",
+   "page": "forecastDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Sales, order and demand forecasts with backtest accuracy."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-predictive",
+   "label": "Predictive Inventory",
+   "path": "/ai/predictive-inventory",
+   "permission": "inventory.predictions.view",
+   "page": "predictiveDashboard",
+   "hidden": false,
+   "public": false,
+   "description": "Stock-out prediction, reorder points and inventory risk."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-replenishment",
+   "label": "Replenishment",
+   "path": "/ai/replenishment",
+   "permission": "procurement.view",
+   "page": "replenishmentList",
+   "hidden": false,
+   "public": false,
+   "description": "Replenishment drafts and approvals."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-insights",
+   "label": "AI Insights",
+   "path": "/ai/insights",
+   "permission": "ai.insights.view",
+   "page": "aiInsights",
+   "hidden": false,
+   "public": false,
+   "description": "Automatically detected business signals."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-models",
+   "label": "Model Management",
+   "path": "/ai/models",
+   "permission": [
+    "forecasting.view",
+    "ai.models.manage"
+   ],
+   "page": "modelManagement",
+   "hidden": false,
+   "public": false,
+   "description": "Forecasting and assistant models with real backtest performance."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-settings",
+   "label": "AI Settings",
+   "path": "/ai/settings",
+   "permission": "ai.settings.manage",
+   "page": "aiSettings",
+   "hidden": false,
+   "public": false,
+   "description": "AI provider, OpenJarvis / Ollama connection and data-sharing policy."
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-activity",
+   "label": "AI Activity",
+   "path": "/ai/activity",
+   "permission": "ai.assistant.view",
+   "page": "aiActivity",
+   "hidden": true,
+   "parent": "ai-overview",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecast-new",
+   "label": "New Forecast",
+   "path": "/ai/forecasting/new",
+   "permission": "forecasting.generate",
+   "page": "forecastCreate",
+   "hidden": true,
+   "parent": "ai-forecasting",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecast-history",
+   "label": "Forecast History",
+   "path": "/ai/forecasting/history",
+   "permission": "forecasting.view",
+   "page": "forecastHistory",
+   "hidden": true,
+   "parent": "ai-forecasting",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecast-compare",
+   "label": "Compare Forecasts",
+   "path": "/ai/forecasting/compare",
+   "permission": "forecasting.view",
+   "page": "forecastCompare",
+   "hidden": true,
+   "parent": "ai-forecasting",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecast-print",
+   "label": "Forecast Report",
+   "path": "/ai/forecasting/:id/print",
+   "permission": "forecasting.export",
+   "page": "forecastPrint",
+   "hidden": true,
+   "parent": "ai-forecasting",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-forecast-detail",
+   "label": "Forecast",
+   "path": "/ai/forecasting/:id",
+   "permission": "forecasting.view",
+   "page": "forecastDetail",
+   "hidden": true,
+   "parent": "ai-forecasting",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-reorder",
+   "label": "Reorder Recommendations",
+   "path": "/ai/predictive-inventory/reorder",
+   "permission": "inventory.predictions.view",
+   "page": "reorderRecommendations",
+   "hidden": true,
+   "parent": "ai-predictive",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-risks",
+   "label": "Inventory Risk Analysis",
+   "path": "/ai/predictive-inventory/risks",
+   "permission": "inventory.predictions.view",
+   "page": "inventoryRisks",
+   "hidden": true,
+   "parent": "ai-predictive",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-demand",
+   "label": "Demand Forecasting",
+   "path": "/ai/predictive-inventory/demand",
+   "permission": "inventory.predictions.view",
+   "page": "demandForecasting",
+   "hidden": true,
+   "parent": "ai-predictive",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-planning",
+   "label": "Planning Parameters",
+   "path": "/ai/predictive-inventory/settings",
+   "permission": "inventory.predictions.view",
+   "page": "planningParameters",
+   "hidden": true,
+   "parent": "ai-predictive",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-line",
+   "label": "Prediction Detail",
+   "path": "/ai/predictive-inventory/lines/:id",
+   "permission": "inventory.predictions.view",
+   "page": "predictionLine",
+   "hidden": true,
+   "parent": "ai-predictive",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-replenishment-create",
+   "label": "New Replenishment Draft",
+   "path": "/ai/replenishment/create",
+   "permission": "inventory.replenishment.create",
+   "page": "replenishmentCreate",
+   "hidden": true,
+   "parent": "ai-replenishment",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "ai",
+    "label": "AI & Intelligence"
+   },
+   "id": "ai-replenishment-detail",
+   "label": "Replenishment Draft",
+   "path": "/ai/replenishment/:id",
+   "permission": "procurement.view",
+   "page": "replenishmentDetail",
+   "hidden": true,
+   "parent": "ai-replenishment",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-orders",
+   "label": "Order Reports",
+   "path": "/reports",
+   "permission": "orders.reports",
+   "hidden": true,
+   "redirectTo": "/orders/reports",
+   "public": false,
+   "description": "Orders, approvals and rejections by period, salesman and customer — exportable."
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-delivery",
+   "label": "Delivery Reports",
+   "path": "/reports/deliveries",
+   "permission": "dispatch.reports",
+   "hidden": true,
+   "redirectTo": "/dispatch/reports",
+   "public": false,
+   "description": "On-time delivery, OTP confirmations and delivery problems by zone and driver."
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-center",
+   "label": "Reports Center",
+   "path": "/reports/center",
+   "permission": "reports.center",
+   "page": "reportsCenter",
+   "hidden": false,
+   "public": false,
+   "description": "Every report in one place — sales, inventory, procurement, delivery, finance, customers, suppliers, fleet, calls, scrap and AI — with filters, charts and CSV."
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-view",
+   "label": "Report",
+   "path": "/reports/view/:id",
+   "permission": "reports.center",
+   "page": "reportViewer",
+   "hidden": true,
+   "parent": "reports-center",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-inventory",
+   "label": "Inventory Reports",
+   "path": "/reports/inventory",
+   "permission": "reports.center",
+   "hidden": true,
+   "redirectTo": "/reports/center?category=inventory",
+   "public": false
+  },
+  {
+   "group": {
+    "id": "reports",
+    "label": "Reports"
+   },
+   "id": "reports-invoices",
+   "label": "Invoice Status",
+   "path": "/reports/invoices",
+   "permission": "invoices.reports",
+   "hidden": true,
+   "redirectTo": "/invoices/reports",
+   "public": false,
+   "description": "Delivered orders awaiting invoicing. Invoicing itself stays outside the platform (SAP integration in stage two)."
+  },
+  {
+   "group": {
+    "id": "settings",
+    "label": "My Account"
+   },
+   "id": "profile",
+   "label": "My Profile",
+   "path": "/profile",
+   "page": "userProfile",
+   "hidden": false,
+   "public": true,
+   "description": "Your profile, roles, permissions, session and recent activity."
+  },
+  {
+   "group": {
+    "id": "settings",
+    "label": "My Account"
+   },
+   "id": "notifications",
+   "label": "Notification Center",
+   "path": "/notifications",
+   "page": "notificationCenter",
+   "hidden": false,
+   "public": true,
+   "description": "All notifications with categories, filters, read status, history and preferences."
+  },
+  {
+   "group": {
+    "id": "settings",
+    "label": "My Account"
+   },
+   "id": "change-password",
+   "label": "Change Password",
+   "path": "/account/change-password",
+   "page": "changePassword",
+   "hidden": false,
+   "public": true,
+   "description": "Change your demo password."
+  },
+  {
+   "group": {
+    "id": "settings",
+    "label": "My Account"
+   },
+   "id": "preferences",
+   "label": "Preferences",
+   "path": "/settings",
+   "page": "settings",
+   "hidden": false,
+   "public": true,
+   "description": "Theme, sidebar, demo environment, backup and reset."
+  },
+  {
+   "group": {
+    "id": "settings",
+    "label": "My Account"
+   },
+   "id": "logout",
+   "label": "Sign Out",
+   "path": "/logout",
+   "page": "logoutConfirm",
+   "hidden": true,
+   "public": true
+  },
+  {
+   "group": null,
+   "id": "products-create",
+   "label": "Add Product",
+   "path": "/products/create",
+   "permission": "products.manage",
+   "page": "productForm",
+   "hidden": true,
+   "parent": "products",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "products-detail",
+   "label": "Product Details",
+   "path": "/products/:id",
+   "permission": "products.view",
+   "page": "productDetail",
+   "hidden": true,
+   "parent": "products",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "products-edit",
+   "label": "Edit Product",
+   "path": "/products/:id/edit",
+   "permission": "products.manage",
+   "page": "productForm",
+   "hidden": true,
+   "parent": "products",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "hubs-create",
+   "label": "Add Hub",
+   "path": "/hubs/create",
+   "permission": "hubs.manage",
+   "page": "hubForm",
+   "hidden": true,
+   "parent": "hubs",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "hubs-detail",
+   "label": "Hub Details",
+   "path": "/hubs/:id",
+   "permission": "hubs.view",
+   "page": "hubDetail",
+   "hidden": true,
+   "parent": "hubs",
+   "public": false
+  },
+  {
+   "group": null,
+   "id": "hubs-edit",
+   "label": "Edit Hub",
+   "path": "/hubs/:id/edit",
+   "permission": "hubs.manage",
+   "page": "hubForm",
+   "hidden": true,
+   "parent": "hubs",
+   "public": false
+  }
+ ],
+ "roles": {
+  "SUPER_ADMIN": "SUPER_ADMIN",
+  "ADMIN": "ADMIN",
+  "SALESMAN": "SALESMAN",
+  "SALES_MANAGER": "SALES_MANAGER",
+  "CUSTOMER_SERVICE": "CUSTOMER_SERVICE",
+  "DISPATCHER": "DISPATCHER",
+  "DRIVER": "DRIVER",
+  "FINANCE": "FINANCE",
+  "WAREHOUSE_MANAGER": "WAREHOUSE_MANAGER",
+  "INVENTORY_EXECUTIVE": "INVENTORY_EXECUTIVE",
+  "QA_MANAGER": "QA_MANAGER",
+  "CUSTOMER": "CUSTOMER",
+  "SUPPLIER": "SUPPLIER"
+ },
+ "roleMeta": {
+  "SUPER_ADMIN": {
+   "label": "Super Admin",
+   "short": "Super Admin",
+   "workspace": "Admin Panel",
+   "description": "Full, locked access to every module, role and setting. Can grant the Super Admin role.",
+   "scope": "ADMIN"
+  },
+  "ADMIN": {
+   "label": "Administrator",
+   "short": "Admin",
+   "workspace": "Admin Panel",
+   "description": "Manages users, customers, items, zones and rules. Monitors every order live.",
+   "scope": "ADMIN"
+  },
+  "SALESMAN": {
+   "label": "Sales Executive",
+   "short": "Sales",
+   "workspace": "Order Taking App",
+   "description": "Captures orders from calls, email and WhatsApp and submits them for approval.",
+   "scope": "SALESMAN"
+  },
+  "SALES_MANAGER": {
+   "label": "Sales Manager",
+   "short": "Manager",
+   "workspace": "Order Taking App",
+   "description": "Approves value, quantity and credit limit — accepts, rejects or returns with a reason.",
+   "scope": "SALES_MANAGER"
+  },
+  "CUSTOMER_SERVICE": {
+   "label": "Customer Service",
+   "short": "CS",
+   "workspace": "Order Taking App",
+   "description": "Consolidates approved orders per salesman and releases them to dispatch.",
+   "scope": "CUSTOMER_SERVICE"
+  },
+  "DISPATCHER": {
+   "label": "Dispatcher",
+   "short": "Dispatch",
+   "workspace": "Order Taking App",
+   "description": "Places orders in delivery zones and assigns them to drivers.",
+   "scope": "DISPATCHER"
+  },
+  "DRIVER": {
+   "label": "Driver",
+   "short": "Driver",
+   "workspace": "Drivers App",
+   "description": "Sees next-day deliveries, follows the route and confirms handover with OTP.",
+   "scope": "DRIVER"
+  },
+  "FINANCE": {
+   "label": "Finance Executive",
+   "short": "Finance",
+   "workspace": "Notifications & Reports",
+   "description": "Notified of approved orders and credit-limit exceptions. Issues prototype invoices and manages invoice templates.",
+   "scope": "FINANCE"
+  },
+  "WAREHOUSE_MANAGER": {
+   "label": "Warehouse Manager",
+   "short": "Warehouse",
+   "workspace": "Warehouse",
+   "description": "Runs receiving, stock, transfers and picking readiness across hubs; raises replenishment.",
+   "scope": "DISPATCHER"
+  },
+  "INVENTORY_EXECUTIVE": {
+   "label": "Inventory Executive",
+   "short": "Inventory",
+   "workspace": "Warehouse",
+   "description": "Records goods receipts and transfers and keeps stock levels accurate.",
+   "scope": "DISPATCHER"
+  },
+  "QA_MANAGER": {
+   "label": "QA Manager",
+   "short": "QA",
+   "workspace": "Quality & Cold Chain",
+   "description": "Reviews documents, quarantines damaged stock and watches expiry and cold-chain alerts.",
+   "scope": "DISPATCHER"
+  },
+  "CUSTOMER": {
+   "label": "Customer (Portal)",
+   "short": "Customer",
+   "workspace": "Customer Portal",
+   "description": "Read-only view of one customer account’s orders, deliveries and invoices.",
+   "scope": "CUSTOMER"
+  },
+  "SUPPLIER": {
+   "label": "Supplier (Portal)",
+   "short": "Supplier",
+   "workspace": "Supplier Portal",
+   "description": "Read-only view of approved replenishment addressed to one supplier.",
+   "scope": "SUPPLIER"
+  }
+ },
+ "permissions": {
+  "dashboard.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "DRIVER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER",
+   "CUSTOMER",
+   "SUPPLIER"
+  ],
+  "customers.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE"
+  ],
+  "customers.manage": [
+   "ADMIN"
+  ],
+  "customers.credit.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "FINANCE"
+  ],
+  "products.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "products.manage": [
+   "ADMIN"
+  ],
+  "suppliers.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "suppliers.manage": [
+   "ADMIN"
+  ],
+  "hubs.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "hubs.manage": [
+   "ADMIN"
+  ],
+  "inventory.dashboard": [
+   "ADMIN",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE"
+  ],
+  "inventory.stock.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "inventory.lowstock.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "inventory.movements.view": [
+   "ADMIN",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "inventory.documents.view": [
+   "ADMIN",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "inventory.receipts.manage": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE"
+  ],
+  "inventory.transfers.manage": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE"
+  ],
+  "inventory.adjustments.manage": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER",
+   "QA_MANAGER"
+  ],
+  "inventory.scrap.view": [
+   "ADMIN",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "scrap.create": [
+   "ADMIN",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "scrap.approve": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER"
+  ],
+  "scrap.reject": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER"
+  ],
+  "warehouse.dashboard": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "warehouse.qa.view": [
+   "ADMIN",
+   "WAREHOUSE_MANAGER",
+   "QA_MANAGER"
+  ],
+  "orders.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "orders.create": [
+   "ADMIN",
+   "SALESMAN"
+  ],
+  "orders.mine": [
+   "ADMIN",
+   "SALESMAN"
+  ],
+  "orders.corrections.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER"
+  ],
+  "orders.approval.view": [
+   "ADMIN",
+   "SALES_MANAGER"
+  ],
+  "orders.approve": [
+   "SALES_MANAGER"
+  ],
+  "orders.reject": [
+   "SALES_MANAGER"
+  ],
+  "orders.consolidation.view": [
+   "ADMIN",
+   "CUSTOMER_SERVICE"
+  ],
+  "orders.consolidate": [
+   "CUSTOMER_SERVICE"
+  ],
+  "orders.reports": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "FINANCE"
+  ],
+  "sales.targets.manage": [
+   "ADMIN",
+   "SALES_MANAGER"
+  ],
+  "customer.app": [
+   "CUSTOMER"
+  ],
+  "customer.order": [
+   "CUSTOMER"
+  ],
+  "tracking.fleet": [
+   "ADMIN",
+   "DISPATCHER"
+  ],
+  "dispatch.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "dispatch.ready.view": [
+   "ADMIN",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER"
+  ],
+  "dispatch.manage": [
+   "ADMIN",
+   "DISPATCHER"
+  ],
+  "dispatch.tracking": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER"
+  ],
+  "dispatch.history": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "dispatch.reports": [
+   "ADMIN",
+   "DISPATCHER",
+   "FINANCE"
+  ],
+  "dispatch.otp.inspect": [
+   "ADMIN",
+   "DISPATCHER"
+  ],
+  "deliveries.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "SALESMAN",
+   "WAREHOUSE_MANAGER"
+  ],
+  "fleet.view": [
+   "ADMIN",
+   "DISPATCHER"
+  ],
+  "fleet.manage": [
+   "ADMIN"
+  ],
+  "deliveryNotes.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "driver.app": [
+   "DRIVER"
+  ],
+  "vms.view": [
+   "ADMIN",
+   "DISPATCHER",
+   "QA_MANAGER"
+  ],
+  "vms.manage": [
+   "ADMIN"
+  ],
+  "vms.documents.upload": [
+   "ADMIN",
+   "DISPATCHER",
+   "CUSTOMER_SERVICE"
+  ],
+  "vms.settings": [
+   "ADMIN"
+  ],
+  "documents.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "documents.upload": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "DRIVER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "documents.review": [
+   "ADMIN",
+   "CUSTOMER_SERVICE",
+   "QA_MANAGER"
+  ],
+  "documents.reject": [
+   "ADMIN",
+   "CUSTOMER_SERVICE",
+   "QA_MANAGER"
+  ],
+  "documents.types": [
+   "ADMIN"
+  ],
+  "documents.reports": [
+   "ADMIN",
+   "CUSTOMER_SERVICE",
+   "QA_MANAGER"
+  ],
+  "invoices.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "FINANCE"
+  ],
+  "invoices.manage": [
+   "ADMIN",
+   "FINANCE"
+  ],
+  "invoices.templates": [
+   "ADMIN",
+   "FINANCE"
+  ],
+  "invoices.reports": [
+   "ADMIN",
+   "FINANCE"
+  ],
+  "communication.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE"
+  ],
+  "communication.send": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE"
+  ],
+  "communication.inbox": [
+   "ADMIN",
+   "CUSTOMER_SERVICE",
+   "SALES_MANAGER"
+  ],
+  "communication.templates": [
+   "ADMIN"
+  ],
+  "communication.settings": [
+   "ADMIN"
+  ],
+  "communication.automation": [
+   "ADMIN"
+  ],
+  "communication.calls": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE"
+  ],
+  "calls.manage": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE"
+  ],
+  "whatsapp.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE"
+  ],
+  "whatsapp.send": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE"
+  ],
+  "ai.assistant.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "ai.assistant.use": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "ai.insights.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "QA_MANAGER"
+  ],
+  "ai.insights.manage": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "DISPATCHER"
+  ],
+  "jarvis.view": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "jarvis.use": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "forecasting.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "forecasting.generate": [
+   "ADMIN",
+   "SALES_MANAGER"
+  ],
+  "forecasting.export": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "FINANCE"
+  ],
+  "inventory.predictions.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "inventory.predictions.manage": [
+   "ADMIN"
+  ],
+  "inventory.replenishment.create": [
+   "ADMIN",
+   "DISPATCHER",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE"
+  ],
+  "procurement.view": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE"
+  ],
+  "procurement.approve": [
+   "ADMIN"
+  ],
+  "procurement.reject": [
+   "ADMIN"
+  ],
+  "ai.settings.manage": [
+   "ADMIN"
+  ],
+  "ai.models.manage": [
+   "ADMIN"
+  ],
+  "reports.inventory": [
+   "ADMIN",
+   "SALES_MANAGER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER"
+  ],
+  "reports.center": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "data.export": [
+   "ADMIN",
+   "SALESMAN",
+   "SALES_MANAGER",
+   "CUSTOMER_SERVICE",
+   "DISPATCHER",
+   "FINANCE",
+   "WAREHOUSE_MANAGER",
+   "INVENTORY_EXECUTIVE",
+   "QA_MANAGER"
+  ],
+  "data.import": [
+   "ADMIN"
+  ],
+  "finance.view": [
+   "ADMIN",
+   "FINANCE"
+  ],
+  "settings.view": [
+   "ADMIN"
+  ],
+  "settings.manage": [
+   "ADMIN"
+  ],
+  "organization.view": [
+   "ADMIN"
+  ],
+  "organization.manage": [
+   "ADMIN"
+  ],
+  "users.view": [
+   "ADMIN"
+  ],
+  "users.create": [
+   "ADMIN"
+  ],
+  "users.edit": [
+   "ADMIN"
+  ],
+  "users.delete": [
+   "ADMIN"
+  ],
+  "users.manage": [
+   "ADMIN"
+  ],
+  "roles.view": [
+   "ADMIN"
+  ],
+  "roles.create": [
+   "ADMIN"
+  ],
+  "roles.edit": [
+   "ADMIN"
+  ],
+  "roles.delete": [
+   "ADMIN"
+  ],
+  "audit.view": [
+   "ADMIN"
+  ]
+ },
+ "catalog": [
+  {
+   "key": "dashboard.view",
+   "module": "dashboard",
+   "action": "view",
+   "label": "Role dashboard"
+  },
+  {
+   "key": "customers.view",
+   "module": "customers",
+   "action": "view",
+   "label": "Customer list & details"
+  },
+  {
+   "key": "customers.credit.view",
+   "module": "customers",
+   "action": "view",
+   "label": "Customer credit"
+  },
+  {
+   "key": "customers.manage",
+   "module": "customers",
+   "action": "manage",
+   "label": "Create, edit and delete customers"
+  },
+  {
+   "key": "products.view",
+   "module": "products",
+   "action": "view",
+   "label": "Product catalogue"
+  },
+  {
+   "key": "products.manage",
+   "module": "products",
+   "action": "manage",
+   "label": "Create, edit and delete products"
+  },
+  {
+   "key": "suppliers.view",
+   "module": "suppliers",
+   "action": "view",
+   "label": "Supplier directory"
+  },
+  {
+   "key": "suppliers.manage",
+   "module": "suppliers",
+   "action": "manage",
+   "label": "Edit supplier records"
+  },
+  {
+   "key": "procurement.view",
+   "module": "procurement",
+   "action": "view",
+   "label": "Replenishment drafts"
+  },
+  {
+   "key": "inventory.replenishment.create",
+   "module": "procurement",
+   "action": "create",
+   "label": "Create & submit replenishment drafts"
+  },
+  {
+   "key": "procurement.approve",
+   "module": "procurement",
+   "action": "approve",
+   "label": "Approve & convert replenishment drafts"
+  },
+  {
+   "key": "procurement.reject",
+   "module": "procurement",
+   "action": "reject",
+   "label": "Reject replenishment drafts"
+  },
+  {
+   "key": "inventory.dashboard",
+   "module": "inventory",
+   "action": "view",
+   "label": "Inventory dashboard"
+  },
+  {
+   "key": "inventory.stock.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Stock overview"
+  },
+  {
+   "key": "inventory.lowstock.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Low stock"
+  },
+  {
+   "key": "inventory.movements.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Stock movement ledger"
+  },
+  {
+   "key": "inventory.documents.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Receipts, transfers & adjustments lists"
+  },
+  {
+   "key": "inventory.scrap.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Scrap management"
+  },
+  {
+   "key": "scrap.create",
+   "module": "inventory",
+   "action": "create",
+   "label": "Create, edit & submit scrap requests"
+  },
+  {
+   "key": "scrap.approve",
+   "module": "inventory",
+   "action": "approve",
+   "label": "Approve scrap & post the stock write-off"
+  },
+  {
+   "key": "scrap.reject",
+   "module": "inventory",
+   "action": "reject",
+   "label": "Reject scrap requests"
+  },
+  {
+   "key": "inventory.predictions.view",
+   "module": "inventory",
+   "action": "view",
+   "label": "Predictive inventory"
+  },
+  {
+   "key": "inventory.adjustments.manage",
+   "module": "inventory",
+   "action": "edit",
+   "label": "Post stock adjustments"
+  },
+  {
+   "key": "inventory.predictions.manage",
+   "module": "inventory",
+   "action": "manage",
+   "label": "Planning parameters & recommendation status"
+  },
+  {
+   "key": "warehouse.dashboard",
+   "module": "warehouse",
+   "action": "view",
+   "label": "Warehouse dashboard"
+  },
+  {
+   "key": "warehouse.qa.view",
+   "module": "warehouse",
+   "action": "view",
+   "label": "QA & cold-chain overview"
+  },
+  {
+   "key": "hubs.view",
+   "module": "warehouse",
+   "action": "view",
+   "label": "Hubs & warehouses"
+  },
+  {
+   "key": "inventory.receipts.manage",
+   "module": "warehouse",
+   "action": "create",
+   "label": "Receive stock (GRN)"
+  },
+  {
+   "key": "inventory.transfers.manage",
+   "module": "warehouse",
+   "action": "edit",
+   "label": "Stock transfers between hubs"
+  },
+  {
+   "key": "hubs.manage",
+   "module": "warehouse",
+   "action": "manage",
+   "label": "Create, edit and delete hubs"
+  },
+  {
+   "key": "orders.mine",
+   "module": "sales",
+   "action": "view",
+   "label": "My orders"
+  },
+  {
+   "key": "orders.corrections.view",
+   "module": "sales",
+   "action": "view",
+   "label": "Returned & rejected orders"
+  },
+  {
+   "key": "orders.create",
+   "module": "sales",
+   "action": "create",
+   "label": "Create & edit sales orders"
+  },
+  {
+   "key": "sales.targets.manage",
+   "module": "sales",
+   "action": "manage",
+   "label": "Set sales targets"
+  },
+  {
+   "key": "calls.manage",
+   "module": "sales",
+   "action": "edit",
+   "label": "Log, edit and delete call records & follow-ups"
+  },
+  {
+   "key": "customer.app",
+   "module": "sales",
+   "action": "view",
+   "label": "Customer app — catalogue, own orders, tracking & documents"
+  },
+  {
+   "key": "customer.order",
+   "module": "sales",
+   "action": "create",
+   "label": "Customer app — place orders"
+  },
+  {
+   "key": "orders.view",
+   "module": "orders",
+   "action": "view",
+   "label": "Order list & details"
+  },
+  {
+   "key": "orders.approval.view",
+   "module": "orders",
+   "action": "view",
+   "label": "Approval queue"
+  },
+  {
+   "key": "orders.consolidation.view",
+   "module": "orders",
+   "action": "view",
+   "label": "Consolidation queue"
+  },
+  {
+   "key": "orders.approve",
+   "module": "orders",
+   "action": "approve",
+   "label": "Approve orders"
+  },
+  {
+   "key": "orders.reject",
+   "module": "orders",
+   "action": "reject",
+   "label": "Reject or return orders"
+  },
+  {
+   "key": "orders.consolidate",
+   "module": "orders",
+   "action": "manage",
+   "label": "Consolidate & release orders"
+  },
+  {
+   "key": "dispatch.view",
+   "module": "dispatch",
+   "action": "view",
+   "label": "Dispatch dashboard & planning"
+  },
+  {
+   "key": "dispatch.ready.view",
+   "module": "dispatch",
+   "action": "view",
+   "label": "Ready-for-dispatch queue"
+  },
+  {
+   "key": "dispatch.history",
+   "module": "dispatch",
+   "action": "view",
+   "label": "Delivery history"
+  },
+  {
+   "key": "fleet.view",
+   "module": "dispatch",
+   "action": "view",
+   "label": "Zones, drivers & vehicles"
+  },
+  {
+   "key": "dispatch.manage",
+   "module": "dispatch",
+   "action": "create",
+   "label": "Create dispatches & assign drivers / vehicles"
+  },
+  {
+   "key": "fleet.manage",
+   "module": "dispatch",
+   "action": "manage",
+   "label": "Manage zones, drivers & vehicles"
+  },
+  {
+   "key": "dispatch.otp.inspect",
+   "module": "dispatch",
+   "action": "manage",
+   "label": "Inspect simulated delivery OTPs"
+  },
+  {
+   "key": "dispatch.tracking",
+   "module": "delivery",
+   "action": "view",
+   "label": "Delivery tracking"
+  },
+  {
+   "key": "tracking.fleet",
+   "module": "delivery",
+   "action": "view",
+   "label": "Live fleet map (demo GPS)"
+  },
+  {
+   "key": "deliveries.view",
+   "module": "delivery",
+   "action": "view",
+   "label": "Delivery details"
+  },
+  {
+   "key": "deliveryNotes.view",
+   "module": "delivery",
+   "action": "view",
+   "label": "Delivery notes"
+  },
+  {
+   "key": "driver.app",
+   "module": "delivery",
+   "action": "manage",
+   "label": "Driver app — run deliveries & confirm with OTP"
+  },
+  {
+   "key": "vms.view",
+   "module": "vms",
+   "action": "view",
+   "label": "VMS dashboard, register & expiry"
+  },
+  {
+   "key": "vms.documents.upload",
+   "module": "vms",
+   "action": "create",
+   "label": "Upload vehicle & driver documents"
+  },
+  {
+   "key": "vms.manage",
+   "module": "vms",
+   "action": "manage",
+   "label": "Manage vehicle register"
+  },
+  {
+   "key": "vms.settings",
+   "module": "vms",
+   "action": "manage",
+   "label": "Compliance rules"
+  },
+  {
+   "key": "documents.view",
+   "module": "documents",
+   "action": "view",
+   "label": "Document repository"
+  },
+  {
+   "key": "documents.upload",
+   "module": "documents",
+   "action": "create",
+   "label": "Upload documents"
+  },
+  {
+   "key": "documents.review",
+   "module": "documents",
+   "action": "approve",
+   "label": "Run OCR review & verify documents"
+  },
+  {
+   "key": "documents.reject",
+   "module": "documents",
+   "action": "reject",
+   "label": "Reject documents"
+  },
+  {
+   "key": "documents.types",
+   "module": "documents",
+   "action": "manage",
+   "label": "Document types & OCR fields"
+  },
+  {
+   "key": "documents.reports",
+   "module": "documents",
+   "action": "export",
+   "label": "Document reports"
+  },
+  {
+   "key": "invoices.view",
+   "module": "invoices",
+   "action": "view",
+   "label": "Invoices"
+  },
+  {
+   "key": "invoices.manage",
+   "module": "invoices",
+   "action": "create",
+   "label": "Generate & cancel invoices"
+  },
+  {
+   "key": "invoices.reports",
+   "module": "invoices",
+   "action": "export",
+   "label": "Invoice reports"
+  },
+  {
+   "key": "invoices.templates",
+   "module": "invoices",
+   "action": "manage",
+   "label": "Invoice templates & numbering"
+  },
+  {
+   "key": "communication.view",
+   "module": "email",
+   "action": "view",
+   "label": "Communication center, sent & history"
+  },
+  {
+   "key": "communication.inbox",
+   "module": "email",
+   "action": "view",
+   "label": "Email inbox"
+  },
+  {
+   "key": "communication.send",
+   "module": "email",
+   "action": "create",
+   "label": "Compose & send email"
+  },
+  {
+   "key": "communication.templates",
+   "module": "email",
+   "action": "manage",
+   "label": "Email & WhatsApp templates"
+  },
+  {
+   "key": "communication.settings",
+   "module": "email",
+   "action": "manage",
+   "label": "SMTP / IMAP & OpenWA settings"
+  },
+  {
+   "key": "communication.automation",
+   "module": "email",
+   "action": "manage",
+   "label": "Automated notification rules"
+  },
+  {
+   "key": "communication.calls",
+   "module": "email",
+   "action": "view",
+   "label": "Call history"
+  },
+  {
+   "key": "whatsapp.view",
+   "module": "whatsapp",
+   "action": "view",
+   "label": "WhatsApp home & history"
+  },
+  {
+   "key": "whatsapp.send",
+   "module": "whatsapp",
+   "action": "create",
+   "label": "Compose & send WhatsApp"
+  },
+  {
+   "key": "ai.assistant.view",
+   "module": "ai",
+   "action": "view",
+   "label": "AI overview & assistant"
+  },
+  {
+   "key": "ai.insights.view",
+   "module": "ai",
+   "action": "view",
+   "label": "AI insights"
+  },
+  {
+   "key": "jarvis.view",
+   "module": "ai",
+   "action": "view",
+   "label": "Jarvis"
+  },
+  {
+   "key": "forecasting.view",
+   "module": "ai",
+   "action": "view",
+   "label": "Forecasting"
+  },
+  {
+   "key": "ai.assistant.use",
+   "module": "ai",
+   "action": "create",
+   "label": "Ask the AI assistant"
+  },
+  {
+   "key": "jarvis.use",
+   "module": "ai",
+   "action": "create",
+   "label": "Use Jarvis commands"
+  },
+  {
+   "key": "forecasting.generate",
+   "module": "ai",
+   "action": "create",
+   "label": "Generate forecasts"
+  },
+  {
+   "key": "ai.insights.manage",
+   "module": "ai",
+   "action": "edit",
+   "label": "Acknowledge & resolve insights"
+  },
+  {
+   "key": "forecasting.export",
+   "module": "ai",
+   "action": "export",
+   "label": "Export & print forecasts"
+  },
+  {
+   "key": "ai.settings.manage",
+   "module": "ai",
+   "action": "manage",
+   "label": "AI provider settings"
+  },
+  {
+   "key": "ai.models.manage",
+   "module": "ai",
+   "action": "manage",
+   "label": "Model management"
+  },
+  {
+   "key": "orders.reports",
+   "module": "reports",
+   "action": "view",
+   "label": "Order reports"
+  },
+  {
+   "key": "dispatch.reports",
+   "module": "reports",
+   "action": "view",
+   "label": "Delivery reports"
+  },
+  {
+   "key": "reports.inventory",
+   "module": "reports",
+   "action": "view",
+   "label": "Inventory reports"
+  },
+  {
+   "key": "reports.center",
+   "module": "reports",
+   "action": "view",
+   "label": "Reports center (each report also needs its module permission)"
+  },
+  {
+   "key": "data.export",
+   "module": "reports",
+   "action": "export",
+   "label": "Export CSV files"
+  },
+  {
+   "key": "finance.view",
+   "module": "finance",
+   "action": "view",
+   "label": "Finance overview (outstanding & collections)"
+  },
+  {
+   "key": "settings.view",
+   "module": "settings",
+   "action": "view",
+   "label": "Application settings (read-only)"
+  },
+  {
+   "key": "organization.view",
+   "module": "settings",
+   "action": "view",
+   "label": "Organization master"
+  },
+  {
+   "key": "users.view",
+   "module": "settings",
+   "action": "view",
+   "label": "Users"
+  },
+  {
+   "key": "roles.view",
+   "module": "settings",
+   "action": "view",
+   "label": "Roles & permission matrix"
+  },
+  {
+   "key": "audit.view",
+   "module": "settings",
+   "action": "view",
+   "label": "Audit log"
+  },
+  {
+   "key": "users.create",
+   "module": "settings",
+   "action": "create",
+   "label": "Create users"
+  },
+  {
+   "key": "roles.create",
+   "module": "settings",
+   "action": "create",
+   "label": "Create & duplicate roles"
+  },
+  {
+   "key": "users.edit",
+   "module": "settings",
+   "action": "edit",
+   "label": "Edit users"
+  },
+  {
+   "key": "roles.edit",
+   "module": "settings",
+   "action": "edit",
+   "label": "Edit roles & permissions"
+  },
+  {
+   "key": "users.delete",
+   "module": "settings",
+   "action": "delete",
+   "label": "Delete users"
+  },
+  {
+   "key": "roles.delete",
+   "module": "settings",
+   "action": "delete",
+   "label": "Delete custom roles"
+  },
+  {
+   "key": "data.import",
+   "module": "settings",
+   "action": "import",
+   "label": "Import a backup"
+  },
+  {
+   "key": "users.manage",
+   "module": "settings",
+   "action": "manage",
+   "label": "Activate / deactivate users, reset demo passwords, assign roles & hubs"
+  },
+  {
+   "key": "settings.manage",
+   "module": "settings",
+   "action": "manage",
+   "label": "Change application settings"
+  },
+  {
+   "key": "organization.manage",
+   "module": "settings",
+   "action": "manage",
+   "label": "Edit organization master"
+  }
+ ],
+ "landing": [
+  {
+   "value": "/dashboard",
+   "label": "Dashboard"
+  },
+  {
+   "value": "/driver/dashboard",
+   "label": "Driver app — Today"
+  },
+  {
+   "value": "/orders",
+   "label": "Order list"
+  },
+  {
+   "value": "/orders/approval",
+   "label": "Order approval"
+  },
+  {
+   "value": "/dispatch",
+   "label": "Dispatch dashboard"
+  },
+  {
+   "value": "/inventory",
+   "label": "Inventory dashboard"
+  },
+  {
+   "value": "/notifications",
+   "label": "Notification center"
+  },
+  {
+   "value": "/customer/dashboard",
+   "label": "Customer app — Home"
+  },
+  {
+   "value": "/reports/center",
+   "label": "Reports center"
+  }
+ ],
+ "scopes": [
+  {
+   "id": "ADMIN",
+   "label": "All records",
+   "description": "Every record in every module the role can open."
+  },
+  {
+   "id": "SALES_MANAGER",
+   "label": "Submitted & approved orders",
+   "description": "All non-draft orders; customer and order documents."
+  },
+  {
+   "id": "SALESMAN",
+   "label": "Own records",
+   "description": "Only own orders, own customers’ documents and deliveries."
+  },
+  {
+   "id": "CUSTOMER_SERVICE",
+   "label": "Post-approval orders",
+   "description": "Orders from approval onwards; all documents."
+  },
+  {
+   "id": "FINANCE",
+   "label": "Finance view",
+   "description": "All non-draft orders; invoices, customers and vendor documents."
+  },
+  {
+   "id": "DISPATCHER",
+   "label": "Dispatch & warehouse",
+   "description": "Orders from consolidation onwards; fleet and hub documents."
+  },
+  {
+   "id": "DRIVER",
+   "label": "Own deliveries",
+   "description": "Only own dispatches, deliveries and documents (driver app)."
+  },
+  {
+   "id": "CUSTOMER",
+   "label": "Linked customer",
+   "description": "Read-only portal view of one customer’s orders, deliveries and invoices."
+  },
+  {
+   "id": "SUPPLIER",
+   "label": "Linked supplier",
+   "description": "Read-only portal view of one supplier’s approved replenishment."
+  }
+ ],
+ "orderStatus": {
+  "DRAFT": {
+   "label": "Draft",
+   "tone": "neutral",
+   "step": 1
+  },
+  "SUBMITTED": {
+   "label": "Submitted",
+   "tone": "warning",
+   "step": 2
+  },
+  "RETURNED": {
+   "label": "Returned for correction",
+   "tone": "warning",
+   "step": 2
+  },
+  "REJECTED": {
+   "label": "Rejected",
+   "tone": "danger",
+   "step": 0
+  },
+  "APPROVED": {
+   "label": "Approved",
+   "tone": "info",
+   "step": 3
+  },
+  "CONSOLIDATED": {
+   "label": "Consolidated",
+   "tone": "brand",
+   "step": 4
+  },
+  "READY_FOR_DISPATCH": {
+   "label": "Ready for dispatch",
+   "tone": "accent",
+   "step": 5
+  },
+  "DISPATCHED": {
+   "label": "Dispatched",
+   "tone": "brand",
+   "step": 6
+  },
+  "OUT_FOR_DELIVERY": {
+   "label": "Out for delivery",
+   "tone": "accent",
+   "step": 7
+  },
+  "PARTIALLY_DELIVERED": {
+   "label": "Partially delivered",
+   "tone": "warning",
+   "step": 8
+  },
+  "DELIVERED": {
+   "label": "Delivered",
+   "tone": "success",
+   "step": 8
+  },
+  "DELIVERY_FAILED": {
+   "label": "Delivery failed",
+   "tone": "danger",
+   "step": 7
+  },
+  "RETURNED_TO_HUB": {
+   "label": "Returned to hub",
+   "tone": "neutral",
+   "step": 7
+  }
+ },
+ "storageKeys": {
+  "APP_VERSION": "bellomassi_app_version",
+  "DEMO_USERS": "bellomassi_demo_users",
+  "SESSION": "bellomassi_session",
+  "SETTINGS": "bellomassi_settings",
+  "DEMO_DATA": "bellomassi_demo_data",
+  "ACTIVITIES": "bellomassi_activities",
+  "THEME": "bellomassi_theme",
+  "NOTIFICATIONS": "bellomassi_notifications",
+  "CUSTOMERS": "bellomassi_customers",
+  "PRODUCTS": "bellomassi_products",
+  "HUBS": "bellomassi_hubs",
+  "INVENTORY": "bellomassi_inventory",
+  "STOCK_RECEIPTS": "bellomassi_stock_receipts",
+  "STOCK_TRANSFERS": "bellomassi_stock_transfers",
+  "STOCK_ADJUSTMENTS": "bellomassi_stock_adjustments",
+  "STOCK_MOVEMENTS": "bellomassi_stock_movements",
+  "ORDERS": "bellomassi_orders",
+  "ORDER_SEQUENCE": "bellomassi_order_sequence",
+  "APPROVALS": "bellomassi_approvals",
+  "CONSOLIDATIONS": "bellomassi_consolidations",
+  "ORDER_TIMELINE": "bellomassi_order_timeline",
+  "DISPATCHES": "bellomassi_dispatches",
+  "DISPATCH_SEQUENCE": "bellomassi_dispatch_sequence",
+  "DRIVERS": "bellomassi_drivers",
+  "VEHICLES": "bellomassi_vehicles",
+  "DISPATCH_ZONES": "bellomassi_dispatch_zones",
+  "DELIVERIES": "bellomassi_deliveries",
+  "DELIVERY_SEQUENCE": "bellomassi_delivery_sequence",
+  "DELIVERY_OTPS": "bellomassi_delivery_otps",
+  "DELIVERY_NOTES": "bellomassi_delivery_notes",
+  "DISPATCH_TIMELINE": "bellomassi_dispatch_timeline",
+  "VMS_SETTINGS": "bellomassi_vms_settings",
+  "DOCUMENT_TYPES": "bellomassi_document_types",
+  "DOCUMENTS": "bellomassi_documents",
+  "OCR_RESULTS": "bellomassi_ocr_results",
+  "INVOICE_TEMPLATES": "bellomassi_invoice_templates",
+  "INVOICES": "bellomassi_invoices",
+  "INVOICE_SETTINGS": "bellomassi_invoice_settings",
+  "EMAIL_TEMPLATES": "bellomassi_email_templates",
+  "EMAIL_DRAFTS": "bellomassi_email_drafts",
+  "EMAIL_HISTORY": "bellomassi_email_history",
+  "EMAIL_INBOX": "bellomassi_email_inbox",
+  "EMAIL_SETTINGS": "bellomassi_email_settings",
+  "WHATSAPP_TEMPLATES": "bellomassi_whatsapp_templates",
+  "WHATSAPP_MESSAGES": "bellomassi_whatsapp_messages",
+  "OPENWA_SETTINGS": "bellomassi_openwa_settings",
+  "COMMUNICATION_SETTINGS": "bellomassi_communication_settings",
+  "NOTIFICATION_TEMPLATES": "bellomassi_notification_templates",
+  "NOTIFICATION_HISTORY": "bellomassi_notification_history",
+  "AI_SETTINGS": "bellomassi_ai_settings",
+  "AI_CONVERSATIONS": "bellomassi_ai_conversations",
+  "AI_MESSAGES": "bellomassi_ai_messages",
+  "AI_INSIGHTS": "bellomassi_ai_insights",
+  "AI_ACTIVITY": "bellomassi_ai_activity",
+  "JARVIS_SETTINGS": "bellomassi_jarvis_settings",
+  "JARVIS_HISTORY": "bellomassi_jarvis_history",
+  "FORECASTS": "bellomassi_forecasts",
+  "FORECAST_SETTINGS": "bellomassi_forecast_settings",
+  "INVENTORY_PREDICTIONS": "bellomassi_inventory_predictions",
+  "REORDER_RECOMMENDATIONS": "bellomassi_reorder_recommendations",
+  "AI_MODELS": "bellomassi_ai_models",
+  "REPLENISHMENT_DRAFTS": "bellomassi_replenishment_drafts",
+  "SALES_HISTORY": "bellomassi_sales_history",
+  "ROLES": "bellomassi_roles",
+  "PERMISSIONS": "bellomassi_permissions",
+  "COMPANY": "bellomassi_company",
+  "ORGANIZATION": "bellomassi_organization",
+  "AUDIT_LOGS": "bellomassi_audit_logs",
+  "NOTIFICATION_PREFS": "bellomassi_notification_preferences",
+  "AUTH": "bellomassi_auth",
+  "SCRAP_REQUESTS": "bellomassi_scrap_requests",
+  "CALL_HISTORY": "bellomassi_call_history",
+  "DRIVER_TRACKING": "bellomassi_driver_tracking",
+  "DELIVERY_POD": "bellomassi_delivery_pod",
+  "CUSTOMER_CARTS": "bellomassi_customer_carts",
+  "REPORT_PREFS": "bellomassi_report_prefs"
+ },
+ "dispatchStatus": {
+  "DRAFT": {
+   "label": "Draft",
+   "tone": "neutral",
+   "step": 0
+  },
+  "PLANNED": {
+   "label": "Planned",
+   "tone": "info",
+   "step": 1
+  },
+  "ASSIGNED": {
+   "label": "Assigned",
+   "tone": "brand",
+   "step": 2
+  },
+  "CONFIRMED": {
+   "label": "Confirmed",
+   "tone": "accent",
+   "step": 3
+  },
+  "IN_TRANSIT": {
+   "label": "In transit",
+   "tone": "warning",
+   "step": 4
+  },
+  "PARTIALLY_DELIVERED": {
+   "label": "Closed with exceptions",
+   "tone": "danger",
+   "step": 5
+  },
+  "COMPLETED": {
+   "label": "Completed",
+   "tone": "success",
+   "step": 5
+  },
+  "CANCELLED": {
+   "label": "Cancelled",
+   "tone": "neutral",
+   "step": -1
+  }
+ },
+ "deliveryStatus": {
+  "DISPATCHED": {
+   "label": "Dispatched",
+   "tone": "info"
+  },
+  "OUT_FOR_DELIVERY": {
+   "label": "Out for delivery",
+   "tone": "accent"
+  },
+  "DELIVERED": {
+   "label": "Delivered",
+   "tone": "success"
+  },
+  "PARTIALLY_DELIVERED": {
+   "label": "Partially delivered",
+   "tone": "warning"
+  },
+  "FAILED": {
+   "label": "Delivery failed",
+   "tone": "danger"
+  },
+  "RETURNED": {
+   "label": "Returned to hub",
+   "tone": "neutral"
+  },
+  "CANCELLED": {
+   "label": "Cancelled",
+   "tone": "neutral"
+  }
+ },
+ "failure": [
+  "Customer Not Available",
+  "Customer Refused",
+  "Customer Requested Reschedule",
+  "Incorrect Address",
+  "Damaged Goods",
+  "Partial Delivery",
+  "Other"
+ ]
+}

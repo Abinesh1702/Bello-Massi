@@ -1,0 +1,11 @@
+flowchart LR
+    APP[React Native Drivers App] -->|HTTPS| API[Delivery API]
+    APP -->|GPS every 10-15 s while active| TRK[Tracking API]
+    TRK --> RD[(Redis channel layer)]
+    TRK --> PG[(location_points)]
+    RD --> WSA[Admin map - all vehicles]
+    RD --> WSC[Customer map - own order only]
+    API --> OTP[OTP service - hashed, rate limited]
+    OTP --> MSG[SMS / WhatsApp]
+    API --> POD[(Object storage - photo, signature)]
+    API --> DN[Delivery note PDF worker] --> MSG

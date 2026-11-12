@@ -1,0 +1,42 @@
+flowchart TB
+    subgraph Clients
+        WEB[React web app · office + admin + customer]
+        DRV[React Native Drivers App]
+    end
+    subgraph Edge
+        LB[Load balancer / Nginx · TLS termination, WAF]
+    end
+    subgraph App[Application tier - containers]
+        API[Django REST API · auth, RBAC, workflows]
+        WS[Django Channels · WebSocket tracking + live monitor]
+        WK[Celery workers · messaging, OCR, reports, expiry scans]
+        BEAT[Celery beat · schedules]
+    end
+    subgraph Data
+        PG[(PostgreSQL 16)]
+        RD[(Redis · cache, broker, channel layer)]
+        OBJ[(Object storage · POD, documents, invoices)]
+    end
+    subgraph External
+        GM[Google Maps / Routes API]
+        SMS[SMS / WhatsApp provider]
+        MAIL[Email provider]
+        OCRE[OCR engine]
+        SAP[SAP ERP - stage 2]
+    end
+    WEB --> LB
+    DRV --> LB
+    LB --> API
+    LB --> WS
+    API --> PG
+    API --> RD
+    API --> OBJ
+    WS --> RD
+    WK --> PG
+    WK --> OBJ
+    WK --> SMS
+    WK --> MAIL
+    WK --> OCRE
+    API --> GM
+    WK --> SAP
+    BEAT --> WK

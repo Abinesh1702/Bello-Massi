@@ -1,0 +1,11 @@
+flowchart TD
+    A[Sign in - Salesman dashboard] --> B{Returned orders?}
+    B -->|Yes| C[Open returned order - fix highlighted section] --> D[Resubmit]
+    B -->|No| E[New order from call / email / WhatsApp]
+    E --> F[Customer, hub, dates, address, lines]
+    F --> G{Save draft or submit?}
+    G -->|Draft| H[DRAFT]
+    G -->|Submit| I[SUBMITTED - Sales Manager notified]
+    D --> I
+    I --> J[Log call and follow-up]
+    J --> K[Track status and notifications]

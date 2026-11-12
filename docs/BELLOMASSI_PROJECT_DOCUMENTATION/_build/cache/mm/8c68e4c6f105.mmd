@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor SE as Sales Executive
+    participant OS as orderService
+    actor SM as Sales Manager
+    participant AS as approvalService
+    actor CS as Customer Service
+    SE->>OS: submitOrder()
+    OS-->>SM: Notification "New order for approval" (+ warning flags)
+    SM->>AS: getApprovalChecks()
+    alt Approve
+        SM->>AS: approveOrder(remarks, acknowledgeWarnings)
+        AS-->>CS: "Order awaiting consolidation"
+        AS-->>SE: "Order approved"
+    else Return
+        SM->>AS: returnOrderForCorrection(reason, remarks)
+        AS-->>SE: "Order returned for correction" + edit link
+        SE->>OS: resubmitOrder()
+    else Reject
+        SM->>AS: rejectOrder(reason, remarks)
+        AS-->>SE: "Order rejected"
+    end

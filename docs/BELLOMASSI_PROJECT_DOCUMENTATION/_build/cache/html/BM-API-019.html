@@ -1,0 +1,357 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Integration Specification (External Systems)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Integration Specification (External Systems)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-API-019</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>API and Integration</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Solution Architect</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Specify each external integration — purpose, direction, data, protocol, error handling — and its current status.</p>
+<h2 id="scope">Scope</h2>
+<p>Maps and routing, SMS / WhatsApp, email, OCR, push notifications, SAP, AI providers.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>docs/INTEGRATION_GATEWAY.md</li>
+<li>Driver App GPS Implementation Guide §6, §10, §12</li>
+<li><strong>BM-API-001</strong> (API Specification (Overview and Conventions))</li>
+<li><strong>BM-ARC-001</strong> (High-Level Design (HLD))</li>
+<li><strong>BM-SEC-009</strong> (File Upload, OCR, OTP, Email and OpenWA Security)</li>
+<li><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</li>
+</ul>
+<h2 id="1-integration-overview">1. Integration overview</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>Integration</th>
+<th>Purpose</th>
+<th>Direction</th>
+<th>Prototype</th>
+<th>Production proposal</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Google Maps Platform (JS, Geocoding)</td>
+<td>Maps, customer geocoding</td>
+<td>Outbound</td>
+<td>Static demo map</td>
+<td>Maps JS in web / RN apps; geocode customer locations</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="even">
+<td>Google Routes API</td>
+<td>Route order, ETA with traffic, VIP time warnings</td>
+<td>Outbound</td>
+<td>Sequence by priority + pincode</td>
+<td>Optimise waypoints per dispatch; ETA per stop</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="odd">
+<td>SMS provider</td>
+<td>OTP, delivery note link</td>
+<td>Outbound + delivery webhook</td>
+<td>OTP shown in app</td>
+<td>Transactional SMS with sender ID</td>
+<td>PROPOSED / PENDING CONFIRMATION</td>
+</tr>
+<tr class="even">
+<td>WhatsApp</td>
+<td>OTP, delivery note, notifications</td>
+<td>Outbound + webhook</td>
+<td>Mock OpenWA session</td>
+<td>WhatsApp Business Platform (official) recommended; OpenWA only if client accepts the risk</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>Email</td>
+<td>Notifications, invoices, documents</td>
+<td>Outbound (+ inbound IMAP optional)</td>
+<td>Demo mode (SENT_<wbr>DEMO)</td>
+<td>Transactional provider or SMTP relay with SPF / DKIM / DMARC</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="even">
+<td>OCR</td>
+<td>Extract fields from licences, RC, insurance</td>
+<td>Outbound</td>
+<td>MOCK provider</td>
+<td>Server OCR (Tesseract / cloud OCR) via worker</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="odd">
+<td>Push (FCM / APNs)</td>
+<td>Driver and customer push</td>
+<td>Outbound</td>
+<td>None</td>
+<td>Firebase Cloud Messaging / APNs</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="even">
+<td>SAP</td>
+<td>Items, stock, customers, credit, sales orders, deliveries</td>
+<td>Bidirectional</td>
+<td>None</td>
+<td>Stage 2 — interface to be confirmed (OData, RFC/BAPI or IDoc)</td>
+<td>PROPOSED</td>
+</tr>
+<tr class="odd">
+<td>AI providers</td>
+<td>Assistant answers</td>
+<td>Outbound</td>
+<td>DEMO engine</td>
+<td>Optional; only with data-protection approval</td>
+<td>NOT VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-common-integration-design--proposed">2. Common integration design — PROPOSED</h2>
+<ul>
+<li><strong>Outbox pattern</strong>: business transaction writes an outbox row; a Celery worker sends it; at-least-once with idempotent providers keys.</li>
+<li><strong>Retries</strong>: exponential back-off (1, 5, 15, 60 min), then dead-letter with alert.</li>
+<li><strong>Logging</strong>: request / response metadata (no secrets, masked phone numbers) in <code>messages</code> / integration log.</li>
+<li><strong>Secrets</strong>: provider keys in a secrets manager; never in the browser.</li>
+<li><strong>Sandbox</strong>: every adapter has a mock implementation (as in the prototype) used in tests and demo environments.</li>
+</ul>
+<h2 id="3-message-content-customer">3. Message content (customer)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Channel</th>
+<th>Template (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Driver arrives</td>
+<td>SMS / WhatsApp</td>
+<td>“Bellomassi: your delivery OTP for order {order_number} is {otp}. Valid {minutes} min. Share it only with the driver.”</td>
+</tr>
+<tr class="even">
+<td>Delivery confirmed</td>
+<td>SMS / WhatsApp / email</td>
+<td>“Delivered: {order_number}. Delivery note {note_number}: {short_link}”</td>
+</tr>
+<tr class="odd">
+<td>Delivery not completed</td>
+<td>SMS / WhatsApp</td>
+<td>“We could not deliver {order_number} ({reason}). Our team will contact you to reschedule.”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-sap-integration-stage-2--proposed-scope-to-confirm">4. SAP integration (stage 2) — PROPOSED, scope to confirm</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Object</th>
+<th>Direction</th>
+<th>Frequency</th>
+<th>Key mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Material (item) master</td>
+<td>SAP → Bellomassi</td>
+<td>Daily + on change</td>
+<td><code>products.<wbr>sap_<wbr>material_<wbr>no</code></td>
+</tr>
+<tr class="even">
+<td>Customer master and credit</td>
+<td>SAP → Bellomassi</td>
+<td>Daily + on change</td>
+<td><code>customers.<wbr>sap_<wbr>customer_<wbr>no</code></td>
+</tr>
+<tr class="odd">
+<td>Stock per plant / storage location</td>
+<td>SAP → Bellomassi</td>
+<td>Hourly</td>
+<td><code>hubs</code> ↔︎ plant mapping</td>
+</tr>
+<tr class="even">
+<td>Approved sales order</td>
+<td>Bellomassi → SAP</td>
+<td>Real time</td>
+<td><code>orders.<wbr>order_<wbr>number</code> ↔︎ SAP order</td>
+</tr>
+<tr class="odd">
+<td>Delivery / goods issue</td>
+<td>Bellomassi → SAP</td>
+<td>On dispatch confirmation</td>
+<td><code>dispatches</code> ↔︎ outbound delivery</td>
+</tr>
+<tr class="even">
+<td>Proof of delivery</td>
+<td>Bellomassi → SAP</td>
+<td>On completion</td>
+<td>Delivery note number</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-existing-gateway-contract-prototype--not-verified">5. Existing gateway contract (prototype) — NOT VERIFIED</h2>
+<p>The prototype defines HTTP endpoints for a gateway (<code>/<wbr>email/<wbr>send</code>, <code>/<wbr>email/<wbr>imap/<wbr>messages</code>, <code>/<wbr>openwa/<wbr>sessions/:name/…</code>, <code>/<wbr>ocr/<wbr>process</code>, <code>/<wbr>ai/<wbr>chat</code>, <code>/<wbr>ml/<wbr>forecast</code>). They are documented in <code>docs/<wbr>INTEGRATION_<wbr>GATEWAY.<wbr>md</code> and can be reused as the internal interface of the integration workers; they have never run against a live gateway.</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

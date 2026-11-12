@@ -1,0 +1,27 @@
+flowchart TD
+    A(["/driver/login"]) --> B{Linked to a driver record?}
+    B -->|No| B1([No driver profile linked])
+    B -->|Yes| C[Today - next stop]
+    C --> E{Can this stop start?}
+    E -->|No| E1(["Blocked: dispatch not confirmed / future date / another stop active / not next in sequence"])
+    E -->|Yes| F[Start delivery]
+    F --> G[OUT_FOR_DELIVERY - dispatch IN_TRANSIT - DEMO GPS]
+    G --> I{Problem?}
+    I -->|Yes| FL[Report issue: reason + remarks]
+    FL --> FL2[FAILED - order DELIVERY_FAILED - Dispatcher reviews]
+    I -->|No| J[Reach location - OTP issued, simulated]
+    J --> L[Enter quantities, received by, optional signature and photo]
+    L --> O{OTP valid?}
+    O -->|Wrong| O1[Retry - max 5 attempts]
+    O1 --> O
+    O -->|Expired or locked| O2[Generate new OTP]
+    O2 --> O
+    O -->|Valid| P{Everything delivered?}
+    P -->|Yes| Q[DELIVERED]
+    P -->|No| R[PARTIALLY_DELIVERED]
+    Q --> S[Delivery note + POD saved, customer notified]
+    R --> S
+    S --> T{More stops?}
+    FL2 --> T
+    T -->|Yes| C
+    T -->|No| U([Dispatch COMPLETED or Closed with exceptions])

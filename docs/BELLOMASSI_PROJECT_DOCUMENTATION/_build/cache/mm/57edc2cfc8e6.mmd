@@ -1,0 +1,43 @@
+erDiagram
+    hubs ||--o{ users : "home_hub_id"
+    customers ||--o{ users : "customer_id"
+    roles ||--o{ role_permissions : "role_id"
+    permissions ||--o{ role_permissions : "permission_id"
+    users ||--o{ user_roles : "user_id"
+    roles ||--o{ user_roles : "role_id"
+    users {
+        bigserial id PK
+        varchar status
+        bigint home_hub_id FK
+        bigint customer_id FK
+        bigint driver_id FK
+        bigint supplier_id FK
+        bigint created_by_id FK
+    }
+    roles {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    permissions {
+        bigserial id PK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    role_permissions {
+        bigserial id PK
+        bigint role_id FK
+        bigint permission_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    user_roles {
+        bigserial id PK
+        bigint user_id FK
+        bigint role_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

@@ -1,0 +1,15 @@
+flowchart TB
+    U[Users - browsers and phones] --> CDN[CDN - web app static files]
+    U --> LB[Load balancer + WAF - HTTPS / WSS]
+    subgraph VPC[Private network]
+        LB --> N1[API container x2+]
+        LB --> N2[Channels container x2]
+        N1 --> PG[(Managed PostgreSQL - primary + standby)]
+        N1 --> RD[(Managed Redis)]
+        W1[Celery workers] --> PG
+        W1 --> RD
+        N2 --> RD
+        N1 --> S3[(Object storage)]
+    end
+    W1 --> EXT[External providers]
+    PG --> BK[(Backups + PITR, other region)]

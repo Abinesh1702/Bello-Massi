@@ -1,0 +1,402 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Security Requirements Document</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Security Requirements Document</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-SEC-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Security and Compliance</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Security Architect</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>State the security requirements for the production platform and the actual security status of the prototype.</p>
+<h2 id="scope">Scope</h2>
+<p>Authentication, authorisation, data protection, integrations, files, OTP, POD, logging, operations. Sensitive data — customer data, credit information, orders, delivery addresses, driver information, OTPs, POD, invoices, uploaded files, permissions, financial data.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>BM-SEC-002</strong> (Security Architecture)</li>
+<li><strong>BM-SEC-003</strong> (Authentication, Password, MFA and Session Management Design)</li>
+<li><strong>BM-SEC-004</strong> (Authorization and RBAC Design)</li>
+<li><strong>BM-SEC-006</strong> (Data Protection, Encryption and Backup Security Policy)</li>
+<li><strong>BM-SEC-009</strong> (File Upload, OCR, OTP, Email and OpenWA Security)</li>
+<li><strong>BM-SEC-011</strong> (Vulnerability Management and Security Testing Plan)</li>
+<li><strong>BM-SEC-012</strong> (Security Risk Register)</li>
+<li><strong>BM-SYS-004</strong> (Non-Functional Requirements)</li>
+</ul>
+<h2 id="1-current-security-status--prototype-verified">1. Current security status — prototype (VERIFIED)</h2>
+<blockquote>
+<p><strong>The prototype has no real security.</strong> Data lives unencrypted in the browser; demo passwords are published; the session and the permission checks run in the browser and can be bypassed with developer tools. It must not hold real customer or financial data.</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th>Control</th>
+<th>Prototype</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Authentication</td>
+<td>Demo users, FNV-1a hash in LocalStorage, lockout and idle timeout simulated</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>Authorisation</td>
+<td><code>can(user, key)</code> in services + route guards (client-side)</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="odd">
+<td>Data at rest</td>
+<td>Plain JSON in LocalStorage</td>
+<td>NOT IMPLEMENTED</td>
+</tr>
+<tr class="even">
+<td>Transport</td>
+<td>Depends on how the static build is served</td>
+<td>NOT VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>Audit</td>
+<td>Audit log of admin / security events (browser)</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="even">
+<td>File handling</td>
+<td>Images / documents as data URLs, size-limited</td>
+<td>PROTOTYPE</td>
+</tr>
+<tr class="odd">
+<td>OTP</td>
+<td>6-digit code stored in plain text, shown in customer app</td>
+<td>PROTOTYPE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-security-requirements--production-proposed">2. Security requirements — production (PROPOSED)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Requirement</th>
+<th>Area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SEC-REQ-01</td>
+<td>All traffic over TLS 1.2+ (HTTPS, WSS); HSTS</td>
+<td>Transport</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-02</td>
+<td>Passwords hashed with Argon2id; password policy (min 10, breached-password check)</td>
+<td>Authentication</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-03</td>
+<td>JWT access tokens ≤ 15 min, rotating refresh tokens, revocation on logout / password change</td>
+<td>Session</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-04</td>
+<td>MFA (TOTP) mandatory for Super Admin, Administrator, Finance</td>
+<td>Authentication</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-05</td>
+<td>Lockout after 5 failures (configurable), rate limiting per IP / account</td>
+<td>Authentication</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-06</td>
+<td>Server-side permission check on every endpoint using the 110 keys; object-level scope</td>
+<td>Authorisation</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-07</td>
+<td>Customers see only their own orders, tracking, documents; drivers only their deliveries</td>
+<td>Authorisation</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-08</td>
+<td>Encryption at rest for database, backups and object storage; field-level encryption for tax IDs and phone numbers optional</td>
+<td>Data</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-09</td>
+<td>OTP hashed, 10-minute expiry, 5 attempts, rate-limited regeneration, never returned to the driver</td>
+<td>OTP</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-10</td>
+<td>Uploaded files: type and size checks, virus scan, stored outside the web root, served by signed URLs</td>
+<td>Files</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-11</td>
+<td>Audit log append-only, includes user, action, before / after, IP; retained 7 years</td>
+<td>Audit</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-12</td>
+<td>Secrets in a secrets manager; none in source code or the browser</td>
+<td>Operations</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-13</td>
+<td>Dependency, SAST, container image scanning in CI; penetration test before go-live</td>
+<td>Assurance</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-14</td>
+<td>Location tracking only during active deliveries; visible indicator; customers never see fleet</td>
+<td>Privacy</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-15</td>
+<td>Webhooks signed and verified; outbound egress allow-list</td>
+<td>Integrations</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-16</td>
+<td>Backups encrypted, restore tested quarterly</td>
+<td>Resilience</td>
+</tr>
+<tr class="odd">
+<td>SEC-REQ-17</td>
+<td>Security logging and alerting (failed logins, privilege changes, mass export)</td>
+<td>Monitoring</td>
+</tr>
+<tr class="even">
+<td>SEC-REQ-18</td>
+<td>Personal data minimised in logs (mask phone, email)</td>
+<td>Privacy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-sensitive-data-classification">3. Sensitive data classification</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Classification</th>
+<th>Key controls</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Customer data (names, contacts, addresses, tax IDs)</td>
+<td>Confidential — personal / business</td>
+<td>Scope, encryption at rest, masking in logs</td>
+</tr>
+<tr class="even">
+<td>Credit information (limit, balance)</td>
+<td>Confidential — financial</td>
+<td>Limited to SM, Finance, Admin</td>
+</tr>
+<tr class="odd">
+<td>Orders and prices</td>
+<td>Confidential — commercial</td>
+<td>Scope by role</td>
+</tr>
+<tr class="even">
+<td>Delivery addresses and GPS</td>
+<td>Confidential — personal / location</td>
+<td>Retention 90 days for GPS points</td>
+</tr>
+<tr class="odd">
+<td>Driver information (licence, phone)</td>
+<td>Confidential — personal</td>
+<td>HR-level access</td>
+</tr>
+<tr class="even">
+<td>OTP</td>
+<td>Secret</td>
+<td>Hashed, short-lived</td>
+</tr>
+<tr class="odd">
+<td>POD (signature, photo)</td>
+<td>Confidential — personal</td>
+<td>Signed URLs, retention 2 years</td>
+</tr>
+<tr class="even">
+<td>Invoices</td>
+<td>Confidential — financial</td>
+<td>Finance scope</td>
+</tr>
+<tr class="odd">
+<td>Uploaded documents</td>
+<td>Confidential</td>
+<td>Virus scan, signed URLs</td>
+</tr>
+<tr class="even">
+<td>Permissions and audit</td>
+<td>Restricted</td>
+<td>Admin only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-package-contents">4. Package contents</h2>
+<p>Architecture <strong>BM-SEC-002</strong> (Security Architecture) · authentication and session <strong>BM-SEC-003</strong> (Authentication, Password, MFA and Session Management Design) · authorisation <strong>BM-SEC-004</strong> (Authorization and RBAC Design) · RBAC / access matrix <strong>BM-SEC-005</strong> (RBAC and Access Control Matrix) · data protection <strong>BM-SEC-006</strong> (Data Protection, Encryption and Backup Security Policy) · privacy draft <strong>BM-SEC-007</strong> (Privacy Policy (Draft)) · audit and monitoring <strong>BM-SEC-008</strong> (Audit Logging and Security Monitoring Policy) · channel security <strong>BM-SEC-009</strong> (File Upload, OCR, OTP, Email and OpenWA Security) · incident response <strong>BM-SEC-010</strong> (Security Incident Response Plan) · vulnerability management and testing <strong>BM-SEC-011</strong> (Vulnerability Management and Security Testing Plan) · risk register <strong>BM-SEC-012</strong> (Security Risk Register).</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

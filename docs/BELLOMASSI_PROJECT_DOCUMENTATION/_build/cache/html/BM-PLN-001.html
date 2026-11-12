@@ -1,0 +1,273 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Scope and Phase Plan</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Scope and Phase Plan</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-PLN-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Scope and Planning</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Project Manager</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Translate the scope into a phase plan with entry / exit criteria and indicative durations.</p>
+<h2 id="scope">Scope</h2>
+<p>Phase 1 (prototype, complete) to Phase 5 (enhancements). Durations and dates are estimates based on assumptions; no dates have been agreed with the client.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>BM-SOW-001</strong> (Scope of Work)</li>
+<li><strong>BM-PLN-002</strong> (Phase-wise Scope Matrix)</li>
+<li><strong>BM-PM-001</strong> (Project Plan)</li>
+<li><strong>BM-RMP-001</strong> (Prototype-to-Production Migration Roadmap (Master))</li>
+</ul>
+<h2 id="1-phases">1. Phases</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Objective</th>
+<th>Main scope</th>
+<th>Entry criteria</th>
+<th>Exit criteria</th>
+<th>Indicative duration (estimate)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Prototype</td>
+<td>Validate workflows</td>
+<td>React / LocalStorage prototype — <strong>complete</strong></td>
+<td>—</td>
+<td>Client demo; documentation review</td>
+<td>Done</td>
+</tr>
+<tr class="even">
+<td>2 Backend</td>
+<td>Production core</td>
+<td>Django API, PostgreSQL, auth / RBAC, SOW workflows server-side, web app integration</td>
+<td>Scope baseline signed; hosting decided</td>
+<td>API + web pass system tests in test env</td>
+<td>12–14 weeks</td>
+</tr>
+<tr class="odd">
+<td>3 Mobile and integrations</td>
+<td>Field and customer channels</td>
+<td>React Native Drivers App, GPS + WebSockets, Maps / Routes, SMS / WhatsApp, email</td>
+<td>Phase 2 API stable; provider accounts</td>
+<td>Pilot-ready build; integration tests pass</td>
+<td>10–12 weeks (overlaps phase 2 by ~4 weeks)</td>
+</tr>
+<tr class="even">
+<td>4 Production deployment</td>
+<td>Go-live</td>
+<td>Security hardening, performance tests, data migration, UAT, training, go-live, hypercare</td>
+<td>Phases 2–3 complete</td>
+<td>UAT signed; go-live checklist complete</td>
+<td>6–8 weeks</td>
+</tr>
+<tr class="odd">
+<td>5 Enhancements</td>
+<td>Stage 2</td>
+<td>SAP integration; confirmed extensions; analytics</td>
+<td>Go-live stable</td>
+<td>Per change request</td>
+<td>To be estimated</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-indicative-timeline--estimate-assumed-start-date-4-january-2027-not-agreed">2. Indicative timeline — ESTIMATE (assumed start date 4 January 2027, not agreed)</h2>
+<figure class="diagram"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDc4NCAzMTYiIHN0eWxlPSJtYXgtd2lkdGg6IDc4NHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHJvbGU9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiBhcmlhLXJvbGVkZXNjcmlwdGlvbj0iZ2FudHQiPjxzdHlsZT4jbXktc3Zne2ZvbnQtZmFtaWx5OkludGVyLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxNnB4O2ZpbGw6IzFCMjE0OTt9QGtleWZyYW1lcyBlZGdlLWFuaW1hdGlvbi1mcmFtZXtmcm9te3N0cm9rZS1kYXNob2Zmc2V0OjA7fX1Aa2V5ZnJhbWVzIGRhc2h7dG97c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLXNsb3d7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCA1MHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lZGdlLWFuaW1hdGlvbi1mYXN0e3N0cm9rZS1kYXNoYXJyYXk6OSw1IWltcG9ydGFudDtzdHJva2UtZGFzaG9mZnNldDo5MDA7YW5pbWF0aW9uOmRhc2ggMjBzIGxpbmVhciBpbmZpbml0ZTtzdHJva2UtbGluZWNhcDpyb3VuZDt9I215LXN2ZyAuZXJyb3ItaWNvbntmaWxsOiNGNkY3RkI7fSNteS1zdmcgLmVycm9yLXRleHR7ZmlsbDojMDkwODA0O3N0cm9rZTojMDkwODA0O30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1ub3JtYWx7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuZWRnZS10aGlja25lc3MtdGhpY2t7c3Ryb2tlLXdpZHRoOjMuNXB4O30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tc29saWR7c3Ryb2tlLWRhc2hhcnJheTowO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1pbnZpc2libGV7c3Ryb2tlLXdpZHRoOjA7ZmlsbDpub25lO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZGFzaGVke3N0cm9rZS1kYXNoYXJyYXk6Mzt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLWRvdHRlZHtzdHJva2UtZGFzaGFycmF5OjI7fSNteS1zdmcgLm1hcmtlcntmaWxsOiM0QTU2ODM7c3Ryb2tlOiM0QTU2ODM7fSNteS1zdmcgLm1hcmtlci5jcm9zc3tzdHJva2U6IzRBNTY4Mzt9I215LXN2ZyBzdmd7Zm9udC1mYW1pbHk6SW50ZXIsQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7fSNteS1zdmcgcHttYXJnaW46MDt9I215LXN2ZyAubWVybWFpZC1tYWluLWZvbnR7Zm9udC1mYW1pbHk6SW50ZXIsQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7fSNteS1zdmcgLmV4Y2x1ZGUtcmFuZ2V7ZmlsbDojZWVlZWVlO30jbXktc3ZnIC5zZWN0aW9ue3N0cm9rZTpub25lO29wYWNpdHk6MC4yO30jbXktc3ZnIC5zZWN0aW9uMHtmaWxsOiNGNkY3RkI7fSNteS1zdmcgLnNlY3Rpb24ye2ZpbGw6I0VFRjBGODt9I215LXN2ZyAuc2VjdGlvbjEsI215LXN2ZyAuc2VjdGlvbjN7ZmlsbDp3aGl0ZTtvcGFjaXR5OjAuMjt9I215LXN2ZyAuc2VjdGlvblRpdGxlMHtmaWxsOiMwOTA4MDQ7fSNteS1zdmcgLnNlY3Rpb25UaXRsZTF7ZmlsbDojMDkwODA0O30jbXktc3ZnIC5zZWN0aW9uVGl0bGUye2ZpbGw6IzA5MDgwNDt9I215LXN2ZyAuc2VjdGlvblRpdGxlM3tmaWxsOiMwOTA4MDQ7fSNteS1zdmcgLnNlY3Rpb25UaXRsZXt0ZXh0LWFuY2hvcjpzdGFydDtmb250LWZhbWlseTpJbnRlcixBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjt9I215LXN2ZyAuZ3JpZCAudGlja3tzdHJva2U6bGlnaHRncmV5O29wYWNpdHk6MC44O3NoYXBlLXJlbmRlcmluZzpjcmlzcEVkZ2VzO30jbXktc3ZnIC5ncmlkIC50aWNrIHRleHR7Zm9udC1mYW1pbHk6SW50ZXIsQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZmlsbDojMUIyMTQ5O30jbXktc3ZnIC5ncmlkIHBhdGh7c3Ryb2tlLXdpZHRoOjA7fSNteS1zdmcgLnRvZGF5e2ZpbGw6bm9uZTtzdHJva2U6cmVkO3N0cm9rZS13aWR0aDoycHg7fSNteS1zdmcgLnRhc2t7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLnRhc2tUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LWZhbWlseTpJbnRlcixBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlUmlnaHR7ZmlsbDojMUIyMTQ5O3RleHQtYW5jaG9yOnN0YXJ0O2ZvbnQtZmFtaWx5OkludGVyLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVMZWZ0e2ZpbGw6IzFCMjE0OTt0ZXh0LWFuY2hvcjplbmQ7fSNteS1zdmcgLnRhc2suY2xpY2thYmxle2N1cnNvcjpwb2ludGVyO30jbXktc3ZnIC50YXNrVGV4dC5jbGlja2FibGV7Y3Vyc29yOnBvaW50ZXI7ZmlsbDojMDAzMTYzIWltcG9ydGFudDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVMZWZ0LmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjtmaWxsOiMwMDMxNjMhaW1wb3J0YW50O2ZvbnQtd2VpZ2h0OmJvbGQ7fSNteS1zdmcgLnRhc2tUZXh0T3V0c2lkZVJpZ2h0LmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjtmaWxsOiMwMDMxNjMhaW1wb3J0YW50O2ZvbnQtd2VpZ2h0OmJvbGQ7fSNteS1zdmcgLnRhc2tUZXh0MCwjbXktc3ZnIC50YXNrVGV4dDEsI215LXN2ZyAudGFza1RleHQyLCNteS1zdmcgLnRhc2tUZXh0M3tmaWxsOiMxQjIxNDk7fSNteS1zdmcgLnRhc2swLCNteS1zdmcgLnRhc2sxLCNteS1zdmcgLnRhc2syLCNteS1zdmcgLnRhc2sze2ZpbGw6I0VFRjBGODtzdHJva2U6IzM0NDI3QTt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlMCwjbXktc3ZnIC50YXNrVGV4dE91dHNpZGUye2ZpbGw6IzFCMjE0OTt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlMSwjbXktc3ZnIC50YXNrVGV4dE91dHNpZGUze2ZpbGw6IzFCMjE0OTt9I215LXN2ZyAuYWN0aXZlMCwjbXktc3ZnIC5hY3RpdmUxLCNteS1zdmcgLmFjdGl2ZTIsI215LXN2ZyAuYWN0aXZlM3tmaWxsOmhzbCgyMjgsIDQxLjY2NjY2NjY2NjclLCAxMDAlKTtzdHJva2U6I0VFRjBGODt9I215LXN2ZyAuYWN0aXZlVGV4dDAsI215LXN2ZyAuYWN0aXZlVGV4dDEsI215LXN2ZyAuYWN0aXZlVGV4dDIsI215LXN2ZyAuYWN0aXZlVGV4dDN7ZmlsbDojMUIyMTQ5IWltcG9ydGFudDt9I215LXN2ZyAuZG9uZTAsI215LXN2ZyAuZG9uZTEsI215LXN2ZyAuZG9uZTIsI215LXN2ZyAuZG9uZTN7c3Ryb2tlOmdyZXk7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLmRvbmVUZXh0MCwjbXktc3ZnIC5kb25lVGV4dDEsI215LXN2ZyAuZG9uZVRleHQyLCNteS1zdmcgLmRvbmVUZXh0M3tmaWxsOiMxQjIxNDkhaW1wb3J0YW50O30jbXktc3ZnIC5kb25lVGV4dDAudGFza1RleHRPdXRzaWRlTGVmdCwjbXktc3ZnIC5kb25lVGV4dDAudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZVRleHQxLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZVRleHQxLnRhc2tUZXh0T3V0c2lkZVJpZ2h0LCNteS1zdmcgLmRvbmVUZXh0Mi50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVUZXh0Mi50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lVGV4dDMudGFza1RleHRPdXRzaWRlTGVmdCwjbXktc3ZnIC5kb25lVGV4dDMudGFza1RleHRPdXRzaWRlUmlnaHR7ZmlsbDojMUIyMTQ5IWltcG9ydGFudDt9I215LXN2ZyAuY3JpdDAsI215LXN2ZyAuY3JpdDEsI215LXN2ZyAuY3JpdDIsI215LXN2ZyAuY3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDpyZWQ7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLmFjdGl2ZUNyaXQwLCNteS1zdmcgLmFjdGl2ZUNyaXQxLCNteS1zdmcgLmFjdGl2ZUNyaXQyLCNteS1zdmcgLmFjdGl2ZUNyaXQze3N0cm9rZTojZmY4ODg4O2ZpbGw6aHNsKDIyOCwgNDEuNjY2NjY2NjY2NyUsIDEwMCUpO3N0cm9rZS13aWR0aDoyO30jbXktc3ZnIC5kb25lQ3JpdDAsI215LXN2ZyAuZG9uZUNyaXQxLCNteS1zdmcgLmRvbmVDcml0MiwjbXktc3ZnIC5kb25lQ3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7Y3Vyc29yOnBvaW50ZXI7c2hhcGUtcmVuZGVyaW5nOmNyaXNwRWRnZXM7fSNteS1zdmcgLm1pbGVzdG9uZXt0cmFuc2Zvcm06cm90YXRlKDQ1ZGVnKSBzY2FsZSgwLjgsMC44KTt9I215LXN2ZyAubWlsZXN0b25lVGV4dHtmb250LXN0eWxlOml0YWxpYzt9I215LXN2ZyAuZG9uZUNyaXRUZXh0MCwjbXktc3ZnIC5kb25lQ3JpdFRleHQxLCNteS1zdmcgLmRvbmVDcml0VGV4dDIsI215LXN2ZyAuZG9uZUNyaXRUZXh0M3tmaWxsOiMxQjIxNDkhaW1wb3J0YW50O30jbXktc3ZnIC5kb25lQ3JpdFRleHQwLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZUNyaXRUZXh0MC50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lQ3JpdFRleHQxLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZUNyaXRUZXh0MS50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lQ3JpdFRleHQyLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZUNyaXRUZXh0Mi50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lQ3JpdFRleHQzLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZUNyaXRUZXh0My50YXNrVGV4dE91dHNpZGVSaWdodHtmaWxsOiMxQjIxNDkhaW1wb3J0YW50O30jbXktc3ZnIC52ZXJ0e3N0cm9rZTpuYXZ5O30jbXktc3ZnIC52ZXJ0VGV4dHtmb250LXNpemU6MTVweDt0ZXh0LWFuY2hvcjptaWRkbGU7ZmlsbDpuYXZ5IWltcG9ydGFudDt9I215LXN2ZyAuYWN0aXZlQ3JpdFRleHQwLCNteS1zdmcgLmFjdGl2ZUNyaXRUZXh0MSwjbXktc3ZnIC5hY3RpdmVDcml0VGV4dDIsI215LXN2ZyAuYWN0aXZlQ3JpdFRleHQze2ZpbGw6IzFCMjE0OSFpbXBvcnRhbnQ7fSNteS1zdmcgLnRpdGxlVGV4dHt0ZXh0LWFuY2hvcjptaWRkbGU7Zm9udC1zaXplOjE4cHg7ZmlsbDojMDkwODA0O2ZvbnQtZmFtaWx5OkludGVyLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO30jbXktc3ZnIC5ub2RlIC5uZW8tbm9kZXtzdHJva2U6IzM0NDI3QTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5jbHVzdGVyIHJlY3QsI215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBvbHlnb257c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtmaWx0ZXI6ZHJvcC1zaGFkb3coIDFweCAycHggMnB4IHJnYmEoMTg1LDE4NSwxODUsMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLnN3aW1sYW5lLmNsdXN0ZXIgcmVjdHtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBhdGh7c3Ryb2tlOnVybCgjbXktc3ZnLWdyYWRpZW50KTtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIC5uZW8tbGluZSBwYXRoe3N0cm9rZTojMzQ0MjdBO2ZpbHRlcjpub25lO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xle3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZSAuc3RhdGUtc3RhcnR7ZmlsbDojMDAwMDAwO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb257ZmlsbDp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29uLW5lbyBwYXRoe3N0cm9rZTp1cmwoI215LXN2Zy1ncmFkaWVudCk7ZmlsdGVyOmRyb3Atc2hhZG93KCAxcHggMnB4IDJweCByZ2JhKDE4NSwxODUsMTg1LDEpKTt9I215LXN2ZyA6cm9vdHstLW1lcm1haWQtZm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO308L3N0eWxlPjxnLz48ZyBjbGFzcz0iZ3JpZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzUsIDI2NikiIGZpbGw9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj48cGF0aCBjbGFzcz0iZG9tYWluIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgZD0iTTAuNSwtMjMxVjAuNUg2MzQuNVYtMjMxIi8+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1LjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTAyLTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ5LjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTAzLTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMyLjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTA0LTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzEyLjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTA1LTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzk0LjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTA2LTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDc0LjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTA3LTAxPC90ZXh0PjwvZz48ZyBjbGFzcz0idGljayIgb3BhY2l0eT0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTU3LjUsMCkiPjxsaW5lIHN0cm9rZT0iY3VycmVudENvbG9yIiB5Mj0iLTIzMSIvPjx0ZXh0IGZpbGw9IiMwMDAiIHk9IjMiIGR5PSIxZW0iIHN0cm9rZT0ibm9uZSIgZm9udC1zaXplPSIxMCIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMDI3LTA4LTAxPC90ZXh0PjwvZz48L2c+PGc+PHJlY3QgeD0iMCIgeT0iNDgiIHdpZHRoPSI3NDYuNSIgaGVpZ2h0PSIyNCIgY2xhc3M9InNlY3Rpb24gc2VjdGlvbjAiLz48cmVjdCB4PSIwIiB5PSI3MiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjxyZWN0IHg9IjAiIHk9IjEyMCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9Ijk2IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24wIi8+PHJlY3QgeD0iMCIgeT0iMTQ0IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24xIi8+PHJlY3QgeD0iMCIgeT0iMTY4IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24yIi8+PHJlY3QgeD0iMCIgeT0iMTkyIiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24yIi8+PHJlY3QgeD0iMCIgeT0iMjE2IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24yIi8+PHJlY3QgeD0iMCIgeT0iMjQwIiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24zIi8+PC9nPjxnPjxyZWN0IGlkPSJteS1zdmctcDJhIiByeD0iMyIgcnk9IjMiIHg9Ijc1IiB5PSI1MCIgd2lkdGg9IjU2IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIxMDNweCA2MHB4IiBjbGFzcz0idGFzayB0YXNrMCIvPjxyZWN0IGlkPSJteS1zdmctcDJiIiByeD0iMyIgcnk9IjMiIHg9IjEzMSIgeT0iNzQiIHdpZHRoPSI5MyIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMTc3LjVweCA4NHB4IiBjbGFzcz0idGFzayB0YXNrMCIvPjxyZWN0IGlkPSJteS1zdmctcDNhIiByeD0iMyIgcnk9IjMiIHg9IjIwNiIgeT0iMTIyIiB3aWR0aD0iMTY3IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIyODkuNXB4IDEzMnB4IiBjbGFzcz0idGFzayB0YXNrMSIvPjxyZWN0IGlkPSJteS1zdmctcDJjIiByeD0iMyIgcnk9IjMiIHg9IjIyNCIgeT0iOTgiIHdpZHRoPSI5MyIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMjcwLjVweCAxMDhweCIgY2xhc3M9InRhc2sgdGFzazAiLz48cmVjdCBpZD0ibXktc3ZnLXAzYiIgcng9IjMiIHJ5PSIzIiB4PSIyNjEiIHk9IjE0NiIgd2lkdGg9IjExMiIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMzE3cHggMTU2cHgiIGNsYXNzPSJ0YXNrIHRhc2sxIi8+PHJlY3QgaWQ9Im15LXN2Zy1wNGEiIHJ4PSIzIiByeT0iMyIgeD0iMzczIiB5PSIxNzAiIHdpZHRoPSI1NiIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNDAxcHggMTgwcHgiIGNsYXNzPSJ0YXNrIHRhc2syIi8+PHJlY3QgaWQ9Im15LXN2Zy1wNGIiIHJ4PSIzIiByeT0iMyIgeD0iNDI5IiB5PSIxOTQiIHdpZHRoPSI1NiIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNDU3cHggMjA0cHgiIGNsYXNzPSJ0YXNrIHRhc2syIi8+PHJlY3QgaWQ9Im15LXN2Zy1wNGMiIHJ4PSIzIiByeT0iMyIgeD0iNDg1IiB5PSIyMTgiIHdpZHRoPSIzOCIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNTA0cHggMjI4cHgiIGNsYXNzPSJ0YXNrIHRhc2syIi8+PHJlY3QgaWQ9Im15LXN2Zy1wNSIgcng9IjMiIHJ5PSIzIiB4PSI1MjMiIHk9IjI0MiIgd2lkdGg9IjE4NiIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNjE2cHggMjUycHgiIGNsYXNzPSJ0YXNrIHRhc2szIi8+PHRleHQgaWQ9Im15LXN2Zy1wMmEtdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMTM2IiB5PSI2My41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMCAgd2lkdGgtOTAuOTg3NzkyOTY4NzUiPkRlc2lnbiBhbmQgc2V0dXAgICAgICAgICAgICA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy1wMmItdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMjI5IiB5PSI4Ny41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMCAgd2lkdGgtOTQuMDYyNSI+Q29yZSBBUEkgYW5kIGF1dGggICAgICAgICAgIDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLXAzYS10ZXh0IiBmb250LXNpemU9IjExIiB4PSIyODkuNSIgeT0iMTM1LjUiIGNsYXNzPSJ0YXNrVGV4dCB0YXNrVGV4dDEgIHdpZHRoLTEwMi4wNzgxMjUiPkRyaXZlciBhcHAgYW5kIEdQUyAgICAgICAgICA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy1wMmMtdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMzIyIiB5PSIxMTEuNSIgY2xhc3M9InRhc2tUZXh0T3V0c2lkZVJpZ2h0IHRhc2tUZXh0T3V0c2lkZTAgIHdpZHRoLTk2LjUyOTc4NTE1NjI1Ij5Xb3JrZmxvdyBzZXJ2aWNlcyAgICAgICAgICAgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctcDNiLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjM3OCIgeT0iMTU5LjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUxICB3aWR0aC0xMjUuMjM0Mzc1Ij5NZXNzYWdpbmcsIG1hcHMsIGVtYWlsICAgICAgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctcDRhLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjQzNCIgeT0iMTgzLjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUyICB3aWR0aC0xODguMDMxNzM4MjgxMjUiPlN5c3RlbSwgc2VjdXJpdHksIHBlcmZvcm1hbmNlIHRlc3RzIDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLXA0Yi10ZXh0IiBmb250LXNpemU9IjExIiB4PSI0OTAiIHk9IjIwNy41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMiAgd2lkdGgtMTQxLjYwOTM3NSI+TWlncmF0aW9uLCBVQVQgYW5kIHRyYWluaW5nIDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLXA0Yy10ZXh0IiBmb250LXNpemU9IjExIiB4PSI1MjgiIHk9IjIzMS41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMiAgd2lkdGgtMTE1Ljc1Ij5Hby1saXZlIGFuZCBoeXBlcmNhcmUgICAgICAgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctcDUtdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iNjE2IiB5PSIyNTUuNSIgY2xhc3M9InRhc2tUZXh0IHRhc2tUZXh0MyAgd2lkdGgtMTgyLjY4MjEyODkwNjI1Ij5TQVAgaW50ZWdyYXRpb24gYW5kIGVuaGFuY2VtZW50cyA8L3RleHQ+PC9nPjxnPjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSI4NiIgZm9udC1zaXplPSIxMSIgY2xhc3M9InNlY3Rpb25UaXRsZSBzZWN0aW9uVGl0bGUwIj48dHNwYW4gYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIiB4PSIxMCI+UGhhc2UgMiBCYWNrZW5kPC90c3Bhbj48L3RleHQ+PHRleHQgZHk9IjBlbSIgeD0iMTAiIHk9IjE0NiIgZm9udC1zaXplPSIxMSIgY2xhc3M9InNlY3Rpb25UaXRsZSBzZWN0aW9uVGl0bGUxIj48dHNwYW4gYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIiB4PSIxMCI+UGhhc2UgMyBNb2JpbGUgYW5kIGludGVncmF0aW9uczwvdHNwYW4+PC90ZXh0Pjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSIyMDYiIGZvbnQtc2l6ZT0iMTEiIGNsYXNzPSJzZWN0aW9uVGl0bGUgc2VjdGlvblRpdGxlMiI+PHRzcGFuIGFsaWdubWVudC1iYXNlbGluZT0iY2VudHJhbCIgeD0iMTAiPlBoYXNlIDQgRGVwbG95bWVudDwvdHNwYW4+PC90ZXh0Pjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSIyNTQiIGZvbnQtc2l6ZT0iMTEiIGNsYXNzPSJzZWN0aW9uVGl0bGUgc2VjdGlvblRpdGxlMyI+PHRzcGFuIGFsaWdubWVudC1iYXNlbGluZT0iY2VudHJhbCIgeD0iMTAiPlBoYXNlIDU8L3RzcGFuPjwvdGV4dD48L2c+PGcgY2xhc3M9InRvZGF5Ij48bGluZSB4MT0iLTY1IiB4Mj0iLTY1IiB5MT0iMjUiIHkyPSIyOTEiIGNsYXNzPSJ0b2RheSIvPjwvZz48dGV4dCB4PSIzOTIiIHk9IjI1IiBjbGFzcz0idGl0bGVUZXh0Ij5JbmRpY2F0aXZlIHBsYW4gLSBlc3RpbWF0ZSBvbmx5PC90ZXh0Pjwvc3ZnPg==" style="width:680px"></figure>
+
+<h2 id="3-decision-gates">3. Decision gates</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Gate</th>
+<th>Decision needed</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>G0</td>
+<td>Approve BRD and SOW scope (extensions X-01 … X-11)</td>
+<td>Client sponsor</td>
+</tr>
+<tr class="even">
+<td>G1</td>
+<td>Hosting, providers (maps, messaging, email)</td>
+<td>Client IT</td>
+</tr>
+<tr class="odd">
+<td>G2</td>
+<td>Pilot go / no-go after driver pilot</td>
+<td>Logistics owner</td>
+</tr>
+<tr class="even">
+<td>G3</td>
+<td>Go-live</td>
+<td>Steering committee</td>
+</tr>
+</tbody>
+</table>
+<p>Phase assignment of every requirement: <strong>BM-PLN-002</strong> (Phase-wise Scope Matrix).</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

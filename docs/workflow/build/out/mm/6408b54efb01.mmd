@@ -1,0 +1,24 @@
+flowchart TD
+    A[User signs in] --> B[Role dashboard]
+    B --> C{Choose period}
+    C --> D[Preset / custom range / specific period]
+    D --> E[KPIs, charts and queues recalculated on business dates]
+    E --> F{Compare on?}
+    F -->|Yes| G[Show change vs previous equivalent period]
+    F -->|No| H[Values only]
+    E --> I[Click KPI or queue row - module list pre-filtered]
+    B --> J["Reports Center /reports/center"]
+    J --> K[Categories visible by permission]
+    K --> L[Search / category / favourites / recently viewed / popular]
+    L --> M["Open report /reports/view/:id"]
+    M --> N{Report has source data?}
+    N -->|No| N1[No source data for this report - reason shown]
+    N -->|Yes| O[Rows built from LocalStorage within the user's data scope]
+    O --> P[Filters: date from / to, month, year, group by, column filters]
+    P --> Q[Table + chart]
+    Q --> R{Output}
+    R -->|Export CSV| S[CSV download]
+    R -->|Print| T[Print / PDF from browser]
+    M --> U[View recorded - recent and popular lists]
+    B --> AI["AI Assistant / Jarvis"]
+    AI --> AI2[Question - intent - permission-checked tool - KPIs / table / chart]

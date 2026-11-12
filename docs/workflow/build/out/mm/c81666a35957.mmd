@@ -1,0 +1,27 @@
+flowchart TD
+    X([Exception]) --> T{Type}
+    T -->|Validation| V1[Action refused, field messages shown, nothing saved] --> V2[User corrects and retries]
+    T -->|Permission| P1[Button hidden; route shows Unauthorized; service returns permission message]
+    T -->|Duplicate / repeated action| D1[Refused: already approved / consolidated / confirmed / delivered - No change was made]
+    T -->|Order credit or stock warning| W1[Sales Manager acknowledges warnings or returns / rejects]
+    W1 -->|Return| W2[RETURNED - salesman corrects, resubmits]
+    W1 -->|Reject| W3([REJECTED])
+    T -->|Resource not compliant| R1[Driver / vehicle blocked at assignment] --> R2[Choose another, renew document in VMS, or change rules]
+    T -->|Stock short at dispatch confirm| S1[Confirmation blocked per line] --> S2[Receive / transfer stock, or edit dispatch, or cancel]
+    T -->|Dispatch must be cancelled| C1[Cancel with reason + remarks] --> C2[Orders back to READY_FOR_DISPATCH; stock reversed once if confirmed]
+    T -->|Driver cannot start| DS1[Waiting for confirmation / future date / out of sequence / another stop active] --> DS2[Dispatcher confirms or resequences; driver waits]
+    T -->|OTP problem| O1{Wrong / expired / locked}
+    O1 -->|Wrong| O2[Retry - attempts counted]
+    O1 -->|Expired or locked| O3[New OTP generated - Reach location again / regenerate]
+    T -->|Customer short-accepts| PD1[PARTIALLY_DELIVERED + note] --> RV
+    T -->|Delivery fails| F1[Driver marks FAILED with reason] --> RV{Dispatcher review - remarks required}
+    RV -->|Close only| RV1[Reviewed - order stays DELIVERY_FAILED / PARTIALLY_DELIVERED]
+    RV -->|Return goods to hub| RV2[Delivery Return movement once; failed: delivery RETURNED, order RETURNED_TO_HUB]
+    RV -->|Return + re-queue - failed only| RV3[Order READY_FOR_DISPATCH - plan on a new dispatch]
+    T -->|Damaged / expired stock| SC1[Adjustment Damaged or scrap request] --> SC2[Approval - write-off]
+    T -->|Wrong invoice| I1[Cancel invoice with reason] --> I2[Issue a new invoice]
+    T -->|Document rejected or expired| DC1[Uploader replaces file - review restarts]
+    T -->|Message not sent| M1[Automation history SKIPPED / FAILED with note] --> M2[Fix rule, template or contact; resend manually]
+    T -->|Account locked / inactive| A1[Wait lockout minutes or Administrator unlocks / reactivates]
+    T -->|Browser storage problem| B1[In-memory fallback or corrupted key repaired to defaults; issues listed]
+    T -->|Unexpected UI error| E1[Error boundary page; unknown route shows Not Found]

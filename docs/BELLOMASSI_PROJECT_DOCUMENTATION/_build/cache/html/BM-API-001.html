@@ -1,0 +1,363 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>API Specification (Overview and Conventions)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>API Specification (Overview and Conventions)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-API-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>API and Integration</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Solution Architect</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Define the conventions of the proposed Bellomassi REST API and separate clearly what exists today (frontend services, mock behaviour) from what is planned.</p>
+<h2 id="scope">Scope</h2>
+<p>REST API v1 for web, driver and customer clients; WebSocket channels; webhooks. Everything in this folder except section 1 is PROPOSED.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>docs/INTEGRATION_GATEWAY.md — gateway contract for email, OpenWA, OCR, AI (exists as a contract only)</li>
+<li>Driver App GPS Implementation Guide §11 — example driver endpoints</li>
+<li>BM-API-018_openapi_proposed.yaml — OpenAPI 3.0 file (validated with openapi-spec-validator)</li>
+<li><strong>BM-API-002</strong> (API Endpoint Catalogue)</li>
+<li><strong>BM-API-019</strong> (Integration Specification (External Systems))</li>
+<li><strong>BM-ARC-001</strong> (High-Level Design (HLD))</li>
+<li><strong>BM-SEC-003</strong> (Authentication, Password, MFA and Session Management Design)</li>
+<li><strong>BM-DAT-002</strong> (Proposed Production Database Design)</li>
+</ul>
+<h2 id="1-what-exists-today">1. What exists today</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frontend functionality</td>
+<td>VERIFIED</td>
+<td>84 browser service modules implement every workflow (e.g. <code>orderService.<wbr>submitOrder</code>, <code>approvalService.<wbr>approveOrder</code>, <code>deliveryService.<wbr>confirmDelivery</code>).</td>
+</tr>
+<tr class="even">
+<td>Mock API behaviour</td>
+<td>PROTOTYPE</td>
+<td>Services return <code>{ ok, record, error, errors }</code> synchronously from LocalStorage; simulated providers for GPS, OTP, email, WhatsApp, OCR, AI.</td>
+</tr>
+<tr class="odd">
+<td>Integration gateway contract</td>
+<td>NOT VERIFIED</td>
+<td>Optional HTTP contract (<code>VITE_<wbr>INTEGRATION_<wbr>GATEWAY_<wbr>URL</code>) for email, OpenWA, OCR, AI and ML; no gateway is deployed.</td>
+</tr>
+<tr class="even">
+<td>REST API</td>
+<td>PROPOSED</td>
+<td>This specification — 140 endpoints in 15 domains (<strong>BM-API-002</strong> (API Endpoint Catalogue)).</td>
+</tr>
+<tr class="odd">
+<td>Production integrations</td>
+<td>PROPOSED</td>
+<td>Maps / Routes, SMS / WhatsApp, email, OCR, SAP (<strong>BM-API-019</strong> (Integration Specification (External Systems))).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-conventions">2. Conventions</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Base URL</td>
+<td><code>https://&lt;host&gt;/<wbr>api/<wbr>v1</code> (versioned in the path; breaking changes → v2)</td>
+</tr>
+<tr class="even">
+<td>Format</td>
+<td>JSON (UTF-8); <code>multipart/<wbr>form-data</code> for files; ISO-8601 dates; times UTC with offset; money as decimal strings</td>
+</tr>
+<tr class="odd">
+<td>Authentication</td>
+<td><code>Authorization: Bearer &lt;JWT access token&gt;</code> (15 min); refresh token rotation; MFA for privileged roles</td>
+</tr>
+<tr class="even">
+<td>Authorisation</td>
+<td>Permission key per endpoint (same 110 keys as the prototype) + object-level data scope</td>
+</tr>
+<tr class="odd">
+<td>Pagination</td>
+<td><code>?page=1&amp;page_<wbr>size=25</code> → <code>{count, next, previous, results[]}</code> (max page size 200)</td>
+</tr>
+<tr class="even">
+<td>Filtering / sorting</td>
+<td>Query parameters (<code>status</code>, <code>from</code>, <code>to</code>, <code>search</code>, <code>ordering=-created_<wbr>at</code>)</td>
+</tr>
+<tr class="odd">
+<td>Idempotency</td>
+<td><code>Idempotency-Key</code> header required on submit, approve, confirm, complete, write-off; repeated keys return the first result</td>
+</tr>
+<tr class="even">
+<td>Concurrency</td>
+<td><code>version</code> field (optimistic locking) on orders, dispatches, stock; <code>409 Conflict</code> on mismatch</td>
+</tr>
+<tr class="odd">
+<td>Errors</td>
+<td><code>{ "code": "ORDER_<wbr>NOT_<wbr>EDITABLE", "message": "…", "errors": { "field": "message" } }</code></td>
+</tr>
+<tr class="even">
+<td>Status codes</td>
+<td>200 / 201 / 202 / 204; 400 validation; 401 unauthenticated; 403 forbidden; 404 not found or out of scope; 409 state conflict; 413 / 415 file; 422 business rule; 429 rate limit; 503 provider unavailable</td>
+</tr>
+<tr class="odd">
+<td>Rate limiting</td>
+<td>Per user and per IP; stricter on auth, OTP and password endpoints</td>
+</tr>
+<tr class="even">
+<td>Real-time</td>
+<td>WebSocket <code>wss://&lt;host&gt;/<wbr>ws/</code> channels: <code>tracking.<wbr>dispatch.&lt;id&gt;</code>, <code>tracking.<wbr>order.&lt;id&gt;</code> (customer, own order only), <code>monitor.<wbr>orders</code>, <code>notifications.<wbr>user.&lt;id&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Webhooks</td>
+<td>Provider callbacks signed (HMAC) and verified; replay-protected</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>OpenAPI 3.0 generated by drf-spectacular; draft file BM-API-018</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-error-message-reuse">3. Error message reuse</h2>
+<p>The prototype’s user messages (e.g. “Only draft orders can be deleted. Submitted orders are kept for the audit trail.”) are the reference texts; each business rule in <strong>BM-SYS-007</strong> (Business Rules Catalogue) becomes an error <code>code</code>.</p>
+<h2 id="4-domain-designs">4. Domain designs</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Authentication</td>
+<td><strong>BM-API-003</strong> (Authentication API Design)</td>
+</tr>
+<tr class="even">
+<td>Users, roles, audit</td>
+<td><strong>BM-API-004</strong> (User API Design)</td>
+</tr>
+<tr class="odd">
+<td>Customers</td>
+<td><strong>BM-API-005</strong> (Customer API Design)</td>
+</tr>
+<tr class="even">
+<td>Products, hubs, zones</td>
+<td><strong>BM-API-006</strong> (Product API Design)</td>
+</tr>
+<tr class="odd">
+<td>Orders</td>
+<td><strong>BM-API-007</strong> (Order API Design)</td>
+</tr>
+<tr class="even">
+<td>Approval and consolidation</td>
+<td><strong>BM-API-008</strong> (Approval API Design)</td>
+</tr>
+<tr class="odd">
+<td>Dispatch</td>
+<td><strong>BM-API-009</strong> (Dispatch API Design)</td>
+</tr>
+<tr class="even">
+<td>Driver</td>
+<td><strong>BM-API-010</strong> (Driver API Design)</td>
+</tr>
+<tr class="odd">
+<td>Delivery, OTP, tracking</td>
+<td><strong>BM-API-011</strong> (Delivery API Design)</td>
+</tr>
+<tr class="even">
+<td>Inventory, scrap, replenishment</td>
+<td><strong>BM-API-012</strong> (Inventory API Design)</td>
+</tr>
+<tr class="odd">
+<td>Vehicles and VMS</td>
+<td><strong>BM-API-013</strong> (Vehicle API Design)</td>
+</tr>
+<tr class="even">
+<td>Documents and OCR</td>
+<td><strong>BM-API-014</strong> (Document API Design)</td>
+</tr>
+<tr class="odd">
+<td>Invoices</td>
+<td><strong>BM-API-015</strong> (Invoice API Design)</td>
+</tr>
+<tr class="even">
+<td>Notifications, messages, calls</td>
+<td><strong>BM-API-016</strong> (Notification API Design)</td>
+</tr>
+<tr class="odd">
+<td>Dashboards and reports</td>
+<td><strong>BM-API-017</strong> (Reporting API Design)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

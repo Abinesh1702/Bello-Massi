@@ -1,0 +1,23 @@
+flowchart TD
+    A[Order SUBMITTED, approvalStatus PENDING] --> B["Approval queue /orders/approval - oldest first"]
+    B --> C["Review order /orders/approval/:id"]
+    C --> D[System runs getApprovalChecks]
+    D --> E{Any blocking check failed?}
+    E -->|Yes| F["Approve disabled: Cannot approve - customer inactive / hub inactive / products inactive / total invalid / credit if blocking on"]
+    F --> G{Manager action}
+    E -->|No| G
+    G -->|Approve| H{Warnings - credit or stock?}
+    H -->|Yes, not acknowledged| H1[Confirm that you have reviewed the credit and stock warnings] --> G
+    H -->|None or acknowledged| R{Remarks required by settings?}
+    R -->|Yes and empty| R1[Approval remarks are required] --> G
+    R -->|OK| APP[APPROVED - consolidation PENDING]
+    APP --> N1[Notify salesman + Customer Service, event ORDER_APPROVED]
+    G -->|Return for correction| RT{Reason from list + remarks?}
+    RT -->|No| RT1[Validation error] --> G
+    RT -->|Yes| RET[RETURNED]
+    RET --> N2[Notify salesman with link to edit - section highlighted]
+    N2 --> RS[Salesman corrects and resubmits] --> A
+    G -->|Reject| RJ{Reason from list + remarks?}
+    RJ -->|No| RT1
+    RJ -->|Yes| REJ([REJECTED - final])
+    REJ --> N3[Notify salesman, event ORDER_REJECTED]

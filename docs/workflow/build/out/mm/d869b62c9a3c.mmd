@@ -1,0 +1,13 @@
+stateDiagram-v2
+    [*] --> DRAFT: saveScrap (requester)
+    DRAFT --> DRAFT: edit (requester only)
+    DRAFT --> PENDING_APPROVAL: submitScrap
+    PENDING_APPROVAL --> APPROVED: approveScrap (not requester)
+    PENDING_APPROVAL --> REJECTED: rejectScrap (reason >= 5 chars)
+    APPROVED --> COMPLETED: writeOffScrap - Scrap Write-off movement, once
+    DRAFT --> CANCELLED: cancelScrap
+    PENDING_APPROVAL --> CANCELLED: cancelScrap
+    APPROVED --> CANCELLED: cancelScrap
+    REJECTED --> [*]
+    COMPLETED --> [*]
+    CANCELLED --> [*]

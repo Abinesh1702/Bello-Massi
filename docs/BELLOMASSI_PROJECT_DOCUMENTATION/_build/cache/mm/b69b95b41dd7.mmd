@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant W as Web app
+    participant A as API
+    participant DB as PostgreSQL
+    participant Q as Workers
+    participant M as Messaging
+    participant D as Driver app
+    participant WS as WebSocket
+    W->>A: POST /orders (submit)
+    A->>DB: order + timeline (transaction)
+    A-->>W: 201 order
+    A->>Q: notify Sales Manager
+    W->>A: POST /orders/{id}/approve
+    A->>DB: approval + status
+    W->>A: POST /dispatches/{id}/confirm
+    A->>DB: lock stock rows, deduct, create deliveries
+    D->>A: POST /deliveries/{id}/start
+    D->>A: POST /tracking/location (every 10-15 s)
+    A->>WS: push position to admin + own customer
+    D->>A: POST /deliveries/{id}/arrived
+    A->>Q: generate OTP
+    Q->>M: send OTP to customer
+    D->>A: POST /deliveries/{id}/complete (OTP, POD)
+    A->>DB: verify OTP hash, delivery, note
+    Q->>M: send delivery note

@@ -1,0 +1,73 @@
+erDiagram
+    hubs ||--o{ zones : "hub_id"
+    zones ||--o{ zone_postal_codes : "zone_id"
+    hubs ||--o{ customers : "hub_id"
+    zones ||--o{ customers : "zone_id"
+    users ||--o{ customers : "sales_rep_id"
+    customers ||--o{ customer_locations : "customer_id"
+    product_categories ||--o{ products : "category_id"
+    company {
+        bigserial id PK
+        varchar name
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    hubs {
+        bigserial id PK
+        varchar code UK
+        varchar name UK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    zones {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        bigint hub_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    zone_postal_codes {
+        bigserial id PK
+        bigint zone_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    customers {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        varchar status
+        bigint hub_id FK
+        bigint zone_id FK
+        bigint sales_rep_id FK
+    }
+    customer_locations {
+        bigserial id PK
+        bigint customer_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    product_categories {
+        bigserial id PK
+        varchar name UK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    products {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        bigint category_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    suppliers {
+        bigserial id PK
+        varchar name
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

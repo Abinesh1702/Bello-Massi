@@ -1,0 +1,38 @@
+{
+  "name": "bellomassi",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "docs:catalog": "node scripts/build-project-documents.mjs",
+    "prebuild": "node scripts/build-project-documents.mjs",
+    "check:workflow": "node --import ./scripts/register.mjs scripts/workflow-check.mjs",
+    "check:migration": "node --import ./scripts/register.mjs scripts/migration-check.mjs"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.23",
+    "dompurify": "^3.4.17",
+    "jszip": "^3.10.1",
+    "lucide-react": "^1.71.0",
+    "mammoth": "^1.13.0",
+    "marked": "^15.0.12",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "recharts": "^3.10.1",
+    "sonner": "^2.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.90.0",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.6"
+  }
+}

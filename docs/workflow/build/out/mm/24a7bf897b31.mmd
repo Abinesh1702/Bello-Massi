@@ -1,0 +1,21 @@
+flowchart LR
+    X([Exception]) --> V1[Validation error] --> V2([Nothing saved - correct and retry])
+    X --> P1[No permission] --> P2([Hidden button / Unauthorized page / permission message])
+    X --> D1[Repeated action] --> D2([Refused - No change was made])
+    X --> W1[Credit or stock warning] --> W2([Acknowledge, return or reject])
+    X --> R1[Driver or vehicle not compliant] --> R2([Choose another or renew documents in VMS])
+    X --> S1[Stock short at confirmation] --> S2([Receive or transfer stock, edit or cancel dispatch])
+    X --> C1[Dispatch cancelled] --> C2([Orders back to ready queue, stock reversed once])
+    X --> DS1[Driver cannot start] --> DS2([Dispatcher confirms or resequences])
+    X --> O1[OTP wrong, expired or locked] --> O2([Retry or generate new OTP])
+    X --> PD1[Partial delivery] --> RV
+    X --> F1[Failed delivery] --> RV{Dispatcher review}
+    RV --> RV1([Close only])
+    RV --> RV2([Return goods to hub once])
+    RV --> RV3([Return and re-queue - failed only])
+    X --> SC1[Damaged or expired stock] --> SC2([Adjustment or scrap with approval])
+    X --> I1[Wrong invoice] --> I2([Cancel with reason, issue new one])
+    X --> DC1[Document rejected or expired] --> DC2([Replace file, review restarts])
+    X --> M1[Message not sent] --> M2([Fix rule, template or contact, resend])
+    X --> A1[Account locked or inactive] --> A2([Wait or Administrator unlocks / reactivates])
+    X --> B1[Storage problem or UI error] --> B2([Memory fallback / defaults / error page])

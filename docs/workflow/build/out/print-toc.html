@@ -1,0 +1,295 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bellomassi Workflow Documentation</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><section class="toc"><h2 class="toc-title">Contents</h2><ul><li class="l1"><a href="#about"><span class="t">About this document</span><span class=dots></span><span class="pg">1</span></a></li>
+<li class="l2"><a href="#how-to-read-these-documents"><span class="t">How to read these documents</span><span class=dots></span><span class="pg">1</span></a></li>
+<li class="l2"><a href="#implementation-status-legend"><span class="t">Implementation status legend</span><span class=dots></span><span class="pg">1</span></a></li>
+<li class="l2"><a href="#chapters"><span class="t">Chapters</span><span class=dots></span><span class="pg">1</span></a></li>
+<li class="l2"><a href="#master-flowcharts"><span class="t">Master flowcharts</span><span class=dots></span><span class="pg">2</span></a></li>
+<li class="l2"><a href="#consolidated-editions"><span class="t">Consolidated editions</span><span class=dots></span><span class="pg">3</span></a></li>
+<li class="l1"><a href="#ch-01"><span class="t">01 · Application Overview</span><span class=dots></span><span class="pg">4</span></a></li>
+<li class="l2"><a href="#11-what-bellomassi-is"><span class="t">1.1 What Bellomassi is</span><span class=dots></span><span class="pg">4</span></a></li>
+<li class="l2"><a href="#12-the-three-user-facing-apps"><span class="t">1.2 The three user-facing apps</span><span class=dots></span><span class="pg">4</span></a></li>
+<li class="l2"><a href="#13-roles-at-a-glance"><span class="t">1.3 Roles at a glance</span><span class=dots></span><span class="pg">4</span></a></li>
+<li class="l2"><a href="#14-modules-and-implementation-status"><span class="t">1.4 Modules and implementation status</span><span class=dots></span><span class="pg">5</span></a></li>
+<li class="l2"><a href="#15-technology"><span class="t">1.5 Technology</span><span class=dots></span><span class="pg">7</span></a></li>
+<li class="l2"><a href="#16-data-storage-localstorage"><span class="t">1.6 Data storage (LocalStorage)</span><span class=dots></span><span class="pg">7</span></a></li>
+<li class="l2"><a href="#17-what-is-simulated"><span class="t">1.7 What is simulated</span><span class=dots></span><span class="pg">8</span></a></li>
+<li class="l2"><a href="#18-coming-soon-and-placeholder-items"><span class="t">1.8 Coming Soon and placeholder items</span><span class=dots></span><span class="pg">8</span></a></li>
+<li class="l2"><a href="#19-how-the-documentation-was-verified"><span class="t">1.9 How the documentation was verified</span><span class=dots></span><span class="pg">8</span></a></li>
+<li class="l1"><a href="#ch-02"><span class="t">02 · Overall Workflow</span><span class=dots></span><span class="pg">10</span></a></li>
+<li class="l2"><a href="#21-the-business-in-one-paragraph"><span class="t">2.1 The business in one paragraph</span><span class=dots></span><span class="pg">10</span></a></li>
+<li class="l2"><a href="#22-master-flowchart-1--complete-application-workflow"><span class="t">2.2 Master flowchart 1 — Complete application workflow</span><span class=dots></span><span class="pg">11</span></a></li>
+<li class="l2"><a href="#23-swimlane--who-does-what"><span class="t">2.3 Swimlane — who does what</span><span class=dots></span><span class="pg">13</span></a></li>
+<li class="l2"><a href="#24-stages-owners-and-system-effects"><span class="t">2.4 Stages, owners and system effects</span><span class=dots></span><span class="pg">13</span></a></li>
+<li class="l2"><a href="#25-supporting-workflows"><span class="t">2.5 Supporting workflows</span><span class=dots></span><span class="pg">15</span></a></li>
+<li class="l2"><a href="#26-key-rules-that-hold-across-the-whole-flow"><span class="t">2.6 Key rules that hold across the whole flow</span><span class=dots></span><span class="pg">15</span></a></li>
+<li class="l1"><a href="#ch-03"><span class="t">03 · Login-Wise Workflow</span><span class=dots></span><span class="pg">16</span></a></li>
+<li class="l2"><a href="#31-sign-in-pages"><span class="t">3.1 Sign-in pages</span><span class=dots></span><span class="pg">16</span></a></li>
+<li class="l2"><a href="#32-demo-accounts"><span class="t">3.2 Demo accounts</span><span class=dots></span><span class="pg">16</span></a></li>
+<li class="l2"><a href="#33-master-flowchart-2--login-wise-workflow"><span class="t">3.3 Master flowchart 2 — Login-wise workflow</span><span class=dots></span><span class="pg">18</span></a></li>
+<li class="l2"><a href="#34-sign-in-rules-from-servicesauthservicejs"><span class="t">3.4 Sign-in rules (from services/authService.js)</span><span class=dots></span><span class="pg">20</span></a></li>
+<li class="l2"><a href="#35-forgot--reset-password-simulated"><span class="t">3.5 Forgot / reset password (Simulated)</span><span class=dots></span><span class="pg">21</span></a></li>
+<li class="l2"><a href="#36-sign-out"><span class="t">3.6 Sign-out</span><span class=dots></span><span class="pg">21</span></a></li>
+<li class="l2"><a href="#37-route-protection"><span class="t">3.7 Route protection</span><span class=dots></span><span class="pg">22</span></a></li>
+<li class="l1"><a href="#ch-04"><span class="t">04 · Role-Wise Workflow</span><span class=dots></span><span class="pg">23</span></a></li>
+<li class="l2"><a href="#41-super-admin"><span class="t">4.1 Super Admin</span><span class=dots></span><span class="pg">24</span></a></li>
+<li class="l2"><a href="#42-administrator"><span class="t">4.2 Administrator</span><span class=dots></span><span class="pg">24</span></a></li>
+<li class="l2"><a href="#43-sales-executive-salesman"><span class="t">4.3 Sales Executive (SALESMAN)</span><span class=dots></span><span class="pg">25</span></a></li>
+<li class="l2"><a href="#44-sales-manager"><span class="t">4.4 Sales Manager</span><span class=dots></span><span class="pg">26</span></a></li>
+<li class="l2"><a href="#45-customer-service"><span class="t">4.5 Customer Service</span><span class=dots></span><span class="pg">26</span></a></li>
+<li class="l2"><a href="#46-dispatcher"><span class="t">4.6 Dispatcher</span><span class=dots></span><span class="pg">27</span></a></li>
+<li class="l2"><a href="#47-driver"><span class="t">4.7 Driver</span><span class=dots></span><span class="pg">28</span></a></li>
+<li class="l2"><a href="#48-finance-executive"><span class="t">4.8 Finance Executive</span><span class=dots></span><span class="pg">28</span></a></li>
+<li class="l2"><a href="#49-warehouse-manager"><span class="t">4.9 Warehouse Manager</span><span class=dots></span><span class="pg">29</span></a></li>
+<li class="l2"><a href="#410-inventory-executive"><span class="t">4.10 Inventory Executive</span><span class=dots></span><span class="pg">30</span></a></li>
+<li class="l2"><a href="#411-qa-manager"><span class="t">4.11 QA Manager</span><span class=dots></span><span class="pg">30</span></a></li>
+<li class="l2"><a href="#412-customer-portal--customer-app"><span class="t">4.12 Customer (portal / customer app)</span><span class=dots></span><span class="pg">31</span></a></li>
+<li class="l2"><a href="#413-supplier-portal"><span class="t">4.13 Supplier (portal)</span><span class=dots></span><span class="pg">31</span></a></li>
+<li class="l2"><a href="#414-custom-roles"><span class="t">4.14 Custom roles</span><span class=dots></span><span class="pg">32</span></a></li>
+<li class="l1"><a href="#ch-05"><span class="t">05 · Module-Wise Workflow</span><span class=dots></span><span class="pg">33</span></a></li>
+<li class="l2"><a href="#module-index"><span class="t">Module index</span><span class=dots></span><span class="pg">33</span></a></li>
+<li class="l2"><a href="#51-authentication--session"><span class="t">5.1 Authentication &amp; session</span><span class=dots></span><span class="pg">34</span></a></li>
+<li class="l2"><a href="#52-role-dashboards"><span class="t">5.2 Role dashboards</span><span class=dots></span><span class="pg">35</span></a></li>
+<li class="l2"><a href="#53-products"><span class="t">5.3 Products</span><span class=dots></span><span class="pg">35</span></a></li>
+<li class="l2"><a href="#54-customers--credit"><span class="t">5.4 Customers &amp; credit</span><span class=dots></span><span class="pg">37</span></a></li>
+<li class="l2"><a href="#55-hubs"><span class="t">5.5 Hubs</span><span class=dots></span><span class="pg">38</span></a></li>
+<li class="l2"><a href="#56-suppliers"><span class="t">5.6 Suppliers</span><span class=dots></span><span class="pg">39</span></a></li>
+<li class="l2"><a href="#57-order-capture-create-draft-submit-resubmit"><span class="t">5.7 Order capture (create, draft, submit, resubmit)</span><span class=dots></span><span class="pg">40</span></a></li>
+<li class="l2"><a href="#58-order-approval"><span class="t">5.8 Order approval</span><span class=dots></span><span class="pg">40</span></a></li>
+<li class="l2"><a href="#59-order-consolidation"><span class="t">5.9 Order consolidation</span><span class=dots></span><span class="pg">41</span></a></li>
+<li class="l2"><a href="#510-inventory"><span class="t">5.10 Inventory</span><span class=dots></span><span class="pg">43</span></a></li>
+<li class="l2"><a href="#511-scrap-management"><span class="t">5.11 Scrap management</span><span class=dots></span><span class="pg">43</span></a></li>
+<li class="l2"><a href="#512-warehouse-dashboard-and-qa--cold-chain"><span class="t">5.12 Warehouse dashboard and QA &amp; cold chain</span><span class=dots></span><span class="pg">44</span></a></li>
+<li class="l2"><a href="#513-dispatch-planning-assignment-and-confirmation"><span class="t">5.13 Dispatch planning, assignment and confirmation</span><span class=dots></span><span class="pg">45</span></a></li>
+<li class="l2"><a href="#514-delivery-tracking-live-tracking-and-exception-review"><span class="t">5.14 Delivery tracking, live tracking and exception review</span><span class=dots></span><span class="pg">46</span></a></li>
+<li class="l2"><a href="#515-driver-app"><span class="t">5.15 Driver app</span><span class=dots></span><span class="pg">46</span></a></li>
+<li class="l2"><a href="#516-delivery-notes-otp-and-proof-of-delivery"><span class="t">5.16 Delivery notes, OTP and proof of delivery</span><span class=dots></span><span class="pg">47</span></a></li>
+<li class="l2"><a href="#517-customer-app"><span class="t">5.17 Customer app</span><span class=dots></span><span class="pg">48</span></a></li>
+<li class="l2"><a href="#518-fleet-master--zones-drivers-vehicles"><span class="t">5.18 Fleet master — zones, drivers, vehicles</span><span class=dots></span><span class="pg">48</span></a></li>
+<li class="l2"><a href="#519-vehicle-management-system-vms"><span class="t">5.19 Vehicle Management System (VMS)</span><span class=dots></span><span class="pg">49</span></a></li>
+<li class="l2"><a href="#520-documents-and-ocr"><span class="t">5.20 Documents and OCR</span><span class=dots></span><span class="pg">50</span></a></li>
+<li class="l2"><a href="#521-invoices-and-invoice-templates"><span class="t">5.21 Invoices and invoice templates</span><span class=dots></span><span class="pg">51</span></a></li>
+<li class="l2"><a href="#522-email"><span class="t">5.22 Email</span><span class=dots></span><span class="pg">51</span></a></li>
+<li class="l2"><a href="#523-whatsapp-openwa"><span class="t">5.23 WhatsApp (OpenWA)</span><span class=dots></span><span class="pg">52</span></a></li>
+<li class="l2"><a href="#524-automated-notifications"><span class="t">5.24 Automated notifications</span><span class=dots></span><span class="pg">53</span></a></li>
+<li class="l2"><a href="#525-call-history"><span class="t">5.25 Call history</span><span class=dots></span><span class="pg">53</span></a></li>
+<li class="l2"><a href="#526-notification-center"><span class="t">5.26 Notification center</span><span class=dots></span><span class="pg">54</span></a></li>
+<li class="l2"><a href="#527-reports-center"><span class="t">5.27 Reports Center</span><span class=dots></span><span class="pg">54</span></a></li>
+<li class="l2"><a href="#528-ai-assistant-and-jarvis"><span class="t">5.28 AI Assistant and Jarvis</span><span class=dots></span><span class="pg">55</span></a></li>
+<li class="l2"><a href="#529-forecasting-predictive-inventory-and-model-management"><span class="t">5.29 Forecasting, predictive inventory and model management</span><span class=dots></span><span class="pg">56</span></a></li>
+<li class="l2"><a href="#530-replenishment"><span class="t">5.30 Replenishment</span><span class=dots></span><span class="pg">56</span></a></li>
+<li class="l2"><a href="#531-ai-insights"><span class="t">5.31 AI insights</span><span class=dots></span><span class="pg">57</span></a></li>
+<li class="l2"><a href="#532-users-roles-and-permissions"><span class="t">5.32 Users, roles and permissions</span><span class=dots></span><span class="pg">58</span></a></li>
+<li class="l2"><a href="#533-audit-log"><span class="t">5.33 Audit log</span><span class=dots></span><span class="pg">58</span></a></li>
+<li class="l2"><a href="#534-application-settings"><span class="t">5.34 Application settings</span><span class=dots></span><span class="pg">59</span></a></li>
+<li class="l2"><a href="#535-organization"><span class="t">5.35 Organization</span><span class=dots></span><span class="pg">59</span></a></li>
+<li class="l2"><a href="#536-my-account"><span class="t">5.36 My account</span><span class=dots></span><span class="pg">60</span></a></li>
+<li class="l1"><a href="#ch-06"><span class="t">06 · Order-to-Delivery Workflow</span><span class=dots></span><span class="pg">61</span></a></li>
+<li class="l2"><a href="#61-business-summary"><span class="t">6.1 Business summary</span><span class=dots></span><span class="pg">61</span></a></li>
+<li class="l2"><a href="#62-master-flowchart-3--order-to-delivery"><span class="t">6.2 Master flowchart 3 — Order-to-delivery</span><span class=dots></span><span class="pg">62</span></a></li>
+<li class="l2"><a href="#63-swimlane--order-lifecycle"><span class="t">6.3 Swimlane — order lifecycle</span><span class=dots></span><span class="pg">65</span></a></li>
+<li class="l2"><a href="#64-step-reference"><span class="t">6.4 Step reference</span><span class=dots></span><span class="pg">65</span></a></li>
+<li class="l2"><a href="#65-stock-effect-along-the-flow"><span class="t">6.5 Stock effect along the flow</span><span class=dots></span><span class="pg">67</span></a></li>
+<li class="l2"><a href="#66-rules-that-stop-the-flow"><span class="t">6.6 Rules that stop the flow</span><span class=dots></span><span class="pg">67</span></a></li>
+<li class="l1"><a href="#ch-07"><span class="t">07 · Approval Workflow</span><span class=dots></span><span class="pg">68</span></a></li>
+<li class="l2"><a href="#71-master-flowchart-4--order-approval"><span class="t">7.1 Master flowchart 4 — Order approval</span><span class=dots></span><span class="pg">69</span></a></li>
+<li class="l2"><a href="#72-order-approval--swimlane"><span class="t">7.2 Order approval — swimlane</span><span class=dots></span><span class="pg">72</span></a></li>
+<li class="l2"><a href="#73-scrap-approval"><span class="t">7.3 Scrap approval</span><span class=dots></span><span class="pg">73</span></a></li>
+<li class="l2"><a href="#74-replenishment-approval"><span class="t">7.4 Replenishment approval</span><span class=dots></span><span class="pg">74</span></a></li>
+<li class="l2"><a href="#75-document-verification"><span class="t">7.5 Document verification</span><span class=dots></span><span class="pg">75</span></a></li>
+<li class="l2"><a href="#76-dispatch-confirmation-and-exception-review"><span class="t">7.6 Dispatch confirmation and exception review</span><span class=dots></span><span class="pg">75</span></a></li>
+<li class="l2"><a href="#77-approval-responsibilities"><span class="t">7.7 Approval responsibilities</span><span class=dots></span><span class="pg">75</span></a></li>
+<li class="l1"><a href="#ch-08"><span class="t">08 · Driver Workflow</span><span class=dots></span><span class="pg">76</span></a></li>
+<li class="l2"><a href="#81-the-drivers-day-in-plain-english"><span class="t">8.1 The driver’s day in plain English</span><span class=dots></span><span class="pg">76</span></a></li>
+<li class="l2"><a href="#82-master-flowchart-5--driver-workflow"><span class="t">8.2 Master flowchart 5 — Driver workflow</span><span class=dots></span><span class="pg">77</span></a></li>
+<li class="l2"><a href="#83-driver-app-screens"><span class="t">8.3 Driver app screens</span><span class=dots></span><span class="pg">78</span></a></li>
+<li class="l2"><a href="#84-rules-enforced-by-deliveryservice"><span class="t">8.4 Rules enforced by deliveryService</span><span class=dots></span><span class="pg">79</span></a></li>
+<li class="l2"><a href="#85-what-happens-in-the-data"><span class="t">8.5 What happens in the data</span><span class=dots></span><span class="pg">80</span></a></li>
+<li class="l2"><a href="#86-sequence--one-stop"><span class="t">8.6 Sequence — one stop</span><span class=dots></span><span class="pg">81</span></a></li>
+<li class="l2"><a href="#87-what-the-driver-cannot-do"><span class="t">8.7 What the driver cannot do</span><span class=dots></span><span class="pg">81</span></a></li>
+<li class="l1"><a href="#ch-09"><span class="t">09 · Customer Workflow</span><span class=dots></span><span class="pg">82</span></a></li>
+<li class="l2"><a href="#91-the-customers-journey-in-plain-english"><span class="t">9.1 The customer’s journey in plain English</span><span class=dots></span><span class="pg">82</span></a></li>
+<li class="l2"><a href="#92-master-flowchart-6--customer-workflow"><span class="t">9.2 Master flowchart 6 — Customer workflow</span><span class=dots></span><span class="pg">83</span></a></li>
+<li class="l2"><a href="#93-screens"><span class="t">9.3 Screens</span><span class=dots></span><span class="pg">85</span></a></li>
+<li class="l2"><a href="#94-customer-facing-labels"><span class="t">9.4 Customer-facing labels</span><span class=dots></span><span class="pg">85</span></a></li>
+<li class="l2"><a href="#95-validation-customerappserviceplacecustomerorder"><span class="t">9.5 Validation (customerAppService.placeCustomerOrder)</span><span class=dots></span><span class="pg">86</span></a></li>
+<li class="l2"><a href="#96-notifications-the-customer-receives"><span class="t">9.6 Notifications the customer receives</span><span class=dots></span><span class="pg">86</span></a></li>
+<li class="l2"><a href="#97-what-the-customer-cannot-do"><span class="t">9.7 What the customer cannot do</span><span class=dots></span><span class="pg">86</span></a></li>
+<li class="l2"><a href="#98-customer-portal-on-the-office-web-app"><span class="t">9.8 Customer portal on the office web app</span><span class=dots></span><span class="pg">87</span></a></li>
+<li class="l1"><a href="#ch-10"><span class="t">10 · Inventory Workflow</span><span class=dots></span><span class="pg">88</span></a></li>
+<li class="l2"><a href="#101-stock-figures"><span class="t">10.1 Stock figures</span><span class=dots></span><span class="pg">88</span></a></li>
+<li class="l2"><a href="#102-master-flowchart-7--inventory-workflow"><span class="t">10.2 Master flowchart 7 — Inventory workflow</span><span class=dots></span><span class="pg">89</span></a></li>
+<li class="l2"><a href="#103-stock-receipt"><span class="t">10.3 Stock receipt</span><span class=dots></span><span class="pg">89</span></a></li>
+<li class="l2"><a href="#104-stock-transfer"><span class="t">10.4 Stock transfer</span><span class=dots></span><span class="pg">89</span></a></li>
+<li class="l2"><a href="#105-stock-adjustment"><span class="t">10.5 Stock adjustment</span><span class=dots></span><span class="pg">90</span></a></li>
+<li class="l2"><a href="#106-movements-stock-overview-and-low-stock"><span class="t">10.6 Movements, stock overview and low stock</span><span class=dots></span><span class="pg">90</span></a></li>
+<li class="l2"><a href="#107-scrap"><span class="t">10.7 Scrap</span><span class=dots></span><span class="pg">90</span></a></li>
+<li class="l2"><a href="#108-predictive-inventory-and-replenishment"><span class="t">10.8 Predictive inventory and replenishment</span><span class=dots></span><span class="pg">93</span></a></li>
+<li class="l2"><a href="#109-inventory-responsibilities"><span class="t">10.9 Inventory responsibilities</span><span class=dots></span><span class="pg">94</span></a></li>
+<li class="l1"><a href="#ch-11"><span class="t">11 · Dispatch &amp; VMS Workflow</span><span class=dots></span><span class="pg">96</span></a></li>
+<li class="l2"><a href="#111-business-summary"><span class="t">11.1 Business summary</span><span class=dots></span><span class="pg">96</span></a></li>
+<li class="l2"><a href="#112-master-flowchart-8--dispatch--vms-workflow"><span class="t">11.2 Master flowchart 8 — Dispatch / VMS workflow</span><span class=dots></span><span class="pg">97</span></a></li>
+<li class="l2"><a href="#113-dispatch-statuses-dispatch_status_meta"><span class="t">11.3 Dispatch statuses (DISPATCH_STATUS_META)</span><span class=dots></span><span class="pg">99</span></a></li>
+<li class="l2"><a href="#114-step-reference"><span class="t">11.4 Step reference</span><span class=dots></span><span class="pg">100</span></a></li>
+<li class="l2"><a href="#115-driver-and-vehicle-assignment-checks"><span class="t">11.5 Driver and vehicle assignment checks</span><span class=dots></span><span class="pg">100</span></a></li>
+<li class="l2"><a href="#116-vms-compliance"><span class="t">11.6 VMS compliance</span><span class=dots></span><span class="pg">101</span></a></li>
+<li class="l2"><a href="#117-tracking"><span class="t">11.7 Tracking</span><span class=dots></span><span class="pg">101</span></a></li>
+<li class="l2"><a href="#118-dispatch--swimlane"><span class="t">11.8 Dispatch — swimlane</span><span class=dots></span><span class="pg">102</span></a></li>
+<li class="l1"><a href="#ch-12"><span class="t">12 · Finance &amp; Invoice Workflow</span><span class=dots></span><span class="pg">103</span></a></li>
+<li class="l2"><a href="#121-business-summary"><span class="t">12.1 Business summary</span><span class=dots></span><span class="pg">103</span></a></li>
+<li class="l2"><a href="#122-master-flowchart-9--finance--invoice-workflow"><span class="t">12.2 Master flowchart 9 — Finance / invoice workflow</span><span class=dots></span><span class="pg">104</span></a></li>
+<li class="l2"><a href="#123-templates-and-numbering"><span class="t">12.3 Templates and numbering</span><span class=dots></span><span class="pg">105</span></a></li>
+<li class="l2"><a href="#124-calculation-servicesinvoicecalculationservicejs"><span class="t">12.4 Calculation (services/invoiceCalculationService.js)</span><span class=dots></span><span class="pg">105</span></a></li>
+<li class="l2"><a href="#125-validation-and-messages"><span class="t">12.5 Validation and messages</span><span class=dots></span><span class="pg">106</span></a></li>
+<li class="l2"><a href="#126-statuses"><span class="t">12.6 Statuses</span><span class=dots></span><span class="pg">106</span></a></li>
+<li class="l2"><a href="#127-credit-and-outstanding"><span class="t">12.7 Credit and outstanding</span><span class=dots></span><span class="pg">107</span></a></li>
+<li class="l2"><a href="#128-finance--swimlane"><span class="t">12.8 Finance — swimlane</span><span class=dots></span><span class="pg">107</span></a></li>
+<li class="l1"><a href="#ch-13"><span class="t">13 · Communication &amp; Documents Workflow</span><span class=dots></span><span class="pg">108</span></a></li>
+<li class="l2"><a href="#131-master-flowchart-10--communication-workflow"><span class="t">13.1 Master flowchart 10 — Communication workflow</span><span class=dots></span><span class="pg">109</span></a></li>
+<li class="l2"><a href="#132-in-app-notifications"><span class="t">13.2 In-app notifications</span><span class=dots></span><span class="pg">109</span></a></li>
+<li class="l2"><a href="#133-email"><span class="t">13.3 Email</span><span class=dots></span><span class="pg">110</span></a></li>
+<li class="l2"><a href="#134-whatsapp-openwa"><span class="t">13.4 WhatsApp (OpenWA)</span><span class=dots></span><span class="pg">110</span></a></li>
+<li class="l2"><a href="#135-call-history"><span class="t">13.5 Call history</span><span class=dots></span><span class="pg">111</span></a></li>
+<li class="l2"><a href="#136-documents-and-ocr"><span class="t">13.6 Documents and OCR</span><span class=dots></span><span class="pg">112</span></a></li>
+<li class="l2"><a href="#137-communication--swimlane"><span class="t">13.7 Communication — swimlane</span><span class=dots></span><span class="pg">114</span></a></li>
+<li class="l1"><a href="#ch-14"><span class="t">14 · Reports &amp; Dashboard Workflow</span><span class=dots></span><span class="pg">115</span></a></li>
+<li class="l2"><a href="#141-dashboards"><span class="t">14.1 Dashboards</span><span class=dots></span><span class="pg">115</span></a></li>
+<li class="l2"><a href="#142-master-flowchart-11--reports-workflow"><span class="t">14.2 Master flowchart 11 — Reports workflow</span><span class=dots></span><span class="pg">117</span></a></li>
+<li class="l2"><a href="#143-reports-center-catalogue"><span class="t">14.3 Reports Center catalogue</span><span class=dots></span><span class="pg">118</span></a></li>
+<li class="l2"><a href="#144-forecasting"><span class="t">14.4 Forecasting</span><span class=dots></span><span class="pg">120</span></a></li>
+<li class="l2"><a href="#145-ai-assistant-and-jarvis"><span class="t">14.5 AI Assistant and Jarvis</span><span class=dots></span><span class="pg">121</span></a></li>
+<li class="l1"><a href="#ch-15"><span class="t">15 · Exception Workflow</span><span class=dots></span><span class="pg">122</span></a></li>
+<li class="l2"><a href="#151-master-flowchart-12--exception-workflow"><span class="t">15.1 Master flowchart 12 — Exception workflow</span><span class=dots></span><span class="pg">123</span></a></li>
+<li class="l2"><a href="#152-exception-register"><span class="t">15.2 Exception register</span><span class=dots></span><span class="pg">124</span></a></li>
+<li class="l2"><a href="#153-delivery-exception-review--detail"><span class="t">15.3 Delivery exception review — detail</span><span class=dots></span><span class="pg">127</span></a></li>
+<li class="l1"><a href="#ch-16"><span class="t">16 · Role Responsibility Matrix</span><span class=dots></span><span class="pg">128</span></a></li>
+<li class="l2"><a href="#161-process-responsibility-matrix"><span class="t">16.1 Process responsibility matrix</span><span class=dots></span><span class="pg">128</span></a></li>
+<li class="l2"><a href="#162-hand-off-matrix-who-passes-work-to-whom"><span class="t">16.2 Hand-off matrix (who passes work to whom)</span><span class=dots></span><span class="pg">129</span></a></li>
+<li class="l2"><a href="#163-permission-matrix-default-grants"><span class="t">16.3 Permission matrix (default grants)</span><span class=dots></span><span class="pg">129</span></a></li>
+<li class="l1"><a href="#ch-17"><span class="t">17 · Status Lifecycle</span><span class=dots></span><span class="pg">133</span></a></li>
+<li class="l2"><a href="#171-order-status-orderstatus-order_status_meta-in-srcconfigorderconfigjs"><span class="t">17.1 Order status (orderStatus, ORDER_STATUS_META in src/config/orderConfig.js)</span><span class=dots></span><span class="pg">133</span></a></li>
+<li class="l2"><a href="#172-dispatch-status-dispatch_status_meta-srcconfigdispatchconfigjs"><span class="t">17.2 Dispatch status (DISPATCH_STATUS_META, src/config/dispatchConfig.js)</span><span class=dots></span><span class="pg">135</span></a></li>
+<li class="l2"><a href="#173-delivery-status-delivery_status"><span class="t">17.3 Delivery status (DELIVERY_STATUS)</span><span class=dots></span><span class="pg">136</span></a></li>
+<li class="l2"><a href="#174-delivery-otp-otp_status"><span class="t">17.4 Delivery OTP (OTP_STATUS)</span><span class=dots></span><span class="pg">136</span></a></li>
+<li class="l2"><a href="#175-scrap-request-scrap_status-scrapservice"><span class="t">17.5 Scrap request (SCRAP_STATUS, scrapService)</span><span class=dots></span><span class="pg">137</span></a></li>
+<li class="l2"><a href="#176-replenishment-replenishment_meta-srcconfigaiconfigjs"><span class="t">17.6 Replenishment (REPLENISHMENT_META, src/config/aiConfig.js)</span><span class=dots></span><span class="pg">137</span></a></li>
+<li class="l2"><a href="#177-document-document_status_meta-srcconfigdocumentconfigjs"><span class="t">17.7 Document (DOCUMENT_STATUS_META, src/config/documentConfig.js)</span><span class=dots></span><span class="pg">137</span></a></li>
+<li class="l2"><a href="#178-invoice-invoice_status_meta-srcconfiginvoiceconfigjs"><span class="t">17.8 Invoice (INVOICE_STATUS_META, src/config/invoiceConfig.js)</span><span class=dots></span><span class="pg">137</span></a></li>
+<li class="l2"><a href="#179-stock-transfer-transfer_status-srcconfigmasterdatajs"><span class="t">17.9 Stock transfer (TRANSFER_STATUS, src/config/masterData.js)</span><span class=dots></span><span class="pg">138</span></a></li>
+<li class="l2"><a href="#1710-stock-status-stock_status-utilsstockgetstockstatus"><span class="t">17.10 Stock status (STOCK_STATUS, utils/stock.getStockStatus)</span><span class=dots></span><span class="pg">138</span></a></li>
+<li class="l2"><a href="#1711-messages--email-and-whatsapp-message_status_meta-srcconfigcommunicationconfigjs"><span class="t">17.11 Messages — email and WhatsApp (MESSAGE_STATUS_META, src/config/communicationConfig.js)</span><span class=dots></span><span class="pg">138</span></a></li>
+<li class="l2"><a href="#1712-vms-expiry-state-expiry_meta-srcconfigvmsconfigjs"><span class="t">17.12 VMS expiry state (EXPIRY_META, src/config/vmsConfig.js)</span><span class=dots></span><span class="pg">138</span></a></li>
+<li class="l2"><a href="#1713-fleet"><span class="t">17.13 Fleet</span><span class=dots></span><span class="pg">139</span></a></li>
+<li class="l2"><a href="#1714-master-data-and-users"><span class="t">17.14 Master data and users</span><span class=dots></span><span class="pg">139</span></a></li>
+<li class="l2"><a href="#1715-ai-and-calls"><span class="t">17.15 AI and calls</span><span class=dots></span><span class="pg">139</span></a></li>
+<li class="l1"><a href="#ch-18"><span class="t">18 · Screen-Wise User Guide</span><span class=dots></span><span class="pg">140</span></a></li>
+<li class="l2"><a href="#181-before-you-sign-in"><span class="t">18.1 Before you sign in</span><span class=dots></span><span class="pg">140</span></a></li>
+<li class="l2"><a href="#182-common-controls"><span class="t">18.2 Common controls</span><span class=dots></span><span class="pg">140</span></a></li>
+<li class="l2"><a href="#183-dashboard"><span class="t">18.3 Dashboard</span><span class=dots></span><span class="pg">140</span></a></li>
+<li class="l2"><a href="#184-order-management"><span class="t">18.4 Order Management</span><span class=dots></span><span class="pg">141</span></a></li>
+<li class="l2"><a href="#185-customers"><span class="t">18.5 Customers</span><span class=dots></span><span class="pg">141</span></a></li>
+<li class="l2"><a href="#186-master-data"><span class="t">18.6 Master data</span><span class=dots></span><span class="pg">142</span></a></li>
+<li class="l2"><a href="#187-inventory"><span class="t">18.7 Inventory</span><span class=dots></span><span class="pg">142</span></a></li>
+<li class="l2"><a href="#188-dispatch"><span class="t">18.8 Dispatch</span><span class=dots></span><span class="pg">143</span></a></li>
+<li class="l2"><a href="#189-my-deliveries"><span class="t">18.9 My Deliveries</span><span class=dots></span><span class="pg">144</span></a></li>
+<li class="l2"><a href="#1810-my-account-customer"><span class="t">18.10 My Account (Customer)</span><span class=dots></span><span class="pg">145</span></a></li>
+<li class="l2"><a href="#1811-vehicle-management"><span class="t">18.11 Vehicle Management</span><span class=dots></span><span class="pg">145</span></a></li>
+<li class="l2"><a href="#1812-documents"><span class="t">18.12 Documents</span><span class=dots></span><span class="pg">146</span></a></li>
+<li class="l2"><a href="#1813-invoices"><span class="t">18.13 Invoices</span><span class=dots></span><span class="pg">147</span></a></li>
+<li class="l2"><a href="#1814-communication"><span class="t">18.14 Communication</span><span class=dots></span><span class="pg">147</span></a></li>
+<li class="l2"><a href="#1815-administration"><span class="t">18.15 Administration</span><span class=dots></span><span class="pg">149</span></a></li>
+<li class="l2"><a href="#1816-organization"><span class="t">18.16 Organization</span><span class=dots></span><span class="pg">149</span></a></li>
+<li class="l2"><a href="#1817-ai--intelligence"><span class="t">18.17 AI &amp; Intelligence</span><span class=dots></span><span class="pg">150</span></a></li>
+<li class="l2"><a href="#1818-reports"><span class="t">18.18 Reports</span><span class=dots></span><span class="pg">151</span></a></li>
+<li class="l2"><a href="#1819-my-account"><span class="t">18.19 My Account</span><span class=dots></span><span class="pg">151</span></a></li>
+<li class="l1"><a href="#ch-19"><span class="t">19 · Glossary</span><span class=dots></span><span class="pg">152</span></a></li>
+<li class="l2"><a href="#191-business-terms"><span class="t">19.1 Business terms</span><span class=dots></span><span class="pg">152</span></a></li>
+<li class="l2"><a href="#192-technical-terms"><span class="t">19.2 Technical terms</span><span class=dots></span><span class="pg">153</span></a></li>
+<li class="l2"><a href="#193-document-numbering"><span class="t">19.3 Document numbering</span><span class=dots></span><span class="pg">153</span></a></li>
+<li class="l2"><a href="#194-role-abbreviations"><span class="t">19.4 Role abbreviations</span><span class=dots></span><span class="pg">154</span></a></li>
+<li class="l2"><a href="#195-status-label-legend"><span class="t">19.5 Status label legend</span><span class=dots></span><span class="pg">154</span></a></li></ul></section></body></html>

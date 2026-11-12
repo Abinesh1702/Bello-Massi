@@ -1,0 +1,11 @@
+flowchart LR
+    DEV[Developer push / PR] --> CI[CI: lint, unit tests, build]
+    CI --> SEC[SAST, dependency scan, image scan]
+    SEC --> IMG[Build images + web bundle]
+    IMG --> TEST[Deploy to test - automatic]
+    TEST --> E2E[API + E2E tests]
+    E2E --> STG[Deploy to staging - on release tag]
+    STG --> UAT[UAT / smoke tests]
+    UAT --> APPR{Release approval}
+    APPR -->|approved| PROD[Deploy to production - blue/green]
+    PROD --> MON[Monitoring and rollback if needed]

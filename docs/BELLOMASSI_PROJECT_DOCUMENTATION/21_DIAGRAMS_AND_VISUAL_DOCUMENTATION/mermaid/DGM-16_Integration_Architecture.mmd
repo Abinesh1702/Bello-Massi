@@ -1,0 +1,11 @@
+flowchart LR
+    API[Django services] --> OUT[(Outbox table)]
+    OUT --> WK[Celery integration workers]
+    WK --> MAPS[Google Maps / Routes]
+    WK --> MSG[SMS / WhatsApp provider]
+    WK --> MAIL[Email provider]
+    WK --> OCR[OCR engine]
+    WK --> SAP[SAP - stage 2]
+    MSG -->|delivery receipts webhook| HK[Webhook endpoint]
+    HK --> API
+    WK --> LOG[(Integration log + retries + dead letter)]

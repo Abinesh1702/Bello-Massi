@@ -1,0 +1,16 @@
+flowchart LR
+    SE((Salesman)) -->|order| P1[1 Capture order]
+    CU((Customer)) -->|order, OTP| P1
+    P1 -->|order| DS1[(Orders)]
+    DS1 --> P2[2 Approve and check credit]
+    DS2[(Customers)] --> P2
+    P2 -->|approved| P3[3 Consolidate]
+    DS3[(Stock)] --> P3
+    P3 --> P4[4 Plan and confirm dispatch]
+    P4 -->|deduct| DS3
+    P4 -->|deliveries| DS4[(Deliveries)]
+    DS4 --> P5[5 Deliver with OTP and POD]
+    DR((Driver)) --> P5
+    P5 -->|GPS| DS5[(Tracking)]
+    P5 -->|note| DS6[(Delivery notes)]
+    DS6 -->|SMS / WhatsApp| CU

@@ -1,0 +1,8 @@
+flowchart TD
+    A[Dispatch PLANNED] --> B[Select driver]
+    B --> C{Active, free, online, same hub, licence valid, documents compliant?}
+    C -->|No| C1[Issue list shown - choose another driver] --> B
+    C -->|Yes| D[Select vehicle]
+    D --> E{Active, not in maintenance, free, same hub, load within capacity, documents compliant?}
+    E -->|No| E1[Issue list shown - choose another vehicle] --> D
+    E -->|Yes| F[ASSIGNED - driver notified]

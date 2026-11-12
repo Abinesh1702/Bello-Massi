@@ -1,0 +1,9 @@
+flowchart LR
+    CORE[Bellomassi backend] --> ADP{Integration adapters}
+    ADP --> M1[Maps / Routes - route, ETA, geocoding]
+    ADP --> M2[SMS / WhatsApp - OTP, delivery note, notifications]
+    ADP --> M3[Email - SMTP / API]
+    ADP --> M4[OCR - document fields]
+    ADP --> M5[SAP - items, stock, customers, credit, sales orders]
+    ADP --> M6[Push - FCM / APNs]
+    ADP -.-> LOG[(Integration log + retry queue)]

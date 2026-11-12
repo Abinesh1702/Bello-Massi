@@ -1,0 +1,7 @@
+flowchart LR
+    CUA[Customer app - /customer] --> CAS[customerAppService]
+    CAS --> ORD[orderService.submitOrder - source customer_app]
+    CAS --> CART[(customer_carts)]
+    CUA --> TRK[Tracking - own order only]
+    CUA --> DOCS[Delivery notes and invoices - linked customer]
+    ORD --> APR[Sales Manager approval]

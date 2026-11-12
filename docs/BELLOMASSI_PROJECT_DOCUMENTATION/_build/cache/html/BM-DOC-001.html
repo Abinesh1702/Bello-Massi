@@ -1,0 +1,559 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Existing Documentation Review and Inventory</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Existing Documentation Review and Inventory</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-DOC-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Document Control</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Business Analyst</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Record every project document and source that existed before this documentation package, what each contains, its version and validity, and how it was used, so that no valid content is lost and outdated content is not reused by mistake.</p>
+<h2 id="scope">Scope</h2>
+<p>All documents supplied with the project up to 12 November 2026 — the Scope of Work presentation, the Driver App GPS guide, the phase implementation briefs, the documents inside the source repository, the project knowledge summaries and the delivered workflow documentation.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Bellomassi-Scope-of-Work_2.pptx (October 2026, 18 slides)</li>
+<li>Bellomassi_Driver_App_GPS_Implementation_Guide_English_1.docx (12 sections)</li>
+<li>Source repository bellomassi-premium-ui (identical to bellomassi-premium-ui-with-docs.zip)</li>
+<li><strong>BM-DOC-002</strong> (Document Inventory)</li>
+<li><strong>BM-DOC-003</strong> (Gap Analysis — Scope of Work, Prototype and Documentation)</li>
+<li><strong>BM-IDX-001</strong> (Bellomassi Documentation Index)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Summary</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Client documents</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Implementation briefs (requirement sources, not client-approved)</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Repository and project documents</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Source code and archives</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Inconsistencies found between documents</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>Outdated or duplicate content</li>
+</ol></li>
+</ul>
+<h2 id="1-summary">1. Summary</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Client-facing documents found</td>
+<td>2 (Scope of Work presentation, Driver App GPS guide)</td>
+</tr>
+<tr class="even">
+<td>Implementation briefs (requirement sources)</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>Documents inside the repository</td>
+<td>5 Markdown files + the 20-chapter workflow documentation set (with HTML, PDF, DOCX editions)</td>
+</tr>
+<tr class="even">
+<td>Project knowledge summaries (claude.ai project)</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>Source-code snapshots</td>
+<td>9 archives (phase 1 to premium UI) — the latest is the baseline</td>
+</tr>
+<tr class="even">
+<td>Third-party source archives</td>
+<td>2 (OpenWA, OpenJarvis) — reference only</td>
+</tr>
+<tr class="odd">
+<td>Duplicates found</td>
+<td>3 (Scope of Work uploaded twice; Phase 1 completion brief stored twice; premium-ui archive = workspace)</td>
+</tr>
+<tr class="even">
+<td>Approved documents found</td>
+<td><strong>0</strong> — no document carries a client signature or approval record</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key conclusion.</strong> The only client-facing requirement baseline is the <strong>Scope of Work (October 2026)</strong>, complemented by the <strong>Driver App GPS Implementation Guide</strong>. The prototype was built from ten phase briefs that extend the SOW considerably (inventory, scrap, VMS, OCR, invoices, email / WhatsApp, customer app, AI). None of these extensions has a recorded client approval; they are treated as <strong>PENDING CONFIRMATION</strong> for production scope (see <strong>BM-DOC-003</strong> (Gap Analysis — Scope of Work, Prototype and Documentation)).</p>
+<h2 id="2-client-documents">2. Client documents</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>Ref</th>
+<th>Document</th>
+<th>Version / date</th>
+<th>Content</th>
+<th>Validity</th>
+<th>Use in this package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E-01</td>
+<td>Scope of Work presentation (<code>Bellomassi-Scope-of-Work_<wbr>2.<wbr>pptx</code>)</td>
+<td>October 2026, 18 slides</td>
+<td>Order lifecycle (8 steps), 3 deliverables (Order Taking App, Drivers App, Admin Panel), 7 roles, screens per role, notifications table, 8-step status model, value statement, SAP as second stage</td>
+<td><strong>Valid baseline</strong> — not signed</td>
+<td>Basis of the BRD, SOW, BR-001…BR-018 and the status model comparison</td>
+</tr>
+<tr class="even">
+<td>E-02</td>
+<td>Driver App GPS Implementation Guide (<code>…GPS_<wbr>Implementation_<wbr>Guide_<wbr>English_<wbr>1.<wbr>docx</code>)</td>
+<td>Undated, 12 sections</td>
+<td>React Native driver app, admin-created accounts, daily workflow, VIP priority, mobile GPS every 10–15 s, background tracking, tracking access rules, technology (Django, PostgreSQL, Channels, Google Maps / Routes), example APIs, costs and risks</td>
+<td><strong>Valid technical direction</strong> — not signed</td>
+<td>Basis of driver and tracking architecture, API examples, risks; GPS guide items are PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-implementation-briefs-requirement-sources-not-client-approved">3. Implementation briefs (requirement sources, not client-approved)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Ref</th>
+<th>Brief</th>
+<th>Main content</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E-03</td>
+<td>Phase 1 — Foundation, authentication &amp; dashboard shell</td>
+<td>App shell, login, demo users, dashboards</td>
+<td>Implemented (superseded by E-04)</td>
+</tr>
+<tr class="even">
+<td>E-04</td>
+<td>Phase 1 completion — authentication, RBAC &amp; administration (stored twice)</td>
+<td>RBAC, users, roles, organisation, settings, audit, notifications</td>
+<td>Implemented</td>
+</tr>
+<tr class="odd">
+<td>E-05</td>
+<td>Phase 2 — customers, products, hubs &amp; inventory</td>
+<td>Master data, stock, receipts, transfers, adjustments</td>
+<td>Implemented</td>
+</tr>
+<tr class="even">
+<td>E-06</td>
+<td>Phase 3 — order management, approval &amp; consolidation</td>
+<td>Order form, approval, consolidation</td>
+<td>Implemented</td>
+</tr>
+<tr class="odd">
+<td>E-07</td>
+<td>Phase 4 — dispatch, driver assignment &amp; delivery</td>
+<td>Dispatch, assignment, delivery, OTP, delivery notes</td>
+<td>Implemented</td>
+</tr>
+<tr class="even">
+<td>E-08</td>
+<td>Phase 5 — VMS, documents &amp; OCR, invoices, email &amp; WhatsApp</td>
+<td>Brief text not in the supplied files; content known from the repository README and E-14</td>
+<td>Implemented; brief <strong>Not available</strong></td>
+</tr>
+<tr class="odd">
+<td>E-09</td>
+<td>Phase 6 — AI assistant, Jarvis, forecasting &amp; predictive inventory</td>
+<td>AI modules</td>
+<td>Implemented (simulated provider)</td>
+</tr>
+<tr class="even">
+<td>E-10</td>
+<td>Finalisation — missing modules, driver mobile, customer mobile</td>
+<td>Scrap, calls, reports, driver and customer apps</td>
+<td>Implemented</td>
+</tr>
+<tr class="odd">
+<td>E-11</td>
+<td>Universal dashboard filter + premium UI redesign</td>
+<td>Period filter, design system</td>
+<td>Implemented</td>
+</tr>
+<tr class="even">
+<td>E-12</td>
+<td>Complete application workflow documentation</td>
+<td>20 workflow chapters</td>
+<td>Delivered (E-18)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-repository-and-project-documents">4. Repository and project documents</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>Ref</th>
+<th>Document</th>
+<th>Content</th>
+<th>Assessment</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E-13</td>
+<td><code>README.<wbr>md</code></td>
+<td>Run instructions, demo accounts, architecture, phase status, routes per phase</td>
+<td>Accurate, developer-oriented</td>
+<td>Reused in deployment (local development) and source-code handover</td>
+</tr>
+<tr class="even">
+<td>E-14</td>
+<td><code>docs/<wbr>FINALISATION.<wbr>md</code></td>
+<td>Data version 8 release notes, demo script, known limitations</td>
+<td>Accurate</td>
+<td>Reused in release notes, known issues, limitations</td>
+</tr>
+<tr class="odd">
+<td>E-15</td>
+<td><code>docs/<wbr>RBAC_<wbr>AND_<wbr>ADMINISTRATION.<wbr>md</code></td>
+<td>Roles, permissions, session simulation, audit, settings, storage keys</td>
+<td>Accurate</td>
+<td>Reused in security and administration documents</td>
+</tr>
+<tr class="even">
+<td>E-16</td>
+<td><code>docs/<wbr>INTEGRATION_<wbr>GATEWAY.<wbr>md</code></td>
+<td>Optional backend gateway contract for email, OpenWA, OCR, AI, ML</td>
+<td>Accurate as a <strong>contract</strong>; gateway not built</td>
+<td>Reused in API and integration documents (labelled PROPOSED / NOT VERIFIED)</td>
+</tr>
+<tr class="odd">
+<td>E-17</td>
+<td><code>docs/<wbr>UI_<wbr>DESIGN_<wbr>SYSTEM.<wbr>md</code></td>
+<td>Design tokens, components, dashboard filter</td>
+<td>Accurate</td>
+<td>Reused in UI/UX documents</td>
+</tr>
+<tr class="even">
+<td>E-18</td>
+<td><code>docs/<wbr>workflow/</code> (README + chapters 01–19, HTML / PDF / DOCX editions)</td>
+<td>Complete workflow documentation, 38 diagrams</td>
+<td>Accurate, current (v1.0, 12 Nov 2026)</td>
+<td><strong>Preserved</strong> and referenced as the workflow source; folder 06 adds the 24 workflow specifications</td>
+</tr>
+<tr class="odd">
+<td>E-19</td>
+<td>Project summaries (<code>claude/<wbr>phase-*-summary.<wbr>md</code>, finalisation, UI, workflow)</td>
+<td>Build notes per phase</td>
+<td>Informational</td>
+<td>Used for the decision log and project history</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-source-code-and-archives">5. Source code and archives</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Ref</th>
+<th>Archive</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E-20</td>
+<td><code>bellomassi-phase1.<wbr>zip</code> … <code>bellomassi-phase6.<wbr>zip</code>, <code>bellomassi-phase1-complete.<wbr>zip</code>, <code>bellomassi-complete.<wbr>zip</code>, <code>bellomassi-premium-ui.<wbr>zip</code></td>
+<td>Historical snapshots; superseded</td>
+</tr>
+<tr class="even">
+<td>E-21</td>
+<td><code>bellomassi-premium-ui-with-docs.<wbr>zip</code></td>
+<td><strong>Baseline for this package</strong>; identical to the working repository (verified by file comparison)</td>
+</tr>
+<tr class="odd">
+<td>E-22</td>
+<td><code>OpenWA-main.<wbr>zip</code>, <code>OpenJarvis-main.<wbr>zip</code></td>
+<td>Third-party sources used to design the integration contract; not part of the deliverable</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-inconsistencies-found-between-documents">6. Inconsistencies found between documents</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Topic</th>
+<th>Document A</th>
+<th>Document B / code</th>
+<th>Resolution in this package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Invoicing</td>
+<td>SOW slide 3, 13: invoicing stays outside the app</td>
+<td>Prototype has a full invoice module</td>
+<td>PENDING CONFIRMATION (FR-INVC-005)</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Customer app</td>
+<td>SOW: three deliverables, customers only receive OTP / delivery note</td>
+<td>Prototype has a customer app</td>
+<td>PENDING CONFIRMATION (FR-CAP-008)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Approved figures</td>
+<td>SOW slide 8: manager may set approved value and quantity</td>
+<td>Prototype approves as submitted</td>
+<td>Gap; PENDING CONFIRMATION (FR-APR-007)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Finance notification</td>
+<td>SOW slides 8, 16: Finance notified on approval, flagged if credit exceeded</td>
+<td>Prototype notifies Customer Service and salesman only</td>
+<td>Gap (FR-APR-008)</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Zone planning</td>
+<td>SOW slide 10: drag orders into zones on a board</td>
+<td>Prototype: zone chosen in the dispatch form; drag and drop for stop sequence</td>
+<td>Gap; PENDING CONFIRMATION (FR-DSP-008)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Route</td>
+<td>SOW slide 12, GPS guide §5: fastest route with live traffic, ETA warnings</td>
+<td>Prototype: suggested sequence by priority and pincode; simulated ETA</td>
+<td>PROPOSED (FR-DSP-009)</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>OTP delivery</td>
+<td>SOW slide 13, 16: OTP by SMS or WhatsApp</td>
+<td>Prototype shows the OTP in the customer app</td>
+<td>PROPOSED (FR-OTP-005)</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Status model</td>
+<td>SOW slide 17: 8 statuses (Draft … Delivered) + Returned, Rejected, proposed “Delivery problem”</td>
+<td>Code: 13 statuses incl. CONSOLIDATED, DISPATCHED, PARTIALLY_<wbr>DELIVERED, DELIVERY_<wbr>FAILED, RETURNED_<wbr>TO_<wbr>HUB</td>
+<td>Code statuses documented; mapping in <strong>BM-DOC-003</strong> (Gap Analysis — Scope of Work, Prototype and Documentation)</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Country</td>
+<td>SOW examples: Sharjah, AED; company record in Dubai, AED</td>
+<td>Customer / hub master uses Indian pincode, GSTIN / PAN, +91 numbers</td>
+<td>PENDING CONFIRMATION (FR-CUS-005)</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Driver app technology</td>
+<td>GPS guide: React Native app</td>
+<td>Prototype: responsive web app under /driver</td>
+<td>PROPOSED (FR-DRV-010)</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Customer role description</td>
+<td><code>roles.<wbr>js</code>: “read-only portal”</td>
+<td>Customers can place orders</td>
+<td>Documented as implemented behaviour</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Finance role</td>
+<td>SOW: notifications only</td>
+<td>Prototype: invoices, templates, reports</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Roles</td>
+<td>SOW: 7 roles</td>
+<td>Code: 13 roles (adds Super Admin, Warehouse Manager, Inventory Executive, QA Manager, Customer, Supplier)</td>
+<td>Extra roles PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-outdated-or-duplicate-content">7. Outdated or duplicate content</h2>
+<ul>
+<li>The Scope of Work file was uploaded twice with identical content (byte comparison) — one copy referenced.</li>
+<li>The Phase 1 completion brief exists twice (<code>attachment.<wbr>txt</code>, <code>28eddb00-attachment.<wbr>txt</code>) — one copy referenced.</li>
+<li>The Phase 1 foundation brief (E-03) is superseded by E-04 and the implemented code.</li>
+<li>Phase archives E-20 are superseded by E-21.</li>
+<li>The Finance dashboard still carries “Later phase” badges on panels whose modules now exist (UI text, not a document).</li>
+</ul>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

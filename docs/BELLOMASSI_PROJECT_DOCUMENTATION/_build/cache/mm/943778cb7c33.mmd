@@ -1,0 +1,5 @@
+flowchart LR
+    O[Order SUBMITTED] -->|Sales Manager: reason + remarks| OR([REJECTED - salesman notified])
+    S[Scrap PENDING_APPROVAL] -->|Approver: reason 5+ chars| SR([REJECTED])
+    P[Replenishment SUBMITTED] -->|Administrator: reason| PR([REJECTED])
+    D[Document under review] -->|Reviewer: reason| DR([REJECTED - uploader replaces file])

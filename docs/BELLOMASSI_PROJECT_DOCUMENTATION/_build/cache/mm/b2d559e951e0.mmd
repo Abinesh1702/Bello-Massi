@@ -1,0 +1,14 @@
+flowchart TD
+    A[Order total entered] --> B[Projected balance = balance + order total]
+    B --> C{Credit enabled and projected above limit?}
+    C -->|No| OK([Within limit])
+    C -->|Yes| W[Credit warning flag on order]
+    W --> S{Setting: block when credit exceeded?}
+    S -->|No| ACK[Manager acknowledges warning and may approve]
+    S -->|Yes| BLK[Approve disabled]
+    ACK --> D{Manager decision}
+    BLK --> D2{Return or reject}
+    D -->|Approve| AP([APPROVED])
+    D -->|Return - reduce value| RT([RETURNED])
+    D2 -->|Return| RT
+    D2 -->|Reject - credit limit exceeded| RJ([REJECTED])

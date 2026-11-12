@@ -1,0 +1,19 @@
+flowchart LR
+    INET[Internet] --> WAF[WAF / DDoS protection]
+    WAF --> LB[Public load balancer - 443 only]
+    subgraph PUB[Public subnet]
+        LB
+        NAT[NAT gateway]
+    end
+    subgraph APP[Private app subnet]
+        API[API / Channels / workers]
+    end
+    subgraph DATA[Private data subnet]
+        DB[(PostgreSQL)]
+        RD[(Redis)]
+    end
+    LB --> API
+    API --> DB
+    API --> RD
+    API --> NAT --> EXT[Provider APIs - egress allow-list]
+    ADM[Admins via VPN / bastion + MFA] --> APP

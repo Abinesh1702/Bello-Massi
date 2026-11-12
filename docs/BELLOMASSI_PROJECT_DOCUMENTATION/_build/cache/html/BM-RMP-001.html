@@ -1,0 +1,410 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Prototype-to-Production Migration Roadmap (Master)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Prototype-to-Production Migration Roadmap (Master)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-RMP-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Future Roadmap</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Solution Architect</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>One view of all roadmap tracks across the five phases.</p>
+<h2 id="scope">Scope</h2>
+<p>Phase 1 is complete (VERIFIED); phases 2–5 are PROPOSED with indicative timing (ESTIMATE, not agreed).</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</li>
+<li><strong>BM-RMP-003</strong> (React Native Driver App and Customer App Roadmap)</li>
+<li><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</li>
+<li><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</li>
+<li><strong>BM-PLN-001</strong> (Scope and Phase Plan)</li>
+<li><strong>BM-INF-010</strong> (Infrastructure Security, Scalability and Cloud Migration Plan)</li>
+</ul>
+<h2 id="1-phases">1. Phases</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Name</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Prototype</td>
+<td>Complete</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Backend</td>
+<td>Proposed</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Integrations and mobile</td>
+<td>Proposed</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Production deployment</td>
+<td>Proposed</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Enhancements</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-tracks--phases">2. Tracks × phases</h2>
+<table class="wide">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Track</th>
+<th>Phase 1 (done)</th>
+<th>Phase 2</th>
+<th>Phase 3</th>
+<th>Phase 4</th>
+<th>Phase 5</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Prototype-to-production migration</td>
+<td>Rules and UI validated</td>
+<td>Replace browser services by API</td>
+<td>Replace simulators</td>
+<td>Data migration, cut-over</td>
+<td>—</td>
+<td>this document</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Django backend</td>
+<td>—</td>
+<td>Core modules</td>
+<td>Integration workers</td>
+<td>Hardening</td>
+<td>Extensions</td>
+<td><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>PostgreSQL database</td>
+<td>LocalStorage model</td>
+<td>Schema, migrations</td>
+<td>Tracking partitions</td>
+<td>Backups, DR</td>
+<td>Reporting replica</td>
+<td><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>REST API</td>
+<td>Service contracts in browser</td>
+<td>v1 core endpoints</td>
+<td>Tracking, OTP, webhooks</td>
+<td>Freeze v1</td>
+<td>Additions</td>
+<td><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>React frontend integration</td>
+<td>Complete UI</td>
+<td>API clients per module</td>
+<td>Live data (WebSocket)</td>
+<td>Remove demo code</td>
+<td>Enhancements</td>
+<td><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>React Native driver app</td>
+<td>Web driver app</td>
+<td>Design</td>
+<td>Build + GPS</td>
+<td>Store release, pilot</td>
+<td>Offline improvements</td>
+<td><strong>BM-RMP-003</strong> (React Native Driver App and Customer App Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>React Native customer app</td>
+<td>Web customer app</td>
+<td>Decision (X-01)</td>
+<td>Build if confirmed</td>
+<td>Release</td>
+<td>—</td>
+<td><strong>BM-RMP-003</strong> (React Native Driver App and Customer App Roadmap)</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Authentication and RBAC</td>
+<td>Browser RBAC</td>
+<td>Server auth + RBAC</td>
+<td>Mobile tokens</td>
+<td>MFA, review</td>
+<td>SSO</td>
+<td><strong>BM-RMP-002</strong> (Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>SAP integration</td>
+<td>—</td>
+<td>—</td>
+<td>Interface spec</td>
+<td>—</td>
+<td>Build</td>
+<td><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Email integration</td>
+<td>Demo mode</td>
+<td>—</td>
+<td>Provider live</td>
+<td>—</td>
+<td>Inbox features</td>
+<td><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>OpenWA / WhatsApp</td>
+<td>Demo mode</td>
+<td>Decision: official provider</td>
+<td>Provider live</td>
+<td>—</td>
+<td>—</td>
+<td><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>OCR integration</td>
+<td>Simulated</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Provider live</td>
+<td><strong>BM-RMP-004</strong> (Integrations Roadmap — SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS)</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Cloud deployment</td>
+<td>Static host</td>
+<td>Environments, IaC</td>
+<td>Staging</td>
+<td>Production</td>
+<td>Scale</td>
+<td><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Production security</td>
+<td>Prototype only</td>
+<td>Secure design</td>
+<td>Testing</td>
+<td>Pen test, go-live controls</td>
+<td>Certification if required</td>
+<td><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Performance optimisation</td>
+<td>—</td>
+<td>Baselines</td>
+<td>Load tests</td>
+<td>Tuning</td>
+<td>Caching / replicas</td>
+<td><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Reporting enhancement</td>
+<td>118 reports (browser)</td>
+<td>Server reports (go-live set)</td>
+<td>—</td>
+<td>—</td>
+<td>BI / warehouse</td>
+<td><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Monitoring and analytics</td>
+<td>—</td>
+<td>Logging</td>
+<td>Metrics, alerts</td>
+<td>Dashboards, on-call</td>
+<td>Product analytics</td>
+<td><strong>BM-RMP-005</strong> (Cloud, Security, Performance, Reporting and Monitoring Roadmap)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-indicative-timeline">3. Indicative timeline</h2>
+<p>See Gantt chart in <strong>BM-PLN-001</strong> (Scope and Phase Plan) (ESTIMATE; assumed start not agreed).</p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

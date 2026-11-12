@@ -1,0 +1,549 @@
+{
+ "BM-BRD-002": {
+  "id": "BM-BRD-002",
+  "title": "Business Requirement Traceability",
+  "folder": "02",
+  "file": "BM-BRD-002_Business_Requirement_Traceability",
+  "category": "Business Requirements",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-BRD-001",
+   "BM-SYS-008"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-SYS-008": {
+  "id": "BM-SYS-008",
+  "title": "Requirement Traceability Matrix",
+  "folder": "03",
+  "file": "BM-SYS-008_Requirement_Traceability_Matrix",
+  "category": "System Requirements",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-BRD-002",
+   "BM-SYS-003",
+   "BM-QA-011"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-SYS-009": {
+  "id": "BM-SYS-009",
+  "title": "Requirement Change Log",
+  "folder": "03",
+  "file": "BM-SYS-009_Requirement_Change_Log",
+  "category": "System Requirements",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-RSK-003",
+   "BM-SYS-008"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-OVW-016": {
+  "id": "BM-OVW-016",
+  "title": "Project Feature Inventory",
+  "folder": "01",
+  "file": "BM-OVW-016_Project_Feature_Inventory",
+  "category": "Project Overview",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-OVW-014",
+   "BM-OVW-015"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-QA-011": {
+  "id": "BM-QA-011",
+  "title": "Functional Test Cases",
+  "folder": "13",
+  "file": "BM-QA-011_Functional_Test_Cases",
+  "category": "Testing and Quality Assurance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-QA-002",
+   "BM-SYS-008"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-QA-010": {
+  "id": "BM-QA-010",
+  "title": "Test Scenario Catalogue",
+  "folder": "13",
+  "file": "BM-QA-010_Test_Scenario_Catalogue",
+  "category": "Testing and Quality Assurance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-QA-011",
+   "BM-QA-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-QA-012": {
+  "id": "BM-QA-012",
+  "title": "UAT Test Cases",
+  "folder": "13",
+  "file": "BM-QA-012_UAT_Test_Cases",
+  "category": "Testing and Quality Assurance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-QA-003",
+   "BM-HND-004"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-OVW-010": {
+  "id": "BM-OVW-010",
+  "title": "Stakeholder Responsibility Matrix",
+  "folder": "01",
+  "file": "BM-OVW-010_Stakeholder_Responsibility_Matrix",
+  "category": "Project Overview",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-OVW-009",
+   "BM-PM-004"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 PROPOSED, pending client confirmation",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PLN-002": {
+  "id": "BM-PLN-002",
+  "title": "Phase-wise Scope Matrix",
+  "folder": "05",
+  "file": "BM-PLN-002_Phase_wise_Scope_Matrix",
+  "category": "Scope and Planning",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-PLN-001",
+   "BM-SOW-001"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 PROPOSED, pending client confirmation",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-DAT-007": {
+  "id": "BM-DAT-007",
+  "title": "Prototype Storage Dictionary",
+  "folder": "08",
+  "file": "BM-DAT-007_Prototype_Storage_Dictionary",
+  "category": "Database and Data Design",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-DAT-001"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-DAT-003": {
+  "id": "BM-DAT-003",
+  "title": "Data Dictionary (Proposed Production Schema)",
+  "folder": "08",
+  "file": "BM-DAT-003_Data_Dictionary",
+  "category": "Database and Data Design",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-DAT-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 PROPOSED design, not implemented",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-API-002": {
+  "id": "BM-API-002",
+  "title": "API Endpoint Catalogue",
+  "folder": "09",
+  "file": "BM-API-002_API_Endpoint_Catalogue",
+  "category": "API and Integration",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-API-001"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 PROPOSED design, not implemented",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-SEC-005": {
+  "id": "BM-SEC-005",
+  "title": "RBAC and Access Control Matrix",
+  "folder": "10",
+  "file": "BM-SEC-005_RBAC_and_Access_Control_Matrix",
+  "category": "Security and Compliance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-SEC-004",
+   "BM-MAN-120"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-SEC-012": {
+  "id": "BM-SEC-012",
+  "title": "Security Risk Register",
+  "folder": "10",
+  "file": "BM-SEC-012_Security_Risk_Register",
+  "category": "Security and Compliance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-SEC-001",
+   "BM-RSK-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-INF-004": {
+  "id": "BM-INF-004",
+  "title": "Infrastructure Cost Estimation (ESTIMATE)",
+  "folder": "11",
+  "file": "BM-INF-004_Infrastructure_Cost_Estimate",
+  "category": "Infrastructure and DevOps",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-INF-002",
+   "BM-INF-003"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-UX-004": {
+  "id": "BM-UX-004",
+  "title": "Screen Inventory",
+  "folder": "12",
+  "file": "BM-UX-004_Screen_Inventory",
+  "category": "UI/UX and Design",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-UX-003",
+   "BM-UX-005",
+   "BM-SEC-005"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-DEP-007": {
+  "id": "BM-DEP-007",
+  "title": "Deployment and Go-Live Checklists",
+  "folder": "14",
+  "file": "BM-DEP-007_Deployment_Checklists",
+  "category": "Deployment and Release",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-DEP-001",
+   "BM-DEP-002",
+   "BM-DEP-004",
+   "BM-DEP-006"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-MAN-120": {
+  "id": "BM-MAN-120",
+  "title": "Role Responsibility Matrix",
+  "folder": "15",
+  "file": "BM-MAN-120_Role_Responsibility_Matrix",
+  "category": "User Manuals",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-SEC-005",
+   "BM-OVW-010"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-QA-013": {
+  "id": "BM-QA-013",
+  "title": "Cross-cutting Test Cases (Responsive, Persistence, Date Filters, Role Access, UI, Accessibility, Security, Performance)",
+  "folder": "13",
+  "file": "BM-QA-013_Cross_Cutting_Test_Cases",
+  "category": "Testing and Quality Assurance",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-QA-011",
+   "BM-QA-002",
+   "BM-SEC-005"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PM-002": {
+  "id": "BM-PM-002",
+  "title": "Work Breakdown Structure",
+  "folder": "17",
+  "file": "BM-PM-002_Work_Breakdown_Structure",
+  "category": "Project Management",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-PM-001",
+   "BM-PLN-001",
+   "BM-PM-004"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PM-003": {
+  "id": "BM-PM-003",
+  "title": "Deliverables Matrix",
+  "folder": "17",
+  "file": "BM-PM-003_Deliverables_Matrix",
+  "category": "Project Management",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-PM-001",
+   "BM-HND-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PM-004": {
+  "id": "BM-PM-004",
+  "title": "Resource Allocation and RACI Matrix",
+  "folder": "17",
+  "file": "BM-PM-004_Resources_and_RACI",
+  "category": "Project Management",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-PM-001",
+   "BM-PM-002",
+   "BM-OVW-010"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PM-005": {
+  "id": "BM-PM-005",
+  "title": "Issue, Dependency and Decision Registers",
+  "folder": "17",
+  "file": "BM-PM-005_Issue_Dependency_Decision_Registers",
+  "category": "Project Management",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-RSK-002",
+   "BM-DOC-003",
+   "BM-PM-007"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-RSK-002": {
+  "id": "BM-RSK-002",
+  "title": "Project Risk Register",
+  "folder": "18",
+  "file": "BM-RSK-002_Project_Risk_Register",
+  "category": "Risk and Change Management",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-RSK-001",
+   "BM-SEC-012",
+   "BM-PM-005"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-HND-002": {
+  "id": "BM-HND-002",
+  "title": "Project Deliverables Checklist (Handover)",
+  "folder": "19",
+  "file": "BM-HND-002_Deliverables_Checklist",
+  "category": "Client Handover",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-HND-001",
+   "BM-PM-003"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-HND-010": {
+  "id": "BM-HND-010",
+  "title": "Known Issues Register",
+  "folder": "19",
+  "file": "BM-HND-010_Known_Issues_Register",
+  "category": "Client Handover",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-HND-011",
+   "BM-DOC-003",
+   "BM-PM-005"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-IDX-001": {
+  "id": "BM-IDX-001",
+  "title": "Bellomassi Documentation Index",
+  "folder": "25",
+  "file": "BELLOMASSI_DOCUMENTATION_INDEX",
+  "category": "Documentation Index",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-IDX-002",
+   "BM-IDX-003",
+   "BM-DOC-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-DOC-002": {
+  "id": "BM-DOC-002",
+  "title": "Document Inventory",
+  "folder": "23",
+  "file": "BM-DOC-002_Document_Inventory",
+  "category": "Document Control",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-DOC-001",
+   "BM-IDX-001"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-IDX-003": {
+  "id": "BM-IDX-003",
+  "title": "Documentation Coverage Map (Brief to Documents)",
+  "folder": "25",
+  "file": "BM-IDX-003_Documentation_Coverage_Map",
+  "category": "Documentation Index",
+  "owner": null,
+  "module": null,
+  "related": [
+   "BM-IDX-001",
+   "BM-IDX-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "xlsx"
+ },
+ "BM-PRS-001": {
+  "id": "BM-PRS-001",
+  "title": "Project Presentation",
+  "folder": "24",
+  "file": "BM-PRS-001_Project_Presentation",
+  "category": "Project Presentation",
+  "owner": "Project Manager",
+  "module": null,
+  "related": [
+   "BM-PRS-002"
+  ],
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "ext": "pptx"
+ }
+}

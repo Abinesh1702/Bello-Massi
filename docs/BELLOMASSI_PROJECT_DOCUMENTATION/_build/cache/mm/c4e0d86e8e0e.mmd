@@ -1,0 +1,75 @@
+erDiagram
+    hubs ||--o{ stock_items : "hub_id"
+    products ||--o{ stock_items : "product_id"
+    hubs ||--o{ stock_movements : "hub_id"
+    products ||--o{ stock_movements : "product_id"
+    hubs ||--o{ stock_receipts : "hub_id"
+    products ||--o{ stock_receipts : "product_id"
+    replenishment_requests ||--o{ stock_receipts : "replenishment_id"
+    hubs ||--o{ stock_transfers : "from_hub_id"
+    hubs ||--o{ stock_transfers : "to_hub_id"
+    products ||--o{ stock_transfers : "product_id"
+    hubs ||--o{ stock_adjustments : "hub_id"
+    products ||--o{ stock_adjustments : "product_id"
+    hubs ||--o{ scrap_requests : "hub_id"
+    products ||--o{ scrap_requests : "product_id"
+    users ||--o{ scrap_requests : "requested_by_id"
+    users ||--o{ scrap_requests : "approved_by_id"
+    hubs ||--o{ replenishment_requests : "hub_id"
+    users ||--o{ replenishment_requests : "decided_by_id"
+    stock_items {
+        bigserial id PK
+        bigint hub_id FK
+        bigint product_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    stock_movements {
+        bigserial id PK
+        bigint hub_id FK
+        bigint product_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    stock_receipts {
+        bigserial id PK
+        bigint hub_id FK
+        bigint product_id FK
+        bigint replenishment_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    stock_transfers {
+        bigserial id PK
+        bigint from_hub_id FK
+        bigint to_hub_id FK
+        bigint product_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    stock_adjustments {
+        bigserial id PK
+        bigint hub_id FK
+        bigint product_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    scrap_requests {
+        bigserial id PK
+        bigint hub_id FK
+        bigint product_id FK
+        varchar status
+        bigint requested_by_id FK
+        bigint approved_by_id FK
+        bigint created_by_id FK
+    }
+    replenishment_requests {
+        bigserial id PK
+        bigint supplier_id FK
+        bigint hub_id FK
+        varchar status
+        bigint decided_by_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

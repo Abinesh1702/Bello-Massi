@@ -1,0 +1,672 @@
+# Diagram Catalogue and Visual Documentation
+
+## Document control
+
+| Field | Value |
+|---|---|
+| Document title | Diagram Catalogue and Visual Documentation |
+| Document ID | BM-DGM-001 |
+| Version | 1.0 |
+| Status | Draft — for client review |
+| Category | Diagrams and Visual Documentation |
+| Related module(s) | All modules |
+| Document owner | Solution Architect |
+| Prepared by | Project documentation team (AI-assisted draft prepared from source-code analysis) |
+| Reviewed by | _Pending — not yet reviewed_ |
+| Approval | _Not approved — awaiting client review (no approval has been given)_ |
+| Created date | 2026-11-12 |
+| Last updated date | 2026-11-12 |
+
+> **Status labels used in this document:** VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.
+
+## Purpose
+
+Provide all required architecture, process, data and operations diagrams in one place with editable sources.
+
+## Scope
+
+23 diagrams (system architecture, business process, workflows, lifecycle, roles, RBAC, ER, data flow, deployment, network, authentication, integration, CI/CD, backup and recovery).
+
+## Definitions
+
+Other terms: see [BM-GLO-001 — Project Glossary](../22_GLOSSARY_AND_REFERENCE/BM-GLO-001_Project_Glossary.md).
+
+## References
+
+- [BM-ARC-003 — Architecture Diagrams](../07_SYSTEM_ARCHITECTURE/BM-ARC-003_Architecture_Diagrams.md)
+- [BM-ARC-001 — High-Level Design (HLD)](../07_SYSTEM_ARCHITECTURE/BM-ARC-001_High_Level_Design.md)
+- [BM-WF-00 — Business Workflow Catalogue](../06_BUSINESS_WORKFLOWS/BM-WF-00_Business_Workflow_Catalogue.md)
+
+## Contents
+
+- 1. Catalogue
+- 2. Editing
+- DGM-01 — Overall System Architecture (prototype and target)
+- DGM-02 — Business Process Architecture
+- DGM-03 — Order-to-Delivery Flowchart
+- DGM-04 — Order Status Lifecycle
+- DGM-05 — Approval Workflow
+- DGM-06 — Dispatch Workflow
+- DGM-07 — Driver Delivery Workflow
+- DGM-08 — Customer Order Workflow
+- DGM-09 — Role Interaction Diagram
+- DGM-10 — RBAC Diagram
+- DGM-11 — ER Diagram (overview)
+- DGM-12 — Data Flow Diagram
+- DGM-13 — Deployment Architecture
+- DGM-14 — Network Architecture
+- DGM-15 — Authentication Flow (production)
+- DGM-16 — Integration Architecture
+- DGM-17 — CI/CD Pipeline
+- DGM-18 — Backup and Recovery Architecture
+- DGM-19 — System Context Diagram
+- DGM-20 — Component Diagram (prototype)
+- DGM-21 — Driver Delivery Architecture (production)
+- DGM-22 — Customer Application Architecture
+- DGM-23 — Order Processing Architecture
+
+## 1. Catalogue
+
+Editable sources are Mermaid (`.mmd`) files; previews are exported as SVG and PNG in this folder. Diagrams never show a production component as existing: labels state VERIFIED (prototype) or PROPOSED (target).
+
+| ID | Diagram | Label | Files | Source |
+|---|---|---|---|---|
+| DGM-01 | Overall System Architecture (prototype and target) | VERIFIED (prototype) / PROPOSED (target) | `mermaid/DGM-01_Overall_System_Architecture_prototype_and_target.mmd` · `svg/DGM-01_Overall_System_Architecture_prototype_and_target.svg` · `png/DGM-01_Overall_System_Architecture_prototype_and_target.png` | this catalogue |
+| DGM-02 | Business Process Architecture | VERIFIED | `mermaid/DGM-02_Business_Process_Architecture.mmd` · `svg/DGM-02_Business_Process_Architecture.svg` · `png/DGM-02_Business_Process_Architecture.png` | this catalogue |
+| DGM-03 | Order-to-Delivery Flowchart | VERIFIED | `mermaid/DGM-03_Order_to_Delivery_Flowchart.mmd` · `svg/DGM-03_Order_to_Delivery_Flowchart.svg` · `png/DGM-03_Order_to_Delivery_Flowchart.png` | docs/workflow chapter 06 |
+| DGM-04 | Order Status Lifecycle | VERIFIED | `mermaid/DGM-04_Order_Status_Lifecycle.mmd` · `svg/DGM-04_Order_Status_Lifecycle.svg` · `png/DGM-04_Order_Status_Lifecycle.png` | docs/workflow chapter 17 |
+| DGM-05 | Approval Workflow | VERIFIED | `mermaid/DGM-05_Approval_Workflow.mmd` · `svg/DGM-05_Approval_Workflow.svg` · `png/DGM-05_Approval_Workflow.png` | docs/workflow chapter 07 |
+| DGM-06 | Dispatch Workflow | VERIFIED | `mermaid/DGM-06_Dispatch_Workflow.mmd` · `svg/DGM-06_Dispatch_Workflow.svg` · `png/DGM-06_Dispatch_Workflow.png` | docs/workflow chapter 11 |
+| DGM-07 | Driver Delivery Workflow | VERIFIED (GPS / OTP delivery simulated) | `mermaid/DGM-07_Driver_Delivery_Workflow.mmd` · `svg/DGM-07_Driver_Delivery_Workflow.svg` · `png/DGM-07_Driver_Delivery_Workflow.png` | docs/workflow chapter 08 |
+| DGM-08 | Customer Order Workflow | VERIFIED (customer app scope PENDING CONFIRMATION) | `mermaid/DGM-08_Customer_Order_Workflow.mmd` · `svg/DGM-08_Customer_Order_Workflow.svg` · `png/DGM-08_Customer_Order_Workflow.png` | docs/workflow chapter 09 |
+| DGM-09 | Role Interaction Diagram | VERIFIED | `mermaid/DGM-09_Role_Interaction_Diagram.mmd` · `svg/DGM-09_Role_Interaction_Diagram.svg` · `png/DGM-09_Role_Interaction_Diagram.png` | docs/workflow chapter 04 |
+| DGM-10 | RBAC Diagram | VERIFIED (prototype) / PROPOSED (server enforcement) | `mermaid/DGM-10_RBAC_Diagram.mmd` · `svg/DGM-10_RBAC_Diagram.svg` · `png/DGM-10_RBAC_Diagram.png` | this catalogue |
+| DGM-11 | ER Diagram (overview) | PROPOSED | `mermaid/DGM-11_ER_Diagram_overview.mmd` · `svg/DGM-11_ER_Diagram_overview.svg` · `png/DGM-11_ER_Diagram_overview.png` | this catalogue |
+| DGM-12 | Data Flow Diagram | PROPOSED | `mermaid/DGM-12_Data_Flow_Diagram.mmd` · `svg/DGM-12_Data_Flow_Diagram.svg` · `png/DGM-12_Data_Flow_Diagram.png` | this catalogue |
+| DGM-13 | Deployment Architecture | PROPOSED | `mermaid/DGM-13_Deployment_Architecture.mmd` · `svg/DGM-13_Deployment_Architecture.svg` · `png/DGM-13_Deployment_Architecture.png` | this catalogue |
+| DGM-14 | Network Architecture | PROPOSED | `mermaid/DGM-14_Network_Architecture.mmd` · `svg/DGM-14_Network_Architecture.svg` · `png/DGM-14_Network_Architecture.png` | this catalogue |
+| DGM-15 | Authentication Flow (production) | PROPOSED | `mermaid/DGM-15_Authentication_Flow_production.mmd` · `svg/DGM-15_Authentication_Flow_production.svg` · `png/DGM-15_Authentication_Flow_production.png` | this catalogue |
+| DGM-16 | Integration Architecture | PROPOSED | `mermaid/DGM-16_Integration_Architecture.mmd` · `svg/DGM-16_Integration_Architecture.svg` · `png/DGM-16_Integration_Architecture.png` | this catalogue |
+| DGM-17 | CI/CD Pipeline | PROPOSED | `mermaid/DGM-17_CI_CD_Pipeline.mmd` · `svg/DGM-17_CI_CD_Pipeline.svg` · `png/DGM-17_CI_CD_Pipeline.png` | this catalogue |
+| DGM-18 | Backup and Recovery Architecture | PROPOSED | `mermaid/DGM-18_Backup_and_Recovery_Architecture.mmd` · `svg/DGM-18_Backup_and_Recovery_Architecture.svg` · `png/DGM-18_Backup_and_Recovery_Architecture.png` | this catalogue |
+| DGM-19 | System Context Diagram | VERIFIED (actors) / PROPOSED (external systems) | `mermaid/DGM-19_System_Context_Diagram.mmd` · `svg/DGM-19_System_Context_Diagram.svg` · `png/DGM-19_System_Context_Diagram.png` | this catalogue |
+| DGM-20 | Component Diagram (prototype) | VERIFIED | `mermaid/DGM-20_Component_Diagram_prototype.mmd` · `svg/DGM-20_Component_Diagram_prototype.svg` · `png/DGM-20_Component_Diagram_prototype.png` | this catalogue |
+| DGM-21 | Driver Delivery Architecture (production) | PROPOSED | `mermaid/DGM-21_Driver_Delivery_Architecture_production.mmd` · `svg/DGM-21_Driver_Delivery_Architecture_production.svg` · `png/DGM-21_Driver_Delivery_Architecture_production.png` | this catalogue |
+| DGM-22 | Customer Application Architecture | VERIFIED (prototype) / PROPOSED (production) | `mermaid/DGM-22_Customer_Application_Architecture.mmd` · `svg/DGM-22_Customer_Application_Architecture.svg` · `png/DGM-22_Customer_Application_Architecture.png` | this catalogue |
+| DGM-23 | Order Processing Architecture | VERIFIED (logic) / PROPOSED (server) | `mermaid/DGM-23_Order_Processing_Architecture.mmd` · `svg/DGM-23_Order_Processing_Architecture.svg` · `png/DGM-23_Order_Processing_Architecture.png` | this catalogue |
+
+## 2. Editing
+
+Edit the `.mmd` file and re-render with Mermaid CLI: `mmdc -i mermaid/<file>.mmd -o svg/<file>.svg`. The workflow diagrams (DGM-03 … DGM-09) are maintained in `docs/workflow/` and copied here.
+
+## DGM-01 — Overall System Architecture (prototype and target)
+
+Label: **VERIFIED (prototype) / PROPOSED (target)**
+
+```mermaid
+flowchart LR
+    subgraph NOW[Prototype - VERIFIED]
+        B1[Browser: React SPA] --> B2[Services in browser] --> B3[(LocalStorage)]
+    end
+    subgraph TARGET[Production - PROPOSED]
+        C1[React web app] --> GW[Nginx / load balancer]
+        C2[React Native Drivers App] --> GW
+        GW --> API[Django REST API]
+        GW --> WS[Django Channels]
+        API --> PG[(PostgreSQL)]
+        API --> RD[(Redis)]
+        API --> OB[(Object storage)]
+        WK[Celery workers] --> EXT[Maps, SMS / WhatsApp, Email, OCR, SAP]
+        API --> WK
+    end
+    NOW -. migrate rules and UI .-> TARGET
+```
+
+## DGM-02 — Business Process Architecture
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart LR
+    S[Sales: capture and approve] --> C[Customer Service: verify and consolidate] --> D[Dispatch: plan, assign, confirm] --> R[Road: driver delivers with OTP] --> P[Proof: delivery note]
+    P --> F[Finance: invoice - scope to confirm]
+    M[Master data and rules - Admin Panel] --> S
+    M --> D
+    W[Warehouse: stock, scrap, replenishment - extension] --> D
+    R --> X[Exceptions: review, return, re-queue] --> D
+    A[Analytics: dashboards, reports, forecasts] -.-> S
+    A -.-> D
+```
+
+## DGM-03 — Order-to-Delivery Flowchart
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart TD
+    A([Customer need]) --> B{Who raises the order?}
+    B -->|Sales Executive| C["Create order /orders/create"]
+    B -->|Customer| D["Cart /customer/cart - Place order"]
+    C --> E{Save draft or submit?}
+    E -->|Save draft| F[DRAFT - editable, deletable]
+    F --> E
+    E -->|Submit| G[SUBMITTED - approval PENDING]
+    D --> G
+    G --> H{Sales Manager: approval checks}
+    H -->|Blocking check fails| H1[Cannot approve - fix data]
+    H -->|Return| I[RETURNED] --> J[Salesman edits and resubmits] --> G
+    H -->|Reject| K([REJECTED - closed])
+    H -->|Approve - warnings acknowledged| L[APPROVED - consolidation PENDING]
+    L --> M{Customer Service: 5 checks confirmed?}
+    M -->|No| M
+    M -->|Yes| N[CONSOLIDATED]
+    N --> O[READY_FOR_DISPATCH]
+    O --> P[Dispatcher creates dispatch: orders, hub, zone, date, sequence]
+    P --> Q[Dispatch PLANNED]
+    Q --> R{Driver and vehicle compliant?}
+    R -->|No| R1[Pick another driver / vehicle]
+    R1 --> R
+    R -->|Yes| S[Dispatch ASSIGNED - driver notified]
+    S --> T{Dispatcher ticks review and confirms}
+    T -->|Stock short| T1[Blocked - stock issue]
+    T -->|OK| U[Dispatch CONFIRMED - stock deducted, deliveries created, order DISPATCHED]
+    U --> V[Driver: Start delivery - next stop in sequence, dispatch date reached]
+    V --> W[Order OUT_FOR_DELIVERY, dispatch IN_TRANSIT, DEMO GPS session]
+    W --> X[Reach location - OTP issued, shown in customer app]
+    X --> Y{OTP correct and unexpired?}
+    Y -->|No| Y1[Retry - max 5 attempts, regenerate if expired] --> Y
+    Y -->|Yes| Z{All quantities delivered?}
+    Z -->|Yes| ZA[DELIVERED + delivery note BM-DN]
+    Z -->|No| ZB[PARTIALLY_DELIVERED + delivery note]
+    W -->|Problem| ZC[DELIVERY_FAILED - reason recorded]
+    ZB --> RV[Dispatcher review]
+    ZC --> RV
+    RV -->|Return goods| RTH[RETURNED_TO_HUB]
+    RV -->|Return and re-queue| O
+    ZA --> INV[Finance issues invoice - ordered or delivered quantities]
+    ZB --> INV
+    INV --> END([Customer: delivery note + invoice in app])
+    ZA --> DC{All stops closed?}
+    DC -->|All delivered| DCC[Dispatch COMPLETED]
+    DC -->|Some failed / partial| DCP[Dispatch PARTIALLY_DELIVERED - Closed with exceptions]
+```
+
+## DGM-04 — Order Status Lifecycle
+
+Label: **VERIFIED**
+
+```mermaid
+stateDiagram-v2
+    [*] --> DRAFT: save draft
+    [*] --> SUBMITTED: submit directly / customer app
+    DRAFT --> SUBMITTED: submit
+    DRAFT --> [*]: delete draft
+    SUBMITTED --> APPROVED: approve
+    SUBMITTED --> RETURNED: return for correction
+    SUBMITTED --> REJECTED: reject
+    RETURNED --> SUBMITTED: resubmit
+    REJECTED --> [*]
+    APPROVED --> CONSOLIDATED: consolidate
+    CONSOLIDATED --> READY_FOR_DISPATCH: mark ready
+    READY_FOR_DISPATCH --> DISPATCHED: dispatch confirmed
+    DISPATCHED --> READY_FOR_DISPATCH: dispatch cancelled before any stop started
+    DISPATCHED --> OUT_FOR_DELIVERY: driver starts
+    OUT_FOR_DELIVERY --> DELIVERED: OTP + full quantity
+    OUT_FOR_DELIVERY --> PARTIALLY_DELIVERED: OTP + shortfall
+    OUT_FOR_DELIVERY --> DELIVERY_FAILED: failure reported
+    DELIVERY_FAILED --> RETURNED_TO_HUB: review - return goods
+    DELIVERY_FAILED --> READY_FOR_DISPATCH: review - return goods and re-queue
+    DELIVERED --> [*]
+    PARTIALLY_DELIVERED --> [*]
+    RETURNED_TO_HUB --> [*]
+```
+
+## DGM-05 — Approval Workflow
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart TD
+    A[Order SUBMITTED, approval PENDING] --> B["Approval queue - oldest first"]
+    B --> C[Open order - system runs the six approval checks]
+    C --> E{Blocking check failed?}
+    E -->|Yes| F([Approve not possible - fix data, return or reject])
+    E -->|No| G{Manager action}
+    G -->|Approve| H{Credit or stock warnings?}
+    H -->|Yes| H1[Tick: I have reviewed the warnings]
+    H -->|No| R{Remarks required by settings?}
+    H1 --> R
+    R -->|Yes| R1[Enter approval remarks]
+    R -->|No| APP[APPROVED - consolidation PENDING]
+    R1 --> APP
+    APP --> N1([Salesman and Customer Service notified - ORDER_APPROVED])
+    G -->|Return| RT[Reason from list + remarks]
+    RT --> RET[RETURNED]
+    RET --> N2([Salesman corrects highlighted section and resubmits])
+    G -->|Reject| RJ[Reason from list + remarks]
+    RJ --> REJ([REJECTED - final, salesman notified])
+```
+
+## DGM-06 — Dispatch Workflow
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart TD
+    A["Ready for Dispatch /dispatch/ready-orders"] --> B["New dispatch /dispatch/create"]
+    B --> C[Select orders, hub, zone, date, notes]
+    C --> D{Every order eligible?}
+    D -->|No| D1[Not ready / already on another dispatch / no complete address] --> C
+    D -->|Yes| E[Sequence: suggested or drag to reorder]
+    E --> F{Save as draft or plan?}
+    F -->|Draft| G[DRAFT - edit later]
+    G --> F
+    F -->|Plan| H[PLANNED]
+    H --> I["Assign driver and vehicle /dispatch/assignments"]
+    I --> V1{Driver checks}
+    V1 -->|Inactive / busy / offline / other hub / licence expired or missing / required docs| X1[Choose another driver] --> I
+    V1 -->|OK| V2{Vehicle checks}
+    V2 -->|Inactive / maintenance / busy / other hub / over capacity / RC-insurance-fitness| X2[Choose another vehicle] --> I
+    V2 -->|OK| J[ASSIGNED - driver notified, event DISPATCH_ASSIGNED]
+    J --> K{Edit needed?}
+    K -->|Yes| C
+    K -->|No| L[Confirmation review: orders, driver, vehicle, route, stock]
+    L --> M{Review ticked and stock available?}
+    M -->|No| M1[Blocked with reason] --> L
+    M -->|Yes| N[CONFIRMED - stock deducted once, deliveries created, orders DISPATCHED]
+    N --> O[Driver starts first stop - IN_TRANSIT]
+    O --> P[Delivery tracking + Live Tracking DEMO GPS]
+    P --> Q{All stops closed?}
+    Q -->|All delivered| R([COMPLETED])
+    Q -->|Some failed / partial| S([PARTIALLY_DELIVERED - Closed with exceptions])
+    S --> T[Review each exception: remarks, return to hub, re-queue]
+    H --> CX{Cancel?}
+    J --> CX
+    N --> CX
+    CX -->|Reason + remarks| CY[CANCELLED - orders back to READY_FOR_DISPATCH; if confirmed, stock reversed once]
+```
+
+## DGM-07 — Driver Delivery Workflow
+
+Label: **VERIFIED (GPS / OTP delivery simulated)**
+
+```mermaid
+flowchart TD
+    A(["/driver/login"]) --> B{Linked to a driver record?}
+    B -->|No| B1([No driver profile linked])
+    B -->|Yes| C[Today - next stop]
+    C --> E{Can this stop start?}
+    E -->|No| E1(["Blocked: dispatch not confirmed / future date / another stop active / not next in sequence"])
+    E -->|Yes| F[Start delivery]
+    F --> G[OUT_FOR_DELIVERY - dispatch IN_TRANSIT - DEMO GPS]
+    G --> I{Problem?}
+    I -->|Yes| FL[Report issue: reason + remarks]
+    FL --> FL2[FAILED - order DELIVERY_FAILED - Dispatcher reviews]
+    I -->|No| J[Reach location - OTP issued, simulated]
+    J --> L[Enter quantities, received by, optional signature and photo]
+    L --> O{OTP valid?}
+    O -->|Wrong| O1[Retry - max 5 attempts]
+    O1 --> O
+    O -->|Expired or locked| O2[Generate new OTP]
+    O2 --> O
+    O -->|Valid| P{Everything delivered?}
+    P -->|Yes| Q[DELIVERED]
+    P -->|No| R[PARTIALLY_DELIVERED]
+    Q --> S[Delivery note + POD saved, customer notified]
+    R --> S
+    S --> T{More stops?}
+    FL2 --> T
+    T -->|Yes| C
+    T -->|No| U([Dispatch COMPLETED or Closed with exceptions])
+```
+
+## DGM-08 — Customer Order Workflow
+
+Label: **VERIFIED (customer app scope PENDING CONFIRMATION)**
+
+```mermaid
+flowchart TD
+    A(["/customer/login"]) --> B{Linked to a customer?}
+    B -->|No| B1[No customer account linked]
+    B -->|Yes| C["Home /customer/dashboard"]
+    C --> D["Catalog /customer/catalog"]
+    D --> E[Add to cart]
+    C --> F[My orders] --> F1[Reorder - lines copied to cart] --> G
+    E --> G["Cart /customer/cart"]
+    G --> H{Cart empty?}
+    H -->|Yes| H1[Your cart is empty - browse catalog] --> D
+    H -->|No| I[Address, requested date, time slot, reference, remarks]
+    I --> J{Valid?}
+    J -->|No| J1["Earliest delivery date is tomorrow / within 60 days / valid time / pincode"] --> I
+    J -->|Yes| K[Place order - confirm]
+    K --> L[submitOrder - SUBMITTED, Pending approval, cart cleared]
+    L --> M{Sales Manager decision}
+    M -->|Approved| N[Approved - Being prepared]
+    M -->|Returned| M1[Under review - sales rep corrects and resubmits] --> M
+    M -->|Rejected| M2([Not accepted])
+    N --> O[Dispatch planned]
+    O --> P[Out for delivery - Track delivery, DEMO GPS]
+    P --> Q[Driver arrived - OTP shown in app]
+    Q --> R[Customer tells OTP to driver]
+    R --> S{Delivered?}
+    S -->|Full| T[Delivered - delivery note available]
+    S -->|Partial| T2[Partially delivered - delivery note available]
+    S -->|Failed| U[Delivery not completed - team will contact to reschedule]
+    T --> V[Invoice appears after Finance issues it]
+    T2 --> V
+    V --> W[Payments page: balance only - no payment entry]
+```
+
+## DGM-09 — Role Interaction Diagram
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart TD
+    SE[Sales Executive] -->|submitted order| SM[Sales Manager]
+    CU[Customer app] -->|submitted order| SM
+    SM -->|returned order| SE
+    SM -->|approved order| CS[Customer Service]
+    CS -->|ready for dispatch| DP[Dispatcher]
+    DP -->|confirmed dispatch| DR[Driver]
+    DR -->|delivered / partial| FI[Finance]
+    DR -->|failed / partial| DP
+    DR -->|OTP, tracking, delivery note| CU
+    FI -->|invoice| CU
+    WM[Warehouse Manager] -->|stock, approved scrap| DP
+    IE[Inventory Executive] -->|receipts, transfers, scrap requests| WM
+    QA[QA Manager] -->|verified documents, adjustments| WM
+    WM -->|replenishment draft| AD[Administrator]
+    AD -->|approved replenishment| SU[Supplier portal]
+```
+
+## DGM-10 — RBAC Diagram
+
+Label: **VERIFIED (prototype) / PROPOSED (server enforcement)**
+
+```mermaid
+flowchart LR
+    U[User] -->|has 1..n| R[Role]
+    R -->|grants| P[Permission keys - 110]
+    R -->|defines| SC[Data scope]
+    R -->|defines| LP[Landing page]
+    P --> NAV[Menus and routes - navigation.js]
+    P --> SVC[Service checks - can user, key]
+    SC --> Q[Record filters: own, linked customer, own deliveries, all ...]
+    SVC --> ACT[Allowed action]
+    Q --> DATA[Visible records]
+```
+
+## DGM-11 — ER Diagram (overview)
+
+Label: **PROPOSED**
+
+```mermaid
+erDiagram
+    customers ||--o{ orders : places
+    users ||--o{ orders : "salesman"
+    hubs ||--o{ orders : fulfils
+    orders ||--|{ order_items : contains
+    products ||--o{ order_items : "ordered as"
+    orders ||--o{ order_approvals : decided
+    orders ||--o| consolidations : verified
+    dispatches ||--|{ dispatch_stops : sequences
+    orders ||--o{ dispatch_stops : "planned in"
+    drivers ||--o{ dispatches : drives
+    vehicles ||--o{ dispatches : carries
+    dispatches ||--|{ deliveries : creates
+    deliveries ||--o{ delivery_otps : verifies
+    deliveries ||--o| proofs_of_delivery : evidences
+    deliveries ||--o| delivery_notes : documents
+    deliveries ||--o{ tracking_sessions : tracks
+    hubs ||--o{ stock_items : holds
+    products ||--o{ stock_items : stocked
+    stock_items ||--o{ stock_movements : ledger
+    orders ||--o{ invoices : bills
+```
+
+## DGM-12 — Data Flow Diagram
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    SE((Salesman)) -->|order| P1[1 Capture order]
+    CU((Customer)) -->|order, OTP| P1
+    P1 -->|order| DS1[(Orders)]
+    DS1 --> P2[2 Approve and check credit]
+    DS2[(Customers)] --> P2
+    P2 -->|approved| P3[3 Consolidate]
+    DS3[(Stock)] --> P3
+    P3 --> P4[4 Plan and confirm dispatch]
+    P4 -->|deduct| DS3
+    P4 -->|deliveries| DS4[(Deliveries)]
+    DS4 --> P5[5 Deliver with OTP and POD]
+    DR((Driver)) --> P5
+    P5 -->|GPS| DS5[(Tracking)]
+    P5 -->|note| DS6[(Delivery notes)]
+    DS6 -->|SMS / WhatsApp| CU
+```
+
+## DGM-13 — Deployment Architecture
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart TB
+    U[Users - browsers and phones] --> CDN[CDN - web app static files]
+    U --> LB[Load balancer + WAF - HTTPS / WSS]
+    subgraph VPC[Private network]
+        LB --> N1[API container x2+]
+        LB --> N2[Channels container x2]
+        N1 --> PG[(Managed PostgreSQL - primary + standby)]
+        N1 --> RD[(Managed Redis)]
+        W1[Celery workers] --> PG
+        W1 --> RD
+        N2 --> RD
+        N1 --> S3[(Object storage)]
+    end
+    W1 --> EXT[External providers]
+    PG --> BK[(Backups + PITR, other region)]
+```
+
+## DGM-14 — Network Architecture
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    INET[Internet] --> WAF[WAF / DDoS protection]
+    WAF --> LB[Public load balancer - 443 only]
+    subgraph PUB[Public subnet]
+        LB
+        NAT[NAT gateway]
+    end
+    subgraph APP[Private app subnet]
+        API[API / Channels / workers]
+    end
+    subgraph DATA[Private data subnet]
+        DB[(PostgreSQL)]
+        RD[(Redis)]
+    end
+    LB --> API
+    API --> DB
+    API --> RD
+    API --> NAT --> EXT[Provider APIs - egress allow-list]
+    ADM[Admins via VPN / bastion + MFA] --> APP
+```
+
+## DGM-15 — Authentication Flow (production)
+
+Label: **PROPOSED**
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant C as Web / mobile app
+    participant A as Auth API
+    participant DB as Database
+    U->>C: identifier + password
+    C->>A: POST /api/v1/auth/login
+    A->>DB: find user, check status and lockout
+    A->>A: verify Argon2id hash
+    alt MFA required
+        A-->>C: mfa_required
+        U->>C: TOTP code
+        C->>A: POST /api/v1/auth/mfa
+    end
+    A-->>C: access token (15 min) + refresh token (httpOnly cookie / secure storage)
+    C->>A: API calls with Bearer token
+    C->>A: POST /api/v1/auth/refresh when expired
+    U->>C: Sign out
+    C->>A: POST /api/v1/auth/logout - refresh token revoked
+```
+
+## DGM-16 — Integration Architecture
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    API[Django services] --> OUT[(Outbox table)]
+    OUT --> WK[Celery integration workers]
+    WK --> MAPS[Google Maps / Routes]
+    WK --> MSG[SMS / WhatsApp provider]
+    WK --> MAIL[Email provider]
+    WK --> OCR[OCR engine]
+    WK --> SAP[SAP - stage 2]
+    MSG -->|delivery receipts webhook| HK[Webhook endpoint]
+    HK --> API
+    WK --> LOG[(Integration log + retries + dead letter)]
+```
+
+## DGM-17 — CI/CD Pipeline
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    DEV[Developer push / PR] --> CI[CI: lint, unit tests, build]
+    CI --> SEC[SAST, dependency scan, image scan]
+    SEC --> IMG[Build images + web bundle]
+    IMG --> TEST[Deploy to test - automatic]
+    TEST --> E2E[API + E2E tests]
+    E2E --> STG[Deploy to staging - on release tag]
+    STG --> UAT[UAT / smoke tests]
+    UAT --> APPR{Release approval}
+    APPR -->|approved| PROD[Deploy to production - blue/green]
+    PROD --> MON[Monitoring and rollback if needed]
+```
+
+## DGM-18 — Backup and Recovery Architecture
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    PG[(PostgreSQL primary)] -->|streaming| SB[(Standby)]
+    PG -->|WAL archive continuous| WAL[(WAL archive)]
+    PG -->|daily snapshot| SNAP[(Snapshots - 35 days)]
+    OBJ[(Object storage)] -->|versioning + replication| OBJ2[(Replica bucket other region)]
+    WAL --> PITR[Point-in-time restore]
+    SNAP --> PITR
+    PITR --> DR[DR environment - RTO 4h, RPO 15 min]
+```
+
+## DGM-19 — System Context Diagram
+
+Label: **VERIFIED (actors) / PROPOSED (external systems)**
+
+```mermaid
+flowchart TB
+    SE[Salesman] --> SYS((Bellomassi))
+    SM[Sales Manager] --> SYS
+    CS[Customer Service] --> SYS
+    DP[Dispatcher] --> SYS
+    DR[Driver] --> SYS
+    FI[Finance] --> SYS
+    AD[Administrator] --> SYS
+    CU[Customer] --> SYS
+    SYS --> SAP[SAP]
+    SYS --> MAPS[Maps / Routes]
+    SYS --> MSG[SMS / WhatsApp]
+    SYS --> MAIL[Email]
+    SYS --> OCR[OCR]
+```
+
+## DGM-20 — Component Diagram (prototype)
+
+Label: **VERIFIED**
+
+```mermaid
+flowchart TB
+    subgraph UI[Presentation]
+        L[Layouts: App, Driver, Customer] --> PG[Pages - 134 files]
+        PG --> CMP[Components - 121 files]
+    end
+    subgraph LOGIC[Logic]
+        HK[Hooks - 19] --> SV[Services - 84]
+        SV --> CFG[Config: navigation, roles, permissions, statuses]
+    end
+    subgraph DATA[Data]
+        STS[storageService] --> LS[(LocalStorage)]
+        SEED[Seed modules] --> STS
+    end
+    PG --> HK
+    SV --> STS
+    SV --> SIM[Simulators: GPS, OTP, email, WhatsApp, OCR, AI]
+```
+
+## DGM-21 — Driver Delivery Architecture (production)
+
+Label: **PROPOSED**
+
+```mermaid
+flowchart LR
+    APP[React Native Drivers App] -->|HTTPS| API[Delivery API]
+    APP -->|GPS every 10-15 s while active| TRK[Tracking API]
+    TRK --> RD[(Redis channel layer)]
+    TRK --> PG[(location_points)]
+    RD --> WSA[Admin map - all vehicles]
+    RD --> WSC[Customer map - own order only]
+    API --> OTP[OTP service - hashed, rate limited]
+    OTP --> MSG[SMS / WhatsApp]
+    API --> POD[(Object storage - photo, signature)]
+    API --> DN[Delivery note PDF worker] --> MSG
+```
+
+## DGM-22 — Customer Application Architecture
+
+Label: **VERIFIED (prototype) / PROPOSED (production)**
+
+```mermaid
+flowchart LR
+    CUA[Customer app - /customer] --> CAS[customerAppService]
+    CAS --> ORD[orderService.submitOrder - source customer_app]
+    CAS --> CART[(customer_carts)]
+    CUA --> TRK[Tracking - own order only]
+    CUA --> DOCS[Delivery notes and invoices - linked customer]
+    ORD --> APR[Sales Manager approval]
+```
+
+## DGM-23 — Order Processing Architecture
+
+Label: **VERIFIED (logic) / PROPOSED (server)**
+
+```mermaid
+flowchart LR
+    IN[Order input: office or customer app] --> VAL[validateOrder]
+    VAL --> SUB[submitOrder: number, warnings, timeline]
+    SUB --> CHK[getApprovalChecks: 6 checks]
+    CHK --> DEC[approve / return / reject]
+    DEC --> CON[consolidateOrder: 5 checks]
+    CON --> RDY[markReadyForDispatch]
+    RDY --> DSP[dispatch: create, assign, confirm - stock deducted]
+    DSP --> DEL[deliveries]
+```
+
+## Revision history
+
+| Version | Date | Author | Description |
+|---|---|---|---|
+| 1.0 | 2026-11-12 | Documentation team | Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents. |

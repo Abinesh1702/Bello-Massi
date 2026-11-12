@@ -1,0 +1,8 @@
+flowchart LR
+    A[Workflow service] --> B[pushNotification - role / user / driver / customer]
+    B --> C{Category muted?}
+    C -->|No| D[Toast + bell count]
+    C -->|Yes| E[Bell count only]
+    D --> F[Notification Center]
+    E --> F
+    F --> G[Open linked record - marked read]

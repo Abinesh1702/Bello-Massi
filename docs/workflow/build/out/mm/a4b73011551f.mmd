@@ -1,0 +1,8 @@
+flowchart LR
+    A[Expired / damaged / QA rejected stock] --> B[New scrap request - reason, qty, source, batch, photo]
+    B --> C{Eligible qty, photo if required, batch if batch-controlled, no duplicate open request?}
+    C -->|No| B
+    C -->|Yes| D[DRAFT] --> E[Submit - PENDING_APPROVAL]
+    E --> F{Approver - not requester}
+    F -->|Reject| G([REJECTED])
+    F -->|Approve| H[APPROVED] --> I[Post write-off] --> J([COMPLETED - stock reduced once])

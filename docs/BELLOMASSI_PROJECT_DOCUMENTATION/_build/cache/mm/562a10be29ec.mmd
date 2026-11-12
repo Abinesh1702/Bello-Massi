@@ -1,0 +1,21 @@
+erDiagram
+    customers ||--o{ orders : places
+    users ||--o{ orders : "salesman"
+    hubs ||--o{ orders : fulfils
+    orders ||--|{ order_items : contains
+    products ||--o{ order_items : "ordered as"
+    orders ||--o{ order_approvals : decided
+    orders ||--o| consolidations : verified
+    dispatches ||--|{ dispatch_stops : sequences
+    orders ||--o{ dispatch_stops : "planned in"
+    drivers ||--o{ dispatches : drives
+    vehicles ||--o{ dispatches : carries
+    dispatches ||--|{ deliveries : creates
+    deliveries ||--o{ delivery_otps : verifies
+    deliveries ||--o| proofs_of_delivery : evidences
+    deliveries ||--o| delivery_notes : documents
+    deliveries ||--o{ tracking_sessions : tracks
+    hubs ||--o{ stock_items : holds
+    products ||--o{ stock_items : stocked
+    stock_items ||--o{ stock_movements : ledger
+    orders ||--o{ invoices : bills

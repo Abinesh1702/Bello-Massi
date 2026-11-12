@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> PENDING_OCR: upload - type has OCR enabled
+    [*] --> PENDING_REVIEW: upload - no OCR, verification required
+    [*] --> VERIFIED: upload - no OCR, no verification required
+    PENDING_OCR --> OCR_COMPLETED: processDocument (OCR provider)
+    PENDING_OCR --> PENDING_REVIEW: saveReview (fields entered manually)
+    OCR_COMPLETED --> PENDING_REVIEW: saveReview (fields corrected)
+    REJECTED --> PENDING_REVIEW: saveReview
+    OCR_COMPLETED --> VERIFIED: verifyDocument
+    PENDING_REVIEW --> VERIFIED: verifyDocument
+    PENDING_OCR --> REJECTED: rejectDocument (reason)
+    OCR_COMPLETED --> REJECTED: rejectDocument (reason)
+    PENDING_REVIEW --> REJECTED: rejectDocument (reason)
+    REJECTED --> PENDING_OCR: replaceDocumentFile (OCR type)
+    VERIFIED --> PENDING_OCR: replaceDocumentFile (OCR type)
+    VERIFIED --> EXPIRED: expiry date passes (derived, effectiveStatus)

@@ -1,0 +1,9 @@
+flowchart TD
+    A["New forecast /ai/forecasting/new"] --> B[Target, scope: product / category / hub, horizon]
+    B --> C{Model}
+    C --> C1[Auto - best backtest RMSE]
+    C --> C2[Moving average / Weighted MA / Exponential smoothing / Holt / Seasonal]
+    C1 --> D[Forecast with accuracy metrics]
+    C2 --> D
+    D --> E[History / Compare / Print / Export CSV]
+    D --> F[Predictive inventory: reorder recommendations and risks]

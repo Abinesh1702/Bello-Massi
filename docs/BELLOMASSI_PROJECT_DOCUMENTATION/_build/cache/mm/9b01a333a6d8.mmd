@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor SE as Sales Executive
+    actor SM as Sales Manager
+    actor CS as Warehouse / Customer Service
+    actor DP as Dispatcher
+    actor DR as Driver
+    actor CU as Customer
+    actor FI as Finance
+    SE->>SM: submitOrder - SUBMITTED, notification "New order for approval"
+    SM-->>SE: returnOrderForCorrection - RETURNED (optional loop)
+    SE->>SM: resubmitOrder
+    SM->>CS: approveOrder - APPROVED, "Order awaiting consolidation"
+    CS->>CS: consolidateOrder - CONSOLIDATED
+    CS->>DP: markReadyForDispatch - READY_FOR_DISPATCH
+    DP->>DP: createDispatch - PLANNED
+    DP->>DR: assignDispatch - ASSIGNED, "New dispatch assigned"
+    DP->>DR: confirmDispatch - CONFIRMED, stock deducted, order DISPATCHED
+    DR->>CU: startDelivery - OUT_FOR_DELIVERY, "Out for delivery" + DEMO GPS
+    DR->>CU: markArrived - OTP issued (simulated)
+    CU-->>DR: Tells OTP
+    DR->>CU: confirmDelivery - DELIVERED, delivery note
+    DR-->>DP: failDelivery - DELIVERY_FAILED (exception path)
+    FI->>CU: generateInvoice - invoice ISSUED, visible in customer app

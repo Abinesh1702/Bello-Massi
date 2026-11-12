@@ -1,0 +1,24 @@
+flowchart TD
+    A[Order APPROVED or later] --> B["Invoice dashboard /invoices/dashboard - Delivered, to invoice"]
+    B --> C["New invoice /invoices/create"]
+    C --> D[Select order]
+    D --> E{Eligible?}
+    E -->|Draft order| E1[Draft orders cannot be invoiced]
+    E -->|Status before approval / rejected| E2[Only approved orders can be invoiced]
+    E -->|Active invoice exists| E3[Already has invoice - cancel it first]
+    E -->|Yes| F[Choose template - default or active template]
+    F --> G[Options: quantity basis ORDERED or DELIVERED, invoice date, due date, order discount, shipping, additional charges, demo tax]
+    G --> H[Live preview - invoiceCalculationService]
+    H --> I{Options valid and grand total > 0?}
+    I -->|No| G
+    I -->|Yes| J[Issue invoice - number BM-INV-YYYY-NNNNN]
+    J --> K[ISSUED - snapshot saved, notification to Admin and Finance, event INVOICE_GENERATED]
+    K --> L[Print /invoices/:id/print]
+    K --> M[Email - demo]
+    K --> N[Customer app - Invoices]
+    K --> O{Error found?}
+    O -->|Yes| P[Cancel with reason - CANCELLED]
+    P --> C
+    K --> Q[Finance dashboard and Finance reports]
+    Q --> R[Outstanding = customer credit balances - maintained on customer record]
+    R --> S([Payments / credit notes - Not Implemented])

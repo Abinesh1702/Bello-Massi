@@ -1,0 +1,49 @@
+erDiagram
+    customers ||--o{ orders : "customer_id"
+    users ||--o{ orders : "salesman_id"
+    hubs ||--o{ orders : "hub_id"
+    orders ||--o{ order_items : "order_id"
+    products ||--o{ order_items : "product_id"
+    orders ||--o{ order_approvals : "order_id"
+    users ||--o{ order_approvals : "decided_by_id"
+    orders ||--o{ consolidations : "order_id"
+    users ||--o{ consolidations : "consolidated_by_id"
+    orders ||--o{ order_events : "order_id"
+    users ||--o{ order_events : "actor_id"
+    orders {
+        bigserial id PK
+        varchar order_number UK
+        bigint customer_id FK
+        bigint salesman_id FK
+        bigint hub_id FK
+        bigint delivery_location_id FK
+        varchar status
+    }
+    order_items {
+        bigserial id PK
+        bigint order_id FK
+        bigint product_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    order_approvals {
+        bigserial id PK
+        bigint order_id FK
+        bigint decided_by_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    consolidations {
+        bigserial id PK
+        bigint order_id FK
+        bigint consolidated_by_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    order_events {
+        bigserial id PK
+        bigint order_id FK
+        bigint actor_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

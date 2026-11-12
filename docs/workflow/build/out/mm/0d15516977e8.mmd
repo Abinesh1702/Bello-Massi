@@ -1,0 +1,11 @@
+flowchart TD
+    SH[(Sales history)] --> FC[Forecast models: MA, WMA, SES, Holt, Seasonal, Auto]
+    FC --> PR["Predictive inventory /ai/predictive-inventory"]
+    PR --> RR[Reorder recommendations - OPEN]
+    PR --> RK["Risk flags: Stock-out risk, Low stock, Excess, Slow-moving, Non-moving, High demand, Demand spike, Hub imbalance"]
+    RR -->|Add to draft| RD[Replenishment DRAFT - IN_DRAFT]
+    RR -->|Dismiss| DM[DISMISSED]
+    RD --> SB[SUBMITTED] --> AP{Administrator}
+    AP -->|Approve| AV[APPROVED] --> CV[CONVERTED - Awaiting goods receipt]
+    AP -->|Reject| RJ([REJECTED])
+    CV --> GR[Stock receipt per line, reference = request number] --> RC([RECEIVED])

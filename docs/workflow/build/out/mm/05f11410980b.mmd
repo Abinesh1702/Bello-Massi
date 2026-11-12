@@ -1,0 +1,40 @@
+flowchart TD
+    A([Open the app]) --> B{Signed-in session exists and not idle-expired?}
+    B -->|Yes| LAND[Go to requested page or role landing page]
+    B -->|No| C{Which entry?}
+    C -->|/login| L1[Office sign-in: email or username + password]
+    C -->|/driver/login| L2[Driver sign-in: mobile, email or username]
+    C -->|/customer/login| L3[Customer sign-in: mobile, email or username]
+    L1 --> V
+    L2 --> V
+    L3 --> V
+    V{Fields valid?} -->|No| E1[Enter your email address or username / Enter your password] --> C
+    V -->|Yes| U{Account found?}
+    U -->|No| E2[The email/username or password is incorrect] --> C
+    U -->|Yes| LK{Account locked?}
+    LK -->|Yes| E3[Temporarily locked - try again in N minutes or ask an administrator] --> C
+    LK -->|No| PW{Password correct?}
+    PW -->|No| CNT[Count failed attempt] --> MAX{Attempts >= max - default 5?}
+    MAX -->|Yes| LOCKED[Lock for lockout minutes - default 15, audit ACCOUNT_LOCKED] --> C
+    MAX -->|No| E2
+    PW -->|Yes| ACT{Account active?}
+    ACT -->|No| E4[This account is inactive. Contact your administrator] --> C
+    ACT -->|Yes| SES[Create session: Keep me signed in = localStorage, else sessionStorage]
+    SES --> MCP{Must change password?}
+    MCP -->|Yes| CP["/account/change-password?required=1"]
+    MCP -->|No| ROLE{Role landing page}
+    ROLE -->|DRIVER| DD["/driver/dashboard"]
+    ROLE -->|CUSTOMER| CD["/customer/dashboard"]
+    ROLE -->|Office roles| OD["/dashboard - role dashboard"]
+    DD --> WORK[Work]
+    CD --> WORK
+    OD --> WORK
+    CP --> ROLE
+    WORK --> IDLE{Idle longer than session timeout - default 60 min?}
+    IDLE -->|Yes| OUT[Signed out automatically - SessionWatcher]
+    WORK -->|Sign out| OUT2["/logout confirm"]
+    OUT --> BACK{Which app was used?}
+    OUT2 --> BACK
+    BACK -->|/driver/...| L2
+    BACK -->|/customer/...| L3
+    BACK -->|Office| L1

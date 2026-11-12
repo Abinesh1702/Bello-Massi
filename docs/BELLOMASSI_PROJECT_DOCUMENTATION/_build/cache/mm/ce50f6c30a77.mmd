@@ -1,0 +1,44 @@
+flowchart TD
+    subgraph SALES[Sales Executive]
+        S1[Create order / draft] --> S2[Submit order]
+        S5[Correct and resubmit]
+    end
+    subgraph SM[Sales Manager]
+        M1{Review checks} -->|Approve| M2[Approved]
+        M1 -->|Return| M3[Returned]
+        M1 -->|Reject| M4[Rejected]
+    end
+    subgraph WCS[Warehouse / Customer Service]
+        W1[Verify and consolidate] --> W2[Mark ready for dispatch]
+        W3[Receipts, transfers, adjustments, scrap]
+    end
+    subgraph DSP[Dispatch]
+        D1[Plan dispatch] --> D2[Assign driver and vehicle] --> D3[Confirm - stock deducted]
+        D4[Review failed / partial delivery]
+    end
+    subgraph DRV[Driver]
+        R1[Start delivery] --> R2[Reach location] --> R3[Enter OTP, quantities, POD]
+        R4[Report failure]
+    end
+    subgraph CUS[Customer]
+        C1[Place order in app]
+        C2[Track delivery, share OTP]
+        C3[View delivery note and invoice]
+    end
+    subgraph FIN[Finance]
+        F1[Issue invoice] --> F2[Monitor credit and outstanding]
+    end
+
+    C1 --> M1
+    S2 --> M1
+    M3 --> S5 --> M1
+    M2 --> W1
+    W2 --> D1
+    D3 --> R1
+    R1 --> C2
+    R2 --> C2
+    R3 --> C3
+    R4 --> D4
+    R3 --> F1
+    M2 --> F1
+    F1 --> C3

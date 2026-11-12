@@ -1,0 +1,733 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Business Requirements Document (BRD)</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Business Requirements Document (BRD)</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-BRD-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Business Requirements</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Business Analyst</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Define what the business needs from the Bellomassi platform, independent of technology, so that the client can approve the requirement baseline for production.</p>
+<h2 id="scope">Scope</h2>
+<p>Order-to-delivery process from order capture to OTP-confirmed delivery and delivery note, the Admin Panel, and the prototype extensions that need a scope decision.</p>
+<h2 id="definitions">Definitions</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Business requirement (BR)</td>
+<td>A need of the business, stated without design detail, traced to functional requirements</td>
+</tr>
+<tr class="even">
+<td>Prototype</td>
+<td>The React / LocalStorage application used to validate workflows; not production software</td>
+</tr>
+</tbody>
+</table>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Scope of Work presentation, October 2026 (slides 2–18)</li>
+<li>Driver App GPS Implementation Guide (sections 1–12)</li>
+<li>Prototype source code (data version 8)</li>
+<li><strong>BM-SOW-001</strong> (Scope of Work)</li>
+<li><strong>BM-BRD-002</strong> (Business Requirement Traceability)</li>
+<li><strong>BM-SYS-002</strong> (Software Requirements Specification (SRS))</li>
+<li><strong>BM-SYS-007</strong> (Business Rules Catalogue)</li>
+<li><strong>BM-DOC-003</strong> (Gap Analysis — Scope of Work, Prototype and Documentation)</li>
+<li><strong>BM-RSK-002</strong> (Project Risk Register)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Executive summary</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Business background</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Business objectives</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Existing business problems</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Proposed solution</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Business scope</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>Stakeholders</li>
+</ol></li>
+<li><ol start="8" type="1">
+<li>Business requirements</li>
+</ol></li>
+<li><ol start="9" type="1">
+<li>Business rules</li>
+</ol></li>
+<li><ol start="10" type="1">
+<li>Business constraints</li>
+</ol></li>
+<li><ol start="11" type="1">
+<li>Assumptions</li>
+</ol></li>
+<li><ol start="12" type="1">
+<li>Dependencies</li>
+</ol></li>
+<li><ol start="13" type="1">
+<li>Business benefits</li>
+</ol></li>
+<li><ol start="14" type="1">
+<li>Success criteria — PROPOSED, pending confirmation</li>
+</ol></li>
+<li><ol start="15" type="1">
+<li>Acceptance criteria</li>
+</ol></li>
+<li><ol start="16" type="1">
+<li>Out-of-scope items</li>
+</ol></li>
+<li><ol start="17" type="1">
+<li>Risks</li>
+</ol></li>
+<li><ol start="18" type="1">
+<li>Business approval</li>
+</ol></li>
+</ul>
+<h2 id="1-executive-summary">1. Executive summary</h2>
+<p>Bellomassi distributes frozen and chilled food. Orders arrive by phone, email and WhatsApp and are handled manually through approval, preparation, dispatch and delivery. The business needs <strong>one digital order path</strong> with manager approval and credit control, consolidation by Customer Service, zone-based dispatch, a driver app with the fastest route, and <strong>customer-confirmed handover by OTP</strong> with an instant delivery note, under the control of an Admin Panel and ready for SAP integration. A working prototype demonstrates these workflows today; this BRD states the business requirements for the production platform and identifies what still needs client decision.</p>
+<h2 id="2-business-background">2. Business background</h2>
+<p>See <strong>BM-OVW-006</strong> (Project Background). The client Scope of Work (October 2026) is the requirement baseline; the Driver App GPS guide adds tracking requirements. The prototype has validated the workflows and introduced extensions (inventory, invoices, customer app, VMS, documents, communication, AI) whose production scope is not yet agreed.</p>
+<h2 id="3-business-objectives">3. Business objectives</h2>
+<p>OBJ-01 Control · OBJ-02 Visibility · OBJ-03 One record · OBJ-04 Efficient delivery · OBJ-05 Accountability · OBJ-06 Proof of delivery · OBJ-07 Ready for SAP — defined with proposed measures in <strong>BM-OVW-003</strong> (Project Vision and Objectives).</p>
+<h2 id="4-existing-business-problems">4. Existing business problems</h2>
+<p>P-01 multiple channels and re-entry · P-02 manual approval and credit · P-03 unclear consolidation · P-04 manual planning, late driver information · P-05 no proof of handover · P-06 no single status · P-07 item data from emails — see <strong>BM-OVW-004</strong> (Business Problem Statement).</p>
+<h2 id="5-proposed-solution">5. Proposed solution</h2>
+<p>A shared platform with three applications (SOW slide 4):</p>
+<ul>
+<li><strong>Order Taking App</strong> (mobile and web) — capture, approve, consolidate, dispatch.</li>
+<li><strong>Drivers App</strong> (iOS and Android) — next-day plan, suggested route, OTP handover.</li>
+<li><strong>Admin Panel</strong> (web) — users, customers, items, zones, rules, live monitor, reports.</li>
+</ul>
+<p>Shared services: one order record, workflow and approvals, live notifications, OTP service, maps and routing, audit trail. Second stage: SAP integration.</p>
+<h2 id="6-business-scope">6. Business scope</h2>
+<table>
+<thead>
+<tr class="header">
+<th>In scope (SOW)</th>
+<th>Scope to be confirmed (prototype extensions)</th>
+<th>Out of scope (SOW)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Order capture, approval, credit check, consolidation, zone dispatch, driver app, route, OTP, delivery note, notifications, Admin Panel, reports, SAP (stage 2)</td>
+<td>Customer app, invoicing, inventory, scrap, VMS, documents / OCR, email / WhatsApp, call history, AI, extra roles</td>
+<td>Invoicing and finance documents (SOW slide 13), payments</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-stakeholders">7. Stakeholders</h2>
+<p>See <strong>BM-OVW-009</strong> (Stakeholder Identification) and <strong>BM-OVW-010</strong> (Stakeholder Responsibility Matrix). Business owners named below are roles; names are PENDING CONFIRMATION.</p>
+<h2 id="8-business-requirements">8. Business requirements</h2>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>P</th>
+<th>Requirement</th>
+<th>Business owner (role)</th>
+<th>Source</th>
+<th>Label</th>
+<th>Functional requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BR-001</td>
+<td>P1</td>
+<td>Every customer order received by call, email or WhatsApp shall be captured once in one structured digital record.</td>
+<td>Sales Director</td>
+<td>SOW slide 2, 7</td>
+<td>VERIFIED</td>
+<td>FR-ORD-001, FR-ORD-002, FR-ORD-003, FR-ORD-011</td>
+</tr>
+<tr class="even">
+<td>BR-002</td>
+<td>P1</td>
+<td>No order shall be shipped without Sales Manager approval of value, quantity and credit position.</td>
+<td>Sales Director</td>
+<td>SOW slide 8</td>
+<td>VERIFIED</td>
+<td>FR-APR-001, FR-APR-002, FR-APR-003, FR-APR-007</td>
+</tr>
+<tr class="odd">
+<td>BR-003</td>
+<td>P1</td>
+<td>Every order shall be checked against the customer’s credit limit and exceptions shall be flagged.</td>
+<td>Finance Manager</td>
+<td>SOW slide 8, 18</td>
+<td>VERIFIED</td>
+<td>FR-CRD-001, FR-CRD-002, FR-CRD-003, FR-APR-008</td>
+</tr>
+<tr class="even">
+<td>BR-004</td>
+<td>P1</td>
+<td>Returned and rejected orders shall always carry the manager’s reason back to the salesman.</td>
+<td>Sales Director</td>
+<td>SOW slide 8</td>
+<td>VERIFIED</td>
+<td>FR-APR-004, FR-APR-005, FR-ORD-005</td>
+</tr>
+<tr class="odd">
+<td>BR-005</td>
+<td>P1</td>
+<td>Customer Service shall receive only approved orders, grouped per salesman, verify them and release them to dispatch.</td>
+<td>Operations Manager</td>
+<td>SOW slide 9</td>
+<td>VERIFIED</td>
+<td>FR-CON-001, FR-CON-002, FR-CON-003, FR-CON-004</td>
+</tr>
+<tr class="even">
+<td>BR-006</td>
+<td>P1</td>
+<td>The Dispatcher shall plan deliveries by zone and assign orders to drivers and vehicles.</td>
+<td>Logistics Manager</td>
+<td>SOW slide 10</td>
+<td>VERIFIED</td>
+<td>FR-DSP-001, FR-DSP-002, FR-DSP-008, FR-ZON-001, FR-ZON-002, FR-DRA-001</td>
+</tr>
+<tr class="odd">
+<td>BR-007</td>
+<td>P1</td>
+<td>Drivers shall see the next day’s delivery plan the day before.</td>
+<td>Logistics Manager</td>
+<td>SOW slide 10, 12</td>
+<td>VERIFIED</td>
+<td>FR-DRV-001, FR-DSP-004</td>
+</tr>
+<tr class="even">
+<td>BR-008</td>
+<td>P1</td>
+<td>Each driver shall receive a suggested fastest route using distance and live traffic, with VIP requested times respected or warned.</td>
+<td>Logistics Manager</td>
+<td>SOW slide 12; GPS guide §5</td>
+<td>PROPOSED</td>
+<td>FR-DSP-003, FR-DSP-009, FR-DRV-009</td>
+</tr>
+<tr class="odd">
+<td>BR-009</td>
+<td>P1</td>
+<td>Every handover shall be confirmed with a one-time password given by the customer.</td>
+<td>Operations Manager</td>
+<td>SOW slide 13</td>
+<td>VERIFIED</td>
+<td>FR-OTP-001, FR-OTP-002, FR-OTP-003, FR-OTP-005, FR-DRV-003, FR-DRV-004</td>
+</tr>
+<tr class="even">
+<td>BR-010</td>
+<td>P1</td>
+<td>A delivery note shall be issued to the customer as soon as the handover is confirmed.</td>
+<td>Operations Manager</td>
+<td>SOW slide 13</td>
+<td>VERIFIED</td>
+<td>FR-DN-001, FR-DN-002, FR-DN-003</td>
+</tr>
+<tr class="odd">
+<td>BR-011</td>
+<td>P1</td>
+<td>Every order shall have one clear status visible to every role, with a full history.</td>
+<td>Operations Manager</td>
+<td>SOW slide 17</td>
+<td>VERIFIED</td>
+<td>FR-ORD-008, FR-DASH-001, FR-TRK-001, FR-CAP-003</td>
+</tr>
+<tr class="even">
+<td>BR-012</td>
+<td>P1</td>
+<td>The right person shall be notified at each workflow event (in-app; customers by SMS or WhatsApp).</td>
+<td>Management</td>
+<td>SOW slide 16</td>
+<td>VERIFIED</td>
+<td>FR-NOTF-001, FR-AUTO-001, FR-AUTO-002, FR-APR-008, FR-OTP-005</td>
+</tr>
+<tr class="odd">
+<td>BR-013</td>
+<td>P1</td>
+<td>Administrators shall control users, roles and what each role can see and do.</td>
+<td>IT / Administrator</td>
+<td>SOW slide 15</td>
+<td>VERIFIED</td>
+<td>FR-USR-001, FR-USR-002, FR-RBAC-001, FR-RBAC-002, FR-RBAC-003, FR-RBAC-004, FR-RBAC-005</td>
+</tr>
+<tr class="even">
+<td>BR-014</td>
+<td>P1</td>
+<td>Administrators shall maintain customers, delivery locations, credit limits, items, zones and drivers.</td>
+<td>IT / Administrator</td>
+<td>SOW slide 15</td>
+<td>VERIFIED</td>
+<td>FR-CUS-001, FR-CUS-002, FR-PRD-001, FR-ZON-001, FR-DRA-004</td>
+</tr>
+<tr class="odd">
+<td>BR-015</td>
+<td>P2</td>
+<td>Management shall monitor orders live and export reports on orders, approvals, dispatch and delivery performance.</td>
+<td>Management</td>
+<td>SOW slide 15</td>
+<td>VERIFIED</td>
+<td>FR-RPT-001, FR-RPT-002, FR-DASH-002, FR-DASH-006</td>
+</tr>
+<tr class="even">
+<td>BR-016</td>
+<td>P1</td>
+<td>Admin users shall see all active vehicles live; each customer shall see only the vehicle of their own order.</td>
+<td>Logistics Manager</td>
+<td>GPS guide §1, §6, §9</td>
+<td>PROTOTYPE</td>
+<td>FR-TRK-001, FR-TRK-002, FR-TRK-003, FR-CAP-004</td>
+</tr>
+<tr class="odd">
+<td>BR-017</td>
+<td>P1</td>
+<td>The driver app shall be a mobile app with admin-created accounts and background GPS during active deliveries only.</td>
+<td>Logistics Manager</td>
+<td>GPS guide §2–§4, §8</td>
+<td>PROPOSED</td>
+<td>FR-DRV-002, FR-DRV-010, FR-DRV-011, FR-AUTH-002</td>
+</tr>
+<tr class="even">
+<td>BR-018</td>
+<td>P2</td>
+<td>Items and quantities shall be updated from SAP in a second stage (today from emails).</td>
+<td>IT / Administrator</td>
+<td>SOW slide 4, 15</td>
+<td>PROPOSED</td>
+<td>FR-PRD-004, FR-INV-008, FR-CRD-005</td>
+</tr>
+<tr class="odd">
+<td>BR-019</td>
+<td>P2</td>
+<td>Stock per product and hub shall be controlled with receipts, transfers, adjustments and a movement ledger.</td>
+<td>Warehouse Manager</td>
+<td>Phase 2 brief</td>
+<td>VERIFIED</td>
+<td>FR-INV-001, FR-INV-002, FR-INV-003, FR-INV-004, FR-INV-005, FR-INV-006</td>
+</tr>
+<tr class="even">
+<td>BR-020</td>
+<td>P2</td>
+<td>Unusable stock shall be written off only after approval by a different user, with evidence.</td>
+<td>Warehouse Manager</td>
+<td>Finalisation brief</td>
+<td>VERIFIED</td>
+<td>FR-SCR-001, FR-SCR-002, FR-SCR-003, FR-SCR-004</td>
+</tr>
+<tr class="odd">
+<td>BR-021</td>
+<td>P2</td>
+<td>Vehicles and drivers with expired mandatory documents shall not be assigned to deliveries.</td>
+<td>Fleet Manager</td>
+<td>Phase 5 brief</td>
+<td>VERIFIED</td>
+<td>FR-VMS-001, FR-VMS-002, FR-VMS-003, FR-VMS-004, FR-DRA-002, FR-DRA-003</td>
+</tr>
+<tr class="even">
+<td>BR-022</td>
+<td>P2</td>
+<td>Business documents shall be stored centrally, read by OCR and verified before use.</td>
+<td>Operations Manager</td>
+<td>Phase 5 brief</td>
+<td>PROTOTYPE</td>
+<td>FR-DOC-001, FR-DOC-002, FR-DOC-003, FR-DOC-004, FR-DOC-005</td>
+</tr>
+<tr class="odd">
+<td>BR-023</td>
+<td>P2</td>
+<td>Customer invoices shall be produced from orders with branded templates (SOW keeps invoicing outside the app).</td>
+<td>Finance Manager</td>
+<td>Phase 5 brief (beyond SOW)</td>
+<td>PENDING CONFIRMATION</td>
+<td>FR-INVC-001, FR-INVC-002, FR-INVC-003, FR-INVC-004, FR-INVC-005</td>
+</tr>
+<tr class="even">
+<td>BR-024</td>
+<td>P2</td>
+<td>Staff shall communicate with customers by email and WhatsApp from the platform, manually and automatically.</td>
+<td>Sales Director</td>
+<td>Phase 5 brief</td>
+<td>PROTOTYPE</td>
+<td>FR-EML-001, FR-EML-002, FR-OWA-001, FR-OWA-003, FR-AUTO-001</td>
+</tr>
+<tr class="odd">
+<td>BR-025</td>
+<td>P3</td>
+<td>Customer calls and follow-ups shall be logged and linked to orders.</td>
+<td>Sales Director</td>
+<td>Finalisation brief</td>
+<td>VERIFIED</td>
+<td>FR-CALL-001, FR-CALL-002</td>
+</tr>
+<tr class="even">
+<td>BR-026</td>
+<td>P2</td>
+<td>Customers shall order, track deliveries and access delivery notes and invoices in a self-service app.</td>
+<td>Customer Experience</td>
+<td>Finalisation brief (beyond SOW)</td>
+<td>PENDING CONFIRMATION</td>
+<td>FR-CAP-001, FR-CAP-002, FR-CAP-003, FR-CAP-004, FR-CAP-005, FR-CAP-006, FR-CAP-008</td>
+</tr>
+<tr class="odd">
+<td>BR-027</td>
+<td>P2</td>
+<td>Failed and partial deliveries shall be reviewed and resolved by the Dispatcher with stock returned correctly.</td>
+<td>Operations Manager</td>
+<td>Phase 4 brief</td>
+<td>VERIFIED</td>
+<td>FR-EXC-001, FR-EXC-002, FR-EXC-003, FR-DRV-005</td>
+</tr>
+<tr class="even">
+<td>BR-028</td>
+<td>P2</td>
+<td>Every dashboard shall be filterable by period, including the financial year, with comparison to the previous period.</td>
+<td>Management</td>
+<td>UI/filter brief</td>
+<td>VERIFIED</td>
+<td>FR-DASH-002, FR-DASH-003, FR-DASH-004, FR-DASH-005</td>
+</tr>
+<tr class="odd">
+<td>BR-029</td>
+<td>P1</td>
+<td>Only authorised users with active accounts shall sign in; sessions shall expire and accounts lock after repeated failures.</td>
+<td>IT / Security</td>
+<td>GPS guide §2; Phase 1 brief</td>
+<td>VERIFIED</td>
+<td>FR-AUTH-001, FR-AUTH-004, FR-AUTH-005, FR-AUTH-006, FR-AUTH-011, FR-AUTH-012, FR-AUTH-013</td>
+</tr>
+<tr class="even">
+<td>BR-030</td>
+<td>P1</td>
+<td>Administrative actions shall be auditable and configuration shall be centrally managed.</td>
+<td>IT / Security</td>
+<td>Phase 1 brief</td>
+<td>VERIFIED</td>
+<td>FR-SET-001, FR-SET-002, FR-SET-003, FR-SET-004</td>
+</tr>
+<tr class="odd">
+<td>BR-031</td>
+<td>P3</td>
+<td>Management shall get demand forecasts, reorder suggestions and an assistant for business questions.</td>
+<td>Management</td>
+<td>Phase 6 brief</td>
+<td>PROTOTYPE</td>
+<td>FR-AI-001, FR-AI-002, FR-AI-003, FR-AI-004, FR-AI-005</td>
+</tr>
+<tr class="even">
+<td>BR-032</td>
+<td>P2</td>
+<td>Warehouse and QA staff shall see picking, quarantine, inspections and document expiry in one place.</td>
+<td>Quality Manager</td>
+<td>Finalisation brief</td>
+<td>VERIFIED</td>
+<td>FR-WQA-001, FR-WQA-002, FR-WQA-003</td>
+</tr>
+<tr class="odd">
+<td>BR-033</td>
+<td>P1</td>
+<td>Proof of delivery (quantities, receiver, signature, photo) shall be captured with every handover.</td>
+<td>Operations Manager</td>
+<td>SOW slide 13; Phase 4 brief</td>
+<td>VERIFIED</td>
+<td>FR-POD-001, FR-POD-002, FR-POD-003</td>
+</tr>
+</tbody>
+</table>
+<p>Full traceability to functional requirements and test cases: <strong>BM-BRD-002</strong> (Business Requirement Traceability).</p>
+<h2 id="9-business-rules">9. Business rules</h2>
+<p>The 44 business rules enforced by the prototype are listed in <strong>BM-SYS-007</strong> (Business Rules Catalogue). Key rules:</p>
+<ol type="1">
+<li>No order is shipped without Sales Manager approval (RULE-010 … RULE-015).</li>
+<li>Credit over limit is a warning; it blocks approval when the client enables blocking (RULE-011).</li>
+<li>Every return or rejection carries a reason (RULE-014).</li>
+<li>Only approved, consolidated orders reach the Dispatcher (RULE-016, RULE-017).</li>
+<li>Only compliant, available drivers and vehicles of the right hub and capacity are assigned (RULE-023 … RULE-025).</li>
+<li>Stock leaves the hub once, at dispatch confirmation (RULE-020, RULE-021).</li>
+<li>A delivery is completed only with the customer’s valid OTP (RULE-027).</li>
+<li>Failed and partial deliveries are reviewed by the Dispatcher (RULE-031).</li>
+</ol>
+<h2 id="10-business-constraints">10. Business constraints</h2>
+<ul>
+<li>Customer messages (OTP, delivery note) require an SMS or WhatsApp provider account (SOW slide 16).</li>
+<li>Maps and routing depend on a paid provider (Google Maps Platform / Routes API; usage-based charges — GPS guide §12).</li>
+<li>Mobile GPS depends on drivers’ phones, permissions, battery and connectivity (GPS guide §7–8).</li>
+<li>SAP integration depends on the client’s SAP interfaces (stage 2).</li>
+<li>See <strong>BM-SYS-005</strong> (System Constraints Document).</li>
+</ul>
+<h2 id="11-assumptions">11. Assumptions</h2>
+<ul>
+<li>The SOW is the agreed functional baseline unless the client approves the extensions.</li>
+<li>Drivers have company-provided or compatible smartphones with data plans.</li>
+<li>Customers can receive SMS or WhatsApp messages on a registered mobile number.</li>
+<li>See <strong>BM-SYS-006</strong> (Assumptions and Dependencies).</li>
+</ul>
+<h2 id="12-dependencies">12. Dependencies</h2>
+<p>Client master data (customers, items, zones, drivers, vehicles) · provider accounts (maps, messaging, email) · hosting decision · SAP team availability (stage 2). See <strong>BM-PM-005</strong> (Issue, Dependency and Decision Registers).</p>
+<h2 id="13-business-benefits">13. Business benefits</h2>
+<p>See <strong>BM-OVW-005</strong> (Business Benefits).</p>
+<h2 id="14-success-criteria--proposed-pending-confirmation">14. Success criteria — PROPOSED, pending confirmation</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SC-01</td>
+<td>100% of orders are captured in the platform within one month of go-live</td>
+</tr>
+<tr class="even">
+<td>SC-02</td>
+<td>100% of dispatched orders have an approval record and credit check</td>
+</tr>
+<tr class="odd">
+<td>SC-03</td>
+<td>Drivers receive the next-day plan before the end of the previous working day</td>
+</tr>
+<tr class="even">
+<td>SC-04</td>
+<td>≥ 98% of deliveries confirmed by OTP; all exceptions reviewed within one working day</td>
+</tr>
+<tr class="odd">
+<td>SC-05</td>
+<td>Delivery note received by the customer within 5 minutes of handover</td>
+</tr>
+<tr class="even">
+<td>SC-06</td>
+<td>Management can see the status of any order in real time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-acceptance-criteria">15. Acceptance criteria</h2>
+<p>The BRD is accepted when the client confirms: (1) the business requirements table, (2) the scope decision for each prototype extension (section 6), (3) the open decisions in <strong>BM-HND-012</strong> (Pending Requirements Document). The delivered system is accepted through UAT (<strong>BM-QA-003</strong> (User Acceptance Testing (UAT) Plan), <strong>BM-QA-012</strong> (UAT Test Cases)).</p>
+<h2 id="16-out-of-scope-items">16. Out-of-scope items</h2>
+<p>Invoicing and financial documents (unless the client brings the prototype invoice module into scope) · payments, receipts, credit notes and refunds · purchase invoices · fleet fuel and maintenance costing · cold-chain sensor hardware · driver self-registration (GPS guide §2) · dedicated truck GPS hardware (first release; GPS guide §7).</p>
+<h2 id="17-risks">17. Risks</h2>
+<p>Key business risks (full register <strong>BM-RSK-002</strong> (Project Risk Register)): unclear scope of extensions; country rules (UAE / India) undecided; messaging provider policy (OpenWA is unofficial); mobile GPS reliability; SAP interface availability; user adoption by drivers; data migration of customer and item master.</p>
+<h2 id="18-business-approval">18. Business approval</h2>
+<p>This document has <strong>not been approved</strong>. Signature fields are intentionally blank.</p>
+<table class="dense">
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Name</th>
+<th>Signature</th>
+<th>Date</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Client Project Sponsor</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Sales Director</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Logistics / Operations Manager</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Finance Manager</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delivery Project Manager</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

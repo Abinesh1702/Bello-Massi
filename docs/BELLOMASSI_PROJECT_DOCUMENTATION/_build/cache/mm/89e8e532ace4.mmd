@@ -1,0 +1,9 @@
+flowchart LR
+    S[Sales: capture and approve] --> C[Customer Service: verify and consolidate] --> D[Dispatch: plan, assign, confirm] --> R[Road: driver delivers with OTP] --> P[Proof: delivery note]
+    P --> F[Finance: invoice - scope to confirm]
+    M[Master data and rules - Admin Panel] --> S
+    M --> D
+    W[Warehouse: stock, scrap, replenishment - extension] --> D
+    R --> X[Exceptions: review, return, re-queue] --> D
+    A[Analytics: dashboards, reports, forecasts] -.-> S
+    A -.-> D

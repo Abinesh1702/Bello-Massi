@@ -1,0 +1,10 @@
+flowchart LR
+    U[User] -->|has 1..n| R[Role]
+    R -->|grants| P[Permission keys - 110]
+    R -->|defines| SC[Data scope]
+    R -->|defines| LP[Landing page]
+    P --> NAV[Menus and routes - navigation.js]
+    P --> SVC[Service checks - can user, key]
+    SC --> Q[Record filters: own, linked customer, own deliveries, all ...]
+    SVC --> ACT[Allowed action]
+    Q --> DATA[Visible records]

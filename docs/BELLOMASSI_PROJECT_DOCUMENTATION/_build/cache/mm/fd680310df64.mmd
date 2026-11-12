@@ -1,0 +1,12 @@
+flowchart TD
+    A{What is cancelled?} -->|Dispatch| B{Any stop started?}
+    B -->|Yes| B1([Refused])
+    B -->|No| B2[Reason + remarks - CANCELLED]
+    B2 --> B3{Was it confirmed?}
+    B3 -->|Yes| B4[Stock reversed once - Stock Dispatch Reversal]
+    B3 -->|No| B5[No stock effect]
+    B4 --> B6([Orders back to READY_FOR_DISPATCH])
+    B5 --> B6
+    A -->|Invoice| C[Reason - CANCELLED - new invoice allowed]
+    A -->|Scrap / replenishment| D[CANCELLED while not completed]
+    A -->|Submitted order| E([Not implemented - reject with Customer cancelled])

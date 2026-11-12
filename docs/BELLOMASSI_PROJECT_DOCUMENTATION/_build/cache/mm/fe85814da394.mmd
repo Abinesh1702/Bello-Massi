@@ -1,0 +1,32 @@
+flowchart TD
+    A["Ready for Dispatch /dispatch/ready-orders"] --> B["New dispatch /dispatch/create"]
+    B --> C[Select orders, hub, zone, date, notes]
+    C --> D{Every order eligible?}
+    D -->|No| D1[Not ready / already on another dispatch / no complete address] --> C
+    D -->|Yes| E[Sequence: suggested or drag to reorder]
+    E --> F{Save as draft or plan?}
+    F -->|Draft| G[DRAFT - edit later]
+    G --> F
+    F -->|Plan| H[PLANNED]
+    H --> I["Assign driver and vehicle /dispatch/assignments"]
+    I --> V1{Driver checks}
+    V1 -->|Inactive / busy / offline / other hub / licence expired or missing / required docs| X1[Choose another driver] --> I
+    V1 -->|OK| V2{Vehicle checks}
+    V2 -->|Inactive / maintenance / busy / other hub / over capacity / RC-insurance-fitness| X2[Choose another vehicle] --> I
+    V2 -->|OK| J[ASSIGNED - driver notified, event DISPATCH_ASSIGNED]
+    J --> K{Edit needed?}
+    K -->|Yes| C
+    K -->|No| L[Confirmation review: orders, driver, vehicle, route, stock]
+    L --> M{Review ticked and stock available?}
+    M -->|No| M1[Blocked with reason] --> L
+    M -->|Yes| N[CONFIRMED - stock deducted once, deliveries created, orders DISPATCHED]
+    N --> O[Driver starts first stop - IN_TRANSIT]
+    O --> P[Delivery tracking + Live Tracking DEMO GPS]
+    P --> Q{All stops closed?}
+    Q -->|All delivered| R([COMPLETED])
+    Q -->|Some failed / partial| S([PARTIALLY_DELIVERED - Closed with exceptions])
+    S --> T[Review each exception: remarks, return to hub, re-queue]
+    H --> CX{Cancel?}
+    J --> CX
+    N --> CX
+    CX -->|Reason + remarks| CY[CANCELLED - orders back to READY_FOR_DISPATCH; if confirmed, stock reversed once]

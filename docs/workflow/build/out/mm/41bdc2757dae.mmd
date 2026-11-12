@@ -1,0 +1,21 @@
+flowchart TD
+    A["Upload /documents/upload"] --> B{Type active, entity and record chosen, file chosen, allowed for this record?}
+    B -->|No| A
+    B -->|Yes| C{Document type settings}
+    C -->|OCR enabled| D[PENDING_OCR - appears in OCR queue]
+    C -->|Verification required, no OCR| E[PENDING_REVIEW]
+    C -->|No verification| V[VERIFIED]
+    D --> F{OCR provider}
+    F -->|MOCK - demo| G[Fields pre-filled from linked record, form values, file name - labelled Simulated OCR]
+    F -->|BROWSER| G2[Reports unavailable - not bundled]
+    F -->|BACKEND| G3[Gateway /ocr/process - Not Verified]
+    G --> H[OCR_COMPLETED]
+    H --> I["Review /documents/:id/review - correct fields, originals kept for audit"]
+    E --> I
+    I --> J{Reviewer decision}
+    J -->|Verify| V
+    J -->|Reject with reason| R[REJECTED - uploader sees reason]
+    R --> K[Replace file] --> D
+    V --> X{Expiry date passed?}
+    X -->|Yes| EXP[Shown as EXPIRED; DOCUMENT_EXPIRED event when scanned]
+    X -->|Within warning days| WARN[DOCUMENT_EXPIRING event when scanned]

@@ -1,0 +1,17 @@
+sequenceDiagram
+    actor CS as Customer Service
+    actor DP as Dispatcher
+    participant DS as dispatchService
+    participant INV as Inventory
+    actor DR as Driver
+    CS->>DP: Order READY_FOR_DISPATCH (notification)
+    DP->>DS: createDispatch(orders, zone, date, sequence)
+    DS-->>DP: PLANNED (+ warnings)
+    DP->>DS: assignDispatch(driver, vehicle)
+    DS-->>DR: "New dispatch assigned" (appears once confirmed)
+    DP->>DS: confirmDispatch(acknowledged)
+    DS->>INV: deductDispatchStock - Stock Dispatch movements
+    DS-->>DR: "Dispatch confirmed - start your first delivery when you leave the hub"
+    DR->>DS: startDelivery (first stop) - IN_TRANSIT
+    DR-->>DP: Delivered / failed stops
+    DP->>DS: reviewDelivery (exceptions)

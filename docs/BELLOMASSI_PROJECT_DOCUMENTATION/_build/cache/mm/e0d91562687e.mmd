@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant P as Page
+    participant S as Service
+    participant R as can()
+    participant T as storage.transaction
+    participant N as notifications / automation
+    P->>S: approveOrder(id, input)
+    S->>R: permission check
+    R-->>S: allowed / denied
+    S->>S: load record, check status, validate input
+    alt invalid
+        S-->>P: { ok: false, error, errors }
+    else valid
+        S->>T: write order + approval + timeline
+        S->>N: notify + fireEvent
+        S-->>P: { ok: true, record }
+    end

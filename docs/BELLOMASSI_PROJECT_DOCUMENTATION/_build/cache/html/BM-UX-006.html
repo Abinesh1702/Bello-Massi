@@ -1,0 +1,289 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Prototype Screenshot Gallery</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Prototype Screenshot Gallery</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-UX-006</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>UI/UX and Design</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>UX Designer</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Visual reference of the prototype screens for client review.</p>
+<h2 id="scope">Scope</h2>
+<p>Real screenshots captured 2026-11-12 from the prototype build with demo seed data; no mock-ups. Desktop 1440×900, mobile 390×844.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>shots.cjs capture script in _build</li>
+<li><strong>BM-UX-005</strong> (Screen Specifications)</li>
+<li><strong>BM-UX-004</strong> (Screen Inventory)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Notes</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Office web app — administration and master data</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Order to dispatch</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Delivery monitoring</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Extensions — inventory, VMS, documents, invoices, communication, AI, reports</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Driver app (mobile)</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>Customer app (mobile)</li>
+</ol></li>
+</ul>
+<h2 id="1-notes">1. Notes</h2>
+<p>All images are actual screenshots of the running prototype (PROTOTYPE). Data shown is demo seed data, not client data. The “DEMO PROTOTYPE” badge and “DEMO GPS” markers are part of the prototype UI.</p>
+<h2 id="2-office-web-app--administration-and-master-data">2. Office web app — administration and master data</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-LOGIN.png" style="width:16cm" alt="UX-LOGIN — Sign-in screen" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-SA.png" style="width:16cm" alt="UX-DASH-SA — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-USERS.png" style="width:16cm" alt="UX-USERS — User Management" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-ROLES.png" style="width:16cm" alt="UX-ROLES — Role Management" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-PERMS.png" style="width:16cm" alt="UX-PERMS — Permission Matrix" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-AUDIT.png" style="width:16cm" alt="UX-AUDIT — Audit Log" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-SETTINGS.png" style="width:16cm" alt="UX-SETTINGS — Application Settings" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-COMPANY.png" style="width:16cm" alt="UX-COMPANY — Company" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUSTOMERS.png" style="width:7cm" alt="UX-CUSTOMERS — Customer List" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUSTOMER-DETAIL.png" style="width:7cm" alt="UX-CUSTOMER-DETAIL — ABC Enterprises" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CREDIT.png" style="width:16cm" alt="UX-CREDIT — Customer Credit" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-PRODUCTS.png" style="width:16cm" alt="UX-PRODUCTS — Products" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-HUBS.png" style="width:16cm" alt="UX-HUBS — Hubs" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-SUPPLIERS.png" style="width:16cm" alt="UX-SUPPLIERS — Suppliers" /></p>
+<h2 id="3-order-to-dispatch">3. Order to dispatch</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-SE.png" style="width:16cm" alt="UX-DASH-SE — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-ORDER-CREATE.png" style="width:16cm" alt="UX-ORDER-CREATE — Create Order" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-MY-ORDERS.png" style="width:16cm" alt="UX-MY-ORDERS — My Orders" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-ORDERS.png" style="width:16cm" alt="UX-ORDERS — Order List" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-ORDER-DETAIL.png" style="width:16cm" alt="UX-ORDER-DETAIL — BM-ORD-2026-00001" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-SM.png" style="width:16cm" alt="UX-DASH-SM — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-APPROVAL.png" style="width:16cm" alt="UX-APPROVAL — Order Approval" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-APPROVAL-DETAIL.png" style="width:16cm" alt="UX-APPROVAL-DETAIL — Review BM-ORD-2026-00001" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-CS.png" style="width:16cm" alt="UX-DASH-CS — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CONSOLIDATION.png" style="width:16cm" alt="UX-CONSOLIDATION — Order Consolidation" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-DP.png" style="width:16cm" alt="UX-DASH-DP — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-READY.png" style="width:16cm" alt="UX-READY — Ready for Dispatch" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-PLANNING.png" style="width:16cm" alt="UX-PLANNING — Dispatch Planning" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DISPATCH-LIST.png" style="width:16cm" alt="UX-DISPATCH-LIST — Dispatch Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DISPATCH-DETAIL.png" style="width:16cm" alt="UX-DISPATCH-DETAIL — BM-DSP-2026-00001" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DISPATCH-CREATE.png" style="width:16cm" alt="UX-DISPATCH-CREATE — New Dispatch" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-ZONES.png" style="width:16cm" alt="UX-ZONES — Dispatch Zones" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRIVERS.png" style="width:16cm" alt="UX-DRIVERS — Drivers" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-VEHICLES.png" style="width:16cm" alt="UX-VEHICLES — Vehicles" /></p>
+<h2 id="4-delivery-monitoring">4. Delivery monitoring</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-TRACKING.png" style="width:16cm" alt="UX-TRACKING — Delivery Tracking" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-LIVE.png" style="width:16cm" alt="UX-LIVE — Live Tracking (Demo GPS)" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DELIVERY-REVIEW.png" style="width:16cm" alt="UX-DELIVERY-REVIEW — BM-ORD-2026-00001 · stop 1" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DN.png" style="width:16cm" alt="UX-DN — UX-DN" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DELIVERY-HISTORY.png" style="width:16cm" alt="UX-DELIVERY-HISTORY — Delivery History" /></p>
+<h2 id="5-extensions--inventory-vms-documents-invoices-communication-ai-reports">5. Extensions — inventory, VMS, documents, invoices, communication, AI, reports</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-INVENTORY.png" style="width:16cm" alt="UX-INVENTORY — Inventory Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-STOCK.png" style="width:16cm" alt="UX-STOCK — Stock Overview" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-MOVEMENTS.png" style="width:16cm" alt="UX-MOVEMENTS — Stock Movements" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-SCRAP.png" style="width:16cm" alt="UX-SCRAP — Scrap Requests" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-WAREHOUSE.png" style="width:16cm" alt="UX-WAREHOUSE — Warehouse Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-QUALITY.png" style="width:16cm" alt="UX-QUALITY — QA &amp; Cold Chain" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-VMS.png" style="width:16cm" alt="UX-VMS — VMS Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-VMS-EXPIRY.png" style="width:16cm" alt="UX-VMS-EXPIRY — Document Expiry" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DOCUMENTS.png" style="width:16cm" alt="UX-DOCUMENTS — Document Repository" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-OCR.png" style="width:16cm" alt="UX-OCR — OCR Queue" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DASH-FI.png" style="width:16cm" alt="UX-DASH-FI — Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-INVOICE-DASH.png" style="width:16cm" alt="UX-INVOICE-DASH — Invoice Dashboard" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-INVOICES.png" style="width:16cm" alt="UX-INVOICES — Invoices" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-INVOICE-TPL.png" style="width:16cm" alt="UX-INVOICE-TPL — Invoice Templates" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-EMAIL.png" style="width:16cm" alt="UX-EMAIL — Email" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-WHATSAPP.png" style="width:16cm" alt="UX-WHATSAPP — WhatsApp" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CALLS.png" style="width:16cm" alt="UX-CALLS — Call History" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-AI.png" style="width:16cm" alt="UX-AI — AI Overview" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-FORECAST.png" style="width:16cm" alt="UX-FORECAST — Forecasting" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-REPORTS.png" style="width:16cm" alt="UX-REPORTS — Reports Center" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-NOTIFICATIONS.png" style="width:16cm" alt="UX-NOTIFICATIONS — Notification Center" /></p>
+<h2 id="6-driver-app-mobile">6. Driver app (mobile)</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-LOGIN.png" style="width:7cm" alt="UX-DRV-LOGIN — Sign-in screen" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-DASH.png" style="width:7cm" alt="UX-DRV-DASH — Today" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-DELIVERIES.png" style="width:7cm" alt="UX-DRV-DELIVERIES — My Deliveries" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-DELIVERY.png" style="width:7cm" alt="UX-DRV-DELIVERY — Marina Hotels &amp; Caterers" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-ROUTE.png" style="width:7cm" alt="UX-DRV-ROUTE — Route" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-COMPLETED.png" style="width:7cm" alt="UX-DRV-COMPLETED — Completed" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-NOTES.png" style="width:7cm" alt="UX-DRV-NOTES — My Delivery Notes" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-DRV-PROFILE.png" style="width:7cm" alt="UX-DRV-PROFILE — Driver Profile" /></p>
+<h2 id="7-customer-app-mobile">7. Customer app (mobile)</h2>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-LOGIN.png" style="width:7cm" alt="UX-CUS-LOGIN — Sign-in screen" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-DASH.png" style="width:7cm" alt="UX-CUS-DASH — Home" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-CATALOG.png" style="width:7cm" alt="UX-CUS-CATALOG — Catalog" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-CART.png" style="width:7cm" alt="UX-CUS-CART — Cart" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-ORDERS.png" style="width:7cm" alt="UX-CUS-ORDERS — My Orders" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-ORDER.png" style="width:7cm" alt="UX-CUS-ORDER — BM-ORD-2026-00005" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-NOTES.png" style="width:7cm" alt="UX-CUS-NOTES — Delivery Notes" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-INVOICES.png" style="width:7cm" alt="UX-CUS-INVOICES — Invoices" /></p>
+<p><img src="file:///home/claude/bellomassi/docs/BELLOMASSI_PROJECT_DOCUMENTATION/12_UI_UX_AND_DESIGN/screenshots/UX-CUS-PROFILE.png" style="width:7cm" alt="UX-CUS-PROFILE — Profile" /></p>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

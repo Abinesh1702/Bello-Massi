@@ -1,0 +1,6 @@
+flowchart LR
+    A[Customer list] --> B[Add / edit customer] --> C{Valid?} -->|Yes| D[(bellomassi_customers)]
+    C -->|No| B
+    D --> E[Order credit check: projected balance vs limit]
+    E -->|Within limit| F[OK]
+    E -->|Over limit| G[Warning - or block if Approval setting blockWhenCreditExceeded]

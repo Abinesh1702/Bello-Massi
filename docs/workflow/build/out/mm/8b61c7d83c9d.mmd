@@ -1,0 +1,19 @@
+flowchart TD
+    EV[Workflow event in a service] --> NOTE[In-app notification - bell and Notification center]
+    EV --> FE[fireEvent - automation]
+    MAN[User composes email or WhatsApp] --> SEND
+    FE --> CHK{Not a duplicate, automation on, rule enabled?}
+    CHK -->|No| SKIP([History: SKIPPED with reason])
+    CHK -->|Yes| REC[Resolve recipients and render template]
+    REC --> SEND{Channel and mode}
+    SEND -->|Email demo| ED[SENT_DEMO - not sent]
+    SEND -->|Email gateway| EG[SENT - accepted by SMTP]
+    SEND -->|WhatsApp mock| WD[Sent - demo]
+    SEND -->|WhatsApp gateway| WG[Handed to WhatsApp]
+    ED --> HIS[(Message and notification history)]
+    EG --> HIS
+    WD --> HIS
+    WG --> HIS
+    CALL[Log a call] --> FU{Follow-up needed?}
+    FU -->|Yes| FU1[Schedule - overdue / today / upcoming - complete]
+    FU -->|No| CL([Call logged, order can be linked])

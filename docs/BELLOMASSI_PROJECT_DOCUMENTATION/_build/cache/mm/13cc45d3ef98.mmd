@@ -1,0 +1,18 @@
+stateDiagram-v2
+    state "Delivery FAILED (review PENDING)" as F
+    state "Delivery PARTIALLY_DELIVERED (review PENDING)" as P
+    state "Reviewed - no stock return" as R0
+    state "Reviewed - stock returned" as R1
+    state "Delivery RETURNED, order RETURNED_TO_HUB" as RT
+    state "Order READY_FOR_DISPATCH (re-queued)" as RQ
+    [*] --> F: failDelivery(reason)
+    [*] --> P: confirmDelivery with shortfall
+    F --> R0: reviewDelivery(remarks)
+    P --> R0: reviewDelivery(remarks)
+    P --> R1: reviewDelivery(remarks, returnToHub)
+    F --> RT: reviewDelivery(remarks, returnToHub)
+    F --> RQ: reviewDelivery(remarks, returnToHub, requeue)
+    R0 --> [*]
+    R1 --> [*]
+    RT --> [*]
+    RQ --> [*]

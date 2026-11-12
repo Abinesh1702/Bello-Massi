@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant SVC as Workflow service
+    participant NS as notificationService
+    participant AU as automationService
+    participant EM as emailService
+    participant WA as openWAService
+    actor U as Office user
+    actor C as Customer
+    SVC->>NS: pushNotification (role / user / customer)
+    NS-->>U: Bell + Notification center
+    NS-->>C: Customer app notifications
+    SVC->>AU: fireEvent(event, ids)
+    AU->>AU: switch on? rule enabled? duplicate?
+    AU->>EM: sendEmail (template)
+    EM-->>AU: SENT_DEMO (demo) / SENT (gateway)
+    AU->>WA: sendWhatsapp (template)
+    WA-->>AU: Sent demo / 201 from OpenWA
+    AU->>AU: Log notification history

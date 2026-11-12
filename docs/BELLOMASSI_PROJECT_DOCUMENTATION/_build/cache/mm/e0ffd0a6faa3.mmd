@@ -1,0 +1,46 @@
+flowchart TD
+    A([Customer need]) --> B{Who raises the order?}
+    B -->|Sales Executive| C["Create order /orders/create"]
+    B -->|Customer| D["Cart /customer/cart - Place order"]
+    C --> E{Save draft or submit?}
+    E -->|Save draft| F[DRAFT - editable, deletable]
+    F --> E
+    E -->|Submit| G[SUBMITTED - approval PENDING]
+    D --> G
+    G --> H{Sales Manager: approval checks}
+    H -->|Blocking check fails| H1[Cannot approve - fix data]
+    H -->|Return| I[RETURNED] --> J[Salesman edits and resubmits] --> G
+    H -->|Reject| K([REJECTED - closed])
+    H -->|Approve - warnings acknowledged| L[APPROVED - consolidation PENDING]
+    L --> M{Customer Service: 5 checks confirmed?}
+    M -->|No| M
+    M -->|Yes| N[CONSOLIDATED]
+    N --> O[READY_FOR_DISPATCH]
+    O --> P[Dispatcher creates dispatch: orders, hub, zone, date, sequence]
+    P --> Q[Dispatch PLANNED]
+    Q --> R{Driver and vehicle compliant?}
+    R -->|No| R1[Pick another driver / vehicle]
+    R1 --> R
+    R -->|Yes| S[Dispatch ASSIGNED - driver notified]
+    S --> T{Dispatcher ticks review and confirms}
+    T -->|Stock short| T1[Blocked - stock issue]
+    T -->|OK| U[Dispatch CONFIRMED - stock deducted, deliveries created, order DISPATCHED]
+    U --> V[Driver: Start delivery - next stop in sequence, dispatch date reached]
+    V --> W[Order OUT_FOR_DELIVERY, dispatch IN_TRANSIT, DEMO GPS session]
+    W --> X[Reach location - OTP issued, shown in customer app]
+    X --> Y{OTP correct and unexpired?}
+    Y -->|No| Y1[Retry - max 5 attempts, regenerate if expired] --> Y
+    Y -->|Yes| Z{All quantities delivered?}
+    Z -->|Yes| ZA[DELIVERED + delivery note BM-DN]
+    Z -->|No| ZB[PARTIALLY_DELIVERED + delivery note]
+    W -->|Problem| ZC[DELIVERY_FAILED - reason recorded]
+    ZB --> RV[Dispatcher review]
+    ZC --> RV
+    RV -->|Return goods| RTH[RETURNED_TO_HUB]
+    RV -->|Return and re-queue| O
+    ZA --> INV[Finance issues invoice - ordered or delivered quantities]
+    ZB --> INV
+    INV --> END([Customer: delivery note + invoice in app])
+    ZA --> DC{All stops closed?}
+    DC -->|All delivered| DCC[Dispatch COMPLETED]
+    DC -->|Some failed / partial| DCP[Dispatch PARTIALLY_DELIVERED - Closed with exceptions]

@@ -1,0 +1,538 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Scope of Work</title><style>:root{--navy:#232B5F;--navy2:#34427A;--amber:#F5A623;--ink:#1B2033;--ink2:#3B4256;--muted:#6B7285;--line:#DCE0EA;--soft:#F5F6FA;--soft2:#EEF0F8}
+*{box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.55 Inter,Arial,Helvetica,sans-serif}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:"DejaVu Sans Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--soft2);color:#2A3270;padding:.05em .3em;border-radius:3px;overflow-wrap:break-word}
+h1,h2,h3,h4{color:var(--navy);line-height:1.25;font-weight:700}
+h1.chapter{font-size:26px;margin:0 0 18px;padding:0 0 10px;border-bottom:3px solid var(--amber)}
+h2{font-size:19px;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:var(--navy2)}
+p{margin:8px 0}
+ul,ol{margin:6px 0 10px;padding-left:22px}
+li{margin:2px 0}
+blockquote{margin:12px 0;padding:8px 14px;border-left:4px solid var(--amber);background:#FFF8EA;color:var(--ink2)}
+blockquote p{margin:2px 0}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0 16px;font-size:12.5px;line-height:1.4}
+th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:6px 8px;vertical-align:bottom}
+td{padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--soft)}
+th[style*="center"],td[style*="center"]{text-align:center}
+figure.diagram{margin:14px 0 18px;padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-align:center}
+figure.diagram img{max-width:100%;height:auto}
+figure.diagram figcaption{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* cover */
+.cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:56px 64px;background:linear-gradient(160deg,#232B5F 0%,#34427A 70%,#3E4E8C 100%);color:#fff}
+.cover .brand{font-weight:800;letter-spacing:.18em;font-size:15px;display:flex;align-items:center;gap:10px}
+.cover .mark{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--amber);color:var(--navy);font-weight:800;letter-spacing:0}
+.cover .kicker{color:var(--amber);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin:0 0 12px}
+.cover-title{color:#fff;font-size:44px;line-height:1.1;margin:0 0 18px;font-weight:800;border:0}
+.cover-sub{font-size:16px;max-width:620px;color:#D9DDF0}
+.cover-meta{width:auto;font-size:13px;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.cover-meta th{background:none;color:var(--amber);padding:6px 18px 6px 0;font-weight:600;white-space:nowrap}
+.cover-meta td{border:0;color:#fff;padding:6px 0;background:none!important}
+
+/* toc */
+.toc{padding:40px 64px}
+.toc-title{font-size:26px;border-bottom:3px solid var(--amber);margin:0 0 16px;padding-bottom:10px}
+.toc ul{list-style:none;padding:0;margin:0;columns:1}
+.toc li a{display:flex;align-items:baseline;color:var(--ink)}
+.toc li.l1{margin-top:10px;font-weight:700}
+.toc li.l1 a{color:var(--navy)}
+.toc li.l2{padding-left:22px;font-size:13px}
+.toc li.l2 a{color:var(--ink2)}
+.toc .dots{flex:1;border-bottom:1px dotted #A9AFC3;margin:0 6px;transform:translateY(-4px)}
+.toc .pg{min-width:24px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* screen layout */
+body.screen{background:#F3F4F8}
+body.screen .cover{min-height:auto;max-width:1120px;margin:24px auto 0;border-radius:14px;gap:48px}
+body.screen .toc{max-width:1120px;margin:16px auto;background:#fff;border-radius:14px;border:1px solid var(--line)}
+body.screen .toc ul{columns:2;column-gap:40px}
+body.screen .toc li{break-inside:avoid}
+body.screen .content{max-width:1120px;margin:16px auto 40px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:40px 64px}
+body.screen h1.chapter{margin-top:56px}
+body.screen h1.chapter:first-child{margin-top:0}
+body.screen .content table{display:block;overflow-x:auto}
+@media (max-width:760px){
+  body.screen .cover,body.screen .toc,body.screen .content{border-radius:0;margin:0;padding:24px 16px}
+  body.screen .toc ul{columns:1}
+  .cover-title{font-size:32px}
+}
+
+/* print */
+@page{size:A4;margin:20mm 15mm 18mm 15mm}
+body.print{font-size:10.5pt;line-height:1.45}
+body.print .cover{height:296mm;min-height:0;padding:22mm 20mm;overflow:hidden}
+body.print .toc{padding:0}
+body.print .toc li.l2{font-size:9.5pt}
+body.print h1.chapter{break-before:page;font-size:20pt}
+body.print h1.chapter:first-child{break-before:auto}
+body.print h2{font-size:14pt;break-after:avoid}
+body.print h3{font-size:12pt;break-after:avoid}
+body.print table{font-size:8.6pt}
+body.print tr{break-inside:avoid}
+body.print thead{display:table-header-group}
+body.print figure.diagram{break-inside:avoid;padding:6px;border:0;margin:8px 0}
+body.print figure.diagram img{max-width:100%}
+body.print a{color:inherit}
+body.print .content{padding:0}
+table.wide th,table.wide td{padding:3px 4px}
+table.wide td:nth-child(n+3),table.wide th:nth-child(n+3){text-align:center}
+body.print table.wide{font-size:7pt}
+body.print table.wide code{font-size:6.6pt}
+body.print table.dense{font-size:7.8pt}
+</style></head><body class="print"><main class="content"><h2 id="document-control">Document control</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document title</td>
+<td>Scope of Work</td>
+</tr>
+<tr class="even">
+<td>Document ID</td>
+<td>BM-SOW-001</td>
+</tr>
+<tr class="odd">
+<td>Version</td>
+<td>1.1</td>
+</tr>
+<tr class="even">
+<td>Status</td>
+<td>Draft — for client review</td>
+</tr>
+<tr class="odd">
+<td>Category</td>
+<td>Business Requirements</td>
+</tr>
+<tr class="even">
+<td>Related module(s)</td>
+<td>All modules</td>
+</tr>
+<tr class="odd">
+<td>Document owner</td>
+<td>Project Manager</td>
+</tr>
+<tr class="even">
+<td>Prepared by</td>
+<td>Project documentation team (AI-assisted draft prepared from source-code analysis)</td>
+</tr>
+<tr class="odd">
+<td>Reviewed by</td>
+<td><em>Pending — not yet reviewed</em></td>
+</tr>
+<tr class="even">
+<td>Approval</td>
+<td><em>Not approved — awaiting client review (no approval has been given)</em></td>
+</tr>
+<tr class="odd">
+<td>Created date</td>
+<td>2026-11-12</td>
+</tr>
+<tr class="even">
+<td>Last updated date</td>
+<td>2026-11-12</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status labels used in this document:</strong> VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.</p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>Define the scope of the production project — what will be built, by whom, in which phases, what is excluded — based on the October 2026 Scope of Work presentation and the prototype.</p>
+<h2 id="scope">Scope</h2>
+<p>Production delivery of the Bellomassi platform (backend, web, mobile, integrations, deployment). The existing prototype is an input, not the deliverable.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Other terms: see <strong>BM-GLO-001</strong> (Project Glossary).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Bellomassi Scope of Work presentation, October 2026</li>
+<li>Driver App GPS Implementation Guide</li>
+<li><strong>BM-BRD-001</strong> (Business Requirements Document (BRD))</li>
+<li><strong>BM-PLN-001</strong> (Scope and Phase Plan)</li>
+<li><strong>BM-PLN-002</strong> (Phase-wise Scope Matrix)</li>
+<li><strong>BM-DOC-003</strong> (Gap Analysis — Scope of Work, Prototype and Documentation)</li>
+<li><strong>BM-RSK-004</strong> (Change Impact Analysis — Prototype Extensions and Gaps)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><ol type="1">
+<li>Baseline — VERIFIED from the SOW presentation (October 2026)</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>In-scope features — production</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Scope to be confirmed — prototype extensions</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li>Out-of-scope features</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li>Phase-wise scope — PROPOSED</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li>Client responsibilities</li>
+</ol></li>
+<li><ol start="7" type="1">
+<li>Development (delivery team) responsibilities</li>
+</ol></li>
+<li><ol start="8" type="1">
+<li>Third-party dependencies</li>
+</ol></li>
+<li><ol start="9" type="1">
+<li>Deliverables</li>
+</ol></li>
+<li><ol start="10" type="1">
+<li>Exclusions and assumptions</li>
+</ol></li>
+<li><ol start="11" type="1">
+<li>Scope acceptance</li>
+</ol></li>
+</ul>
+<h2 id="1-baseline--verified-from-the-sow-presentation-october-2026">1. Baseline — VERIFIED from the SOW presentation (October 2026)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>SOW item</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Deliverables</td>
+<td>Order Taking App (mobile + web), Drivers App (iOS + Android), Admin Panel (web)</td>
+</tr>
+<tr class="even">
+<td>Roles</td>
+<td>Salesman, Sales Manager, Customer Service, Dispatcher, Driver, Finance (notifications), Administrator</td>
+</tr>
+<tr class="odd">
+<td>Lifecycle</td>
+<td>Capture → approve → consolidate → dispatch → plan received → route guided → OTP handover → delivery note</td>
+</tr>
+<tr class="even">
+<td>Shared platform</td>
+<td>One order record, workflow and approvals, live notifications, OTP service, maps and routing, audit trail</td>
+</tr>
+<tr class="odd">
+<td>Notifications</td>
+<td>In-app for staff; SMS or WhatsApp to the customer for OTP and delivery note</td>
+</tr>
+<tr class="even">
+<td>Status model</td>
+<td>Draft, Pending approval, Approved, With Customer Service, Ready for dispatch, Planned in zone, Out for delivery, Delivered; Returned for review, Rejected; “Delivery problem” proposed</td>
+</tr>
+<tr class="odd">
+<td>Second stage</td>
+<td>SAP integration replacing manual item updates</td>
+</tr>
+<tr class="even">
+<td>Boundary</td>
+<td>After OTP confirmation and delivery note, the app’s job ends; invoicing stays outside</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-in-scope-features--production">2. In-scope features — production</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Feature</th>
+<th>SOW ref</th>
+<th>Prototype status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S-01</td>
+<td>Users, roles and permissions</td>
+<td>slide 15</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>S-02</td>
+<td>Customers and locations, credit limits</td>
+<td>slide 15</td>
+<td>VERIFIED (locations single address)</td>
+</tr>
+<tr class="odd">
+<td>S-03</td>
+<td>Item catalogue (manual now, SAP later)</td>
+<td>slides 4, 15</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>S-04</td>
+<td>Zones and drivers</td>
+<td>slide 15</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>S-05</td>
+<td>Order capture, submission, tracking, amend and resubmit</td>
+<td>slide 7</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>S-06</td>
+<td>Approval inbox: accept, review (return), reject with reason; credit decision</td>
+<td>slide 8</td>
+<td>VERIFIED; approved figures G-01 not built</td>
+</tr>
+<tr class="odd">
+<td>S-07</td>
+<td>Finance notified on approval, flagged on credit exception</td>
+<td>slides 8, 16</td>
+<td>NOT IMPLEMENTED (G-02)</td>
+</tr>
+<tr class="even">
+<td>S-08</td>
+<td>Consolidation per salesman and release</td>
+<td>slide 9</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>S-09</td>
+<td>Zone planning by drag and drop; assign to drivers; publish plan</td>
+<td>slide 10</td>
+<td>Partly (G-03)</td>
+</tr>
+<tr class="even">
+<td>S-10</td>
+<td>Next-day plan for drivers</td>
+<td>slide 12</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>S-11</td>
+<td>Suggested fastest route with live traffic; navigation</td>
+<td>slide 12</td>
+<td>PROPOSED (G-04, G-05)</td>
+</tr>
+<tr class="even">
+<td>S-12</td>
+<td>OTP sent to the customer; driver confirms</td>
+<td>slide 13</td>
+<td>Simulated (G-06)</td>
+</tr>
+<tr class="odd">
+<td>S-13</td>
+<td>Delivery note sent to the customer</td>
+<td>slide 13</td>
+<td>Generated, not sent (G-07)</td>
+</tr>
+<tr class="even">
+<td>S-14</td>
+<td>Live order monitor</td>
+<td>slide 15</td>
+<td>Partly (G-09)</td>
+</tr>
+<tr class="odd">
+<td>S-15</td>
+<td>Approval / credit / notification rules</td>
+<td>slide 15</td>
+<td>Partly (G-11)</td>
+</tr>
+<tr class="even">
+<td>S-16</td>
+<td>Reports and export</td>
+<td>slide 15</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="odd">
+<td>S-17</td>
+<td>Audit trail</td>
+<td>slide 4</td>
+<td>VERIFIED</td>
+</tr>
+<tr class="even">
+<td>S-18</td>
+<td>Live GPS tracking (admin all, customer own)</td>
+<td>GPS guide</td>
+<td>Simulated (G-14)</td>
+</tr>
+<tr class="odd">
+<td>S-19</td>
+<td>SAP integration — stage 2</td>
+<td>slides 4, 15</td>
+<td>PROPOSED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-scope-to-be-confirmed--prototype-extensions">3. Scope to be confirmed — prototype extensions</h2>
+<p>X-01 customer app · X-02 invoicing · X-03 inventory · X-04 scrap · X-05 VMS · X-06 documents / OCR · X-07 email and WhatsApp · X-08 call history · X-09 118-report Reports Center · X-10 AI and forecasting · X-11 extra roles. Each is <strong>PENDING CONFIRMATION</strong>; recommendation and impact in <strong>BM-RSK-004</strong> (Change Impact Analysis — Prototype Extensions and Gaps).</p>
+<h2 id="4-out-of-scope-features">4. Out-of-scope features</h2>
+<p>Invoicing / finance documents (SOW slide 13) unless X-02 is approved · payments and receipts · credit notes, refunds · supplier invoicing · fuel and maintenance costing · temperature sensor hardware · dedicated vehicle GPS hardware · driver self-registration · customer payments online.</p>
+<h2 id="5-phase-wise-scope--proposed">5. Phase-wise scope — PROPOSED</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Content</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Phase 1 — Prototype</td>
+<td>React / LocalStorage prototype of all workflows</td>
+<td><strong>Complete</strong> (not production)</td>
+</tr>
+<tr class="even">
+<td>Phase 2 — Backend</td>
+<td>Django REST API, PostgreSQL, authentication and RBAC, all SOW workflows server-side, web app integration</td>
+<td>Not started</td>
+</tr>
+<tr class="odd">
+<td>Phase 3 — Integrations and mobile</td>
+<td>React Native Drivers App with GPS, Google Maps / Routes, SMS / WhatsApp, email, WebSockets</td>
+<td>Not started</td>
+</tr>
+<tr class="even">
+<td>Phase 4 — Production deployment</td>
+<td>Infrastructure, security hardening, data migration, UAT, training, go-live, hypercare</td>
+<td>Not started</td>
+</tr>
+<tr class="odd">
+<td>Phase 5 — Enhancements</td>
+<td>SAP integration (stage 2), confirmed extensions, analytics</td>
+<td>Not started</td>
+</tr>
+</tbody>
+</table>
+<p>Detailed plan: <strong>BM-PLN-001</strong> (Scope and Phase Plan) and <strong>BM-PM-001</strong> (Project Plan).</p>
+<h2 id="6-client-responsibilities">6. Client responsibilities</h2>
+<ul>
+<li>Confirm scope decisions and business rules in time for each phase.</li>
+<li>Provide master data (customers with locations and credit, items, zones, drivers, vehicles, users).</li>
+<li>Provide and pay for third-party accounts (maps, SMS / WhatsApp, email, hosting) or approve their procurement.</li>
+<li>Provide SAP interface specifications and SAP team availability (stage 2).</li>
+<li>Provide UAT users, test data and timely sign-off; organise training attendance.</li>
+<li>Provide drivers with compatible smartphones and data plans.</li>
+</ul>
+<h2 id="7-development-delivery-team-responsibilities">7. Development (delivery team) responsibilities</h2>
+<ul>
+<li>Design, build, test and document the backend, web and mobile applications.</li>
+<li>Configure environments, CI/CD, monitoring and backups.</li>
+<li>Integrate the agreed providers; support data migration.</li>
+<li>Support UAT, train key users, provide hypercare after go-live.</li>
+</ul>
+<h2 id="8-third-party-dependencies">8. Third-party dependencies</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Dependency</th>
+<th>Use</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Google Maps Platform, Routes API</td>
+<td>Maps, route, ETA</td>
+<td>PENDING CONFIRMATION (account)</td>
+</tr>
+<tr class="even">
+<td>SMS provider or WhatsApp Business provider</td>
+<td>OTP, delivery note</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>OpenWA (unofficial WhatsApp client)</td>
+<td>Prototype integration design</td>
+<td>Policy risk — not recommended for production without client acceptance</td>
+</tr>
+<tr class="even">
+<td>Email provider (SMTP)</td>
+<td>Notifications, documents</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>Cloud provider or on-premises servers</td>
+<td>Hosting</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="even">
+<td>SAP</td>
+<td>Items, stock, customers, credit (stage 2)</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+<tr class="odd">
+<td>Apple / Google developer accounts</td>
+<td>Mobile app distribution</td>
+<td>PENDING CONFIRMATION</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-deliverables">9. Deliverables</h2>
+<p>Production source code (backend, web, mobile) · deployed environments (test, staging, production) · documentation package (this repository, maintained) · test evidence and UAT records · training material · handover documents (<strong>BM-HND-002</strong> (Project Deliverables Checklist (Handover))).</p>
+<h2 id="10-exclusions-and-assumptions">10. Exclusions and assumptions</h2>
+<p>Exclusions are section 4. Assumptions: <strong>BM-SYS-006</strong> (Assumptions and Dependencies). Estimates of cost and effort are in <strong>BM-PM-001</strong> (Project Plan) and <strong>BM-INF-004</strong> (Infrastructure Cost Estimation (ESTIMATE)) and are <strong>estimates only</strong>.</p>
+<h2 id="11-scope-acceptance">11. Scope acceptance</h2>
+<p>Not accepted. Signature fields intentionally blank.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Name</th>
+<th>Signature</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Client Project Sponsor</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Client Project Owner</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Delivery Project Manager</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="revision-history">Revision history</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>2026-10</td>
+<td>Client presentation</td>
+<td>Scope of Work presentation (18 slides): Order Taking App, Drivers App, Admin Panel.</td>
+</tr>
+<tr class="even">
+<td>1.1</td>
+<td>2026-11-12</td>
+<td>Documentation team</td>
+<td>Converted into a document; prototype deltas, phase-wise scope, responsibilities, deliverables and exclusions added. Not approved.</td>
+</tr>
+</tbody>
+</table>
+</main></body></html>

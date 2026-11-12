@@ -1,0 +1,23 @@
+stateDiagram-v2
+    [*] --> DRAFT: save draft
+    [*] --> SUBMITTED: submit directly / customer app
+    DRAFT --> SUBMITTED: submit
+    DRAFT --> [*]: delete draft
+    SUBMITTED --> APPROVED: approve
+    SUBMITTED --> RETURNED: return for correction
+    SUBMITTED --> REJECTED: reject
+    RETURNED --> SUBMITTED: resubmit
+    REJECTED --> [*]
+    APPROVED --> CONSOLIDATED: consolidate
+    CONSOLIDATED --> READY_FOR_DISPATCH: mark ready
+    READY_FOR_DISPATCH --> DISPATCHED: dispatch confirmed
+    DISPATCHED --> READY_FOR_DISPATCH: dispatch cancelled before any stop started
+    DISPATCHED --> OUT_FOR_DELIVERY: driver starts
+    OUT_FOR_DELIVERY --> DELIVERED: OTP + full quantity
+    OUT_FOR_DELIVERY --> PARTIALLY_DELIVERED: OTP + shortfall
+    OUT_FOR_DELIVERY --> DELIVERY_FAILED: failure reported
+    DELIVERY_FAILED --> RETURNED_TO_HUB: review - return goods
+    DELIVERY_FAILED --> READY_FOR_DISPATCH: review - return goods and re-queue
+    DELIVERED --> [*]
+    PARTIALLY_DELIVERED --> [*]
+    RETURNED_TO_HUB --> [*]

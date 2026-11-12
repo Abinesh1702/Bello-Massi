@@ -1,0 +1,16 @@
+flowchart TD
+    A[Order APPROVED or later] --> C["New invoice - select order"]
+    C --> E{Eligible?}
+    E -->|No| E1(["Blocked: draft, not yet approved, rejected, or already invoiced - cancel first"])
+    E -->|Yes| F[Choose active template]
+    F --> G[Options: ORDERED or DELIVERED quantities, dates, discount, charges, demo tax]
+    G --> H[Live preview]
+    H --> I{Valid and total above zero?}
+    I -->|No| G
+    I -->|Yes| J[Issue invoice BM-INV-YYYY-NNNNN]
+    J --> K[ISSUED - Admin and Finance notified - INVOICE_GENERATED]
+    K --> L([Print / email demo / customer app])
+    K --> O{Error found?}
+    O -->|Yes| P[Cancel with reason - CANCELLED]
+    P --> C
+    K --> S([Payments and credit notes - Not Implemented])

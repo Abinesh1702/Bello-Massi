@@ -1,0 +1,18 @@
+stateDiagram-v2
+    [*] --> DRAFT: save draft
+    [*] --> PLANNED: plan
+    [*] --> ASSIGNED: plan with driver and vehicle
+    DRAFT --> PLANNED: complete plan
+    PLANNED --> ASSIGNED: assign driver and vehicle
+    ASSIGNED --> ASSIGNED: reassign / edit
+    ASSIGNED --> CONFIRMED: confirm - stock deducted
+    CONFIRMED --> IN_TRANSIT: first stop started
+    IN_TRANSIT --> COMPLETED: all stops delivered
+    IN_TRANSIT --> PARTIALLY_DELIVERED: all stops closed, some failed or partial
+    DRAFT --> CANCELLED: cancel
+    PLANNED --> CANCELLED: cancel
+    ASSIGNED --> CANCELLED: cancel
+    CONFIRMED --> CANCELLED: cancel before any stop starts - stock reversed
+    COMPLETED --> [*]
+    PARTIALLY_DELIVERED --> [*]
+    CANCELLED --> [*]

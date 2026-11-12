@@ -1,0 +1,30 @@
+flowchart TD
+    A(["/customer/login"]) --> B{Linked to a customer?}
+    B -->|No| B1[No customer account linked]
+    B -->|Yes| C["Home /customer/dashboard"]
+    C --> D["Catalog /customer/catalog"]
+    D --> E[Add to cart]
+    C --> F[My orders] --> F1[Reorder - lines copied to cart] --> G
+    E --> G["Cart /customer/cart"]
+    G --> H{Cart empty?}
+    H -->|Yes| H1[Your cart is empty - browse catalog] --> D
+    H -->|No| I[Address, requested date, time slot, reference, remarks]
+    I --> J{Valid?}
+    J -->|No| J1["Earliest delivery date is tomorrow / within 60 days / valid time / pincode"] --> I
+    J -->|Yes| K[Place order - confirm]
+    K --> L[submitOrder - SUBMITTED, Pending approval, cart cleared]
+    L --> M{Sales Manager decision}
+    M -->|Approved| N[Approved - Being prepared]
+    M -->|Returned| M1[Under review - sales rep corrects and resubmits] --> M
+    M -->|Rejected| M2([Not accepted])
+    N --> O[Dispatch planned]
+    O --> P[Out for delivery - Track delivery, DEMO GPS]
+    P --> Q[Driver arrived - OTP shown in app]
+    Q --> R[Customer tells OTP to driver]
+    R --> S{Delivered?}
+    S -->|Full| T[Delivered - delivery note available]
+    S -->|Partial| T2[Partially delivered - delivery note available]
+    S -->|Failed| U[Delivery not completed - team will contact to reschedule]
+    T --> V[Invoice appears after Finance issues it]
+    T2 --> V
+    V --> W[Payments page: balance only - no payment entry]

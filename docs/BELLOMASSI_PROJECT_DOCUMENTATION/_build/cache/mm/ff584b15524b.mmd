@@ -1,0 +1,25 @@
+sequenceDiagram
+    actor DR as Driver
+    participant APP as Driver app
+    participant DS as deliveryService
+    participant OTP as otpService
+    actor CU as Customer app
+    actor DP as Dispatcher
+    DR->>APP: Start delivery
+    APP->>DS: startDelivery(id)
+    DS-->>CU: "Out for delivery" + DEMO GPS tracking
+    DS-->>DP: In-transit update
+    DR->>APP: Reach location
+    APP->>DS: markArrived(id)
+    DS->>OTP: generateOtp - simulated, no SMS
+    OTP-->>CU: OTP visible on tracking screen
+    CU-->>DR: Reads out the 6-digit code
+    DR->>APP: Quantities, received by, POD, OTP
+    APP->>DS: confirmDelivery(id, items, receivedBy, otp, pod)
+    DS->>OTP: evaluateOtp
+    alt OTP valid
+        DS-->>CU: Delivered + delivery note
+        DS-->>DP: Stop closed
+    else OTP wrong / expired / locked
+        DS-->>APP: Error - stay on screen
+    end

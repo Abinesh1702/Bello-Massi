@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> DISPATCHED: dispatch confirmed
+    DISPATCHED --> OUT_FOR_DELIVERY: start
+    DISPATCHED --> CANCELLED: dispatch cancelled
+    OUT_FOR_DELIVERY --> DELIVERED: OTP + full
+    OUT_FOR_DELIVERY --> PARTIALLY_DELIVERED: OTP + short
+    OUT_FOR_DELIVERY --> FAILED: report failure
+    FAILED --> RETURNED: review with return to hub
+    DELIVERED --> [*]
+    PARTIALLY_DELIVERED --> [*]
+    RETURNED --> [*]
+    CANCELLED --> [*]

@@ -1,0 +1,13 @@
+stateDiagram-v2
+    [*] --> DRAFT: createDraft (inventory.replenishment.create)
+    DRAFT --> SUBMITTED: submitDraft
+    SUBMITTED --> APPROVED: approveDraft (procurement.approve)
+    SUBMITTED --> REJECTED: rejectDraft (reason required)
+    APPROVED --> CONVERTED: convertDraft - "Awaiting goods receipt"
+    CONVERTED --> RECEIVED: stock receipts cover every line (derived)
+    DRAFT --> CANCELLED: cancelDraft (creator or admin)
+    SUBMITTED --> CANCELLED: cancelDraft
+    APPROVED --> CANCELLED: cancelDraft
+    REJECTED --> [*]
+    RECEIVED --> [*]
+    CANCELLED --> [*]

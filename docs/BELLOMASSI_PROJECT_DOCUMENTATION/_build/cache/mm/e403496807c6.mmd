@@ -1,0 +1,5 @@
+flowchart TB
+    L1[Edge: WAF, DDoS protection, TLS 1.2+, HSTS, rate limits] --> L2[Application: JWT auth, MFA, permission keys, object scope, input validation, CSRF for cookies]
+    L2 --> L3[Data: encryption at rest, field masking, least-privilege DB roles, append-only audit]
+    L3 --> L4[Files: virus scan, private buckets, signed URLs, size and type limits]
+    L4 --> L5[Operations: secrets manager, patching, CI security scans, backups, monitoring and alerting]

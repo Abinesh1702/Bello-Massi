@@ -1,0 +1,37 @@
+flowchart TD
+    A(["/driver/login"]) --> B{Login linked to a driver record?}
+    B -->|No| B1[No driver profile linked - ask the administrator]
+    B -->|Yes| C["Today /driver/dashboard"]
+    C --> D[Open next stop]
+    D --> E{Can this stop start?}
+    E -->|Dispatch not confirmed| E1[Waiting for the Dispatcher to confirm the dispatch]
+    E -->|Dispatch date in future| E2[Planned for date - Start is available on that day]
+    E -->|Another stop out for delivery| E3[Finish your current delivery first]
+    E -->|Not next in sequence| E4[Stop N comes first in the sequence]
+    E -->|OK| F[Start delivery - confirm dialog]
+    F --> G[Delivery OUT_FOR_DELIVERY, order OUT_FOR_DELIVERY, dispatch IN_TRANSIT on first start]
+    G --> H[DEMO GPS session - customer and Dispatcher can follow]
+    H --> I{Problem on the way or at the door?}
+    I -->|Yes| FL[Report issue / mark failed: choose reason + remarks]
+    FL --> FL2[Delivery FAILED, order DELIVERY_FAILED, review PENDING]
+    FL2 --> FL3[Dispatcher and Admin notified; customer told we will reschedule]
+    I -->|No| J[Reach location - arrivedAt recorded]
+    J --> K[OTP generated - simulated, shown in customer app]
+    K --> L[Enter OTP and complete screen]
+    L --> M[Enter delivered / damaged qty, received by, remarks, optional signature + photo]
+    M --> N{Quantities valid?}
+    N -->|No| M
+    N -->|Yes| O{OTP valid?}
+    O -->|Wrong| O1[Attempt counted - max 5, then locked] --> L
+    O -->|Expired| O2[This OTP has expired. Generate a new one] --> K
+    O -->|Valid| P{Everything delivered?}
+    P -->|Yes| Q[DELIVERED]
+    P -->|No| R[PARTIALLY_DELIVERED - remaining stays with Dispatcher for review]
+    Q --> S[Delivery note BM-DN + POD saved, tracking stopped, customer notified]
+    R --> S
+    S --> T{More stops?}
+    FL3 --> T
+    T -->|Yes| D
+    T -->|No| U{All delivered?}
+    U -->|Yes| V[Dispatch COMPLETED]
+    U -->|No| W[Dispatch PARTIALLY_DELIVERED - Closed with exceptions]

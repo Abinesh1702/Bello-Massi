@@ -1,0 +1,6 @@
+flowchart LR
+    A[Product list] --> B[Add / edit product] --> C{Valid?}
+    C -->|No| B
+    C -->|Yes| D[(bellomassi_products)]
+    A --> E{Delete} -->|Referenced| F[Blocked - show blockers]
+    E -->|Not referenced| G[Deleted]

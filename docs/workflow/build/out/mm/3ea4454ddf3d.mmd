@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph IN[Stock in]
+        R1[Supplier delivery or replenishment receipt link] --> R2["New stock receipt /inventory/stock-receipts/create"]
+        R2 --> R3{Hub active, product tracks stock, qty and date valid?}
+        R3 -->|No| R2
+        R3 -->|Yes| R4[Total + qty - movement Stock Receipt - number GRN]
+    end
+    subgraph MOVE[Between hubs]
+        T1["New transfer /inventory/stock-transfers/create"] --> T2{Save draft or complete now?}
+        T2 -->|Draft| T3[Transfer Draft] --> T4{Complete or cancel?}
+        T4 -->|Cancel| T5[Cancelled - no stock change]
+        T4 -->|Complete| T6
+        T2 -->|Complete| T6{Source has the quantity?}
+        T6 -->|No| T7[Only N available at source] --> T1
+        T6 -->|Yes| T8[Source - qty: Transfer Out, destination + qty: Transfer In - Completed]
+    end
+    subgraph ADJ[Corrections]
+        A1["New adjustment /inventory/stock-adjustments/create"] --> A2{Type}
+        A2 -->|Increase / Correction up| A3[Total + qty]
+        A2 -->|Decrease / Correction down| A4[Total - qty]
+        A2 -->|Lost| A5[Total - qty: Lost Stock]
+        A2 -->|Damaged| A6[Damaged + qty: Damage - available falls]
+    end
+    subgraph OUT[Stock out]
+        D1[Dispatch confirmed] --> D2[Hub stock - ordered qty: Stock Dispatch]
+        D3[Dispatch cancelled after confirmation] --> D4[Stock restored: Stock Dispatch Reversal]
+        D5[Failed / partial delivery reviewed with return to hub] --> D6[Undelivered qty back: Delivery Return]
+        S1[Scrap request approved and written off] --> S2[Stock - qty: Scrap Write-off]
+    end
+    R4 --> L[(Inventory row + movement ledger)]
+    T8 --> L
+    A3 --> L
+    A4 --> L
+    A5 --> L
+    A6 --> L
+    D2 --> L
+    D4 --> L
+    D6 --> L
+    S2 --> L
+    L --> LS{Available <= reorder level?}
+    LS -->|Yes| LOW["Low Stock list + dashboards + Predictive inventory"]
+    LOW --> RP[Replenishment draft] --> R1

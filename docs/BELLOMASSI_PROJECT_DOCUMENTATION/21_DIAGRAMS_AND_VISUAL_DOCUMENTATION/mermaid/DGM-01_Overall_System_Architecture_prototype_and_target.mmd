@@ -1,0 +1,16 @@
+flowchart LR
+    subgraph NOW[Prototype - VERIFIED]
+        B1[Browser: React SPA] --> B2[Services in browser] --> B3[(LocalStorage)]
+    end
+    subgraph TARGET[Production - PROPOSED]
+        C1[React web app] --> GW[Nginx / load balancer]
+        C2[React Native Drivers App] --> GW
+        GW --> API[Django REST API]
+        GW --> WS[Django Channels]
+        API --> PG[(PostgreSQL)]
+        API --> RD[(Redis)]
+        API --> OB[(Object storage)]
+        WK[Celery workers] --> EXT[Maps, SMS / WhatsApp, Email, OCR, SAP]
+        API --> WK
+    end
+    NOW -. migrate rules and UI .-> TARGET

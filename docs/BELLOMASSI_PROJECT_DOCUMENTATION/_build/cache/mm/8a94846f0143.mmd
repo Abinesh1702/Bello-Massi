@@ -1,0 +1,16 @@
+flowchart TB
+    subgraph UI[Presentation]
+        L[Layouts: App, Driver, Customer] --> PG[Pages - 134 files]
+        PG --> CMP[Components - 121 files]
+    end
+    subgraph LOGIC[Logic]
+        HK[Hooks - 19] --> SV[Services - 84]
+        SV --> CFG[Config: navigation, roles, permissions, statuses]
+    end
+    subgraph DATA[Data]
+        STS[storageService] --> LS[(LocalStorage)]
+        SEED[Seed modules] --> STS
+    end
+    PG --> HK
+    SV --> STS
+    SV --> SIM[Simulators: GPS, OTP, email, WhatsApp, OCR, AI]

@@ -1,0 +1,19 @@
+flowchart TD
+    A[Order SUBMITTED, approval PENDING] --> B["Approval queue - oldest first"]
+    B --> C[Open order - system runs the six approval checks]
+    C --> E{Blocking check failed?}
+    E -->|Yes| F([Approve not possible - fix data, return or reject])
+    E -->|No| G{Manager action}
+    G -->|Approve| H{Credit or stock warnings?}
+    H -->|Yes| H1[Tick: I have reviewed the warnings]
+    H -->|No| R{Remarks required by settings?}
+    H1 --> R
+    R -->|Yes| R1[Enter approval remarks]
+    R -->|No| APP[APPROVED - consolidation PENDING]
+    R1 --> APP
+    APP --> N1([Salesman and Customer Service notified - ORDER_APPROVED])
+    G -->|Return| RT[Reason from list + remarks]
+    RT --> RET[RETURNED]
+    RET --> N2([Salesman corrects highlighted section and resubmits])
+    G -->|Reject| RJ[Reason from list + remarks]
+    RJ --> REJ([REJECTED - final, salesman notified])

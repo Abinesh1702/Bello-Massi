@@ -1,0 +1,9 @@
+flowchart LR
+    IN[Order input: office or customer app] --> VAL[validateOrder]
+    VAL --> SUB[submitOrder: number, warnings, timeline]
+    SUB --> CHK[getApprovalChecks: 6 checks]
+    CHK --> DEC[approve / return / reject]
+    DEC --> CON[consolidateOrder: 5 checks]
+    CON --> RDY[markReadyForDispatch]
+    RDY --> DSP[dispatch: create, assign, confirm - stock deducted]
+    DSP --> DEL[deliveries]

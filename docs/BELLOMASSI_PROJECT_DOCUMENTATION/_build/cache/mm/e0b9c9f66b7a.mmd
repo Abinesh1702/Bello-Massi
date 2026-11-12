@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor DR as Driver
+    participant DN as Delivery note
+    actor FI as Finance
+    participant IS as invoiceService
+    actor CU as Customer
+    DR->>DN: confirmDelivery - delivered quantities recorded
+    FI->>IS: previewInvoice(order, options)
+    IS-->>FI: Live totals
+    FI->>IS: generateInvoice - ISSUED, BM-INV number
+    IS-->>CU: Invoice visible in customer app (+ automation INVOICE_GENERATED)
+    FI->>IS: markInvoiceEmailed (after sending, demo email)
+    FI->>IS: cancelInvoice(reason) if wrong

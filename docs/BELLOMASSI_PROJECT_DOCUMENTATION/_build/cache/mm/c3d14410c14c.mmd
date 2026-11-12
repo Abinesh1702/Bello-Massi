@@ -1,0 +1,8 @@
+flowchart LR
+    PG[(PostgreSQL primary)] -->|streaming| SB[(Standby)]
+    PG -->|WAL archive continuous| WAL[(WAL archive)]
+    PG -->|daily snapshot| SNAP[(Snapshots - 35 days)]
+    OBJ[(Object storage)] -->|versioning + replication| OBJ2[(Replica bucket other region)]
+    WAL --> PITR[Point-in-time restore]
+    SNAP --> PITR
+    PITR --> DR[DR environment - RTO 4h, RPO 15 min]

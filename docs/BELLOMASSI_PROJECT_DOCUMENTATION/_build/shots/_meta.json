@@ -1,0 +1,2392 @@
+{
+ "UX-DASH-SA": {
+  "h1": [
+   "Good morning, Omar"
+  ],
+  "h2": [
+   "Operations overview",
+   "Order pipeline",
+   "Order trend",
+   "Order status distribution",
+   "Delivery performance",
+   "Pending tasks",
+   "Recent orders",
+   "Quick actions",
+   "Recent activity",
+   "Low stock alerts"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates",
+   "View all"
+  ],
+  "th": [
+   "ORDER",
+   "Salesman",
+   "STATUS",
+   "VALUE",
+   "Updated"
+  ],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-USERS": {
+  "h1": [
+   "User Management"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ID",
+   "USER",
+   "ROLE",
+   "DEPARTMENT",
+   "HUB",
+   "STATUS",
+   "CREATED",
+   "Row actions",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ID",
+   "USER",
+   "Phone",
+   "ROLE",
+   "DEPARTMENT",
+   "HUB",
+   "STATUS",
+   "CREATED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Role",
+   "Status",
+   "Department",
+   "Hub"
+  ],
+  "tabs": []
+ },
+ "UX-ROLES": {
+  "h1": [
+   "Role Management"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ROLE",
+   "USERS",
+   "PERMISSIONS",
+   "STATUS",
+   "UPDATED",
+   "Row actions",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ROLE",
+   "TYPE",
+   "DATA SCOPE",
+   "USERS",
+   "PERMISSIONS",
+   "STATUS",
+   "UPDATED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Type",
+   "Status"
+  ],
+  "tabs": []
+ },
+ "UX-PERMS": {
+  "h1": [
+   "Permission Matrix"
+  ],
+  "h2": [
+   "Overview",
+   "Sales Manager — module × action permissions"
+  ],
+  "buttons": [
+   "Export CSV",
+   "Super Admin",
+   "Administrator",
+   "Sales Executive",
+   "Sales Manager",
+   "Customer Service",
+   "Dispatcher",
+   "Driver",
+   "Finance Executive",
+   "Warehouse Manager",
+   "Inventory Executive",
+   "QA Manager",
+   "Customer (Portal)",
+   "Supplier (Portal)",
+   "Select all",
+   "Clear all",
+   "Dashboard",
+   "Customers",
+   "Products",
+   "Suppliers",
+   "Procurement",
+   "Inventory",
+   "Warehouse",
+   "Sales",
+   "Orders",
+   "Finance",
+   "Dispatch",
+   "Delivery",
+   "VMS",
+   "Documents",
+   "Invoices",
+   "Email",
+   "WhatsApp",
+   "AI",
+   "Reports",
+   "Settings",
+   "Discard",
+   "Save permissions"
+  ],
+  "th": [
+   "Module",
+   "Super Admin",
+   "Administrator",
+   "Sales Executive",
+   "Sales Manager",
+   "Customer Service",
+   "Dispatcher",
+   "Driver",
+   "Finance Executive",
+   "Warehouse Manager",
+   "Inventory Executive",
+   "QA Manager",
+   "Customer (Portal)",
+   "Supplier (Portal)",
+   "Dashboard",
+   "Customers",
+   "Products",
+   "Suppliers",
+   "Procurement",
+   "Inventory",
+   "Warehouse",
+   "Sales",
+   "Orders",
+   "Dispatch",
+   "Delivery",
+   "VMS",
+   "Documents",
+   "Invoices",
+   "Email",
+   "WhatsApp"
+  ],
+  "labels": [
+   "Role"
+  ],
+  "tabs": []
+ },
+ "UX-AUDIT": {
+  "h1": [
+   "Audit Log"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "TIMESTAMP",
+   "USER",
+   "ACTION",
+   "MODULE"
+  ],
+  "th": [
+   "TIMESTAMP",
+   "USER",
+   "ACTION",
+   "MODULE",
+   "ENTITY",
+   "DESCRIPTION",
+   "CHANGES"
+  ],
+  "labels": [
+   "User",
+   "Action",
+   "Module",
+   "From",
+   "To"
+  ],
+  "tabs": []
+ },
+ "UX-SETTINGS": {
+  "h1": [
+   "Application Settings"
+  ],
+  "h2": [
+   "General",
+   "Preview"
+  ],
+  "buttons": [
+   "General",
+   "Company",
+   "Localization",
+   "Currency",
+   "Numbering",
+   "Notifications",
+   "Security",
+   "Approval Settings",
+   "Inventory Settings",
+   "Warehouse Settings",
+   "Cold Chain Settings",
+   "Integration Settings",
+   "AI Settings",
+   "Reset section",
+   "Discard",
+   "Save general"
+  ],
+  "th": [],
+  "labels": [
+   "Application name",
+   "Support email",
+   "Rows per page (administration lists)",
+   "Show the DEMO PROTOTYPE badge in the header"
+  ],
+  "tabs": [
+   "General",
+   "Company",
+   "Localization",
+   "Currency",
+   "Numbering",
+   "Notifications",
+   "Security",
+   "Approval Settings",
+   "Inventory Settings",
+   "Warehouse Settings",
+   "Cold Chain Settings",
+   "Integration Settings",
+   "AI Settings"
+  ]
+ },
+ "UX-COMPANY": {
+  "h1": [
+   "Company"
+  ],
+  "h2": [
+   "Identity",
+   "Address & contact",
+   "Country, currency & timezone",
+   "Tax & registration"
+  ],
+  "buttons": [
+   "Upload",
+   "Discard",
+   "Save company"
+  ],
+  "th": [],
+  "labels": [
+   "Company name*",
+   "Registered legal name*",
+   "Tagline",
+   "Address line 1*",
+   "Address line 2 / PO Box",
+   "City*",
+   "Emirate / region",
+   "Postal code",
+   "Phone",
+   "Email",
+   "Website",
+   "Country*",
+   "Base currency*",
+   "Timezone*",
+   "Tax number label",
+   "Tax registration number*",
+   "Trade licence number"
+  ],
+  "tabs": []
+ },
+ "UX-CUSTOMERS": {
+  "h1": [
+   "Customers"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "CUSTOMER",
+   "TYPE",
+   "CITY",
+   "SALESMAN",
+   "CREDIT",
+   "STATUS",
+   "Actions for ABC Enterprises",
+   "Actions for Annapoorna Caterers",
+   "Actions for Charminar Foods",
+   "Actions for Chennai Industrial Supplies",
+   "Actions for Coastal Seafood Traders",
+   "Actions for Deccan Retail Mart",
+   "Actions for Global Distributors",
+   "Actions for Green Leaf Restaurants",
+   "Actions for Kaveri Supermarket",
+   "Actions for Kochi Hotel Supplies",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "CUSTOMER",
+   "TYPE",
+   "CITY",
+   "SALESMAN",
+   "CREDIT",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Customer type",
+   "Status",
+   "VIP",
+   "Credit",
+   "Credit status",
+   "Assigned salesman"
+  ],
+  "tabs": []
+ },
+ "UX-CUSTOMER-DETAIL": {
+  "h1": [
+   "ABC Enterprises"
+  ],
+  "h2": [
+   "Business information",
+   "Credit configuration",
+   "VIP",
+   "Order history",
+   "Activity timeline",
+   "Credit history"
+  ],
+  "buttons": [
+   "Back",
+   "Delete",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ORDER",
+   "DATE",
+   "ITEMS",
+   "VALUE",
+   "STATUS"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CREDIT": {
+  "h1": [
+   "Customer credit"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "CUSTOMER",
+   "LIMIT",
+   "BALANCE",
+   "AVAILABLE",
+   "UTILISATION",
+   "DAYS",
+   "STATUS",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "CUSTOMER",
+   "LIMIT",
+   "BALANCE",
+   "AVAILABLE",
+   "UTILISATION",
+   "DAYS",
+   "STATUS"
+  ],
+  "labels": [
+   "Credit status",
+   "Customer status",
+   "Salesman"
+  ],
+  "tabs": []
+ },
+ "UX-PRODUCTS": {
+  "h1": [
+   "Products"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "PRODUCT",
+   "CATEGORY",
+   "UNIT",
+   "PRICE",
+   "AVAILABLE",
+   "STATUS",
+   "Actions for Aloo Tikki",
+   "Actions for Basa Fish Fillet",
+   "Actions for Cheddar Cheese Slices",
+   "Actions for Chicken Breast Boneless",
+   "Actions for Chicken Nuggets",
+   "Actions for Chicken Seekh Kebab",
+   "Actions for Chicken Wings",
+   "Actions for Doorstep Handling Charge",
+   "Actions for Fish Fingers",
+   "Actions for Food-Grade Nitrile Gloves",
+   "Previous page",
+   "1",
+   "2",
+   "3",
+   "Next page"
+  ],
+  "th": [
+   "PRODUCT",
+   "CATEGORY",
+   "UNIT",
+   "PRICE",
+   "AVAILABLE",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Category",
+   "Status",
+   "Inventory tracking"
+  ],
+  "tabs": []
+ },
+ "UX-HUBS": {
+  "h1": [
+   "Hubs"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "HUB",
+   "LOCATION",
+   "MANAGER",
+   "PRODUCTS",
+   "STOCK VALUE",
+   "LOW / OUT",
+   "STATUS",
+   "Actions for Bangalore Hub",
+   "Actions for Chennai Central Hub",
+   "Actions for Coimbatore Hub",
+   "Actions for Hyderabad Hub",
+   "Actions for Madurai Hub",
+   "Actions for Trichy Branch Hub"
+  ],
+  "th": [
+   "HUB",
+   "LOCATION",
+   "MANAGER",
+   "PRODUCTS",
+   "STOCK VALUE",
+   "LOW / OUT",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Hub type",
+   "Status"
+  ],
+  "tabs": []
+ },
+ "UX-SUPPLIERS": {
+  "h1": [
+   "Suppliers"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "SUPPLIER",
+   "LEAD TIME",
+   "MIN ORDER",
+   "OPEN REQUESTS",
+   "REQUESTED VALUE",
+   "Edit"
+  ],
+  "th": [
+   "SUPPLIER",
+   "CATEGORIES",
+   "LEAD TIME",
+   "MIN ORDER",
+   "OPEN REQUESTS",
+   "REQUESTED VALUE",
+   "PORTAL USERS",
+   "EDIT"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-ORDERS": {
+  "h1": [
+   "Orders"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "STATUS",
+   "APPROVAL",
+   "PRIORITY",
+   "DELIVERY",
+   "CREATED",
+   "Actions for BM-ORD-2026-00031",
+   "Actions for draft order",
+   "Actions for BM-ORD-2026-00034",
+   "Actions for BM-ORD-2026-00032",
+   "Actions for BM-ORD-2026-00033",
+   "Actions for BM-ORD-2026-00029",
+   "Actions for BM-ORD-2026-00030",
+   "Actions for BM-ORD-2026-00038",
+   "Actions for BM-ORD-2026-00035",
+   "Actions for BM-ORD-2026-00027",
+   "Actions for BM-ORD-2026-00017",
+   "Previous page",
+   "1",
+   "2",
+   "4",
+   "Next page"
+  ],
+  "th": [
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "STATUS",
+   "APPROVAL",
+   "PRIORITY",
+   "DELIVERY",
+   "CREATED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Order status",
+   "Approval status",
+   "Customer",
+   "Salesman",
+   "Hub",
+   "Priority",
+   "From order date",
+   "To order date"
+  ],
+  "tabs": []
+ },
+ "UX-ORDER-DETAIL": {
+  "h1": [
+   "BM-ORD-2026-00001"
+  ],
+  "h2": [
+   "Products",
+   "Delivery",
+   "Order details",
+   "Approval",
+   "Consolidation",
+   "Dispatch & delivery",
+   "Customer & credit",
+   "Salesman",
+   "Fulfilment hub"
+  ],
+  "buttons": [
+   "Back",
+   "Duplicate",
+   "Overview",
+   "Timeline (8)",
+   "Approval history (1)",
+   "Consolidation"
+  ],
+  "th": [
+   "PRODUCT",
+   "QTY",
+   "UNIT PRICE",
+   "DISC.",
+   "GST",
+   "LINE TOTAL"
+  ],
+  "labels": [],
+  "tabs": [
+   "Overview",
+   "Timeline (8)",
+   "Approval history (1)",
+   "Consolidation"
+  ]
+ },
+ "UX-REPORTS": {
+  "h1": [
+   "Reports Center"
+  ],
+  "h2": [
+   "Favourites",
+   "Recently viewed",
+   "Popular",
+   "Sales Order Register",
+   "Sales Order Summary",
+   "Sales by Customer",
+   "Sales by Salesman",
+   "Sales by Product",
+   "Sales by Category",
+   "Sales by Month",
+   "Sales Order Status",
+   "Pending Approval",
+   "Rejected Orders",
+   "Credit Limit Exceptions",
+   "Order Conversion",
+   "Customer Sales Analysis",
+   "VIP Orders",
+   "Stock Overview",
+   "Stock Valuation",
+   "Stock Movement",
+   "Stock Ageing",
+   "Batch Inventory",
+   "Expiry Report",
+   "Near Expiry",
+   "Expired Stock"
+  ],
+  "buttons": [
+   "118 All reports",
+   "14 Sales",
+   "18 Inventory",
+   "10 Procurement",
+   "19 Dispatch & Delivery",
+   "14 Finance",
+   "8 Customer",
+   "5 Supplier",
+   "9 Fleet",
+   "7 Communication",
+   "7 Scrap",
+   "7 AI",
+   "Favourites only",
+   "Add Sales Order Register to favourites",
+   "Add Sales Order Summary to favourites",
+   "Add Sales by Customer to favourites",
+   "Add Sales by Salesman to favourites",
+   "Add Sales by Product to favourites",
+   "Add Sales by Category to favourites",
+   "Add Sales by Month to favourites",
+   "Add Sales Order Status to favourites",
+   "Add Pending Approval to favourites",
+   "Add Rejected Orders to favourites",
+   "Add Credit Limit Exceptions to favourites",
+   "Add Order Conversion to favourites",
+   "Add Customer Sales Analysis to favourites",
+   "Add VIP Orders to favourites",
+   "Add Stock Overview to favourites",
+   "Add Stock Valuation to favourites",
+   "Add Stock Movement to favourites",
+   "Add Stock Ageing to favourites",
+   "Add Batch Inventory to favourites",
+   "Add Expiry Report to favourites",
+   "Add Near Expiry to favourites",
+   "Add Expired Stock to favourites",
+   "Add Slow Moving Stock to favourites",
+   "Add Non Moving Stock to favourites",
+   "Add Stock-Out Report to favourites",
+   "Add Stock Transfer to favourites",
+   "Add Stock Adjustment to favourites"
+  ],
+  "th": [],
+  "labels": [
+   "Category"
+  ],
+  "tabs": []
+ },
+ "UX-INVENTORY": {
+  "h1": [
+   "Inventory"
+  ],
+  "h2": [
+   "Stock by hub",
+   "Inventory by category",
+   "Low stock overview",
+   "Low stock products",
+   "Hub stock summary",
+   "Recent stock movements"
+  ],
+  "buttons": [],
+  "th": [
+   "PRODUCT",
+   "AVAILABLE",
+   "REORDER AT",
+   "STATUS",
+   "HUB",
+   "PRODUCTS",
+   "ON HAND",
+   "DAMAGED",
+   "VALUE",
+   "LOW / OUT",
+   "DATE",
+   "TYPE",
+   "QTY",
+   "REFERENCE",
+   "BY"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-STOCK": {
+  "h1": [
+   "Stock overview"
+  ],
+  "h2": [],
+  "buttons": [
+   "By hub line",
+   "By product",
+   "Export CSV",
+   "CODE",
+   "PRODUCT",
+   "HUB",
+   "TOTAL",
+   "RESERVED",
+   "DAMAGED",
+   "AVAILABLE",
+   "REORDER",
+   "STATUS",
+   "UPDATED",
+   "Previous page",
+   "1",
+   "2",
+   "11",
+   "Next page"
+  ],
+  "th": [
+   "CODE",
+   "PRODUCT",
+   "HUB",
+   "TOTAL",
+   "RESERVED",
+   "DAMAGED",
+   "AVAILABLE",
+   "REORDER",
+   "STATUS",
+   "UPDATED"
+  ],
+  "labels": [
+   "Product",
+   "Hub",
+   "Category",
+   "Stock status"
+  ],
+  "tabs": []
+ },
+ "UX-MOVEMENTS": {
+  "h1": [
+   "Stock movements"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "DATE",
+   "PRODUCT",
+   "HUB",
+   "TYPE",
+   "QTY",
+   "REFERENCE",
+   "Previous page",
+   "1",
+   "2",
+   "5",
+   "Next page"
+  ],
+  "th": [
+   "DATE",
+   "PRODUCT",
+   "HUB",
+   "TYPE",
+   "QTY",
+   "AVAILABLE",
+   "REFERENCE",
+   "BY"
+  ],
+  "labels": [
+   "Movement type",
+   "Hub",
+   "Product",
+   "From date",
+   "To date"
+  ],
+  "tabs": []
+ },
+ "UX-SCRAP": {
+  "h1": [
+   "Scrap Requests"
+  ],
+  "h2": [],
+  "buttons": [
+   "Print",
+   "Export CSV",
+   "SCRAP NO.",
+   "DATE",
+   "PRODUCT",
+   "HUB",
+   "QTY",
+   "VALUE",
+   "REASON",
+   "REQUESTED BY",
+   "STATUS",
+   "Actions for SCR-2026-0012",
+   "Actions for SCR-2026-0011",
+   "Actions for SCR-2026-0010",
+   "Actions for SCR-2026-0009",
+   "Actions for SCR-2026-0008",
+   "Actions for SCR-2026-0007",
+   "Actions for SCR-2026-0006",
+   "Actions for SCR-2026-0005",
+   "Actions for SCR-2026-0004",
+   "Actions for SCR-2026-0003",
+   "Actions for SCR-2026-0002",
+   "Actions for SCR-2026-0001"
+  ],
+  "th": [
+   "SCRAP NO.",
+   "DATE",
+   "PRODUCT",
+   "HUB",
+   "QTY",
+   "VALUE",
+   "REASON",
+   "REQUESTED BY",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Status",
+   "Approval",
+   "Reason",
+   "Hub",
+   "Warehouse",
+   "Product",
+   "Requested by",
+   "From date",
+   "To date"
+  ],
+  "tabs": []
+ },
+ "UX-WAREHOUSE": {
+  "h1": [
+   "Warehouse Dashboard"
+  ],
+  "h2": [
+   "Inventory alerts",
+   "Quick actions",
+   "Receiving",
+   "Picking & loading",
+   "Expiry"
+  ],
+  "buttons": [],
+  "th": [
+   "PRODUCT",
+   "HUB",
+   "AVAILABLE",
+   "REORDER AT",
+   "STATUS",
+   "RECEIPT",
+   "QTY",
+   "DATE",
+   "ORDER",
+   "CUSTOMER",
+   "UNITS",
+   "OWNER",
+   "DOCUMENT",
+   "EXPIRY",
+   "STATE"
+  ],
+  "labels": [
+   "Hub"
+  ],
+  "tabs": []
+ },
+ "UX-QUALITY": {
+  "h1": [
+   "QA & Cold Chain"
+  ],
+  "h2": [
+   "Inspection queue",
+   "Quick actions",
+   "Quarantine",
+   "Expiry",
+   "Cold chain & temperature alerts"
+  ],
+  "buttons": [],
+  "th": [
+   "DOCUMENT",
+   "TYPE",
+   "LINKED TO",
+   "UPLOADED",
+   "PRODUCT",
+   "HUB",
+   "DAMAGED",
+   "OWNER",
+   "EXPIRY",
+   "STATE"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-VMS": {
+  "h1": [
+   "Vehicle Management"
+  ],
+  "h2": [
+   "Vehicle status",
+   "Vehicle type",
+   "Hub-wise vehicles",
+   "Vehicle document expiry",
+   "Driver document expiry",
+   "Expiry alerts",
+   "Document verification",
+   "Vehicle availability",
+   "Recent vehicle activity"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-VMS-EXPIRY": {
+  "h1": [
+   "Document expiry"
+  ],
+  "h2": [],
+  "buttons": [
+   "Send expiry alerts",
+   "Vehicle documents",
+   "Driver documents",
+   "Export CSV",
+   "Previous page",
+   "1",
+   "2",
+   "4",
+   "Next page"
+  ],
+  "th": [
+   "VEHICLE",
+   "DOCUMENT",
+   "EXPIRY DATE",
+   "STATE"
+  ],
+  "labels": [
+   "Expiry state",
+   "Hub",
+   "Required"
+  ],
+  "tabs": [
+   "Vehicle documents",
+   "Driver documents"
+  ]
+ },
+ "UX-DOCUMENTS": {
+  "h1": [
+   "Document repository"
+  ],
+  "h2": [],
+  "buttons": [
+   "All",
+   "OCR queue",
+   "Verified",
+   "Rejected",
+   "Export CSV",
+   "Actions for ID Proof — Prakash Arumugam",
+   "Actions for Purchase Proof — Sri Murugan Cold Storage",
+   "Actions for Delivery Proof — BM-DN-2026-00004",
+   "Actions for Delivery Proof — BM-DN-2026-00003",
+   "Actions for Delivery Proof — BM-DN-2026-00002",
+   "Actions for Delivery Proof — BM-DN-2026-00001",
+   "Actions for Pollution Certificate (PUC) — TN 22 BK 0077",
+   "Actions for Pollution Certificate (PUC) — TN 01 RX 3344",
+   "Actions for Pollution Certificate (PUC) — TN 10 MV 9091",
+   "Actions for Pollution Certificate (PUC) — KA 01 HN 6604",
+   "Actions for Pollution Certificate (PUC) — TN 59 BQ 2210",
+   "Actions for Pollution Certificate (PUC) — TS 07 UB 8812",
+   "Previous page",
+   "1",
+   "2",
+   "6",
+   "Next page"
+  ],
+  "th": [
+   "DOCUMENT",
+   "RELATED TO",
+   "EXPIRY",
+   "OCR",
+   "STATUS",
+   "UPLOADED"
+  ],
+  "labels": [
+   "Document type",
+   "Entity",
+   "Status",
+   "Expiry",
+   "Uploaded from",
+   "Uploaded to"
+  ],
+  "tabs": [
+   "All",
+   "OCR queue",
+   "Verified",
+   "Rejected"
+  ]
+ },
+ "UX-OCR": {
+  "h1": [
+   "OCR queue"
+  ],
+  "h2": [],
+  "buttons": [
+   "All",
+   "OCR queue",
+   "Verified",
+   "Rejected",
+   "Export CSV",
+   "Actions for ID Proof — Prakash Arumugam",
+   "Actions for Purchase Proof — Sri Murugan Cold Storage",
+   "Actions for Pollution Certificate (PUC) — TN 10 MV 9091",
+   "Actions for Pollution Certificate (PUC) — TN 59 BQ 2210",
+   "Actions for GST Certificate — Kovai Fresh Foods",
+   "Actions for Vehicle Insurance — TN 37 DM 3390",
+   "Actions for GST Certificate — Sri Lakshmi Traders",
+   "Actions for Driving License — Ravi Teja"
+  ],
+  "th": [
+   "DOCUMENT",
+   "RELATED TO",
+   "EXPIRY",
+   "OCR",
+   "STATUS",
+   "UPLOADED"
+  ],
+  "labels": [
+   "Document type",
+   "Entity",
+   "Expiry",
+   "Uploaded from",
+   "Uploaded to"
+  ],
+  "tabs": [
+   "All",
+   "OCR queue",
+   "Verified",
+   "Rejected"
+  ]
+ },
+ "UX-INVOICES": {
+  "h1": [
+   "Invoices"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV"
+  ],
+  "th": [
+   "INVOICE",
+   "CUSTOMER",
+   "ORDER",
+   "DELIVERY NOTE",
+   "TOTAL",
+   "STATUS"
+  ],
+  "labels": [
+   "Status",
+   "Customer",
+   "Hub",
+   "From",
+   "To"
+  ],
+  "tabs": []
+ },
+ "UX-INVOICE-TPL": {
+  "h1": [
+   "Invoice templates"
+  ],
+  "h2": [
+   "Invoice numbering"
+  ],
+  "buttons": [
+   "Actions for Standard invoice",
+   "Actions for Compact (no SKU / description)",
+   "Actions for Landscape — banner header",
+   "Save numbering"
+  ],
+  "th": [
+   "TEMPLATE",
+   "PAGE",
+   "COLOURS",
+   "USED BY",
+   "STATUS"
+  ],
+  "labels": [
+   "Prefix",
+   "Year",
+   "Starting number",
+   "Digits",
+   "Include year"
+  ],
+  "tabs": []
+ },
+ "UX-EMAIL": {
+  "h1": [
+   "Email"
+  ],
+  "h2": [
+   "Connection",
+   "Recent email"
+  ],
+  "buttons": [
+   "Overview",
+   "Inbox",
+   "Sent",
+   "Drafts",
+   "History",
+   "Templates"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": [
+   "Overview",
+   "Inbox",
+   "Sent",
+   "Drafts",
+   "History",
+   "Templates"
+  ]
+ },
+ "UX-WHATSAPP": {
+  "h1": [
+   "WhatsApp (OpenWA)"
+  ],
+  "h2": [
+   "Session",
+   "Recent messages"
+  ],
+  "buttons": [
+   "Overview",
+   "Compose",
+   "History",
+   "Templates",
+   "Disconnect session",
+   "Refresh status",
+   "Test connection"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": [
+   "Overview",
+   "Compose",
+   "History",
+   "Templates"
+  ]
+ },
+ "UX-CALLS": {
+  "h1": [
+   "Call History"
+  ],
+  "h2": [
+   "Calls by day",
+   "Outcome distribution",
+   "Calls and orders by salesman",
+   "Calls by customer"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-AI": {
+  "h1": [
+   "AI & Intelligence"
+  ],
+  "h2": [
+   "Business insights",
+   "French Fries 9 mm at Chennai Central Hub may run out now",
+   "Whole Chicken (Frozen) at Coimbatore Hub may run out now",
+   "Reefer Door Gasket at Coimbatore Hub may run out now",
+   "Fresh Cream 25% at Bangalore Hub may run out now",
+   "AI recommendations",
+   "Recent AI activity",
+   "AI provider",
+   "Try asking"
+  ],
+  "buttons": [
+   "Ask",
+   "Mark reviewed",
+   "Resolve"
+  ],
+  "th": [
+   "PRODUCT",
+   "RISK",
+   "RECOMMENDED",
+   "WHY"
+  ],
+  "labels": [
+   "Question"
+  ],
+  "tabs": []
+ },
+ "UX-FORECAST": {
+  "h1": [
+   "Forecasting"
+  ],
+  "h2": [
+   "Daily revenue — next 30 days",
+   "Quick forecast",
+   "Model & data",
+   "Actual vs predicted",
+   "Recent forecasts"
+  ],
+  "buttons": [
+   "7 d",
+   "14 d",
+   "30 d",
+   "60 d",
+   "90 d",
+   "Generate"
+  ],
+  "th": [
+   "FORECAST",
+   "TARGET",
+   "MODEL",
+   "FORECAST TOTAL",
+   "ACCURACY",
+   "STATUS"
+  ],
+  "labels": [
+   "Forecast",
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-NOTIFICATIONS": {
+  "h1": [
+   "Notification Center"
+  ],
+  "h2": [
+   "Categories"
+  ],
+  "buttons": [
+   "Mark all read",
+   "Inbox (13)",
+   "History",
+   "Preferences",
+   "Open",
+   "Mark “Document expiring: Insurance” as read",
+   "Archive “Document expiring: Insurance”",
+   "Mark “Welcome to Bellomassi” as read",
+   "Archive “Welcome to Bellomassi”",
+   "Mark “Demo environment initialised” as read",
+   "Archive “Demo environment initialised”",
+   "Mark “Sample order data loaded” as read",
+   "Archive “Sample order data loaded”",
+   "Mark “Dispatch & delivery is live” as read",
+   "Archive “Dispatch & delivery is live”",
+   "Mark “21 stock lines need replenishment” as read",
+   "Archive “21 stock lines need replenishment”",
+   "Mark “Pending order approval” as read",
+   "Archive “Pending order approval”",
+   "Mark “Low stock alert” as read",
+   "Archive “Low stock alert”",
+   "Mark “Delivery failed” as read",
+   "Archive “Delivery failed”",
+   "Mark “Vehicle document expiry” as read",
+   "Archive “Vehicle document expiry”",
+   "Mark “Credit limit exceeded” as read",
+   "Archive “Credit limit exceeded”",
+   "Mark “Purchase approval” as read",
+   "Archive “Purchase approval”",
+   "Approvals 1",
+   "Inventory & stock 2",
+   "Procurement 1",
+   "Delivery 1",
+   "Vehicles & compliance 3",
+   "Finance & invoices 1",
+   "System 4"
+  ],
+  "th": [],
+  "labels": [
+   "Category",
+   "Type",
+   "Read state"
+  ],
+  "tabs": [
+   "Inbox (13)",
+   "History",
+   "Preferences"
+  ]
+ },
+ "UX-DASH-SE": {
+  "h1": [
+   "Good morning, Karthik"
+  ],
+  "h2": [
+   "Got an order by call, email or WhatsApp?",
+   "My recent orders",
+   "Needs your action",
+   "Quick actions",
+   "My order trend"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates",
+   "View all"
+  ],
+  "th": [
+   "ORDER",
+   "STATUS",
+   "VALUE",
+   "Updated"
+  ],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-ORDER-CREATE": {
+  "h1": [
+   "New sales order"
+  ],
+  "h2": [
+   "Order information",
+   "Delivery information",
+   "Products",
+   "Notes",
+   "Customer",
+   "Order summary"
+  ],
+  "buttons": [
+   "Submit for approval",
+   "Save draft",
+   "Preview"
+  ],
+  "th": [],
+  "labels": [
+   "Order number",
+   "Order date*",
+   "Order source",
+   "Order type*",
+   "Priority*",
+   "Payment terms*",
+   "Customer*",
+   "Assigned salesman",
+   "Fulfilment hub*",
+   "Customer reference",
+   "Delivery address*",
+   "City*",
+   "State*",
+   "Pincode*",
+   "Requested delivery date*",
+   "Delivery instructions",
+   "Internal notes"
+  ],
+  "tabs": []
+ },
+ "UX-MY-ORDERS": {
+  "h1": [
+   "My orders"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "STATUS",
+   "APPROVAL",
+   "PRIORITY",
+   "DELIVERY",
+   "CREATED",
+   "Actions for draft order",
+   "Actions for BM-ORD-2026-00034",
+   "Actions for BM-ORD-2026-00032",
+   "Actions for BM-ORD-2026-00033",
+   "Actions for BM-ORD-2026-00030",
+   "Actions for BM-ORD-2026-00038",
+   "Actions for BM-ORD-2026-00027",
+   "Actions for BM-ORD-2026-00017",
+   "Actions for BM-ORD-2026-00022",
+   "Actions for BM-ORD-2026-00024",
+   "Actions for BM-ORD-2026-00016",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "STATUS",
+   "APPROVAL",
+   "PRIORITY",
+   "DELIVERY",
+   "CREATED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Order status",
+   "Approval status",
+   "Customer",
+   "Hub",
+   "Priority",
+   "From order date",
+   "To order date"
+  ],
+  "tabs": []
+ },
+ "UX-DASH-SM": {
+  "h1": [
+   "Good morning, Priya"
+  ],
+  "h2": [
+   "Recent pending orders",
+   "Approval trend",
+   "Sales targets",
+   "Customers CURRENT",
+   "Customer credit overview",
+   "Recent orders"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates",
+   "Set targets",
+   "Open credit module",
+   "View all"
+  ],
+  "th": [
+   "CUSTOMER",
+   "LIMIT",
+   "OUTSTANDING",
+   "UTILISATION",
+   "ORDER",
+   "Salesman",
+   "STATUS",
+   "VALUE",
+   "Updated"
+  ],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-APPROVAL": {
+  "h1": [
+   "Order approval"
+  ],
+  "h2": [],
+  "buttons": [
+   "Pending (4)",
+   "Decision history (35)",
+   "Export CSV",
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "CREDIT",
+   "STOCK",
+   "PRIORITY",
+   "DELIVERY",
+   "SUBMITTED",
+   "Decide BM-ORD-2026-00035",
+   "Decide BM-ORD-2026-00034",
+   "Decide BM-ORD-2026-00033",
+   "Decide BM-ORD-2026-00032"
+  ],
+  "th": [
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "QTY",
+   "TOTAL",
+   "CREDIT",
+   "STOCK",
+   "PRIORITY",
+   "DELIVERY",
+   "SUBMITTED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Warnings",
+   "Salesman",
+   "Hub",
+   "Priority"
+  ],
+  "tabs": [
+   "Pending (4)",
+   "Decision history (35)"
+  ]
+ },
+ "UX-APPROVAL-DETAIL": {
+  "h1": [
+   "Review BM-ORD-2026-00001"
+  ],
+  "h2": [
+   "Order header",
+   "Product details",
+   "Delivery information",
+   "History",
+   "Approval checks",
+   "Customer information"
+  ],
+  "buttons": [],
+  "th": [
+   "PRODUCT",
+   "QTY",
+   "UNIT PRICE",
+   "DISC.",
+   "GST",
+   "HUB STOCK NOW",
+   "LINE TOTAL"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DASH-CS": {
+  "h1": [
+   "Good morning, Divya"
+  ],
+  "h2": [
+   "Consolidation queue",
+   "Queue by salesman",
+   "Order status distribution",
+   "Recent approved orders"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates",
+   "View all"
+  ],
+  "th": [
+   "SALESMAN",
+   "ORDERS",
+   "VALUE",
+   "ORDER",
+   "Salesman",
+   "STATUS",
+   "Updated"
+  ],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-CONSOLIDATION": {
+  "h1": [
+   "Order consolidation"
+  ],
+  "h2": [],
+  "buttons": [
+   "Awaiting (2)",
+   "Consolidated (3)",
+   "Ready (5)",
+   "History",
+   "List",
+   "By salesman",
+   "Export CSV",
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "PRODUCTS",
+   "QTY",
+   "TOTAL",
+   "APPROVED",
+   "Actions for BM-ORD-2026-00030",
+   "Actions for BM-ORD-2026-00031"
+  ],
+  "th": [
+   "ORDER",
+   "CUSTOMER",
+   "SALESMAN",
+   "HUB",
+   "PRODUCTS",
+   "QTY",
+   "TOTAL",
+   "APPROVED",
+   "CONSOLIDATION",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Salesman",
+   "Hub"
+  ],
+  "tabs": [
+   "Awaiting (2)",
+   "Consolidated (3)",
+   "Ready (5)",
+   "History"
+  ]
+ },
+ "UX-DASH-DP": {
+  "h1": [
+   "Good morning, Suresh"
+  ],
+  "h2": [
+   "Dispatch trend",
+   "Delivery completion trend",
+   "Delivery status distribution",
+   "Driver performance",
+   "Zone delivery performance",
+   "Recent dispatches",
+   "In-transit deliveries",
+   "Failed / partial — review",
+   "Pending assignments",
+   "Recent delivery notes",
+   "Quick actions"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates"
+  ],
+  "th": [],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-READY": {
+  "h1": [
+   "Ready for dispatch"
+  ],
+  "h2": [],
+  "buttons": [
+   "Create dispatch",
+   "Export CSV",
+   "ORDER",
+   "CUSTOMER",
+   "HUB / ZONE",
+   "QTY",
+   "AMOUNT",
+   "REQUESTED",
+   "PRIORITY",
+   "Actions for BM-ORD-2026-00022",
+   "Actions for BM-ORD-2026-00026",
+   "Actions for BM-ORD-2026-00024",
+   "Actions for BM-ORD-2026-00023",
+   "Actions for BM-ORD-2026-00025"
+  ],
+  "th": [
+   "ORDER",
+   "CUSTOMER",
+   "HUB / ZONE",
+   "Delivery address",
+   "QTY",
+   "AMOUNT",
+   "REQUESTED",
+   "PRIORITY",
+   "DISPATCH STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Customer",
+   "Hub",
+   "Zone",
+   "Priority",
+   "Dispatch status",
+   "Requested from",
+   "Requested to"
+  ],
+  "tabs": []
+ },
+ "UX-PLANNING": {
+  "h1": [
+   "Dispatch planning"
+  ],
+  "h2": [
+   "Ready orders by zone"
+  ],
+  "buttons": [
+   "Plan this zone",
+   "Board",
+   "All dispatches",
+   "Export CSV"
+  ],
+  "th": [],
+  "labels": [
+   "Hub",
+   "Zone",
+   "Driver",
+   "From date",
+   "To date"
+  ],
+  "tabs": [
+   "Board",
+   "All dispatches"
+  ]
+ },
+ "UX-DISPATCH-LIST": {
+  "h1": [
+   "Dispatch & delivery"
+  ],
+  "h2": [
+   "Dispatch trend",
+   "Delivery completion trend",
+   "Delivery status distribution",
+   "Driver performance",
+   "Zone delivery performance",
+   "Recent dispatches",
+   "In-transit deliveries",
+   "Failed / partial — review",
+   "Pending assignments",
+   "Recent delivery notes",
+   "Quick actions"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DISPATCH-DETAIL": {
+  "h1": [
+   "BM-DSP-2026-00001"
+  ],
+  "h2": [
+   "Dispatch"
+  ],
+  "buttons": [
+   "Stops (1)",
+   "Stock",
+   "Timeline (10)",
+   "Open"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": [
+   "Stops (1)",
+   "Stock",
+   "Timeline (10)"
+  ]
+ },
+ "UX-DISPATCH-CREATE": {
+  "h1": [
+   "New dispatch plan"
+  ],
+  "h2": [
+   "1 · Hub, date & zone",
+   "2 · Ready orders",
+   "3 · Delivery sequence",
+   "4 · Load summary",
+   "5 · Driver & vehicle"
+  ],
+  "buttons": [
+   "Save draft",
+   "Create plan"
+  ],
+  "th": [],
+  "labels": [
+   "Dispatching hub*",
+   "Dispatch date*",
+   "Delivery zone*",
+   "Dispatch notes"
+  ],
+  "tabs": []
+ },
+ "UX-ZONES": {
+  "h1": [
+   "Dispatch zones"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ZONE",
+   "HUB",
+   "CITY",
+   "MANAGER",
+   "PINCODES",
+   "ACTIVE DISPATCHES",
+   "STATUS",
+   "Actions for Bangalore North",
+   "Actions for Bangalore South",
+   "Actions for Chennai Central",
+   "Actions for Chennai North",
+   "Actions for Chennai South",
+   "Actions for Coimbatore",
+   "Actions for Hyderabad",
+   "Actions for Madurai"
+  ],
+  "th": [
+   "ZONE",
+   "HUB",
+   "CITY",
+   "MANAGER",
+   "PINCODES",
+   "ACTIVE DISPATCHES",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Hub",
+   "Status",
+   "City"
+  ],
+  "tabs": []
+ },
+ "UX-DRIVERS": {
+  "h1": [
+   "Drivers"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "DRIVER",
+   "HUB / ZONE",
+   "LICENCE",
+   "AVAILABILITY",
+   "STATUS",
+   "Actions for Dinesh Kumar",
+   "Actions for Manjunath Gowda",
+   "Actions for Murugan Selvam",
+   "Actions for Pandiyan Raj",
+   "Actions for Prakash Arumugam",
+   "Actions for Rajendran Pillai",
+   "Actions for Ravi Teja",
+   "Actions for Syed Ameer"
+  ],
+  "th": [
+   "DRIVER",
+   "HUB / ZONE",
+   "VEHICLE",
+   "LICENCE",
+   "AVAILABILITY",
+   "CURRENT DISPATCH",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Hub",
+   "Zone",
+   "Availability",
+   "Licence"
+  ],
+  "tabs": []
+ },
+ "UX-VEHICLES": {
+  "h1": [
+   "Vehicles"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "VEHICLE",
+   "HUB",
+   "CAPACITY",
+   "STATUS",
+   "Actions for KA 01 HN 6604",
+   "Actions for KA 04 MK 5521",
+   "Actions for TN 01 BX 4521",
+   "Actions for TN 01 RX 3344",
+   "Actions for TN 02 CK 7788",
+   "Actions for TN 09 AZ 1203",
+   "Actions for TN 10 MV 9091",
+   "Actions for TN 22 BK 0077",
+   "Actions for TN 37 DM 3390",
+   "Actions for TN 59 BQ 2210",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "VEHICLE",
+   "HUB",
+   "CAPACITY",
+   "REGULAR DRIVER",
+   "CURRENT DISPATCH",
+   "STATUS",
+   "ACTIONS"
+  ],
+  "labels": [
+   "Hub",
+   "Status",
+   "Type"
+  ],
+  "tabs": []
+ },
+ "UX-TRACKING": {
+  "h1": [
+   "Delivery tracking"
+  ],
+  "h2": [],
+  "buttons": [
+   "Export CSV",
+   "ORDER / CUSTOMER",
+   "DISPATCH",
+   "DRIVER / VEHICLE",
+   "DATE",
+   "DELIVERY",
+   "UPDATED",
+   "Actions for BM-ORD-2026-00020",
+   "Actions for BM-ORD-2026-00018",
+   "Actions for BM-ORD-2026-00016",
+   "Actions for BM-ORD-2026-00017",
+   "Actions for BM-ORD-2026-00019",
+   "Actions for BM-ORD-2026-00021",
+   "Actions for BM-ORD-2026-00015",
+   "Actions for BM-ORD-2026-00014",
+   "Actions for BM-ORD-2026-00012",
+   "Actions for BM-ORD-2026-00013",
+   "Actions for BM-ORD-2026-00011",
+   "Actions for BM-ORD-2026-00010",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ORDER / CUSTOMER",
+   "DISPATCH",
+   "DRIVER / VEHICLE",
+   "Hub / zone",
+   "DATE",
+   "DELIVERY",
+   "PROGRESS",
+   "OTP",
+   "Note",
+   "UPDATED",
+   "ACTIONS"
+  ],
+  "labels": [
+   "From date",
+   "To date",
+   "Hub",
+   "Zone",
+   "Driver",
+   "Dispatch status",
+   "Delivery status",
+   "Customer",
+   "Order number"
+  ],
+  "tabs": []
+ },
+ "UX-LIVE": {
+  "h1": [
+   "Live Tracking"
+  ],
+  "h2": [
+   "VIP timing warnings",
+   "Routes",
+   "BM-DSP-2026-00016 · Murugan Selvam"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [
+   "Hub"
+  ],
+  "tabs": []
+ },
+ "UX-DELIVERY-REVIEW": {
+  "h1": [
+   "BM-ORD-2026-00001 · stop 1"
+  ],
+  "h2": [
+   "Customer & address",
+   "Driver",
+   "Delivery OTP"
+  ],
+  "buttons": [
+   "Items",
+   "Timeline (3)"
+  ],
+  "th": [
+   "PRODUCT",
+   "ORDERED",
+   "DISPATCHED",
+   "DELIVERED",
+   "REMAINING",
+   "DAMAGED"
+  ],
+  "labels": [],
+  "tabs": [
+   "Items",
+   "Timeline (3)"
+  ]
+ },
+ "UX-DN": {
+  "h1": [],
+  "h2": [],
+  "buttons": [
+   "Download PDF",
+   "Print"
+  ],
+  "th": [
+   "#",
+   "PRODUCT",
+   "ORDERED",
+   "DISPATCHED",
+   "DELIVERED",
+   "REMAINING",
+   "DAMAGED"
+  ],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DELIVERY-HISTORY": {
+  "h1": [
+   "Delivery history"
+  ],
+  "h2": [],
+  "buttons": [
+   "Closed deliveries (18)",
+   "Needs review (1)",
+   "Delivery notes (17)",
+   "Export CSV",
+   "ORDER / CUSTOMER",
+   "DISPATCH · DRIVER",
+   "CLOSED",
+   "STATUS",
+   "Previous page",
+   "1",
+   "2",
+   "Next page"
+  ],
+  "th": [
+   "ORDER / CUSTOMER",
+   "DISPATCH · DRIVER",
+   "DELIVERED / DISPATCHED",
+   "OUTCOME",
+   "CLOSED",
+   "STATUS"
+  ],
+  "labels": [
+   "From",
+   "To",
+   "Hub",
+   "Driver",
+   "Status"
+  ],
+  "tabs": [
+   "Closed deliveries (18)",
+   "Needs review (1)",
+   "Delivery notes (17)"
+  ]
+ },
+ "UX-DASH-FI": {
+  "h1": [
+   "Good morning, Anitha"
+  ],
+  "h2": [
+   "Invoices",
+   "Collections",
+   "Order value overview",
+   "Customer credit overview",
+   "Credit utilisation",
+   "Credit limits",
+   "Order reports"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All TimeAll dates",
+   "Open credit module"
+  ],
+  "th": [
+   "CUSTOMER",
+   "LIMIT",
+   "OUTSTANDING",
+   "UTILISATION"
+  ],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-INVOICE-DASH": {
+  "h1": [
+   "Invoice dashboard"
+  ],
+  "h2": [
+   "Invoiced value by month",
+   "Top customers",
+   "Delivered orders waiting for an invoice"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DRV-DASH": {
+  "h1": [
+   "Hello, Murugan"
+  ],
+  "h2": [
+   "My performance",
+   "Active delivery",
+   "Route summary",
+   "Delivery sequence",
+   "Tomorrow’s plan",
+   "Notifications"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "Today 12-Nov-2026"
+  ],
+  "th": [],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-DRV-DELIVERIES": {
+  "h1": [
+   "My deliveries"
+  ],
+  "h2": [],
+  "buttons": [
+   "Current route",
+   "Upcoming",
+   "History"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": [
+   "Current route",
+   "Upcoming",
+   "History"
+  ]
+ },
+ "UX-DRV-DELIVERY": {
+  "h1": [
+   "Marina Hotels & Caterers"
+  ],
+  "h2": [
+   "Deliver to",
+   "Items"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DRV-ROUTE": {
+  "h1": [
+   "Route"
+  ],
+  "h2": [
+   "Stops in sequence"
+  ],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DRV-COMPLETED": {
+  "h1": [
+   "Completed today"
+  ],
+  "h2": [],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DRV-NOTES": {
+  "h1": [
+   "Delivery notes"
+  ],
+  "h2": [],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-DRV-PROFILE": {
+  "h1": [
+   "Murugan Selvam"
+  ],
+  "h2": [
+   "Today",
+   "Details"
+  ],
+  "buttons": [
+   "Sign out"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-DASH": {
+  "h1": [
+   "Welcome, Joseph"
+  ],
+  "h2": [
+   "Your order is on the vehicle",
+   "Recent orders",
+   "Recent delivery notes",
+   "Notifications"
+  ],
+  "buttons": [
+   "Date range",
+   "Specific period",
+   "Compare",
+   "Which dates are filtered",
+   "All Time All dates"
+  ],
+  "th": [],
+  "labels": [
+   "Period"
+  ],
+  "tabs": []
+ },
+ "UX-CUS-CATALOG": {
+  "h1": [
+   "Catalog"
+  ],
+  "h2": [],
+  "buttons": [
+   "All",
+   "Chilled Food",
+   "Consumables",
+   "Electrical",
+   "Frozen Food",
+   "General",
+   "Spare Parts",
+   "Decrease quantity",
+   "Increase quantity",
+   "Add",
+   "Chicken Nuggets BM-PLT-003 · 10 × 1 kg AED 3,200 / CTN",
+   "Chicken Seekh Kebab BM-PLT-004 · 12 × 500 g AED 2,760 / CTN",
+   "French Fries 9 mm BM-PTO-001 · 4 × 2.5 kg AED 1,680 / CTN",
+   "Green Peas BM-VEG-001 · 10 × 1 kg AED 1,150 / CTN",
+   "Sweet Corn Kernels BM-VEG-002 · 10 × 1 kg AED 1,240 / CTN",
+   "Mixed Vegetables BM-VEG-003 · 10 × 1 kg AED 1,190 / CTN",
+   "Paneer Block BM-DRY-001 · 10 × 1 kg AED 3,450 / CTN",
+   "Mozzarella Cheese BM-DRY-002 · 6 × 2 kg AED 5,280 / CTN",
+   "Table Butter Salted BM-DRY-003 · 20 × 500 g AED 4,900 / CTN",
+   "Basa Fish Fillet BM-SEA-001 · 10 × 1 kg AED 3,350 / CTN",
+   "Prawns 26/30 Peeled BM-SEA-002 · 10 × 1 kg AED 6,900 / CTN",
+   "Veg Spring Rolls BM-SNK-001 · 12 × 600 g AED 2,340 / CTN",
+   "Mutton Keema BM-MTN-001 · Bulk AED 720 / KG",
+   "Chicken Wings BM-PLT-005 · 6 × 2 kg AED 2,980 / CTN",
+   "Fish Fingers BM-SEA-003 · 10 × 1 kg AED 2,650 / CTN",
+   "Aloo Tikki BM-SNK-002 · 12 × 800 g AED 1,980 / CTN",
+   "Malabar Parotta BM-BKY-001 · 20 × 5 pcs AED 2,100 / CTN",
+   "Fresh Cream 25% BM-DRY-004 · 12 × 1 L AED 2,280 / CTN",
+   "Gel Ice Pack 500 g BM-CNS-002 · 24 packs AED 640 / PACK",
+   "Reefer Door Gasket BM-SPR-001 · 1 piece AED 3,800 / PCS",
+   "Temperature Data Logger BM-ELC-001 · 1 unit AED 2,650 / PCS",
+   "Refined Sunflower Oil BM-GEN-001 · 15 L tin AED 165 / LTR"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-CART": {
+  "h1": [],
+  "h2": [],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-ORDERS": {
+  "h1": [
+   "My orders"
+  ],
+  "h2": [],
+  "buttons": [
+   "All (7)",
+   "Pending (1)",
+   "In progress (2)",
+   "Delivered (3)",
+   "Issues (1)"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-ORDER": {
+  "h1": [
+   "BM-ORD-2026-00005"
+  ],
+  "h2": [
+   "Progress",
+   "Order",
+   "Items",
+   "Delivery address",
+   "History"
+  ],
+  "buttons": [
+   "Reorder"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-NOTES": {
+  "h1": [
+   "Delivery notes"
+  ],
+  "h2": [],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-INVOICES": {
+  "h1": [
+   "Invoices"
+  ],
+  "h2": [],
+  "buttons": [],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ },
+ "UX-CUS-PROFILE": {
+  "h1": [
+   "Joseph Daniel"
+  ],
+  "h2": [
+   "Company",
+   "Addresses",
+   "Credit"
+  ],
+  "buttons": [
+   "Sign out"
+  ],
+  "th": [],
+  "labels": [],
+  "tabs": []
+ }
+}

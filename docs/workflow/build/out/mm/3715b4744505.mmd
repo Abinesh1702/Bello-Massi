@@ -1,0 +1,4 @@
+stateDiagram-v2
+    [*] --> ISSUED: generateInvoice
+    ISSUED --> CANCELLED: cancelInvoice (reason) - snapshot unchanged
+    CANCELLED --> [*]

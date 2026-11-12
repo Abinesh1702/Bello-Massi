@@ -1,0 +1,33 @@
+flowchart TD
+    START([User signs in - office, driver or customer app]) --> DASH[Role dashboard with period filter]
+    DASH --> SUP["Supporting work: master data, inventory, VMS, documents, communication"]
+    DASH --> ORD[Sales Executive creates order]
+    DASH --> CORD[Customer places order in the app]
+    ORD --> SUB[SUBMITTED - approval PENDING]
+    CORD --> SUB
+    SUB --> APR{Sales Manager decision}
+    APR -->|Return| RET[RETURNED - salesman corrects and resubmits]
+    RET --> SUB
+    APR -->|Reject| REJ([REJECTED - closed])
+    APR -->|Approve| APP[APPROVED]
+    APP --> CONS[Customer Service: 5 checks, consolidate]
+    CONS --> RDY[READY_FOR_DISPATCH]
+    RDY --> PLAN[Dispatcher plans dispatch: orders, zone, date, sequence]
+    PLAN --> ASG[Assign compliant driver and vehicle]
+    ASG --> CONF[Confirm dispatch: stock deducted, deliveries created - DISPATCHED]
+    CONF --> START2[Driver starts stop - OUT_FOR_DELIVERY, DEMO GPS]
+    START2 --> ARR[Reach location - OTP issued, simulated]
+    ARR --> OTP{OTP correct?}
+    OTP -->|No - retry| ARR
+    OTP -->|Yes| QTY{All quantities delivered?}
+    QTY -->|Yes| DEL[DELIVERED + delivery note]
+    QTY -->|No| PDEL[PARTIALLY_DELIVERED + delivery note]
+    START2 -->|Problem| FAIL[DELIVERY_FAILED]
+    FAIL --> REV[Dispatcher reviews exception]
+    PDEL --> REV
+    REV -->|Return stock| RTH([RETURNED_TO_HUB])
+    REV -->|Return and re-queue| RDY
+    DEL --> INVC[Finance issues invoice]
+    PDEL --> INVC
+    INVC --> CUSTDOC([Customer sees delivery note and invoice])
+    INVC --> RPT([Dashboards and Reports Center])

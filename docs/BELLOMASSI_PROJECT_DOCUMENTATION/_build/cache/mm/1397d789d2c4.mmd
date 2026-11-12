@@ -1,0 +1,18 @@
+flowchart LR
+    subgraph SALES[Sales]
+        A1[Order capture] --> A2[Approval and credit] --> A3[Consolidation]
+    end
+    subgraph LOG[Logistics]
+        B1[Zones] --> B2[Dispatch planning] --> B3[Driver and vehicle assignment] --> B4[Driver app, OTP, POD] --> B5[Delivery notes and exceptions]
+    end
+    subgraph WH[Warehouse - beyond SOW]
+        C1[Inventory] --> C2[Scrap] --> C3[Replenishment]
+    end
+    subgraph CTRL[Control and admin]
+        D1[Users, roles, permissions] --> D2[Settings and audit] --> D3[Dashboards and reports]
+    end
+    subgraph EXT[Extensions - beyond SOW]
+        E1[VMS] --> E2[Documents and OCR] --> E3[Invoices] --> E4[Email, WhatsApp, calls] --> E5[Customer app] --> E6[AI and forecasting]
+    end
+    A3 --> B2
+    B4 --> E3

@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor U as User
+    participant C as Web / mobile app
+    participant A as Auth API
+    participant DB as Database
+    U->>C: identifier + password
+    C->>A: POST /api/v1/auth/login
+    A->>DB: find user, check status and lockout
+    A->>A: verify Argon2id hash
+    alt MFA required
+        A-->>C: mfa_required
+        U->>C: TOTP code
+        C->>A: POST /api/v1/auth/mfa
+    end
+    A-->>C: access token (15 min) + refresh token (httpOnly cookie / secure storage)
+    C->>A: API calls with Bearer token
+    C->>A: POST /api/v1/auth/refresh when expired
+    U->>C: Sign out
+    C->>A: POST /api/v1/auth/logout - refresh token revoked

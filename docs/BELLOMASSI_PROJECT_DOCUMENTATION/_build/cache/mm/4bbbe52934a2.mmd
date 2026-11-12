@@ -1,0 +1,16 @@
+flowchart TD
+    SE[Sales Executive] -->|submitted order| SM[Sales Manager]
+    CU[Customer app] -->|submitted order| SM
+    SM -->|returned order| SE
+    SM -->|approved order| CS[Customer Service]
+    CS -->|ready for dispatch| DP[Dispatcher]
+    DP -->|confirmed dispatch| DR[Driver]
+    DR -->|delivered / partial| FI[Finance]
+    DR -->|failed / partial| DP
+    DR -->|OTP, tracking, delivery note| CU
+    FI -->|invoice| CU
+    WM[Warehouse Manager] -->|stock, approved scrap| DP
+    IE[Inventory Executive] -->|receipts, transfers, scrap requests| WM
+    QA[QA Manager] -->|verified documents, adjustments| WM
+    WM -->|replenishment draft| AD[Administrator]
+    AD -->|approved replenishment| SU[Supplier portal]

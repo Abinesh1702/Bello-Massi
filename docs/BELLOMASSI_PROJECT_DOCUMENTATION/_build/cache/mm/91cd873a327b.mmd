@@ -1,0 +1,45 @@
+erDiagram
+    document_types ||--o{ documents : "document_type_id"
+    users ||--o{ documents : "reviewed_by_id"
+    documents ||--o{ ocr_results : "document_id"
+    orders ||--o{ invoices : "order_id"
+    customers ||--o{ invoices : "customer_id"
+    invoice_templates ||--o{ invoices : "template_id"
+    document_types {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    documents {
+        bigserial id PK
+        bigint document_type_id FK
+        varchar status
+        bigint reviewed_by_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    ocr_results {
+        bigserial id PK
+        bigint document_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    invoice_templates {
+        bigserial id PK
+        varchar code UK
+        varchar name
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    invoices {
+        bigserial id PK
+        bigint order_id FK
+        bigint customer_id FK
+        bigint template_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

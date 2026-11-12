@@ -1,0 +1,47 @@
+flowchart TD
+    START([User opens Bellomassi]) --> LOGIN{Which sign-in page?}
+    LOGIN -->|/login| OFFICE[Office web app]
+    LOGIN -->|/driver/login| DRVAPP[Driver app]
+    LOGIN -->|/customer/login| CUSTAPP[Customer app]
+
+    OFFICE --> DASH[Role dashboard with period filter]
+    DASH --> MASTER[Master data: products, customers, hubs, zones, suppliers]
+    DASH --> INV[Inventory: receipts, transfers, adjustments, scrap]
+    DASH --> ORD[Create order - Sales Executive]
+    CUSTAPP --> CORD[Place order from cart - Customer]
+
+    ORD --> SUB[Order SUBMITTED, approval PENDING]
+    CORD --> SUB
+    SUB --> APR{Sales Manager decision}
+    APR -->|Return| RET[RETURNED for correction] --> ORD
+    APR -->|Reject| REJ([REJECTED - end])
+    APR -->|Approve| APP[APPROVED]
+
+    APP --> CONS[Customer Service verifies 5 checks and consolidates]
+    CONS --> CON[CONSOLIDATED]
+    CON --> RDY[Mark READY_FOR_DISPATCH]
+    RDY --> PLAN[Dispatcher plans dispatch: orders, zone, sequence]
+    PLAN --> ASG[Assign driver and vehicle - compliance checks]
+    ASG --> CONF[Confirm dispatch: stock deducted, deliveries created]
+    CONF --> DRVAPP
+    DRVAPP --> START2[Start delivery: OUT_FOR_DELIVERY, DEMO GPS]
+    START2 --> ARR[Reach location: OTP issued - simulated]
+    ARR --> OTP{OTP correct?}
+    OTP -->|No| ARR
+    OTP -->|Yes| QTY{All quantities delivered?}
+    QTY -->|Yes| DEL[DELIVERED + delivery note]
+    QTY -->|No| PDEL[PARTIALLY_DELIVERED + delivery note]
+    START2 -->|Problem at stop| FAIL[DELIVERY_FAILED]
+    FAIL --> REV[Dispatcher reviews exception]
+    PDEL --> REV
+    REV -->|Return stock| RTH[RETURNED_TO_HUB]
+    REV -->|Return and re-queue| RDY
+
+    APP --> INVC[Finance issues invoice]
+    DEL --> INVC
+    PDEL --> INVC
+    INVC --> CUSTDOC[Customer sees delivery note and invoice in the customer app]
+
+    DEL --> RPT[Dashboards and Reports Center]
+    INVC --> RPT
+    INV --> RPT

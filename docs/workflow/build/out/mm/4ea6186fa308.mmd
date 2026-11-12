@@ -1,0 +1,17 @@
+sequenceDiagram
+    actor U as User
+    participant FP as /forgot-password
+    participant AS as authService
+    participant RP as /reset-password
+    U->>FP: Enter email or username
+    alt Reset Password Demo
+        FP->>AS: requestPasswordReset(identifier)
+        AS-->>FP: 6-digit code (valid resetCodeMinutes, default 15)
+        FP-->>U: Code SHOWN ON SCREEN (no email is sent)
+        U->>RP: Enter code + new password
+        RP->>AS: resetPasswordWithCode()
+        AS-->>U: Password changed, sign in
+    else Restore demo password
+        FP->>AS: restoreDefaultDemoPassword(identifier)
+        AS-->>U: Published demo password restored
+    end

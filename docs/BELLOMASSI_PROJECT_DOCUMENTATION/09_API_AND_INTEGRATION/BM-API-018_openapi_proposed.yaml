@@ -1,0 +1,6961 @@
+# BM-API-018 · OpenAPI 3.0 specification · PROPOSED (not implemented) · Draft 2026-11-12
+openapi: 3.0.3
+info:
+  title: Bellomassi Order-to-Delivery API (PROPOSED)
+  version: 0.1.0-draft
+  description: Proposed API — NOT IMPLEMENTED. Generated from the documentation package (BM-API-002). Schemas follow the proposed database design
+    (BM-DAT-002).
+servers:
+- url: https://api.example.com/api/v1
+  description: Placeholder — no server exists
+security:
+- bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Surrogate key
+          format: int64
+          readOnly: true
+        username:
+          type: string
+          description: Sign-in name
+        email:
+          type: string
+          description: Email
+        phone:
+          type: string
+          description: Mobile (E.164)
+        full_name:
+          type: string
+          description: Display name
+        status:
+          type: string
+          description: active / inactive
+        home_hub_id:
+          type: integer
+          description: Home hub
+          format: int64
+        customer_id:
+          type: integer
+          description: Linked customer (portal users)
+          format: int64
+        driver_id:
+          type: integer
+          description: Linked driver
+          format: int64
+        supplier_id:
+          type: integer
+          description: Linked supplier
+          format: int64
+        must_change_password:
+          type: boolean
+          description: Forced change
+        failed_attempts:
+          type: integer
+          description: Failed sign-ins
+        locked_until:
+          type: string
+          description: Lockout end
+          format: date-time
+        last_login_at:
+          type: string
+          description: Last sign-in
+          format: date-time
+        mfa_enabled:
+          type: boolean
+          description: MFA flag
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - username
+      - email
+      - full_name
+      - status
+      - must_change_password
+      - failed_attempts
+      - mfa_enabled
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: e.g. SALES_MANAGER
+        name:
+          type: string
+          description: Label
+        description:
+          type: string
+          description: Description
+        data_scope:
+          type: string
+          description: ADMIN, SALESMAN, CUSTOMER …
+        landing_path:
+          type: string
+          description: Landing page
+        is_system:
+          type: boolean
+          description: System role
+        is_locked:
+          type: boolean
+          description: Cannot be changed
+        status:
+          type: string
+          description: active / inactive
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - data_scope
+      - landing_path
+      - is_system
+      - is_locked
+      - status
+    Permission:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        key:
+          type: string
+          description: e.g. orders.approve
+        module:
+          type: string
+          description: Module group
+        label:
+          type: string
+          description: Description
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - key
+      - module
+      - label
+    RolePermission:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        role_id:
+          type: integer
+          description: Role
+          format: int64
+        permission_id:
+          type: integer
+          description: Permission
+          format: int64
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - role_id
+      - permission_id
+    UserRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        user_id:
+          type: integer
+          description: User
+          format: int64
+        role_id:
+          type: integer
+          description: Role
+          format: int64
+        is_primary:
+          type: boolean
+          description: Primary role
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - user_id
+      - role_id
+      - is_primary
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        name:
+          type: string
+          description: Legal name
+        tax_number:
+          type: string
+          description: TRN / GSTIN
+        currency:
+          type: string
+          description: ISO currency
+        timezone:
+          type: string
+          description: IANA time zone
+        country:
+          type: string
+          description: Country
+        address:
+          type: string
+          description: Address
+        logo_url:
+          type: string
+          description: Logo in object storage
+        fiscal_year_start_month:
+          type: integer
+          description: 1–12
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - name
+      - currency
+      - timezone
+      - country
+      - fiscal_year_start_month
+    Hub:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Hub code
+        name:
+          type: string
+          description: Name
+        hub_type:
+          type: string
+          description: Main, Regional, Branch …
+        status:
+          type: string
+          description: Active / Inactive
+        address_line1:
+          type: string
+          description: Address
+        city:
+          type: string
+          description: City
+        state:
+          type: string
+          description: State / emirate
+        postal_code:
+          type: string
+          description: Pincode / PO box
+        latitude:
+          type: number
+          description: Location
+        longitude:
+          type: number
+          description: Location
+        phone:
+          type: string
+          description: Phone
+        email:
+          type: string
+          description: Email
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - hub_type
+      - status
+    Zone:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Zone code
+        name:
+          type: string
+          description: Name (unique per hub)
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        status:
+          type: string
+          description: Active / Inactive
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - hub_id
+      - status
+    ZonePostalCode:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        zone_id:
+          type: integer
+          description: Zone
+          format: int64
+        postal_code:
+          type: string
+          description: Pincode
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - zone_id
+      - postal_code
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Customer code
+        name:
+          type: string
+          description: Name
+        customer_type:
+          type: string
+          description: Type
+        status:
+          type: string
+          description: Active / Inactive / Blocked
+        contact_person:
+          type: string
+          description: Contact
+        mobile:
+          type: string
+          description: Mobile
+        email:
+          type: string
+          description: Email
+        tax_number:
+          type: string
+          description: GSTIN / TRN
+        pan:
+          type: string
+          description: PAN (India)
+        hub_id:
+          type: integer
+          description: Fulfilment hub
+          format: int64
+        zone_id:
+          type: integer
+          description: Zone
+          format: int64
+        sales_rep_id:
+          type: integer
+          description: Salesman
+          format: int64
+        is_vip:
+          type: boolean
+          description: VIP
+        credit_enabled:
+          type: boolean
+          description: Credit allowed
+        credit_limit:
+          type: number
+          description: Limit
+        credit_balance:
+          type: number
+          description: Outstanding (from ERP in production)
+        credit_days:
+          type: integer
+          description: Terms
+        sap_customer_no:
+          type: string
+          description: SAP key (stage 2)
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - customer_type
+      - status
+      - mobile
+      - hub_id
+      - is_vip
+      - credit_enabled
+      - credit_limit
+      - credit_balance
+    CustomerLocation:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        customer_id:
+          type: integer
+          description: Customer
+          format: int64
+        label:
+          type: string
+          description: e.g. Main store
+        address_line1:
+          type: string
+          description: Address
+        address_line2:
+          type: string
+          description: Address
+        city:
+          type: string
+          description: City
+        state:
+          type: string
+          description: State
+        postal_code:
+          type: string
+          description: Pincode
+        latitude:
+          type: number
+          description: Geocode
+        longitude:
+          type: number
+          description: Geocode
+        is_default:
+          type: boolean
+          description: Default location
+        delivery_instructions:
+          type: string
+          description: Notes
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - customer_id
+      - address_line1
+      - city
+      - is_default
+    ProductCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        name:
+          type: string
+          description: Category
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - name
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Product code
+        sku:
+          type: string
+          description: SKU
+        barcode:
+          type: string
+          description: EAN / UPC
+        name:
+          type: string
+          description: Name
+        brand:
+          type: string
+          description: Brand
+        category_id:
+          type: integer
+          description: Category
+          format: int64
+        unit:
+          type: string
+          description: Unit (ctn, kg …)
+        unit_price:
+          type: number
+          description: Price
+        tax_percent:
+          type: number
+          description: Tax %
+        max_discount_percent:
+          type: number
+          description: Discount cap
+        storage_condition:
+          type: string
+          description: Frozen / Chilled / Ambient
+        track_inventory:
+          type: boolean
+          description: Stock tracked
+        allow_negative_stock:
+          type: boolean
+          description: Negative allowed
+        batch_controlled:
+          type: boolean
+          description: Batch required for scrap
+        status:
+          type: string
+          description: Active / Inactive / Discontinued
+        sap_material_no:
+          type: string
+          description: SAP key (stage 2)
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - unit
+      - unit_price
+      - tax_percent
+      - storage_condition
+      - track_inventory
+      - allow_negative_stock
+      - batch_controlled
+      - status
+    Supplier:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        name:
+          type: string
+          description: Name
+        contact_person:
+          type: string
+          description: Contact
+        phone:
+          type: string
+          description: Phone
+        email:
+          type: string
+          description: Email
+        lead_time_days:
+          type: integer
+          description: Lead time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - name
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        order_number:
+          type: string
+          description: BM-ORD-…
+        customer_id:
+          type: integer
+          description: Customer
+          format: int64
+        salesman_id:
+          type: integer
+          description: Salesman
+          format: int64
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        delivery_location_id:
+          type: integer
+          description: Delivery location
+          format: int64
+        order_type:
+          type: string
+          description: Type
+        priority:
+          type: string
+          description: Low / Normal / High / Urgent
+        payment_terms:
+          type: string
+          description: Credit / COD
+        source_channel:
+          type: string
+          description: call / email / whatsapp / customer_app
+        order_date:
+          type: string
+          description: Order date
+          format: date
+        requested_delivery_date:
+          type: string
+          description: Requested date
+          format: date
+        requested_delivery_time:
+          type: string
+          description: Requested time
+          format: time
+        status:
+          type: string
+          description: DRAFT … RETURNED_TO_HUB
+        approval_status:
+          type: string
+          description: PENDING / APPROVED …
+        consolidation_status:
+          type: string
+          description: NOT_STARTED / PENDING / COMPLETED
+        subtotal:
+          type: number
+          description: Subtotal
+        discount_amount:
+          type: number
+          description: Discount
+        tax_amount:
+          type: number
+          description: Tax
+        total_amount:
+          type: number
+          description: Total
+        credit_warning:
+          type: boolean
+          description: Credit flag
+        stock_warning:
+          type: boolean
+          description: Stock flag
+        customer_reference:
+          type: string
+          description: PO ref
+        remarks:
+          type: string
+          description: Remarks
+        submitted_at:
+          type: string
+          description: Submitted
+          format: date-time
+        version:
+          type: integer
+          description: Optimistic lock
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - order_number
+      - customer_id
+      - salesman_id
+      - hub_id
+      - order_type
+      - priority
+      - payment_terms
+      - source_channel
+      - order_date
+      - requested_delivery_date
+      - status
+      - approval_status
+      - consolidation_status
+      - subtotal
+      - discount_amount
+      - tax_amount
+      - total_amount
+      - credit_warning
+      - stock_warning
+      - version
+    OrderItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        quantity:
+          type: number
+          description: Ordered qty
+        approved_quantity:
+          type: number
+          description: Approved qty (G-01, to confirm)
+        unit_price:
+          type: number
+          description: Price
+        discount_percent:
+          type: number
+          description: Discount
+        tax_percent:
+          type: number
+          description: Tax
+        line_total:
+          type: number
+          description: Total
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - order_id
+      - product_id
+      - quantity
+      - unit_price
+      - discount_percent
+      - tax_percent
+      - line_total
+    OrderApproval:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        decision:
+          type: string
+          description: APPROVED / RETURNED / REJECTED
+        reason:
+          type: string
+          description: Reason code
+        remarks:
+          type: string
+          description: Remarks
+        decided_by_id:
+          type: integer
+          description: Sales Manager
+          format: int64
+        decided_at:
+          type: string
+          description: Time
+          format: date-time
+        order_total:
+          type: number
+          description: Total at decision
+        credit_warning:
+          type: boolean
+          description: Flag
+        stock_warning:
+          type: boolean
+          description: Flag
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - order_id
+      - decision
+      - decided_by_id
+      - decided_at
+      - order_total
+      - credit_warning
+      - stock_warning
+    Consolidation:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        checks:
+          type: object
+          description: Five checks
+        notes:
+          type: string
+          description: Notes
+        consolidated_by_id:
+          type: integer
+          description: User
+          format: int64
+        consolidated_at:
+          type: string
+          description: Time
+          format: date-time
+        ready_at:
+          type: string
+          description: Released
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - order_id
+      - checks
+      - consolidated_by_id
+      - consolidated_at
+    OrderEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        event_type:
+          type: string
+          description: Event
+        from_status:
+          type: string
+          description: Before
+        to_status:
+          type: string
+          description: After
+        actor_id:
+          type: integer
+          description: User
+          format: int64
+        occurred_at:
+          type: string
+          description: Time
+          format: date-time
+        details:
+          type: object
+          description: Payload
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - order_id
+      - event_type
+      - occurred_at
+    Driver:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Driver code
+        full_name:
+          type: string
+          description: Name
+        mobile:
+          type: string
+          description: Mobile
+        employee_no:
+          type: string
+          description: Employee no.
+        licence_no:
+          type: string
+          description: Licence
+        licence_expiry:
+          type: string
+          description: Expiry
+          format: date
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        zone_id:
+          type: integer
+          description: Zone
+          format: int64
+        default_vehicle_id:
+          type: integer
+          description: Vehicle
+          format: int64
+        status:
+          type: string
+          description: Active / Inactive
+        availability:
+          type: string
+          description: Available / Assigned / On Delivery / Offline
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - full_name
+      - mobile
+      - licence_no
+      - licence_expiry
+      - hub_id
+      - status
+      - availability
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        registration_no:
+          type: string
+          description: Plate
+        vehicle_type:
+          type: string
+          description: Type
+        capacity:
+          type: number
+          description: Capacity
+        capacity_unit:
+          type: string
+          description: kg / ctn / pallets
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        category:
+          type: string
+          description: Category
+        fuel_type:
+          type: string
+          description: Fuel
+        ownership:
+          type: string
+          description: Owned / leased
+        status:
+          type: string
+          description: Available / Maintenance / Inactive …
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - registration_no
+      - vehicle_type
+      - capacity
+      - capacity_unit
+      - hub_id
+      - status
+    Dispatche:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        dispatch_number:
+          type: string
+          description: BM-DSP-…
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        zone_id:
+          type: integer
+          description: Zone
+          format: int64
+        dispatch_date:
+          type: string
+          description: Date
+          format: date
+        driver_id:
+          type: integer
+          description: Driver
+          format: int64
+        vehicle_id:
+          type: integer
+          description: Vehicle
+          format: int64
+        status:
+          type: string
+          description: DRAFT … CANCELLED
+        stock_deducted:
+          type: boolean
+          description: Once flag
+        stock_reversed:
+          type: boolean
+          description: Once flag
+        confirmed_at:
+          type: string
+          description: Confirmed
+          format: date-time
+        confirmed_by_id:
+          type: integer
+          description: Dispatcher
+          format: int64
+        cancel_reason:
+          type: string
+          description: Reason
+        cancel_remarks:
+          type: string
+          description: Remarks
+        total_load:
+          type: number
+          description: Load
+        notes:
+          type: string
+          description: Notes
+        version:
+          type: integer
+          description: Optimistic lock
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - dispatch_number
+      - hub_id
+      - dispatch_date
+      - status
+      - stock_deducted
+      - stock_reversed
+      - version
+    DispatchStop:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        dispatch_id:
+          type: integer
+          description: Dispatch
+          format: int64
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        sequence:
+          type: integer
+          description: Stop no.
+        is_locked:
+          type: boolean
+          description: Fixed position
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - dispatch_id
+      - order_id
+      - sequence
+      - is_locked
+    Delivery:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        delivery_number:
+          type: string
+          description: Number
+        dispatch_id:
+          type: integer
+          description: Dispatch
+          format: int64
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        driver_id:
+          type: integer
+          description: Driver
+          format: int64
+        sequence:
+          type: integer
+          description: Stop
+        status:
+          type: string
+          description: DISPATCHED … CANCELLED
+        started_at:
+          type: string
+          description: Start
+          format: date-time
+        arrived_at:
+          type: string
+          description: Arrival
+          format: date-time
+        arrived_lat:
+          type: number
+          description: Arrival location
+        arrived_lng:
+          type: number
+          description: Arrival location
+        completed_at:
+          type: string
+          description: Completion
+          format: date-time
+        failed_at:
+          type: string
+          description: Failure
+          format: date-time
+        failure_reason:
+          type: string
+          description: Reason
+        failure_remarks:
+          type: string
+          description: Remarks
+        received_by:
+          type: string
+          description: Receiver
+        review_status:
+          type: string
+          description: PENDING / REVIEWED
+        reviewed_by_id:
+          type: integer
+          description: Dispatcher
+          format: int64
+        review_remarks:
+          type: string
+          description: Remarks
+        returned_to_hub:
+          type: boolean
+          description: Once flag
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - delivery_number
+      - dispatch_id
+      - order_id
+      - driver_id
+      - sequence
+      - status
+      - returned_to_hub
+    DeliveryItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        delivery_id:
+          type: integer
+          description: Delivery
+          format: int64
+        order_item_id:
+          type: integer
+          description: Line
+          format: int64
+        dispatched_qty:
+          type: number
+          description: Dispatched
+        delivered_qty:
+          type: number
+          description: Delivered
+        damaged_qty:
+          type: number
+          description: Damaged
+        rejected_qty:
+          type: number
+          description: Rejected
+        short_reason:
+          type: string
+          description: Reason
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - delivery_id
+      - order_item_id
+      - dispatched_qty
+    DeliveryOtp:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        delivery_id:
+          type: integer
+          description: Delivery
+          format: int64
+        status:
+          type: string
+          description: ACTIVE / VERIFIED / EXPIRED / INVALIDATED / LOCKED
+        attempts:
+          type: integer
+          description: Wrong attempts
+        expires_at:
+          type: string
+          description: Expiry
+          format: date-time
+        sent_channel:
+          type: string
+          description: sms / whatsapp
+        verified_at:
+          type: string
+          description: Verified
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - delivery_id
+      - status
+      - attempts
+      - expires_at
+    ProofsOfDelivery:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        delivery_id:
+          type: integer
+          description: Delivery
+          format: int64
+        signature_object_key:
+          type: string
+          description: Object storage key
+        photo_object_key:
+          type: string
+          description: Object storage key
+        customer_remarks:
+          type: string
+          description: Remarks
+        captured_at:
+          type: string
+          description: Time
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - delivery_id
+      - captured_at
+    DeliveryNote:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        note_number:
+          type: string
+          description: BM-DN-YYYY-NNNNN
+        delivery_id:
+          type: integer
+          description: Delivery
+          format: int64
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        delivery_date:
+          type: string
+          description: Date
+          format: date
+        pdf_object_key:
+          type: string
+          description: PDF
+        sent_at:
+          type: string
+          description: Sent to customer
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - note_number
+      - delivery_id
+      - order_id
+      - delivery_date
+    TrackingSession:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        delivery_id:
+          type: integer
+          description: Delivery
+          format: int64
+        driver_id:
+          type: integer
+          description: Driver
+          format: int64
+        started_at:
+          type: string
+          description: Start
+          format: date-time
+        ended_at:
+          type: string
+          description: End
+          format: date-time
+        last_lat:
+          type: number
+          description: Last position
+        last_lng:
+          type: number
+          description: Last position
+        last_seen_at:
+          type: string
+          description: Last update
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - delivery_id
+      - driver_id
+      - started_at
+    LocationPoint:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        session_id:
+          type: integer
+          description: Session
+          format: int64
+        recorded_at:
+          type: string
+          description: Device time
+          format: date-time
+        lat:
+          type: number
+          description: Latitude
+        lng:
+          type: number
+          description: Longitude
+        accuracy_m:
+          type: number
+          description: Accuracy
+        speed_kmh:
+          type: number
+          description: Speed
+        heading:
+          type: integer
+          description: Heading
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - session_id
+      - recorded_at
+      - lat
+      - lng
+    StockItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        total_qty:
+          type: number
+          description: On hand
+        reserved_qty:
+          type: number
+          description: Reserved
+        damaged_qty:
+          type: number
+          description: Damaged
+        min_level:
+          type: number
+          description: Minimum
+        reorder_level:
+          type: number
+          description: Reorder
+        max_level:
+          type: number
+          description: Maximum
+        version:
+          type: integer
+          description: Optimistic lock
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - hub_id
+      - product_id
+      - total_qty
+      - reserved_qty
+      - damaged_qty
+      - version
+    StockMovement:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        movement_type:
+          type: string
+          description: Receipt, Transfer In/Out, Adjustment, Damage, Lost, Dispatch, Reversal, Delivery Return, Scrap Write-off
+        quantity:
+          type: number
+          description: Signed qty
+        balance_after:
+          type: number
+          description: Balance
+        reference_type:
+          type: string
+          description: Source doc type
+        reference_id:
+          type: integer
+          description: Source doc
+          format: int64
+        occurred_at:
+          type: string
+          description: Time
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - hub_id
+      - product_id
+      - movement_type
+      - quantity
+      - occurred_at
+    StockReceipt:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        receipt_number:
+          type: string
+          description: GRN-…
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        quantity:
+          type: number
+          description: Qty
+        receipt_date:
+          type: string
+          description: Date
+          format: date
+        reference:
+          type: string
+          description: Supplier doc / RPL no.
+        replenishment_id:
+          type: integer
+          description: Request
+          format: int64
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - receipt_number
+      - hub_id
+      - product_id
+      - quantity
+      - receipt_date
+    StockTransfer:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        transfer_number:
+          type: string
+          description: TRF-…
+        from_hub_id:
+          type: integer
+          description: Source
+          format: int64
+        to_hub_id:
+          type: integer
+          description: Destination
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        quantity:
+          type: number
+          description: Qty
+        status:
+          type: string
+          description: Draft / Completed / Cancelled
+        transfer_date:
+          type: string
+          description: Date
+          format: date
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - transfer_number
+      - from_hub_id
+      - to_hub_id
+      - product_id
+      - quantity
+      - status
+      - transfer_date
+    StockAdjustment:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        adjustment_number:
+          type: string
+          description: ADJ-…
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        adjustment_type:
+          type: string
+          description: Increase / Decrease / Damaged / Lost / Correction
+        quantity:
+          type: number
+          description: Qty
+        reason:
+          type: string
+          description: Reason
+        notes:
+          type: string
+          description: Notes
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - adjustment_number
+      - hub_id
+      - product_id
+      - adjustment_type
+      - quantity
+      - reason
+    ScrapRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        request_number:
+          type: string
+          description: SCR-…
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        product_id:
+          type: integer
+          description: Product
+          format: int64
+        stock_source:
+          type: string
+          description: available / damaged
+        quantity:
+          type: number
+          description: Qty
+        reason:
+          type: string
+          description: Reason
+        batch_no:
+          type: string
+          description: Batch
+        photo_object_key:
+          type: string
+          description: Evidence
+        status:
+          type: string
+          description: DRAFT … CANCELLED
+        requested_by_id:
+          type: integer
+          description: Requester
+          format: int64
+        approved_by_id:
+          type: integer
+          description: Approver (≠ requester)
+          format: int64
+        rejection_reason:
+          type: string
+          description: Reason
+        written_off_at:
+          type: string
+          description: Write-off
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - request_number
+      - hub_id
+      - product_id
+      - stock_source
+      - quantity
+      - reason
+      - status
+      - requested_by_id
+    ReplenishmentRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        request_number:
+          type: string
+          description: RPL-…
+        supplier_id:
+          type: integer
+          description: Supplier
+          format: int64
+        hub_id:
+          type: integer
+          description: Hub
+          format: int64
+        status:
+          type: string
+          description: DRAFT … RECEIVED
+        lines:
+          type: object
+          description: Products and quantities
+        decided_by_id:
+          type: integer
+          description: Administrator
+          format: int64
+        rejection_reason:
+          type: string
+          description: Reason
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - request_number
+      - supplier_id
+      - hub_id
+      - status
+      - lines
+    DocumentType:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: e.g. VEH_RC
+        name:
+          type: string
+          description: Name
+        entity:
+          type: string
+          description: vehicle / driver / customer …
+        fields:
+          type: object
+          description: Fields to capture
+        expiry_required:
+          type: boolean
+          description: Expiry
+        warning_days:
+          type: integer
+          description: Warning
+        ocr_enabled:
+          type: boolean
+          description: OCR
+        verification_required:
+          type: boolean
+          description: Review
+        is_builtin:
+          type: boolean
+          description: Locked code
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - entity
+      - fields
+      - expiry_required
+      - ocr_enabled
+      - verification_required
+      - is_builtin
+    Document:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        document_type_id:
+          type: integer
+          description: Type
+          format: int64
+        entity_type:
+          type: string
+          description: Entity
+        entity_id:
+          type: integer
+          description: Record
+          format: int64
+        object_key:
+          type: string
+          description: File in object storage
+        file_name:
+          type: string
+          description: Name
+        mime_type:
+          type: string
+          description: MIME
+        size_bytes:
+          type: integer
+          description: Size
+        sha256:
+          type: string
+          description: Checksum
+        document_number:
+          type: string
+          description: Number
+        issue_date:
+          type: string
+          description: Issued
+          format: date
+        expiry_date:
+          type: string
+          description: Expiry
+          format: date
+        fields:
+          type: object
+          description: Verified fields
+        status:
+          type: string
+          description: PENDING_OCR … REJECTED
+        reviewed_by_id:
+          type: integer
+          description: Reviewer
+          format: int64
+        rejection_reason:
+          type: string
+          description: Reason
+        virus_scan_status:
+          type: string
+          description: pending / clean / infected
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - document_type_id
+      - entity_type
+      - entity_id
+      - object_key
+      - file_name
+      - mime_type
+      - size_bytes
+      - sha256
+      - status
+      - virus_scan_status
+    OcrResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        document_id:
+          type: integer
+          description: Document
+          format: int64
+        provider:
+          type: string
+          description: Engine
+        raw_fields:
+          type: object
+          description: Extracted (original)
+        confidence:
+          type: number
+          description: Confidence
+        processed_at:
+          type: string
+          description: Time
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - document_id
+      - provider
+      - raw_fields
+      - processed_at
+    InvoiceTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        code:
+          type: string
+          description: Code
+        name:
+          type: string
+          description: Name
+        layout:
+          type: object
+          description: Page, fonts, colours, sections
+        is_default:
+          type: boolean
+          description: Default
+        status:
+          type: string
+          description: Active / Inactive
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - code
+      - name
+      - layout
+      - is_default
+      - status
+    Invoice:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        invoice_number:
+          type: string
+          description: BM-INV-YYYY-NNNNN
+        order_id:
+          type: integer
+          description: Order
+          format: int64
+        customer_id:
+          type: integer
+          description: Customer
+          format: int64
+        template_id:
+          type: integer
+          description: Template
+          format: int64
+        quantity_basis:
+          type: string
+          description: ORDERED / DELIVERED
+        invoice_date:
+          type: string
+          description: Date
+          format: date
+        due_date:
+          type: string
+          description: Due
+          format: date
+        grand_total:
+          type: number
+          description: Total
+        snapshot:
+          type: object
+          description: Frozen order / customer / lines
+        status:
+          type: string
+          description: ISSUED / CANCELLED
+        cancel_reason:
+          type: string
+          description: Reason
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - invoice_number
+      - order_id
+      - customer_id
+      - template_id
+      - quantity_basis
+      - invoice_date
+      - grand_total
+      - snapshot
+      - status
+    Notification:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        recipient_user_id:
+          type: integer
+          description: User target
+          format: int64
+        recipient_role:
+          type: string
+          description: Role target
+        category:
+          type: string
+          description: Category
+        title:
+          type: string
+          description: Title
+        message:
+          type: string
+          description: Text
+        link:
+          type: string
+          description: Deep link
+        read_at:
+          type: string
+          description: Read
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - category
+      - title
+    MessageTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        channel:
+          type: string
+          description: email / whatsapp / sms
+        code:
+          type: string
+          description: Code
+        subject:
+          type: string
+          description: Email subject
+        body:
+          type: string
+          description: Body with variables
+        provider_template_id:
+          type: string
+          description: WhatsApp approved template
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - channel
+      - code
+      - body
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        channel:
+          type: string
+          description: Channel
+        to_address:
+          type: string
+          description: Recipient
+        subject:
+          type: string
+          description: Subject
+        body:
+          type: string
+          description: Body
+        status:
+          type: string
+          description: QUEUED … FAILED
+        provider_message_id:
+          type: string
+          description: Provider id
+        related_type:
+          type: string
+          description: Record type
+        related_id:
+          type: integer
+          description: Record
+          format: int64
+        error:
+          type: string
+          description: Error
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - channel
+      - to_address
+      - status
+    AutomationRule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        event:
+          type: string
+          description: e.g. DELIVERY_COMPLETED
+        enabled:
+          type: boolean
+          description: On / off
+        channel:
+          type: string
+          description: email / whatsapp / both
+        recipient_rule:
+          type: string
+          description: Customer / salesman / operations / owner
+        email_template_id:
+          type: integer
+          description: Template
+          format: int64
+        whatsapp_template_id:
+          type: integer
+          description: Template
+          format: int64
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - event
+      - enabled
+      - channel
+      - recipient_rule
+    CallLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        customer_id:
+          type: integer
+          description: Customer
+          format: int64
+        user_id:
+          type: integer
+          description: Caller
+          format: int64
+        direction:
+          type: string
+          description: Incoming / Outgoing
+        status:
+          type: string
+          description: Connected …
+        outcome:
+          type: string
+          description: Outcome
+        duration_sec:
+          type: integer
+          description: Duration
+        notes:
+          type: string
+          description: Notes
+        follow_up_date:
+          type: string
+          description: Follow-up
+          format: date
+        follow_up_done_at:
+          type: string
+          description: Done
+          format: date-time
+        order_id:
+          type: integer
+          description: Linked order
+          format: int64
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - customer_id
+      - user_id
+      - direction
+      - status
+      - outcome
+    Setting:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        section:
+          type: string
+          description: Section
+        key:
+          type: string
+          description: Key
+        value:
+          type: object
+          description: Value
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - section
+      - key
+      - value
+    Sequence:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        name:
+          type: string
+          description: Sequence name
+        prefix:
+          type: string
+          description: Prefix
+        year:
+          type: integer
+          description: Year
+        next_value:
+          type: integer
+          description: Next
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - name
+      - prefix
+      - next_value
+    AuditLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Key
+          format: int64
+          readOnly: true
+        actor_id:
+          type: integer
+          description: User
+          format: int64
+        action:
+          type: string
+          description: Action
+        entity_type:
+          type: string
+          description: Entity
+        entity_id:
+          type: string
+          description: Record
+        before:
+          type: object
+          description: Before
+        after:
+          type: object
+          description: After
+        ip_address:
+          type: string
+          description: IP
+        occurred_at:
+          type: string
+          description: Time
+          format: date-time
+        created_at:
+          type: string
+          description: Creation time
+          format: date-time
+          readOnly: true
+        created_by_id:
+          type: integer
+          description: Creating user
+          format: int64
+          readOnly: true
+        updated_at:
+          type: string
+          description: Last update time
+          format: date-time
+          readOnly: true
+        updated_by_id:
+          type: integer
+          description: Last updating user
+          format: int64
+          readOnly: true
+      required:
+      - action
+      - entity_type
+      - occurred_at
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        errors:
+          type: object
+          additionalProperties:
+            type: string
+paths:
+  /auth/login:
+    post:
+      summary: Sign in with username / email / mobile and password
+      tags:
+      - Authentication API
+      x-permission: (public)
+      x-errors: 400 validation; 401 invalid credentials; 423 locked (RULE-001); 403 inactive (RULE-002)
+      x-request: '{identifier, password, app: office or driver or customer}'
+      x-response: '{access, refresh_expires, user, roles, permissions, landing_path}'
+      responses:
+        '200':
+          description: '{access, refresh_expires, user, roles, permissions, landing_path}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{identifier, password, app: office or driver or customer}'
+        content:
+          application/json:
+            schema:
+              type: object
+      security: []
+  /auth/mfa:
+    post:
+      summary: Verify TOTP for privileged roles
+      tags:
+      - Authentication API
+      x-permission: (public, mfa token)
+      x-errors: 401 wrong code; 429 too many attempts
+      x-request: '{mfa_token, code}'
+      x-response: '{access, user}'
+      responses:
+        '200':
+          description: '{access, user}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{mfa_token, code}'
+        content:
+          application/json:
+            schema:
+              type: object
+      security: []
+  /auth/refresh:
+    post:
+      summary: Rotate access token
+      tags:
+      - Authentication API
+      x-permission: (refresh cookie)
+      x-errors: 401 expired / revoked refresh token
+      x-request: —
+      x-response: '{access}'
+      responses:
+        '200':
+          description: '{access}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /auth/logout:
+    post:
+      summary: Revoke refresh token
+      tags:
+      - Authentication API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /auth/password/forgot:
+    post:
+      summary: Send reset code by email / SMS
+      tags:
+      - Authentication API
+      x-permission: (public)
+      x-errors: 429 rate limit
+      x-request: '{identifier}'
+      x-response: 202 (always, no user enumeration)
+      responses:
+        '200':
+          description: 202 (always, no user enumeration)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{identifier}'
+        content:
+          application/json:
+            schema:
+              type: object
+      security: []
+  /auth/password/reset:
+    post:
+      summary: Reset with code
+      tags:
+      - Authentication API
+      x-permission: (public)
+      x-errors: 400 invalid / expired code; password policy (RULE-004)
+      x-request: '{identifier, code, new_password}'
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{identifier, code, new_password}'
+        content:
+          application/json:
+            schema:
+              type: object
+      security: []
+  /auth/password/change:
+    post:
+      summary: Change own password
+      tags:
+      - Authentication API
+      x-permission: (authenticated)
+      x-errors: 400 policy; 401 wrong current password
+      x-request: '{current_password, new_password}'
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{current_password, new_password}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /auth/me:
+    get:
+      summary: Current user, roles, permissions, scope
+      tags:
+      - Authentication API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: —
+      x-response: '{user, roles, permissions, data_scope}'
+      responses:
+        '200':
+          description: '{user, roles, permissions, data_scope}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /users:
+    get:
+      summary: List users with filters (role, hub, status, search)
+      tags:
+      - User API
+      x-permission: users.view
+      x-errors: —
+      x-request: —
+      x-response: page<User>
+      responses:
+        '200':
+          description: page<User>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create user
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: 400 validation; 409 duplicate username / email
+      x-request: User (without password_hash) + temporary_password
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: User (without password_hash) + temporary_password
+        content:
+          application/json:
+            schema:
+              type: object
+  /users/{id}:
+    get:
+      summary: User detail
+      tags:
+      - User API
+      x-permission: users.view
+      x-errors: '404'
+      x-request: —
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    patch:
+      summary: Update user
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: 403 Super Admin protection (RULE-005)
+      x-request: partial User
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial User
+        content:
+          application/json:
+            schema:
+              type: object
+  /users/{id}/deactivate:
+    post:
+      summary: Deactivate
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: 400 cannot deactivate self (RULE-005)
+      x-request: —
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /users/{id}/activate:
+    post:
+      summary: Activate
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: —
+      x-request: —
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /users/{id}/unlock:
+    post:
+      summary: Clear lockout
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: —
+      x-request: —
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /users/{id}/reset-password:
+    post:
+      summary: Admin reset; forces change on next sign-in
+      tags:
+      - User API
+      x-permission: users.manage
+      x-errors: —
+      x-request: —
+      x-response: '{temporary_password_sent: true}'
+      responses:
+        '200':
+          description: '{temporary_password_sent: true}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /users/{id}/roles:
+    put:
+      summary: Assign roles and home hub
+      tags:
+      - User API
+      x-permission: users.edit
+      x-errors: 400 driver needs hub
+      x-request: '{role_ids[], home_hub_id}'
+      x-response: User
+      responses:
+        '200':
+          description: User
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{role_ids[], home_hub_id}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /roles:
+    get:
+      summary: List roles
+      tags:
+      - User API
+      x-permission: roles.view
+      x-errors: —
+      x-request: —
+      x-response: list<Role>
+      responses:
+        '200':
+          description: list<Role>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create custom role
+      tags:
+      - User API
+      x-permission: roles.create
+      x-errors: 409 duplicate code
+      x-request: Role + permission_keys[]
+      x-response: Role
+      responses:
+        '200':
+          description: Role
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Role + permission_keys[]
+        content:
+          application/json:
+            schema:
+              type: object
+  /roles/{id}:
+    patch:
+      summary: Update role / permissions
+      tags:
+      - User API
+      x-permission: roles.edit
+      x-errors: 403 locked role
+      x-request: partial Role
+      x-response: Role
+      responses:
+        '200':
+          description: Role
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Role
+        content:
+          application/json:
+            schema:
+              type: object
+  /permissions:
+    get:
+      summary: Permission catalogue (110 keys)
+      tags:
+      - User API
+      x-permission: roles.view
+      x-errors: —
+      x-request: —
+      x-response: list<Permission>
+      responses:
+        '200':
+          description: list<Permission>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /audit-logs:
+    get:
+      summary: Audit trail with filters
+      tags:
+      - User API
+      x-permission: audit.view
+      x-errors: —
+      x-request: —
+      x-response: page<AuditLog>
+      responses:
+        '200':
+          description: page<AuditLog>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /customers:
+    get:
+      summary: 'List customers (scope: salesman sees assigned)'
+      tags:
+      - Customer API
+      x-permission: customers.view
+      x-errors: —
+      x-request: —
+      x-response: page<Customer>
+      responses:
+        '200':
+          description: page<Customer>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create customer
+      tags:
+      - Customer API
+      x-permission: customers.manage
+      x-errors: 400 validation (codes, phone, tax IDs, pincode)
+      x-request: Customer
+      x-response: Customer
+      responses:
+        '200':
+          description: Customer
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Customer
+        content:
+          application/json:
+            schema:
+              type: object
+  /customers/{id}:
+    get:
+      summary: Customer detail incl. locations
+      tags:
+      - Customer API
+      x-permission: customers.view
+      x-errors: 404 / out of scope
+      x-request: —
+      x-response: Customer
+      responses:
+        '200':
+          description: Customer
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    patch:
+      summary: Update customer
+      tags:
+      - Customer API
+      x-permission: customers.manage
+      x-errors: '400'
+      x-request: partial Customer
+      x-response: Customer
+      responses:
+        '200':
+          description: Customer
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Customer
+        content:
+          application/json:
+            schema:
+              type: object
+    delete:
+      summary: Soft delete
+      tags:
+      - Customer API
+      x-permission: customers.manage
+      x-errors: 409 referenced by orders
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /customers/{id}/credit-position:
+    get:
+      summary: Balance, limit, projected for an amount
+      tags:
+      - Customer API
+      x-permission: customers.credit.view
+      x-errors: —
+      x-request: ?amount=
+      x-response: '{limit, balance, projected, exceeded}'
+      responses:
+        '200':
+          description: '{limit, balance, projected, exceeded}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /customers/{id}/locations:
+    get:
+      summary: Delivery locations
+      tags:
+      - Customer API
+      x-permission: customers.view
+      x-errors: —
+      x-request: —
+      x-response: list<CustomerLocation>
+      responses:
+        '200':
+          description: list<CustomerLocation>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    post:
+      summary: Add location (geocoded)
+      tags:
+      - Customer API
+      x-permission: customers.manage
+      x-errors: '400'
+      x-request: CustomerLocation
+      x-response: CustomerLocation
+      responses:
+        '200':
+          description: CustomerLocation
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: CustomerLocation
+        content:
+          application/json:
+            schema:
+              type: object
+  /products:
+    get:
+      summary: List / search products
+      tags:
+      - Product API
+      x-permission: products.view
+      x-errors: —
+      x-request: —
+      x-response: page<Product>
+      responses:
+        '200':
+          description: page<Product>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create product
+      tags:
+      - Product API
+      x-permission: products.manage
+      x-errors: 400; 409 duplicate code / SKU / barcode
+      x-request: Product
+      x-response: Product
+      responses:
+        '200':
+          description: Product
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Product
+        content:
+          application/json:
+            schema:
+              type: object
+  /products/{id}:
+    get:
+      summary: Product detail with stock per hub
+      tags:
+      - Product API
+      x-permission: products.view
+      x-errors: '404'
+      x-request: —
+      x-response: Product
+      responses:
+        '200':
+          description: Product
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    patch:
+      summary: Update
+      tags:
+      - Product API
+      x-permission: products.manage
+      x-errors: '400'
+      x-request: partial Product
+      x-response: Product
+      responses:
+        '200':
+          description: Product
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Product
+        content:
+          application/json:
+            schema:
+              type: object
+    delete:
+      summary: Soft delete
+      tags:
+      - Product API
+      x-permission: products.manage
+      x-errors: 409 referenced
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /product-categories:
+    get:
+      summary: Categories
+      tags:
+      - Product API
+      x-permission: products.view
+      x-errors: —
+      x-request: —
+      x-response: list<ProductCategory>
+      responses:
+        '200':
+          description: list<ProductCategory>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /hubs:
+    get:
+      summary: Hubs
+      tags:
+      - Product API
+      x-permission: hubs.view
+      x-errors: —
+      x-request: —
+      x-response: list<Hub>
+      responses:
+        '200':
+          description: list<Hub>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create hub
+      tags:
+      - Product API
+      x-permission: hubs.manage
+      x-errors: 409 duplicate code / name
+      x-request: Hub
+      x-response: Hub
+      responses:
+        '200':
+          description: Hub
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Hub
+        content:
+          application/json:
+            schema:
+              type: object
+  /zones:
+    get:
+      summary: Zones with pincodes
+      tags:
+      - Product API
+      x-permission: fleet.view
+      x-errors: —
+      x-request: —
+      x-response: list<Zone>
+      responses:
+        '200':
+          description: list<Zone>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create zone
+      tags:
+      - Product API
+      x-permission: fleet.manage
+      x-errors: 400 at least one pincode; 409 name per hub
+      x-request: Zone + postal_codes[]
+      x-response: Zone
+      responses:
+        '200':
+          description: Zone
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Zone + postal_codes[]
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders:
+    get:
+      summary: List orders within data scope
+      tags:
+      - Order API
+      x-permission: orders.view
+      x-errors: —
+      x-request: ?status=&customer=&salesman=&from=&to=
+      x-response: page<Order>
+      responses:
+        '200':
+          description: page<Order>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create draft order
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: 400 validation (RULE-006, RULE-007)
+      x-request: Order + items[]
+      x-response: Order (DRAFT)
+      responses:
+        '200':
+          description: Order (DRAFT)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Order + items[]
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders/{id}:
+    get:
+      summary: Order with items, approvals, timeline
+      tags:
+      - Order API
+      x-permission: orders.view
+      x-errors: 404 / out of scope
+      x-request: —
+      x-response: Order
+      responses:
+        '200':
+          description: Order
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    patch:
+      summary: Update draft or returned order
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: 409 not editable in status
+      x-request: partial Order + items[]
+      x-response: Order
+      responses:
+        '200':
+          description: Order
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Order + items[]
+        content:
+          application/json:
+            schema:
+              type: object
+    delete:
+      summary: Delete own draft
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: 409 only drafts (RULE-008)
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /orders/{id}/submit:
+    post:
+      summary: Submit for approval
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: 400 validation
+      x-request: Idempotency-Key header
+      x-response: Order (SUBMITTED) + warnings
+      responses:
+        '200':
+          description: Order (SUBMITTED) + warnings
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Idempotency-Key header
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders/{id}/resubmit:
+    post:
+      summary: Resubmit returned order
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: 409 not RETURNED
+      x-request: —
+      x-response: Order (SUBMITTED)
+      responses:
+        '200':
+          description: Order (SUBMITTED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /orders/{id}/duplicate:
+    post:
+      summary: Copy into new draft
+      tags:
+      - Order API
+      x-permission: orders.create
+      x-errors: —
+      x-request: —
+      x-response: Order (DRAFT)
+      responses:
+        '200':
+          description: Order (DRAFT)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /orders/{id}/timeline:
+    get:
+      summary: Order events
+      tags:
+      - Order API
+      x-permission: orders.view
+      x-errors: —
+      x-request: —
+      x-response: list<OrderEvent>
+      responses:
+        '200':
+          description: list<OrderEvent>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /approvals/queue:
+    get:
+      summary: Submitted orders, oldest first
+      tags:
+      - Approval API
+      x-permission: orders.approval.view
+      x-errors: —
+      x-request: —
+      x-response: page<Order>
+      responses:
+        '200':
+          description: page<Order>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /orders/{id}/approval-checks:
+    get:
+      summary: Six approval checks
+      tags:
+      - Approval API
+      x-permission: orders.approval.view
+      x-errors: —
+      x-request: —
+      x-response: '{checks[{key, severity, passed, message}]}'
+      responses:
+        '200':
+          description: '{checks[{key, severity, passed, message}]}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /orders/{id}/approve:
+    post:
+      summary: Approve
+      tags:
+      - Approval API
+      x-permission: orders.approve
+      x-errors: 400 remarks required / warnings not acknowledged (RULE-012, RULE-013); 409 already decided (RULE-015); 422 blocking check (RULE-010,
+        RULE-011)
+      x-request: '{remarks?, acknowledge_warnings, approved_items?[] (G-01, to confirm)}'
+      x-response: Order (APPROVED)
+      responses:
+        '200':
+          description: Order (APPROVED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{remarks?, acknowledge_warnings, approved_items?[] (G-01, to confirm)}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders/{id}/return:
+    post:
+      summary: Return for correction
+      tags:
+      - Approval API
+      x-permission: orders.reject
+      x-errors: 400 reason / remarks (RULE-014); 409
+      x-request: '{reason, remarks}'
+      x-response: Order (RETURNED)
+      responses:
+        '200':
+          description: Order (RETURNED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason, remarks}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders/{id}/reject:
+    post:
+      summary: Reject
+      tags:
+      - Approval API
+      x-permission: orders.reject
+      x-errors: 400; 409
+      x-request: '{reason, remarks}'
+      x-response: Order (REJECTED)
+      responses:
+        '200':
+          description: Order (REJECTED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason, remarks}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /consolidation/queue:
+    get:
+      summary: Approved orders grouped by salesman
+      tags:
+      - Approval API
+      x-permission: orders.consolidation.view
+      x-errors: —
+      x-request: —
+      x-response: list<{salesman, orders[]}>
+      responses:
+        '200':
+          description: list<{salesman, orders[]}>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /orders/{id}/consolidate:
+    post:
+      summary: Consolidate with checklist
+      tags:
+      - Approval API
+      x-permission: orders.consolidate
+      x-errors: 400 checklist incomplete (RULE-016); 409
+      x-request: '{checks{5 booleans}, notes}'
+      x-response: Order (CONSOLIDATED)
+      responses:
+        '200':
+          description: Order (CONSOLIDATED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{checks{5 booleans}, notes}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /orders/{id}/ready-for-dispatch:
+    post:
+      summary: Release to dispatch
+      tags:
+      - Approval API
+      x-permission: orders.consolidate
+      x-errors: 409 not consolidated (RULE-017)
+      x-request: —
+      x-response: Order (READY_FOR_DISPATCH)
+      responses:
+        '200':
+          description: Order (READY_FOR_DISPATCH)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /dispatches:
+    get:
+      summary: List dispatches
+      tags:
+      - Dispatch API
+      x-permission: dispatch.view
+      x-errors: —
+      x-request: ?date=&status=&hub=
+      x-response: page<Dispatch>
+      responses:
+        '200':
+          description: page<Dispatch>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create draft / planned dispatch
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 400 ineligible order (RULE-018)
+      x-request: '{hub_id, zone_id, dispatch_date, order_ids[], sequence[], driver_id?, vehicle_id?, status: DRAFT or PLANNED}'
+      x-response: Dispatch + warnings
+      responses:
+        '200':
+          description: Dispatch + warnings
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{hub_id, zone_id, dispatch_date, order_ids[], sequence[], driver_id?, vehicle_id?, status: DRAFT or PLANNED}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/ready-orders:
+    get:
+      summary: Orders ready for dispatch
+      tags:
+      - Dispatch API
+      x-permission: dispatch.view
+      x-errors: —
+      x-request: ?hub=&zone=
+      x-response: page<Order>
+      responses:
+        '200':
+          description: page<Order>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /dispatches/{id}:
+    patch:
+      summary: Edit while DRAFT / PLANNED / ASSIGNED
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 409 confirmed (RULE-019)
+      x-request: partial Dispatch
+      x-response: Dispatch
+      responses:
+        '200':
+          description: Dispatch
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Dispatch
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/{id}/sequence:
+    put:
+      summary: Change stop sequence
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 400 invalid sequence
+      x-request: '{stops[{order_id, sequence}]}'
+      x-response: Dispatch
+      responses:
+        '200':
+          description: Dispatch
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{stops[{order_id, sequence}]}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/{id}/suggested-sequence:
+    get:
+      summary: Suggested / optimised sequence (Routes API in production)
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: —
+      x-request: —
+      x-response: '{stops[], eta[]}'
+      responses:
+        '200':
+          description: '{stops[], eta[]}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /dispatches/{id}/assign:
+    post:
+      summary: Assign driver and vehicle
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 422 driver / vehicle issues (RULE-023, RULE-024, RULE-025)
+      x-request: '{driver_id, vehicle_id}'
+      x-response: Dispatch (ASSIGNED)
+      responses:
+        '200':
+          description: Dispatch (ASSIGNED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{driver_id, vehicle_id}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/{id}/confirmation-review:
+    get:
+      summary: Stock and resource review
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: —
+      x-request: —
+      x-response: '{orders, stock_check[], issues[]}'
+      responses:
+        '200':
+          description: '{orders, stock_check[], issues[]}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /dispatches/{id}/confirm:
+    post:
+      summary: Confirm loading; deduct stock once; create deliveries
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 400 not acknowledged; 409 already confirmed; 422 stock short (RULE-020)
+      x-request: '{acknowledged: true} + Idempotency-Key'
+      x-response: Dispatch (CONFIRMED)
+      responses:
+        '200':
+          description: Dispatch (CONFIRMED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{acknowledged: true} + Idempotency-Key'
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/{id}/cancel:
+    post:
+      summary: Cancel; reverse stock once if confirmed
+      tags:
+      - Dispatch API
+      x-permission: dispatch.manage
+      x-errors: 409 stop started (RULE-022)
+      x-request: '{reason, remarks}'
+      x-response: Dispatch (CANCELLED)
+      responses:
+        '200':
+          description: Dispatch (CANCELLED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason, remarks}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /dispatches/{id}/timeline:
+    get:
+      summary: Dispatch events
+      tags:
+      - Dispatch API
+      x-permission: dispatch.view
+      x-errors: —
+      x-request: —
+      x-response: list<Event>
+      responses:
+        '200':
+          description: list<Event>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /driver/me:
+    get:
+      summary: Logged-in driver profile and vehicle
+      tags:
+      - Driver API
+      x-permission: driver.app
+      x-errors: 404 no driver linked
+      x-request: —
+      x-response: Driver
+      responses:
+        '200':
+          description: Driver
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /driver/deliveries/today:
+    get:
+      summary: Today's stops (VIP first, then sequence)
+      tags:
+      - Driver API
+      x-permission: driver.app
+      x-errors: —
+      x-request: —
+      x-response: list<Delivery>
+      responses:
+        '200':
+          description: list<Delivery>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /driver/deliveries/tomorrow:
+    get:
+      summary: Tomorrow's plan (start disabled)
+      tags:
+      - Driver API
+      x-permission: driver.app
+      x-errors: —
+      x-request: —
+      x-response: list<Delivery>
+      responses:
+        '200':
+          description: list<Delivery>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /driver/deliveries/{id}:
+    get:
+      summary: Stop detail (own only)
+      tags:
+      - Driver API
+      x-permission: driver.app
+      x-errors: 404 not own (scope)
+      x-request: —
+      x-response: Delivery
+      responses:
+        '200':
+          description: Delivery
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /driver/documents:
+    get:
+      summary: Own documents
+      tags:
+      - Driver API
+      x-permission: driver.app
+      x-errors: —
+      x-request: —
+      x-response: list<Document>
+      responses:
+        '200':
+          description: list<Document>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /drivers:
+    get:
+      summary: Driver list
+      tags:
+      - Driver API
+      x-permission: fleet.view
+      x-errors: —
+      x-request: —
+      x-response: page<Driver>
+      responses:
+        '200':
+          description: page<Driver>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create driver (and app login)
+      tags:
+      - Driver API
+      x-permission: fleet.manage
+      x-errors: 400 licence / hub / zone rules
+      x-request: Driver + user
+      x-response: Driver
+      responses:
+        '200':
+          description: Driver
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Driver + user
+        content:
+          application/json:
+            schema:
+              type: object
+  /drivers/{id}/assignment-issues:
+    get:
+      summary: Assignment issues for a dispatch
+      tags:
+      - Driver API
+      x-permission: dispatch.manage
+      x-errors: —
+      x-request: ?dispatch_id=
+      x-response: '{issues[]}'
+      responses:
+        '200':
+          description: '{issues[]}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /deliveries/{id}/start:
+    post:
+      summary: Start stop; open tracking session
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 409 blockers (RULE-026)
+      x-request: —
+      x-response: Delivery (OUT_FOR_DELIVERY)
+      responses:
+        '200':
+          description: Delivery (OUT_FOR_DELIVERY)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /tracking/location:
+    post:
+      summary: Send GPS points (batch)
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 403 no active session
+      x-request: '{session_id, points[{lat, lng, accuracy, speed, heading, recorded_at}]}'
+      x-response: '202'
+      responses:
+        '200':
+          description: '202'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{session_id, points[{lat, lng, accuracy, speed, heading, recorded_at}]}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /deliveries/{id}/arrived:
+    post:
+      summary: Record arrival; generate and send OTP
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 409 not out for delivery
+      x-request: '{lat, lng}'
+      x-response: Delivery
+      responses:
+        '200':
+          description: Delivery
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{lat, lng}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /deliveries/{id}/otp/regenerate:
+    post:
+      summary: New OTP (old invalidated)
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 429 rate limit
+      x-request: —
+      x-response: '{expires_at}'
+      responses:
+        '200':
+          description: '{expires_at}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /deliveries/{id}/complete:
+    post:
+      summary: Verify OTP, record quantities and POD, close stop, issue note
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 400 POD validation (RULE-028); 422 OTP wrong / expired / locked (RULE-027); 409 already closed
+      x-request: '{otp, items[{order_item_id, delivered_qty, damaged_qty, rejected_qty, short_reason}], received_by, customer_remarks, signature
+        (file), photo (file)}'
+      x-response: Delivery + DeliveryNote
+      responses:
+        '200':
+          description: Delivery + DeliveryNote
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{otp, items[{order_item_id, delivered_qty, damaged_qty, rejected_qty, short_reason}], received_by, customer_remarks, signature
+          (file), photo (file)}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /deliveries/{id}/fail:
+    post:
+      summary: Report failure
+      tags:
+      - Delivery API
+      x-permission: driver.app
+      x-errors: 409 not out for delivery
+      x-request: '{reason, remarks}'
+      x-response: Delivery (FAILED)
+      responses:
+        '200':
+          description: Delivery (FAILED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason, remarks}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /deliveries/{id}/review:
+    post:
+      summary: Review failed / partial delivery
+      tags:
+      - Delivery API
+      x-permission: dispatch.manage
+      x-errors: 400 remarks; 409 reviewed / not reviewable (RULE-031)
+      x-request: '{remarks, return_to_hub, requeue}'
+      x-response: Delivery
+      responses:
+        '200':
+          description: Delivery
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{remarks, return_to_hub, requeue}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /deliveries:
+    get:
+      summary: Delivery tracking list
+      tags:
+      - Delivery API
+      x-permission: deliveries.view
+      x-errors: —
+      x-request: ?dispatch=&status=&date=
+      x-response: page<Delivery>
+      responses:
+        '200':
+          description: page<Delivery>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /deliveries/{id}/otp-status:
+    get:
+      summary: OTP status (never the code)
+      tags:
+      - Delivery API
+      x-permission: dispatch.otp.inspect
+      x-errors: —
+      x-request: —
+      x-response: '{status, attempts, expires_at}'
+      responses:
+        '200':
+          description: '{status, attempts, expires_at}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /delivery-notes/{id}:
+    get:
+      summary: Delivery note (PDF link)
+      tags:
+      - Delivery API
+      x-permission: deliveryNotes.view
+      x-errors: 404 / scope
+      x-request: —
+      x-response: DeliveryNote
+      responses:
+        '200':
+          description: DeliveryNote
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /customer/orders/{id}/tracking:
+    get:
+      summary: 'Customer view: own order''s vehicle position'
+      tags:
+      - Delivery API
+      x-permission: customer.app
+      x-errors: 404 not own order
+      x-request: —
+      x-response: '{driver, vehicle, last_position, eta, otp_visible?}'
+      responses:
+        '200':
+          description: '{driver, vehicle, last_position, eta, otp_visible?}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /inventory/stock:
+    get:
+      summary: Stock per hub / product
+      tags:
+      - Inventory API
+      x-permission: inventory.stock.view
+      x-errors: —
+      x-request: ?hub=&status=
+      x-response: page<StockItem>
+      responses:
+        '200':
+          description: page<StockItem>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /inventory/stock/{id}/levels:
+    patch:
+      summary: Set min / reorder / max
+      tags:
+      - Inventory API
+      x-permission: inventory.receipts.manage
+      x-errors: 400 reorder > max
+      x-request: '{min_level, reorder_level, max_level}'
+      x-response: StockItem
+      responses:
+        '200':
+          description: StockItem
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{min_level, reorder_level, max_level}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /inventory/receipts:
+    post:
+      summary: Goods receipt
+      tags:
+      - Inventory API
+      x-permission: inventory.receipts.manage
+      x-errors: 400 inactive hub (RULE-034)
+      x-request: StockReceipt
+      x-response: StockReceipt
+      responses:
+        '200':
+          description: StockReceipt
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: StockReceipt
+        content:
+          application/json:
+            schema:
+              type: object
+  /inventory/transfers:
+    post:
+      summary: Create transfer (draft or complete)
+      tags:
+      - Inventory API
+      x-permission: inventory.transfers.manage
+      x-errors: 422 insufficient stock (RULE-033)
+      x-request: 'StockTransfer + complete: bool'
+      x-response: StockTransfer
+      responses:
+        '200':
+          description: StockTransfer
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: 'StockTransfer + complete: bool'
+        content:
+          application/json:
+            schema:
+              type: object
+  /inventory/transfers/{id}/complete:
+    post:
+      summary: Complete draft transfer
+      tags:
+      - Inventory API
+      x-permission: inventory.transfers.manage
+      x-errors: 409 already completed
+      x-request: —
+      x-response: StockTransfer
+      responses:
+        '200':
+          description: StockTransfer
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /inventory/adjustments:
+    post:
+      summary: Adjust stock
+      tags:
+      - Inventory API
+      x-permission: inventory.adjustments.manage
+      x-errors: 422 would go negative (RULE-032)
+      x-request: StockAdjustment
+      x-response: StockAdjustment
+      responses:
+        '200':
+          description: StockAdjustment
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: StockAdjustment
+        content:
+          application/json:
+            schema:
+              type: object
+  /inventory/movements:
+    get:
+      summary: Movement ledger
+      tags:
+      - Inventory API
+      x-permission: inventory.stock.view
+      x-errors: —
+      x-request: ?hub=&product=&from=&to=
+      x-response: page<StockMovement>
+      responses:
+        '200':
+          description: page<StockMovement>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /scrap-requests:
+    post:
+      summary: Create scrap request (multipart photo)
+      tags:
+      - Inventory API
+      x-permission: scrap.create
+      x-errors: 400 eligibility, photo, batch, duplicate (RULE-035, RULE-036)
+      x-request: ScrapRequest
+      x-response: ScrapRequest
+      responses:
+        '200':
+          description: ScrapRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: ScrapRequest
+        content:
+          application/json:
+            schema:
+              type: object
+  /scrap-requests/{id}/submit:
+    post:
+      summary: Submit
+      tags:
+      - Inventory API
+      x-permission: scrap.create
+      x-errors: '409'
+      x-request: —
+      x-response: ScrapRequest
+      responses:
+        '200':
+          description: ScrapRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /scrap-requests/{id}/approve:
+    post:
+      summary: Approve (not own)
+      tags:
+      - Inventory API
+      x-permission: scrap.approve
+      x-errors: 403 own request (RULE-037)
+      x-request: —
+      x-response: ScrapRequest
+      responses:
+        '200':
+          description: ScrapRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /scrap-requests/{id}/reject:
+    post:
+      summary: Reject
+      tags:
+      - Inventory API
+      x-permission: scrap.reject
+      x-errors: 400 reason
+      x-request: '{reason}'
+      x-response: ScrapRequest
+      responses:
+        '200':
+          description: ScrapRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /scrap-requests/{id}/write-off:
+    post:
+      summary: Post write-off once
+      tags:
+      - Inventory API
+      x-permission: scrap.approve
+      x-errors: 409 not approved / done
+      x-request: —
+      x-response: ScrapRequest (COMPLETED)
+      responses:
+        '200':
+          description: ScrapRequest (COMPLETED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /replenishment-requests:
+    post:
+      summary: Create request
+      tags:
+      - Inventory API
+      x-permission: inventory.replenishment.create
+      x-errors: '400'
+      x-request: ReplenishmentRequest
+      x-response: ReplenishmentRequest
+      responses:
+        '200':
+          description: ReplenishmentRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: ReplenishmentRequest
+        content:
+          application/json:
+            schema:
+              type: object
+  /replenishment-requests/{id}/approve:
+    post:
+      summary: Approve
+      tags:
+      - Inventory API
+      x-permission: procurement.approve
+      x-errors: '403'
+      x-request: —
+      x-response: ReplenishmentRequest
+      responses:
+        '200':
+          description: ReplenishmentRequest
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /vehicles:
+    get:
+      summary: Vehicle list
+      tags:
+      - Vehicle API
+      x-permission: fleet.view
+      x-errors: —
+      x-request: —
+      x-response: page<Vehicle>
+      responses:
+        '200':
+          description: page<Vehicle>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create vehicle
+      tags:
+      - Vehicle API
+      x-permission: fleet.manage
+      x-errors: 400 number format; 409 duplicate
+      x-request: Vehicle
+      x-response: Vehicle
+      responses:
+        '200':
+          description: Vehicle
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: Vehicle
+        content:
+          application/json:
+            schema:
+              type: object
+  /vehicles/{id}:
+    patch:
+      summary: Update vehicle / status
+      tags:
+      - Vehicle API
+      x-permission: fleet.manage
+      x-errors: —
+      x-request: partial Vehicle
+      x-response: Vehicle
+      responses:
+        '200':
+          description: Vehicle
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: partial Vehicle
+        content:
+          application/json:
+            schema:
+              type: object
+  /vms/compliance:
+    get:
+      summary: Compliance per vehicle and driver
+      tags:
+      - Vehicle API
+      x-permission: vms.view
+      x-errors: —
+      x-request: —
+      x-response: list<{entity, documents[{type, expiry, state}]}>
+      responses:
+        '200':
+          description: list<{entity, documents[{type, expiry, state}]}>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /vms/expiry-register:
+    get:
+      summary: Documents by urgency
+      tags:
+      - Vehicle API
+      x-permission: vms.view
+      x-errors: —
+      x-request: ?state=
+      x-response: page
+      responses:
+        '200':
+          description: page
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /vms/rules:
+    get:
+      summary: Compliance rules
+      tags:
+      - Vehicle API
+      x-permission: vms.settings
+      x-errors: —
+      x-request: —
+      x-response: ComplianceRules
+      responses:
+        '200':
+          description: ComplianceRules
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    put:
+      summary: Update rules
+      tags:
+      - Vehicle API
+      x-permission: vms.settings
+      x-errors: '400'
+      x-request: ComplianceRules
+      x-response: ComplianceRules
+      responses:
+        '200':
+          description: ComplianceRules
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: ComplianceRules
+        content:
+          application/json:
+            schema:
+              type: object
+  /documents:
+    get:
+      summary: Repository (scoped)
+      tags:
+      - Document API
+      x-permission: documents.view
+      x-errors: —
+      x-request: ?type=&entity=&status=
+      x-response: page<Document>
+      responses:
+        '200':
+          description: page<Document>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Upload (multipart, virus-scanned)
+      tags:
+      - Document API
+      x-permission: documents.upload
+      x-errors: 400 type / record / file; 403 out of scope (RULE-040); 413 too large; 415 type
+      x-request: file + {document_type_id, entity_type, entity_id, fields}
+      x-response: Document
+      responses:
+        '200':
+          description: Document
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: file + {document_type_id, entity_type, entity_id, fields}
+        content:
+          application/json:
+            schema:
+              type: object
+  /documents/{id}/download:
+    get:
+      summary: Signed URL (short-lived)
+      tags:
+      - Document API
+      x-permission: documents.view
+      x-errors: '404'
+      x-request: —
+      x-response: '{url, expires_at}'
+      responses:
+        '200':
+          description: '{url, expires_at}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /documents/{id}/ocr:
+    post:
+      summary: Run OCR
+      tags:
+      - Document API
+      x-permission: documents.review
+      x-errors: 409 not stored; 503 provider
+      x-request: —
+      x-response: OcrResult
+      responses:
+        '200':
+          description: OcrResult
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /documents/{id}/review:
+    patch:
+      summary: Save corrected fields
+      tags:
+      - Document API
+      x-permission: documents.review
+      x-errors: —
+      x-request: '{fields}'
+      x-response: Document
+      responses:
+        '200':
+          description: Document
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{fields}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /documents/{id}/verify:
+    post:
+      summary: Verify
+      tags:
+      - Document API
+      x-permission: documents.review
+      x-errors: 400 fields missing
+      x-request: —
+      x-response: Document (VERIFIED)
+      responses:
+        '200':
+          description: Document (VERIFIED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /documents/{id}/reject:
+    post:
+      summary: Reject
+      tags:
+      - Document API
+      x-permission: documents.reject
+      x-errors: 400 reason
+      x-request: '{reason}'
+      x-response: Document (REJECTED)
+      responses:
+        '200':
+          description: Document (REJECTED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /documents/{id}/replace:
+    post:
+      summary: Replace file (restarts review)
+      tags:
+      - Document API
+      x-permission: documents.upload
+      x-errors: —
+      x-request: file
+      x-response: Document
+      responses:
+        '200':
+          description: Document
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: file
+        content:
+          application/json:
+            schema:
+              type: object
+  /document-types:
+    get:
+      summary: Document types
+      tags:
+      - Document API
+      x-permission: documents.view
+      x-errors: —
+      x-request: —
+      x-response: list<DocumentType>
+      responses:
+        '200':
+          description: list<DocumentType>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /invoices:
+    get:
+      summary: List invoices
+      tags:
+      - Invoice API
+      x-permission: invoices.view
+      x-errors: —
+      x-request: —
+      x-response: page<Invoice>
+      responses:
+        '200':
+          description: page<Invoice>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Issue invoice (snapshot)
+      tags:
+      - Invoice API
+      x-permission: invoices.manage
+      x-errors: 409 not eligible / already invoiced (RULE-038)
+      x-request: same as preview
+      x-response: Invoice (ISSUED)
+      responses:
+        '200':
+          description: Invoice (ISSUED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: same as preview
+        content:
+          application/json:
+            schema:
+              type: object
+  /invoices/preview:
+    post:
+      summary: Calculate without saving
+      tags:
+      - Invoice API
+      x-permission: invoices.manage
+      x-errors: 400 options (RULE-039)
+      x-request: '{order_id, template_id, quantity_basis, invoice_date, due_date, discount, charges}'
+      x-response: '{lines, totals}'
+      responses:
+        '200':
+          description: '{lines, totals}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{order_id, template_id, quantity_basis, invoice_date, due_date, discount, charges}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /invoices/{id}/cancel:
+    post:
+      summary: Cancel
+      tags:
+      - Invoice API
+      x-permission: invoices.manage
+      x-errors: 400 reason; 409 already cancelled
+      x-request: '{reason}'
+      x-response: Invoice (CANCELLED)
+      responses:
+        '200':
+          description: Invoice (CANCELLED)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: '{reason}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /invoices/{id}/pdf:
+    get:
+      summary: PDF (signed URL)
+      tags:
+      - Invoice API
+      x-permission: invoices.view
+      x-errors: —
+      x-request: —
+      x-response: '{url}'
+      responses:
+        '200':
+          description: '{url}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /invoice-templates:
+    get:
+      summary: Templates
+      tags:
+      - Invoice API
+      x-permission: invoices.templates
+      x-errors: —
+      x-request: —
+      x-response: list<InvoiceTemplate>
+      responses:
+        '200':
+          description: list<InvoiceTemplate>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Create template
+      tags:
+      - Invoice API
+      x-permission: invoices.templates
+      x-errors: '400'
+      x-request: InvoiceTemplate
+      x-response: InvoiceTemplate
+      responses:
+        '200':
+          description: InvoiceTemplate
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: InvoiceTemplate
+        content:
+          application/json:
+            schema:
+              type: object
+  /notifications:
+    get:
+      summary: Own notifications (user + role targets)
+      tags:
+      - Notification API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: ?unread=true
+      x-response: page<Notification>
+      responses:
+        '200':
+          description: page<Notification>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /notifications/{id}/read:
+    post:
+      summary: Mark read
+      tags:
+      - Notification API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /notifications/read-all:
+    post:
+      summary: Mark all read
+      tags:
+      - Notification API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: —
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /notifications/preferences:
+    put:
+      summary: Muted categories, toasts, digest
+      tags:
+      - Notification API
+      x-permission: (authenticated)
+      x-errors: —
+      x-request: '{muted[], toasts, digest}'
+      x-response: Preferences
+      responses:
+        '200':
+          description: Preferences
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{muted[], toasts, digest}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /automation/rules:
+    get:
+      summary: Event rules
+      tags:
+      - Notification API
+      x-permission: communication.automation
+      x-errors: —
+      x-request: —
+      x-response: list<AutomationRule>
+      responses:
+        '200':
+          description: list<AutomationRule>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /automation/rules/{event}:
+    put:
+      summary: Update rule
+      tags:
+      - Notification API
+      x-permission: communication.automation
+      x-errors: 403 not admin
+      x-request: AutomationRule
+      x-response: AutomationRule
+      responses:
+        '200':
+          description: AutomationRule
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: event
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: AutomationRule
+        content:
+          application/json:
+            schema:
+              type: object
+  /messages/email:
+    post:
+      summary: Send email
+      tags:
+      - Notification API
+      x-permission: communication.send
+      x-errors: '400'
+      x-request: '{to[], cc[], subject, body, template_id?, attachment_document_ids[]}'
+      x-response: Message
+      responses:
+        '200':
+          description: Message
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{to[], cc[], subject, body, template_id?, attachment_document_ids[]}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /messages/whatsapp:
+    post:
+      summary: Send WhatsApp / SMS
+      tags:
+      - Notification API
+      x-permission: communication.send
+      x-errors: 400; 503 provider
+      x-request: '{to, body, template_id?}'
+      x-response: Message
+      responses:
+        '200':
+          description: Message
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: '{to, body, template_id?}'
+        content:
+          application/json:
+            schema:
+              type: object
+  /webhooks/messaging/{provider}:
+    post:
+      summary: Delivery receipts
+      tags:
+      - Notification API
+      x-permission: (signed webhook)
+      x-errors: 401 bad signature
+      x-request: provider payload
+      x-response: '204'
+      responses:
+        '200':
+          description: '204'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: provider
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: provider payload
+        content:
+          application/json:
+            schema:
+              type: object
+  /calls:
+    get:
+      summary: 'Call log (salesman: own)'
+      tags:
+      - Notification API
+      x-permission: communication.calls
+      x-errors: —
+      x-request: —
+      x-response: page<CallLog>
+      responses:
+        '200':
+          description: page<CallLog>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+    post:
+      summary: Log call
+      tags:
+      - Notification API
+      x-permission: calls.manage
+      x-errors: 400 follow-up date (RULE-043)
+      x-request: CallLog
+      x-response: CallLog
+      responses:
+        '200':
+          description: CallLog
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      requestBody:
+        description: CallLog
+        content:
+          application/json:
+            schema:
+              type: object
+  /dashboard/{role}:
+    get:
+      summary: Role dashboard KPIs for a period
+      tags:
+      - Reporting API
+      x-permission: dashboard.view
+      x-errors: —
+      x-request: ?from=&to=&compare=true
+      x-response: '{kpis[], queues[], charts[]}'
+      responses:
+        '200':
+          description: '{kpis[], queues[], charts[]}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: role
+        in: path
+        required: true
+        schema:
+          type: string
+  /reports:
+    get:
+      summary: Report catalogue filtered by permission
+      tags:
+      - Reporting API
+      x-permission: reports.center
+      x-errors: —
+      x-request: —
+      x-response: list<{id, category, title, available}>
+      responses:
+        '200':
+          description: list<{id, category, title, available}>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+  /reports/{id}:
+    get:
+      summary: Run report within data scope
+      tags:
+      - Reporting API
+      x-permission: reports.center + category permission
+      x-errors: 403 category; 422 no source data
+      x-request: ?from=&to=&month=&year=&group_by=
+      x-response: '{columns[], rows[], totals}'
+      responses:
+        '200':
+          description: '{columns[], rows[], totals}'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /reports/{id}/export:
+    get:
+      summary: Export CSV / XLSX
+      tags:
+      - Reporting API
+      x-permission: data.export
+      x-errors: '403'
+      x-request: ?format=csv
+      x-response: file
+      responses:
+        '200':
+          description: file
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /monitor/orders:
+    get:
+      summary: Live order monitor snapshot (WebSocket channel `monitor.orders` for updates)
+      tags:
+      - Reporting API
+      x-permission: dashboard.view
+      x-errors: —
+      x-request: —
+      x-response: page<Order>
+      responses:
+        '200':
+          description: page<Order>
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Not authenticated
+        '403':
+          description: Missing permission or out of scope

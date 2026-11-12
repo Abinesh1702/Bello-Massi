@@ -1,0 +1,34 @@
+flowchart TD
+    A([Open the app]) --> B{Valid session and not idle-expired?}
+    B -->|Yes| LAND([Requested page or role landing page])
+    B -->|No| C{Which sign-in page?}
+    C -->|/login| L1[Office: email or username + password]
+    C -->|/driver/login| L2[Driver: mobile, email or username]
+    C -->|/customer/login| L3[Customer: mobile, email or username]
+    L1 --> V{Fields filled and valid?}
+    L2 --> V
+    L3 --> V
+    V -->|No| E1([Field message - try again])
+    V -->|Yes| U{Account found and not locked?}
+    U -->|Not found| E2([Email/username or password is incorrect])
+    U -->|Locked| E3([Locked - wait or ask an administrator to unlock])
+    U -->|OK| PW{Password correct?}
+    PW -->|No| CNT[Count failed attempt]
+    CNT --> MAX{5 failures reached?}
+    MAX -->|Yes| LOCKED([Locked for 15 minutes - audit ACCOUNT_LOCKED])
+    MAX -->|No| E2
+    PW -->|Yes| ACT{Account active?}
+    ACT -->|No| E4([Account inactive - contact administrator])
+    ACT -->|Yes| SES[Session saved: Keep me signed in = localStorage, else sessionStorage]
+    SES --> MCP{Must change password?}
+    MCP -->|Yes| CP[Change password first]
+    MCP -->|No| ROLE{Role landing page}
+    CP --> ROLE
+    ROLE -->|DRIVER| DD["/driver/dashboard"]
+    ROLE -->|CUSTOMER| CD["/customer/dashboard"]
+    ROLE -->|Office roles| OD["/dashboard"]
+    DD --> WORK[Work in the app]
+    CD --> WORK
+    OD --> WORK
+    WORK --> OUT{Sign out or idle 60 min}
+    OUT --> BACK([Back to the sign-in page of the same app])

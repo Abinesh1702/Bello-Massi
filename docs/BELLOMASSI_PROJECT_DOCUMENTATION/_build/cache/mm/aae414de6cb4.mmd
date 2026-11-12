@@ -1,0 +1,59 @@
+erDiagram
+    users ||--o{ notifications : "recipient_user_id"
+    message_templates ||--o{ automation_rules : "email_template_id"
+    message_templates ||--o{ automation_rules : "whatsapp_template_id"
+    customers ||--o{ call_logs : "customer_id"
+    users ||--o{ call_logs : "user_id"
+    orders ||--o{ call_logs : "order_id"
+    users ||--o{ audit_logs : "actor_id"
+    notifications {
+        bigserial id PK
+        bigint recipient_user_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    message_templates {
+        bigserial id PK
+        varchar code UK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    messages {
+        bigserial id PK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    automation_rules {
+        bigserial id PK
+        bigint email_template_id FK
+        bigint whatsapp_template_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    call_logs {
+        bigserial id PK
+        bigint customer_id FK
+        bigint user_id FK
+        varchar status
+        bigint order_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    settings {
+        bigserial id PK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    sequences {
+        bigserial id PK
+        varchar name UK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    audit_logs {
+        bigserial id PK
+        bigint actor_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

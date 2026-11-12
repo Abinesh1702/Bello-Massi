@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor U as User
+    participant UI as Assistant / Jarvis
+    participant IN as aiIntentService
+    participant TL as aiToolRegistry
+    participant PR as Provider (DEMO by default)
+    U->>UI: Question (typed, or voice with wake word "Jarvis")
+    UI->>IN: parseIntent(text, role)
+    IN->>TL: Matching tool, permission and data-scope checked
+    TL-->>UI: Result blocks - KPIs, table, chart
+    alt Real provider connected
+        UI->>PR: Phrase answer from tool result only
+        PR-->>UI: Text
+    else Demo
+        UI-->>U: Demo text answer
+    end
+    opt Write action proposed
+        UI-->>U: Confirmation card
+        U->>UI: Confirm / cancel
+    end

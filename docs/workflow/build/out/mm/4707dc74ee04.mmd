@@ -1,0 +1,15 @@
+flowchart LR
+    R["Stock receipt: total + qty"] --> L[(Inventory row + movement ledger)]
+    T["Stock transfer completed: source - qty, destination + qty"] --> L
+    A1["Adjustment Increase / Correction up: + qty"] --> L
+    A2["Adjustment Decrease / Lost / Correction down: - qty"] --> L
+    A3["Adjustment Damaged: damaged + qty"] --> L
+    D1["Dispatch confirmed: Stock Dispatch - qty"] --> L
+    D2["Dispatch cancelled after confirm: Reversal + qty"] --> L
+    D3["Exception review, return to hub: Delivery Return + qty"] --> L
+    S1["Scrap approved and written off: - qty"] --> L
+    L --> LS{Available at or below reorder level?}
+    LS -->|Yes| LOW[Low Stock list, dashboards, predictive inventory]
+    LOW --> RP[Replenishment request]
+    RP --> R
+    LS -->|No| OK([In stock])

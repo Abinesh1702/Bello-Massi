@@ -1,0 +1,13 @@
+flowchart TD
+    SC[Steering Committee - client sponsor + delivery lead] --> PMC[Client Project Owner]
+    SC --> PMV[Delivery Project Manager]
+    PMC --> BO[Business Owners: Sales, Logistics, Finance, Warehouse]
+    PMC --> CIT[Client IT / SAP team]
+    PMV --> BA[Business Analyst]
+    PMV --> ARCH[Solution Architect]
+    ARCH --> BE[Backend developers - Django]
+    ARCH --> FE[Frontend developers - React]
+    ARCH --> MOB[Mobile developers - React Native]
+    PMV --> QA[QA Lead and testers]
+    PMV --> OPS[DevOps engineer]
+    BO --> UAT[UAT users]

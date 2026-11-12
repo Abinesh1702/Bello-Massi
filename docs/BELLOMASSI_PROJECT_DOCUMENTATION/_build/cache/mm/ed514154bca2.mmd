@@ -1,0 +1,103 @@
+erDiagram
+    hubs ||--o{ drivers : "hub_id"
+    vehicles ||--o{ drivers : "default_vehicle_id"
+    hubs ||--o{ vehicles : "hub_id"
+    hubs ||--o{ dispatches : "hub_id"
+    drivers ||--o{ dispatches : "driver_id"
+    vehicles ||--o{ dispatches : "vehicle_id"
+    users ||--o{ dispatches : "confirmed_by_id"
+    dispatches ||--o{ dispatch_stops : "dispatch_id"
+    orders ||--o{ dispatch_stops : "order_id"
+    dispatches ||--o{ deliveries : "dispatch_id"
+    orders ||--o{ deliveries : "order_id"
+    drivers ||--o{ deliveries : "driver_id"
+    users ||--o{ deliveries : "reviewed_by_id"
+    deliveries ||--o{ delivery_items : "delivery_id"
+    deliveries ||--o{ delivery_otps : "delivery_id"
+    deliveries ||--o{ proofs_of_delivery : "delivery_id"
+    deliveries ||--o{ delivery_notes : "delivery_id"
+    orders ||--o{ delivery_notes : "order_id"
+    deliveries ||--o{ tracking_sessions : "delivery_id"
+    drivers ||--o{ tracking_sessions : "driver_id"
+    tracking_sessions ||--o{ location_points : "session_id"
+    drivers {
+        bigserial id PK
+        varchar code UK
+        bigint hub_id FK
+        bigint zone_id FK
+        bigint default_vehicle_id FK
+        varchar status
+        bigint created_by_id FK
+    }
+    vehicles {
+        bigserial id PK
+        bigint hub_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    dispatches {
+        bigserial id PK
+        varchar dispatch_number UK
+        bigint hub_id FK
+        bigint zone_id FK
+        bigint driver_id FK
+        bigint vehicle_id FK
+        varchar status
+    }
+    dispatch_stops {
+        bigserial id PK
+        bigint dispatch_id FK
+        bigint order_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    deliveries {
+        bigserial id PK
+        bigint dispatch_id FK
+        bigint order_id FK
+        bigint driver_id FK
+        varchar status
+        bigint reviewed_by_id FK
+        bigint created_by_id FK
+    }
+    delivery_items {
+        bigserial id PK
+        bigint delivery_id FK
+        bigint order_item_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    delivery_otps {
+        bigserial id PK
+        bigint delivery_id FK
+        varchar status
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    proofs_of_delivery {
+        bigserial id PK
+        bigint delivery_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    delivery_notes {
+        bigserial id PK
+        bigint delivery_id FK
+        bigint order_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    tracking_sessions {
+        bigserial id PK
+        bigint delivery_id FK
+        bigint driver_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }
+    location_points {
+        bigserial id PK
+        bigint session_id FK
+        bigint created_by_id FK
+        bigint updated_by_id FK
+    }

@@ -1,0 +1,34 @@
+flowchart TD
+    EV[Workflow event in a service] --> NOTE[pushNotification - in-app]
+    NOTE --> BELL[Header bell + Notification center]
+    BELL --> LINK[User follows link to the record]
+    EV --> FE{fireEvent - automation}
+    FE --> DUP{Already sent for this record?}
+    DUP -->|Yes| SKIP1[Skipped - duplicate]
+    DUP -->|No| ON{Automation switched on?}
+    ON -->|No| SKIP2[History: SKIPPED - Automation is switched off]
+    ON -->|Yes| RULE{Enabled rule for the event?}
+    RULE -->|No| SKIP3[History: SKIPPED - No enabled rule]
+    RULE -->|Yes| REC[Resolve recipients: Customer contact / Order salesman / Operations team / Document owner]
+    REC --> CH{Channel}
+    CH -->|Email or Both| EM[Render email template with variables]
+    CH -->|WhatsApp or Both| WA[Render WhatsApp template]
+    EM --> MODE1{Email mode}
+    MODE1 -->|Demo| ED[QUEUED_DEMO then SENT_DEMO - not sent]
+    MODE1 -->|Gateway| EG[POST /email/send - SENT = accepted by SMTP]
+    WA --> MODE2{WhatsApp provider}
+    MODE2 -->|Mock| WD[Sent - demo]
+    MODE2 -->|Gateway| WG[OpenWA send-text - 201 = handed to WhatsApp]
+    ED --> HIS[(Notification history)]
+    EG --> HIS
+    WD --> HIS
+    WG --> HIS
+    MAN[User composes manually] --> EM2["Compose email /communication/email/compose"]
+    MAN --> WA2["Compose WhatsApp /communication/whatsapp/compose"]
+    EM2 --> MODE1
+    WA2 --> MODE2
+    CALL["Log a call /communication/calls/create"] --> FU{Follow-up needed?}
+    FU -->|Yes| FU1[Schedule follow-up - Call Follow-ups list: overdue / today / upcoming]
+    FU1 --> FU2[Complete follow-up]
+    FU -->|No| CLOSE[Call logged]
+    CALL --> ORD[Link order to call]

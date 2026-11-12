@@ -1,0 +1,3980 @@
+[
+ {
+  "id": "BM-OVW-001",
+  "title": "Project Overview Document",
+  "folder": "01",
+  "file": "BM-OVW-001_Project_Overview",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-002",
+   "BM-OVW-003",
+   "BM-OVW-007",
+   "BM-OVW-014",
+   "BM-OVW-015",
+   "BM-BRD-001",
+   "BM-SOW-001",
+   "BM-ARC-001",
+   "BM-RMP-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-OVW-002",
+  "title": "Project Introduction",
+  "folder": "01",
+  "file": "BM-OVW-002_Project_Introduction",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-001",
+   "BM-OVW-006"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-003",
+  "title": "Project Vision and Objectives",
+  "folder": "01",
+  "file": "BM-OVW-003_Project_Vision_and_Objectives",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Sponsor (client) \u2014 PENDING CONFIRMATION",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-005",
+   "BM-BRD-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-004",
+  "title": "Business Problem Statement",
+  "folder": "01",
+  "file": "BM-OVW-004_Business_Problem_Statement",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-003",
+   "BM-BRD-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-005",
+  "title": "Business Benefits",
+  "folder": "01",
+  "file": "BM-OVW-005_Business_Benefits",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-006",
+  "title": "Project Background",
+  "folder": "01",
+  "file": "BM-OVW-006_Project_Background",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-002",
+   "BM-DOC-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-007",
+  "title": "Product Description",
+  "folder": "01",
+  "file": "BM-OVW-007_Product_Description",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Product Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-008",
+   "BM-OVW-014",
+   "BM-UX-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-008",
+  "title": "Product Capability Overview",
+  "folder": "01",
+  "file": "BM-OVW-008_Product_Capability_Overview",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Product Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-014",
+   "BM-OVW-016"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-009",
+  "title": "Stakeholder Identification",
+  "folder": "01",
+  "file": "BM-OVW-009_Stakeholder_Identification",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-010",
+   "BM-OVW-011",
+   "BM-PM-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-011",
+  "title": "Project Organization Structure",
+  "folder": "01",
+  "file": "BM-OVW-011_Project_Organization_Structure",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-009",
+   "BM-PM-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-012",
+  "title": "Project Glossary and Acronyms (Overview Extract)",
+  "folder": "01",
+  "file": "BM-OVW-012_Project_Glossary_and_Acronyms",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-GLO-001",
+   "BM-GLO-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-014",
+  "title": "Product Feature Catalogue",
+  "folder": "01",
+  "file": "BM-OVW-014_Product_Feature_Catalogue",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Product Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-016",
+   "BM-SYS-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-OVW-015",
+  "title": "Project Status and Implementation Summary",
+  "folder": "01",
+  "file": "BM-OVW-015_Project_Status_and_Implementation_Summary",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Overview",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-OVW-014",
+   "BM-OVW-016",
+   "BM-DOC-003",
+   "BM-HND-011",
+   "BM-PM-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-BRD-001",
+  "title": "Business Requirements Document (BRD)",
+  "folder": "02",
+  "file": "BM-BRD-001_Business_Requirements_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Requirements",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SOW-001",
+   "BM-BRD-002",
+   "BM-SYS-002",
+   "BM-SYS-007",
+   "BM-DOC-003",
+   "BM-RSK-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SOW-001",
+  "title": "Scope of Work",
+  "folder": "02",
+  "file": "BM-SOW-001_Scope_of_Work",
+  "version": "1.1",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Requirements",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-BRD-001",
+   "BM-PLN-001",
+   "BM-PLN-002",
+   "BM-DOC-003",
+   "BM-RSK-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SYS-001",
+  "title": "System Requirements Document (SRD)",
+  "folder": "03",
+  "file": "BM-SYS-001_System_Requirements_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-002",
+   "BM-ARC-001",
+   "BM-INF-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SYS-002",
+  "title": "Software Requirements Specification (SRS)",
+  "folder": "03",
+  "file": "BM-SYS-002_Software_Requirements_Specification",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Business Analyst / Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-001",
+   "BM-SYS-003",
+   "BM-SYS-004",
+   "BM-SYS-007",
+   "BM-SYS-008",
+   "BM-BRD-001",
+   "BM-ARC-001",
+   "BM-API-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SYS-003",
+  "title": "Functional Requirements Document (Consolidated)",
+  "folder": "03",
+  "file": "BM-SYS-003_Functional_Requirements_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-008",
+   "BM-BRD-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SYS-004",
+  "title": "Non-Functional Requirements",
+  "folder": "03",
+  "file": "BM-SYS-004_Non_Functional_Requirements",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-002",
+   "BM-SEC-001",
+   "BM-INF-003",
+   "BM-QA-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SYS-005",
+  "title": "System Constraints Document",
+  "folder": "03",
+  "file": "BM-SYS-005_System_Constraints",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-006",
+   "BM-SYS-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SYS-006",
+  "title": "Assumptions and Dependencies",
+  "folder": "03",
+  "file": "BM-SYS-006_Assumptions_and_Dependencies",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-005",
+   "BM-PM-005",
+   "BM-HND-012"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SYS-007",
+  "title": "Business Rules Catalogue",
+  "folder": "03",
+  "file": "BM-SYS-007_Business_Rules_Catalogue",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Requirements",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-003",
+   "BM-SYS-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-AI",
+  "title": "Functional Requirements \u2014 AI Assistant, Forecasting and Replenishment",
+  "folder": "04",
+  "file": "BM-FRD-AI_AI_Assistant_Forecasting_and_Replenishment",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "AI Assistant, Forecasting and Replenishment",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-APR",
+  "title": "Functional Requirements \u2014 Sales Manager Approval",
+  "folder": "04",
+  "file": "BM-FRD-APR_Sales_Manager_Approval",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Sales Manager Approval",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-AUTH",
+  "title": "Functional Requirements \u2014 Authentication and Login",
+  "folder": "04",
+  "file": "BM-FRD-AUTH_Authentication_and_Login",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Authentication and Login",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-AUTO",
+  "title": "Functional Requirements \u2014 Automated Notifications",
+  "folder": "04",
+  "file": "BM-FRD-AUTO_Automated_Notifications",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Automated Notifications",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-CALL",
+  "title": "Functional Requirements \u2014 Call History",
+  "folder": "04",
+  "file": "BM-FRD-CALL_Call_History",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Call History",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-CAP",
+  "title": "Functional Requirements \u2014 Customer Application",
+  "folder": "04",
+  "file": "BM-FRD-CAP_Customer_Application",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Customer Application",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-CON",
+  "title": "Functional Requirements \u2014 Order Consolidation (Customer Service)",
+  "folder": "04",
+  "file": "BM-FRD-CON_Order_Consolidation_Customer_Service",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Order Consolidation (Customer Service)",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-CRD",
+  "title": "Functional Requirements \u2014 Credit Validation",
+  "folder": "04",
+  "file": "BM-FRD-CRD_Credit_Validation",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Credit Validation",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-CUS",
+  "title": "Functional Requirements \u2014 Customer Management",
+  "folder": "04",
+  "file": "BM-FRD-CUS_Customer_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Customer Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DASH",
+  "title": "Functional Requirements \u2014 Dashboards and Analytics",
+  "folder": "04",
+  "file": "BM-FRD-DASH_Dashboards_and_Analytics",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Dashboards and Analytics",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DN",
+  "title": "Functional Requirements \u2014 Delivery Notes",
+  "folder": "04",
+  "file": "BM-FRD-DN_Delivery_Notes",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Delivery Notes",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DOC",
+  "title": "Functional Requirements \u2014 Document Management and OCR",
+  "folder": "04",
+  "file": "BM-FRD-DOC_Document_Management_and_OCR",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Document Management and OCR",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DRA",
+  "title": "Functional Requirements \u2014 Driver and Vehicle Assignment",
+  "folder": "04",
+  "file": "BM-FRD-DRA_Driver_and_Vehicle_Assignment",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Driver and Vehicle Assignment",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DRV",
+  "title": "Functional Requirements \u2014 Driver Application",
+  "folder": "04",
+  "file": "BM-FRD-DRV_Driver_Application",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Driver Application",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-DSP",
+  "title": "Functional Requirements \u2014 Dispatch Management",
+  "folder": "04",
+  "file": "BM-FRD-DSP_Dispatch_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Dispatch Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-EML",
+  "title": "Functional Requirements \u2014 Email Communication",
+  "folder": "04",
+  "file": "BM-FRD-EML_Email_Communication",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Email Communication",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-EXC",
+  "title": "Functional Requirements \u2014 Delivery Exception Review",
+  "folder": "04",
+  "file": "BM-FRD-EXC_Delivery_Exception_Review",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Delivery Exception Review",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-HUB",
+  "title": "Functional Requirements \u2014 Hubs, Suppliers and Organisation Master",
+  "folder": "04",
+  "file": "BM-FRD-HUB_Hubs_Suppliers_and_Organisation_Master",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Hubs, Suppliers and Organisation Master",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-INV",
+  "title": "Functional Requirements \u2014 Inventory Management",
+  "folder": "04",
+  "file": "BM-FRD-INV_Inventory_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Inventory Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-INVC",
+  "title": "Functional Requirements \u2014 Invoice Customisation and Invoicing",
+  "folder": "04",
+  "file": "BM-FRD-INVC_Invoice_Customisation_and_Invoicing",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Invoice Customisation and Invoicing",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-NOTF",
+  "title": "Functional Requirements \u2014 Notifications (in-app)",
+  "folder": "04",
+  "file": "BM-FRD-NOTF_Notifications_in_app",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Notifications (in-app)",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-ORD",
+  "title": "Functional Requirements \u2014 Salesman Order Management",
+  "folder": "04",
+  "file": "BM-FRD-ORD_Salesman_Order_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Salesman Order Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-OTP",
+  "title": "Functional Requirements \u2014 Delivery OTP",
+  "folder": "04",
+  "file": "BM-FRD-OTP_Delivery_OTP",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Delivery OTP",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-OWA",
+  "title": "Functional Requirements \u2014 OpenWA (WhatsApp) Communication",
+  "folder": "04",
+  "file": "BM-FRD-OWA_OpenWA_WhatsApp_Communication",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "OpenWA (WhatsApp) Communication",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-POD",
+  "title": "Functional Requirements \u2014 Proof of Delivery",
+  "folder": "04",
+  "file": "BM-FRD-POD_Proof_of_Delivery",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Proof of Delivery",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-PRD",
+  "title": "Functional Requirements \u2014 Product Catalogue",
+  "folder": "04",
+  "file": "BM-FRD-PRD_Product_Catalogue",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Product Catalogue",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-RBAC",
+  "title": "Functional Requirements \u2014 Role and Permission Management",
+  "folder": "04",
+  "file": "BM-FRD-RBAC_Role_and_Permission_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Role and Permission Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-RPT",
+  "title": "Functional Requirements \u2014 Reports",
+  "folder": "04",
+  "file": "BM-FRD-RPT_Reports",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Reports",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-SCR",
+  "title": "Functional Requirements \u2014 Scrap Management",
+  "folder": "04",
+  "file": "BM-FRD-SCR_Scrap_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Scrap Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-SET",
+  "title": "Functional Requirements \u2014 System Settings and Audit",
+  "folder": "04",
+  "file": "BM-FRD-SET_System_Settings_and_Audit",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "System Settings and Audit",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-TRK",
+  "title": "Functional Requirements \u2014 Delivery Tracking",
+  "folder": "04",
+  "file": "BM-FRD-TRK_Delivery_Tracking",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Delivery Tracking",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-USR",
+  "title": "Functional Requirements \u2014 User Management",
+  "folder": "04",
+  "file": "BM-FRD-USR_User_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "User Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-VMS",
+  "title": "Functional Requirements \u2014 Vehicle Management System",
+  "folder": "04",
+  "file": "BM-FRD-VMS_Vehicle_Management_System",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Vehicle Management System",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-WQA",
+  "title": "Functional Requirements \u2014 Warehouse and QA Dashboards",
+  "folder": "04",
+  "file": "BM-FRD-WQA_Warehouse_and_QA_Dashboards",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Warehouse and QA Dashboards",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-FRD-ZON",
+  "title": "Functional Requirements \u2014 Zone Management",
+  "folder": "04",
+  "file": "BM-FRD-ZON_Zone_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Functional Requirements",
+  "owner": "Business Analyst",
+  "module": "Zone Management",
+  "related": [
+   "BM-SYS-002",
+   "BM-SYS-003",
+   "BM-SYS-008",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-PLN-001",
+  "title": "Scope and Phase Plan",
+  "folder": "05",
+  "file": "BM-PLN-001_Scope_and_Phase_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Scope and Planning",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-SOW-001",
+   "BM-PLN-002",
+   "BM-PM-001",
+   "BM-RMP-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-WF-00",
+  "title": "Business Workflow Catalogue",
+  "folder": "06",
+  "file": "BM-WF-00_Business_Workflow_Catalogue",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-008",
+   "BM-ARC-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-WF-01",
+  "title": "WF-01 \u2014 Overall Business Workflow",
+  "folder": "06",
+  "file": "BM-WF-01_Overall_Business_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-02",
+  "title": "WF-02 \u2014 Order-to-Delivery Workflow",
+  "folder": "06",
+  "file": "BM-WF-02_Order_to_Delivery_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-03",
+  "title": "WF-03 \u2014 Salesman Workflow",
+  "folder": "06",
+  "file": "BM-WF-03_Salesman_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-04",
+  "title": "WF-04 \u2014 Sales Manager Approval Workflow",
+  "folder": "06",
+  "file": "BM-WF-04_Sales_Manager_Approval_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-05",
+  "title": "WF-05 \u2014 Customer Service Workflow",
+  "folder": "06",
+  "file": "BM-WF-05_Customer_Service_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-06",
+  "title": "WF-06 \u2014 Credit Validation Workflow",
+  "folder": "06",
+  "file": "BM-WF-06_Credit_Validation_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-07",
+  "title": "WF-07 \u2014 Order Consolidation Workflow",
+  "folder": "06",
+  "file": "BM-WF-07_Order_Consolidation_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-08",
+  "title": "WF-08 \u2014 Dispatch Workflow",
+  "folder": "06",
+  "file": "BM-WF-08_Dispatch_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-09",
+  "title": "WF-09 \u2014 Driver Assignment Workflow",
+  "folder": "06",
+  "file": "BM-WF-09_Driver_Assignment_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-10",
+  "title": "WF-10 \u2014 Driver Delivery Workflow",
+  "folder": "06",
+  "file": "BM-WF-10_Driver_Delivery_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-11",
+  "title": "WF-11 \u2014 Customer Order Workflow",
+  "folder": "06",
+  "file": "BM-WF-11_Customer_Order_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-12",
+  "title": "WF-12 \u2014 Customer Tracking Workflow",
+  "folder": "06",
+  "file": "BM-WF-12_Customer_Tracking_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-13",
+  "title": "WF-13 \u2014 Inventory Workflow",
+  "folder": "06",
+  "file": "BM-WF-13_Inventory_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-14",
+  "title": "WF-14 \u2014 Scrap Workflow",
+  "folder": "06",
+  "file": "BM-WF-14_Scrap_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-15",
+  "title": "WF-15 \u2014 Vehicle Management Workflow",
+  "folder": "06",
+  "file": "BM-WF-15_Vehicle_Management_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-16",
+  "title": "WF-16 \u2014 Invoice Workflow",
+  "folder": "06",
+  "file": "BM-WF-16_Invoice_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-17",
+  "title": "WF-17 \u2014 Communication Workflow",
+  "folder": "06",
+  "file": "BM-WF-17_Communication_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-18",
+  "title": "WF-18 \u2014 Exception Management Workflow",
+  "folder": "06",
+  "file": "BM-WF-18_Exception_Management_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-19",
+  "title": "WF-19 \u2014 Rejection Workflow",
+  "folder": "06",
+  "file": "BM-WF-19_Rejection_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-20",
+  "title": "WF-20 \u2014 Cancellation Workflow",
+  "folder": "06",
+  "file": "BM-WF-20_Cancellation_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-21",
+  "title": "WF-21 \u2014 Return Delivery Workflow",
+  "folder": "06",
+  "file": "BM-WF-21_Return_Delivery_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-22",
+  "title": "WF-22 \u2014 Document Upload and Verification Workflow",
+  "folder": "06",
+  "file": "BM-WF-22_Document_Upload_and_Verification_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-23",
+  "title": "WF-23 \u2014 Notification Workflow",
+  "folder": "06",
+  "file": "BM-WF-23_Notification_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-WF-24",
+  "title": "WF-24 \u2014 Reporting Workflow",
+  "folder": "06",
+  "file": "BM-WF-24_Reporting_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Business Workflows",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-WF-00",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-ARC-001",
+  "title": "High-Level Design (HLD)",
+  "folder": "07",
+  "file": "BM-ARC-001_High_Level_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Architecture",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-ARC-002",
+   "BM-ARC-003",
+   "BM-DAT-002",
+   "BM-API-001",
+   "BM-SEC-002",
+   "BM-INF-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-ARC-002",
+  "title": "Low-Level Design (LLD)",
+  "folder": "07",
+  "file": "BM-ARC-002_Low_Level_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Architecture",
+  "owner": "Solution Architect / Lead Developer",
+  "module": "All modules",
+  "related": [
+   "BM-ARC-001",
+   "BM-ARC-003",
+   "BM-DAT-001",
+   "BM-API-001",
+   "BM-SYS-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-ARC-003",
+  "title": "Architecture Diagrams",
+  "folder": "07",
+  "file": "BM-ARC-003_Architecture_Diagrams",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "System Architecture",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-ARC-001",
+   "BM-ARC-002",
+   "BM-DGM-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-DAT-001",
+  "title": "Current Prototype Data Model (LocalStorage)",
+  "folder": "08",
+  "file": "BM-DAT-001_Prototype_Data_Model",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Database and Data Design",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-DAT-007",
+   "BM-DAT-002",
+   "BM-ARC-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DAT-002",
+  "title": "Proposed Production Database Design",
+  "folder": "08",
+  "file": "BM-DAT-002_Production_Database_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Database and Data Design",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-DAT-003",
+   "BM-DAT-001",
+   "BM-DAT-004",
+   "BM-DAT-005",
+   "BM-ARC-002",
+   "BM-API-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-DAT-004",
+  "title": "Data Migration Strategy",
+  "folder": "08",
+  "file": "BM-DAT-004_Data_Migration_Strategy",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Database and Data Design",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-DAT-002",
+   "BM-DAT-001",
+   "BM-DEP-002",
+   "BM-RMP-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DAT-005",
+  "title": "Data Retention Policy (Draft)",
+  "folder": "08",
+  "file": "BM-DAT-005_Data_Retention_Policy",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Database and Data Design",
+  "owner": "Data Protection Officer (client) \u2014 PENDING CONFIRMATION",
+  "module": "All modules",
+  "related": [
+   "BM-DAT-002",
+   "BM-SEC-006",
+   "BM-SEC-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-001",
+  "title": "API Specification (Overview and Conventions)",
+  "folder": "09",
+  "file": "BM-API-001_API_Specification",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-002",
+   "BM-API-019",
+   "BM-ARC-001",
+   "BM-SEC-003",
+   "BM-DAT-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-API-003",
+  "title": "Authentication API Design",
+  "folder": "09",
+  "file": "BM-API-003_Authentication_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-004",
+  "title": "User API Design",
+  "folder": "09",
+  "file": "BM-API-004_User_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-005",
+  "title": "Customer API Design",
+  "folder": "09",
+  "file": "BM-API-005_Customer_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-006",
+  "title": "Product API Design",
+  "folder": "09",
+  "file": "BM-API-006_Product_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-007",
+  "title": "Order API Design",
+  "folder": "09",
+  "file": "BM-API-007_Order_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-008",
+  "title": "Approval API Design",
+  "folder": "09",
+  "file": "BM-API-008_Approval_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-009",
+  "title": "Dispatch API Design",
+  "folder": "09",
+  "file": "BM-API-009_Dispatch_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-010",
+  "title": "Driver API Design",
+  "folder": "09",
+  "file": "BM-API-010_Driver_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-011",
+  "title": "Delivery API Design",
+  "folder": "09",
+  "file": "BM-API-011_Delivery_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-012",
+  "title": "Inventory API Design",
+  "folder": "09",
+  "file": "BM-API-012_Inventory_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-013",
+  "title": "Vehicle API Design",
+  "folder": "09",
+  "file": "BM-API-013_Vehicle_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-014",
+  "title": "Document API Design",
+  "folder": "09",
+  "file": "BM-API-014_Document_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-015",
+  "title": "Invoice API Design",
+  "folder": "09",
+  "file": "BM-API-015_Invoice_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-016",
+  "title": "Notification API Design",
+  "folder": "09",
+  "file": "BM-API-016_Notification_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-017",
+  "title": "Reporting API Design",
+  "folder": "09",
+  "file": "BM-API-017_Reporting_API_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-API-002",
+   "BM-SEC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-API-019",
+  "title": "Integration Specification (External Systems)",
+  "folder": "09",
+  "file": "BM-API-019_Integration_Specification",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "API and Integration",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-API-001",
+   "BM-ARC-001",
+   "BM-SEC-009",
+   "BM-RMP-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SEC-001",
+  "title": "Security Requirements Document",
+  "folder": "10",
+  "file": "BM-SEC-001_Security_Requirements",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-002",
+   "BM-SEC-003",
+   "BM-SEC-004",
+   "BM-SEC-006",
+   "BM-SEC-009",
+   "BM-SEC-011",
+   "BM-SEC-012",
+   "BM-SYS-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-SEC-002",
+  "title": "Security Architecture",
+  "folder": "10",
+  "file": "BM-SEC-002_Security_Architecture",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-ARC-001",
+   "BM-INF-010"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-003",
+  "title": "Authentication, Password, MFA and Session Management Design",
+  "folder": "10",
+  "file": "BM-SEC-003_Authentication_and_Session_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-API-003",
+   "BM-FRD-AUTH"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-004",
+  "title": "Authorization and RBAC Design",
+  "folder": "10",
+  "file": "BM-SEC-004_Authorization_and_RBAC_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-005",
+   "BM-FRD-RBAC",
+   "BM-DGM-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-006",
+  "title": "Data Protection, Encryption and Backup Security Policy",
+  "folder": "10",
+  "file": "BM-SEC-006_Data_Protection_and_Encryption_Policy",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect / Data Protection Officer (client)",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-SEC-007",
+   "BM-DAT-005",
+   "BM-INF-009"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-007",
+  "title": "Privacy Policy (Draft)",
+  "folder": "10",
+  "file": "BM-SEC-007_Privacy_Policy_Draft",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Data Protection Officer (client) \u2014 PENDING CONFIRMATION",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-006",
+   "BM-DAT-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-008",
+  "title": "Audit Logging and Security Monitoring Policy",
+  "folder": "10",
+  "file": "BM-SEC-008_Audit_Logging_and_Security_Monitoring",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-INF-008",
+   "BM-FRD-SET"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-009",
+  "title": "File Upload, OCR, OTP, Email and OpenWA Security",
+  "folder": "10",
+  "file": "BM-SEC-009_Channel_and_File_Security",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-API-019",
+   "BM-FRD-OTP",
+   "BM-FRD-DOC"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-010",
+  "title": "Security Incident Response Plan",
+  "folder": "10",
+  "file": "BM-SEC-010_Security_Incident_Response_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect / Client IT",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-008",
+   "BM-INF-009"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-SEC-011",
+  "title": "Vulnerability Management and Security Testing Plan",
+  "folder": "10",
+  "file": "BM-SEC-011_Vulnerability_Management_and_Security_Testing",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Security and Compliance",
+  "owner": "Security Architect / QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-SEC-001",
+   "BM-QA-002",
+   "BM-INF-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-001",
+  "title": "Technology Stack Document",
+  "folder": "11",
+  "file": "BM-INF-001_Technology_Stack",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-ARC-001",
+   "BM-INF-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-002",
+  "title": "Hosting Options \u2014 Cloud vs On-Premises Comparison",
+  "folder": "11",
+  "file": "BM-INF-002_Hosting_Options_Comparison",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-INF-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-INF-003",
+  "title": "Infrastructure, Network Architecture and Server Specification",
+  "folder": "11",
+  "file": "BM-INF-003_Infrastructure_and_Network_Architecture",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-002",
+   "BM-INF-004",
+   "BM-INF-006",
+   "BM-ARC-001",
+   "BM-DGM-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-INF-005",
+  "title": "Environment Configuration and Environment Variables Reference",
+  "folder": "11",
+  "file": "BM-INF-005_Environment_Configuration",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-DEP-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-006",
+  "title": "Docker Architecture and Deployment Guide",
+  "folder": "11",
+  "file": "BM-INF-006_Docker_Architecture_and_Deployment",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-DEP-002",
+   "BM-INF-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-007",
+  "title": "CI/CD Pipeline and Git Workflow",
+  "folder": "11",
+  "file": "BM-INF-007_CICD_and_Git_Workflow",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-006",
+   "BM-DEP-001",
+   "BM-DEP-002",
+   "BM-QA-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-008",
+  "title": "Monitoring, Logging and Alerting Plan",
+  "folder": "11",
+  "file": "BM-INF-008_Monitoring_and_Logging",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-SEC-008",
+   "BM-HND-014"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-INF-009",
+  "title": "Backup and Disaster Recovery Plan",
+  "folder": "11",
+  "file": "BM-INF-009_Backup_and_Disaster_Recovery",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-DAT-005",
+   "BM-DEP-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-INF-010",
+  "title": "Infrastructure Security, Scalability and Cloud Migration Plan",
+  "folder": "11",
+  "file": "BM-INF-010_Infrastructure_Security_Scaling_and_Migration",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Infrastructure and DevOps",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-SEC-001",
+   "BM-DAT-004",
+   "BM-PLN-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-001",
+  "title": "UI/UX Design Document",
+  "folder": "12",
+  "file": "BM-UX-001_UI_UX_Design_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-002",
+   "BM-UX-003",
+   "BM-UX-004",
+   "BM-UX-005",
+   "BM-UX-006",
+   "BM-UX-007",
+   "BM-UX-008",
+   "BM-UX-009"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-UX-002",
+  "title": "Design System and Style Guide",
+  "folder": "12",
+  "file": "BM-UX-002_Design_System_and_Style_Guide",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-001",
+   "BM-UX-008",
+   "BM-UX-009"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-003",
+  "title": "Information Architecture, Navigation and Sitemap",
+  "folder": "12",
+  "file": "BM-UX-003_Navigation_and_Sitemap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-004",
+   "BM-UX-001",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-005",
+  "title": "Screen Specifications",
+  "folder": "12",
+  "file": "BM-UX-005_Screen_Specifications",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-004",
+   "BM-UX-006",
+   "BM-FRD-ORD",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-006",
+  "title": "Prototype Screenshot Gallery",
+  "folder": "12",
+  "file": "BM-UX-006_Prototype_Screenshot_Gallery",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-005",
+   "BM-UX-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-UX-007",
+  "title": "Mobile UX \u2014 Driver App and Customer App",
+  "folder": "12",
+  "file": "BM-UX-007_Mobile_UX_Driver_and_Customer",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-005",
+   "BM-MAN-001",
+   "BM-MAN-002",
+   "BM-FRD-DRV",
+   "BM-FRD-CAP"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-008",
+  "title": "Accessibility and Responsive Design Guidelines",
+  "folder": "12",
+  "file": "BM-UX-008_Accessibility_and_Responsive_Design",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-002",
+   "BM-QA-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-UX-009",
+  "title": "UI Content, Messages and Status Display Standards",
+  "folder": "12",
+  "file": "BM-UX-009_UI_Content_and_Messages",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "UI/UX and Design",
+  "owner": "UX Designer",
+  "module": "All modules",
+  "related": [
+   "BM-UX-002",
+   "BM-SYS-007",
+   "BM-WF-17"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-QA-001",
+  "title": "Test Strategy",
+  "folder": "13",
+  "file": "BM-QA-001_Test_Strategy",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-002",
+   "BM-QA-003",
+   "BM-QA-004",
+   "BM-QA-010",
+   "BM-QA-011",
+   "BM-QA-012",
+   "BM-SYS-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-QA-002",
+  "title": "Test Plan (with Functional, Integration, Regression, Performance, Security and Mobile sub-plans)",
+  "folder": "13",
+  "file": "BM-QA-002_Test_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-001",
+   "BM-QA-010",
+   "BM-QA-011",
+   "BM-QA-003",
+   "BM-PLN-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-QA-003",
+  "title": "User Acceptance Testing (UAT) Plan",
+  "folder": "13",
+  "file": "BM-QA-003_UAT_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-012",
+   "BM-QA-001",
+   "BM-HND-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-QA-004",
+  "title": "Defect Management Process and Bug Report Template",
+  "folder": "13",
+  "file": "BM-QA-004_Defect_Management_Process",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-001",
+   "BM-QA-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-QA-005",
+  "title": "Test Execution Report (Template)",
+  "folder": "13",
+  "file": "BM-QA-005_Test_Execution_Report_Template",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-002",
+   "BM-QA-006",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-QA-006",
+  "title": "Test Summary Report (Template) and Quality Metrics",
+  "folder": "13",
+  "file": "BM-QA-006_Test_Summary_Report_Template",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Testing and Quality Assurance",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-001",
+   "BM-QA-005",
+   "BM-QA-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-001",
+  "title": "Release Management Process",
+  "folder": "14",
+  "file": "BM-DEP-001_Release_Management_Process",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "Release Manager",
+  "module": "All modules",
+  "related": [
+   "BM-INF-007",
+   "BM-DEP-002",
+   "BM-DEP-005",
+   "BM-DEP-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-002",
+  "title": "Deployment Guide and Runbook",
+  "folder": "14",
+  "file": "BM-DEP-002_Deployment_Guide",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-005",
+   "BM-INF-006",
+   "BM-INF-007",
+   "BM-DEP-005",
+   "BM-DEP-006"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-DEP-003",
+  "title": "Release Notes \u2014 Prototype Finalisation Release (Data Version 8)",
+  "folder": "14",
+  "file": "BM-DEP-003_Release_Notes_Prototype_v8",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "Release Manager",
+  "module": "All modules",
+  "related": [
+   "BM-DEP-001",
+   "BM-OVW-015",
+   "BM-DOC-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-004",
+  "title": "Go-Live and Cutover Plan",
+  "folder": "14",
+  "file": "BM-DEP-004_Go_Live_and_Cutover_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-DEP-002",
+   "BM-DEP-005",
+   "BM-DAT-004",
+   "BM-QA-003",
+   "BM-HND-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-DEP-005",
+  "title": "Rollback Plan",
+  "folder": "14",
+  "file": "BM-DEP-005_Rollback_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-DEP-002",
+   "BM-INF-009",
+   "BM-DEP-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-006",
+  "title": "Post-Deployment Verification and Smoke Test Checklist",
+  "folder": "14",
+  "file": "BM-DEP-006_Post_Deployment_Verification",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-DEP-002",
+   "BM-DEP-007",
+   "BM-QA-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-008",
+  "title": "Server, Domain / DNS, SSL and Database Setup Guide",
+  "folder": "14",
+  "file": "BM-DEP-008_Server_DNS_SSL_and_Database_Setup",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "DevOps Engineer",
+  "module": "All modules",
+  "related": [
+   "BM-INF-003",
+   "BM-INF-005",
+   "BM-INF-006",
+   "BM-DEP-002",
+   "BM-DAT-002",
+   "BM-DAT-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DEP-009",
+  "title": "Versioning Strategy and Release Notes Template",
+  "folder": "14",
+  "file": "BM-DEP-009_Versioning_and_Release_Notes_Template",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Deployment and Release",
+  "owner": "Release Manager",
+  "module": "All modules",
+  "related": [
+   "BM-DEP-001",
+   "BM-DEP-003",
+   "BM-INF-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-001",
+  "title": "Driver App User Manual",
+  "folder": "15",
+  "file": "BM-MAN-001_Driver_App_User_Manual",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-107",
+   "BM-UX-007",
+   "BM-WF-08",
+   "BM-FRD-DRV",
+   "BM-FRD-OTP",
+   "BM-FRD-POD"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-MAN-002",
+  "title": "Customer App User Manual",
+  "folder": "15",
+  "file": "BM-MAN-002_Customer_App_User_Manual",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-112",
+   "BM-UX-007",
+   "BM-WF-09",
+   "BM-FRD-CAP"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-MAN-003",
+  "title": "Office Web Application User Manual (All Office Roles)",
+  "folder": "15",
+  "file": "BM-MAN-003_Office_Web_App_User_Manual",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-101",
+   "BM-MAN-102",
+   "BM-MAN-103",
+   "BM-MAN-104",
+   "BM-MAN-105",
+   "BM-MAN-106",
+   "BM-MAN-108",
+   "BM-MAN-120",
+   "BM-UX-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-MAN-101",
+  "title": "Role User Manual \u2014 Super Admin",
+  "folder": "15",
+  "file": "BM-MAN-101_User_Manual_Super_Admin",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-102",
+  "title": "Role User Manual \u2014 Administrator",
+  "folder": "15",
+  "file": "BM-MAN-102_User_Manual_Administrator",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-103",
+  "title": "Role User Manual \u2014 Sales Executive (SALESMAN)",
+  "folder": "15",
+  "file": "BM-MAN-103_User_Manual_Sales_Executive",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-104",
+  "title": "Role User Manual \u2014 Sales Manager",
+  "folder": "15",
+  "file": "BM-MAN-104_User_Manual_Sales_Manager",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-105",
+  "title": "Role User Manual \u2014 Customer Service",
+  "folder": "15",
+  "file": "BM-MAN-105_User_Manual_Customer_Service",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-106",
+  "title": "Role User Manual \u2014 Dispatcher",
+  "folder": "15",
+  "file": "BM-MAN-106_User_Manual_Dispatcher",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-107",
+  "title": "Role User Manual \u2014 Driver",
+  "folder": "15",
+  "file": "BM-MAN-107_User_Manual_Driver",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005",
+   "BM-MAN-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-108",
+  "title": "Role User Manual \u2014 Finance Executive",
+  "folder": "15",
+  "file": "BM-MAN-108_User_Manual_Finance_Executive",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-109",
+  "title": "Role User Manual \u2014 Warehouse Manager",
+  "folder": "15",
+  "file": "BM-MAN-109_User_Manual_Warehouse_Manager",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-110",
+  "title": "Role User Manual \u2014 Inventory Executive",
+  "folder": "15",
+  "file": "BM-MAN-110_User_Manual_Inventory_Executive",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-111",
+  "title": "Role User Manual \u2014 QA Manager",
+  "folder": "15",
+  "file": "BM-MAN-111_User_Manual_QA_Manager",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-112",
+  "title": "Role User Manual \u2014 Customer (portal / customer app)",
+  "folder": "15",
+  "file": "BM-MAN-112_User_Manual_Customer",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005",
+   "BM-MAN-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-113",
+  "title": "Role User Manual \u2014 Supplier (portal)",
+  "folder": "15",
+  "file": "BM-MAN-113_User_Manual_Supplier",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-MAN-114",
+  "title": "Role User Manual \u2014 Management (Read-only Oversight)",
+  "folder": "15",
+  "file": "BM-MAN-114_User_Manual_Management",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "User Manuals",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120",
+   "BM-SEC-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-ADM-001",
+  "title": "System Administration Guide",
+  "folder": "16",
+  "file": "BM-ADM-001_System_Administration_Guide",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Administration and Configuration",
+  "owner": "System Administrator",
+  "module": "All modules",
+  "related": [
+   "BM-ADM-002",
+   "BM-ADM-003",
+   "BM-ADM-004",
+   "BM-MAN-101",
+   "BM-MAN-102",
+   "BM-SEC-004",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-ADM-002",
+  "title": "Application Configuration Reference",
+  "folder": "16",
+  "file": "BM-ADM-002_Application_Configuration_Reference",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Administration and Configuration",
+  "owner": "System Administrator",
+  "module": "All modules",
+  "related": [
+   "BM-ADM-001",
+   "BM-INF-005",
+   "BM-SYS-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-ADM-003",
+  "title": "Master Data Management Guide",
+  "folder": "16",
+  "file": "BM-ADM-003_Master_Data_Management_Guide",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Administration and Configuration",
+  "owner": "Master Data Owner",
+  "module": "All modules",
+  "related": [
+   "BM-ADM-001",
+   "BM-FRD-CUS",
+   "BM-FRD-PRD",
+   "BM-FRD-HUB",
+   "BM-FRD-ZON",
+   "BM-FRD-DRA",
+   "BM-FRD-VMS",
+   "BM-DAT-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-ADM-004",
+  "title": "Monitoring and Maintenance Guide",
+  "folder": "16",
+  "file": "BM-ADM-004_Monitoring_and_Maintenance_Guide",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Administration and Configuration",
+  "owner": "System Administrator",
+  "module": "All modules",
+  "related": [
+   "BM-INF-008",
+   "BM-INF-009",
+   "BM-DEP-005",
+   "BM-HND-014"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-PM-001",
+  "title": "Project Plan",
+  "folder": "17",
+  "file": "BM-PM-001_Project_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-PLN-001",
+   "BM-PLN-002",
+   "BM-PM-002",
+   "BM-PM-003",
+   "BM-PM-004",
+   "BM-PM-005",
+   "BM-RSK-001",
+   "BM-RSK-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-PM-006",
+  "title": "Project Templates \u2014 Meeting Minutes, Sprint Planning and Status Report",
+  "folder": "17",
+  "file": "BM-PM-006_Project_Templates",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-PM-001",
+   "BM-PM-007",
+   "BM-RSK-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-PM-007",
+  "title": "Project Status Report \u2014 12 November 2026",
+  "folder": "17",
+  "file": "BM-PM-007_Project_Status_Report",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-PM-006",
+   "BM-PM-005",
+   "BM-RSK-002",
+   "BM-DOC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-PM-008",
+  "title": "Project Closure Report (Template \u2014 Not Closed)",
+  "folder": "17",
+  "file": "BM-PM-008_Project_Closure_Report",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-HND-001",
+   "BM-HND-016",
+   "BM-PM-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RSK-001",
+  "title": "Risk Management Plan",
+  "folder": "18",
+  "file": "BM-RSK-001_Risk_Management_Plan",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Risk and Change Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-RSK-002",
+   "BM-SEC-012",
+   "BM-PM-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RSK-003",
+  "title": "Change Management Process and Change Request Template",
+  "folder": "18",
+  "file": "BM-RSK-003_Change_Request_Process_and_Template",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Risk and Change Management",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-RSK-004",
+   "BM-SYS-009",
+   "BM-PM-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RSK-004",
+  "title": "Change Impact Analysis \u2014 Prototype Extensions and Gaps",
+  "folder": "18",
+  "file": "BM-RSK-004_Change_Impact_Analysis",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Risk and Change Management",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-RSK-003",
+   "BM-DOC-003",
+   "BM-PLN-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-001",
+  "title": "Client Handover Document",
+  "folder": "19",
+  "file": "BM-HND-001_Client_Handover_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-HND-002",
+   "BM-HND-006",
+   "BM-HND-007",
+   "BM-HND-008",
+   "BM-HND-010",
+   "BM-HND-011",
+   "BM-HND-012",
+   "BM-HND-016"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-HND-003",
+  "title": "Functional Acceptance Document",
+  "folder": "19",
+  "file": "BM-HND-003_Functional_Acceptance_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-SYS-008",
+   "BM-QA-011",
+   "BM-HND-004",
+   "BM-OVW-016"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-004",
+  "title": "UAT Sign-Off Document",
+  "folder": "19",
+  "file": "BM-HND-004_UAT_Sign_Off",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "QA Lead",
+  "module": "All modules",
+  "related": [
+   "BM-QA-003",
+   "BM-QA-012",
+   "BM-QA-006"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-005",
+  "title": "Business Approval Document",
+  "folder": "19",
+  "file": "BM-HND-005_Business_Approval_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-BRD-001",
+   "BM-SOW-001",
+   "BM-PLN-001",
+   "BM-PM-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-006",
+  "title": "Technical Handover Document",
+  "folder": "19",
+  "file": "BM-HND-006_Technical_Handover_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-HND-007",
+   "BM-HND-008",
+   "BM-ARC-001",
+   "BM-ARC-002",
+   "BM-DAT-001",
+   "BM-DEP-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-HND-007",
+  "title": "Source Code Handover Document",
+  "folder": "19",
+  "file": "BM-HND-007_Source_Code_Handover",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Technical Lead",
+  "module": "All modules",
+  "related": [
+   "BM-HND-006",
+   "BM-ARC-002",
+   "BM-INF-007"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-008",
+  "title": "Configuration Handover Document",
+  "folder": "19",
+  "file": "BM-HND-008_Configuration_Handover",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "System Administrator",
+  "module": "All modules",
+  "related": [
+   "BM-ADM-002",
+   "BM-INF-005",
+   "BM-SEC-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-009",
+  "title": "User Training Completion Document",
+  "folder": "19",
+  "file": "BM-HND-009_Training_Completion",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Training Lead",
+  "module": "All modules",
+  "related": [
+   "BM-MAN-003",
+   "BM-MAN-120"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-011",
+  "title": "Limitations Document \u2014 Prototype vs Production",
+  "folder": "19",
+  "file": "BM-HND-011_Limitations_Document",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-HND-010",
+   "BM-OVW-015",
+   "BM-DOC-003"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-HND-012",
+  "title": "Pending Requirements Document",
+  "folder": "19",
+  "file": "BM-HND-012_Pending_Requirements",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-DOC-003",
+   "BM-PLN-002",
+   "BM-SYS-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-013",
+  "title": "Future Enhancement Document",
+  "folder": "19",
+  "file": "BM-HND-013_Future_Enhancements",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Product Owner",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-001",
+   "BM-RSK-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-014",
+  "title": "Support and Maintenance Agreement (Draft)",
+  "folder": "19",
+  "file": "BM-HND-014_Support_and_Maintenance_Agreement_Draft",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-HND-015",
+   "BM-INF-008",
+   "BM-ADM-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-015",
+  "title": "Warranty and Support Scope (Draft)",
+  "folder": "19",
+  "file": "BM-HND-015_Warranty_and_Support_Scope_Draft",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-HND-014",
+   "BM-HND-011"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-HND-016",
+  "title": "Project Closure Sign-Off",
+  "folder": "19",
+  "file": "BM-HND-016_Project_Closure_Sign_Off",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Client Handover",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-PM-008",
+   "BM-HND-001",
+   "BM-HND-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RMP-001",
+  "title": "Prototype-to-Production Migration Roadmap (Master)",
+  "folder": "20",
+  "file": "BM-RMP-001_Prototype_to_Production_Roadmap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Future Roadmap",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-002",
+   "BM-RMP-003",
+   "BM-RMP-004",
+   "BM-RMP-005",
+   "BM-PLN-001",
+   "BM-INF-010"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-RMP-002",
+  "title": "Backend, Database, API, Frontend Integration and Auth / RBAC Roadmap",
+  "folder": "20",
+  "file": "BM-RMP-002_Backend_Database_API_Frontend_Auth_Roadmap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Future Roadmap",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-001",
+   "BM-ARC-001",
+   "BM-DAT-002",
+   "BM-API-001",
+   "BM-SEC-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RMP-003",
+  "title": "React Native Driver App and Customer App Roadmap",
+  "folder": "20",
+  "file": "BM-RMP-003_Mobile_Apps_Roadmap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Future Roadmap",
+  "owner": "Mobile Lead",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-001",
+   "BM-UX-007",
+   "BM-MAN-001",
+   "BM-MAN-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RMP-004",
+  "title": "Integrations Roadmap \u2014 SAP, Email, WhatsApp (OpenWA), OCR, Maps and SMS",
+  "folder": "20",
+  "file": "BM-RMP-004_Integrations_Roadmap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Future Roadmap",
+  "owner": "Integration Lead",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-001",
+   "BM-API-019",
+   "BM-INF-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-RMP-005",
+  "title": "Cloud, Security, Performance, Reporting and Monitoring Roadmap",
+  "folder": "20",
+  "file": "BM-RMP-005_Cloud_Security_Performance_Reporting_Monitoring_Roadmap",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Future Roadmap",
+  "owner": "DevOps Lead",
+  "module": "All modules",
+  "related": [
+   "BM-RMP-001",
+   "BM-INF-002",
+   "BM-SEC-001",
+   "BM-INF-008"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DGM-001",
+  "title": "Diagram Catalogue and Visual Documentation",
+  "folder": "21",
+  "file": "BM-DGM-001_Diagram_Catalogue",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Diagrams and Visual Documentation",
+  "owner": "Solution Architect",
+  "module": "All modules",
+  "related": [
+   "BM-ARC-003",
+   "BM-ARC-001",
+   "BM-WF-00"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-GLO-001",
+  "title": "Project Glossary",
+  "folder": "22",
+  "file": "BM-GLO-001_Project_Glossary",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Glossary and Reference",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-GLO-002",
+   "BM-GLO-003",
+   "BM-OVW-012"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-GLO-002",
+  "title": "Acronyms and Abbreviations",
+  "folder": "22",
+  "file": "BM-GLO-002_Acronyms",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Glossary and Reference",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-GLO-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-GLO-003",
+  "title": "Quick Reference Card",
+  "folder": "22",
+  "file": "BM-GLO-003_Quick_Reference",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Glossary and Reference",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-GLO-001",
+   "BM-WF-17",
+   "BM-ADM-002"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DOC-004",
+  "title": "Document Control Procedure",
+  "folder": "23",
+  "file": "BM-DOC-004_Document_Control_Procedure",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Document Control",
+  "owner": "Documentation Lead",
+  "module": "All modules",
+  "related": [
+   "BM-IDX-002",
+   "BM-DOC-002",
+   "BM-IDX-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-DOC-001",
+  "title": "Existing Documentation Review and Inventory",
+  "folder": "23",
+  "file": "BM-DOC-001_Existing_Documentation_Review",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Document Control",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-DOC-002",
+   "BM-DOC-003",
+   "BM-IDX-001"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-DOC-003",
+  "title": "Gap Analysis \u2014 Scope of Work, Prototype and Documentation",
+  "folder": "23",
+  "file": "BM-DOC-003_Gap_Analysis",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Document Control",
+  "owner": "Business Analyst",
+  "module": "All modules",
+  "related": [
+   "BM-DOC-001",
+   "BM-DOC-002",
+   "BM-OVW-015",
+   "BM-BRD-001",
+   "BM-SOW-001",
+   "BM-HND-011",
+   "BM-HND-012"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": true
+ },
+ {
+  "id": "BM-PRS-002",
+  "title": "Project Presentation \u2014 Speaker Notes",
+  "folder": "24",
+  "file": "BM-PRS-002_Presentation_Speaker_Notes",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Project Presentation",
+  "owner": "Project Manager",
+  "module": "All modules",
+  "related": [
+   "BM-PRS-001",
+   "BM-OVW-015",
+   "BM-PM-005"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ },
+ {
+  "id": "BM-IDX-002",
+  "title": "Bellomassi Documentation Master",
+  "folder": "25",
+  "file": "BELLOMASSI_DOCUMENTATION_MASTER",
+  "version": "1.0",
+  "status": "Draft \u2014 for client review",
+  "category": "Documentation Index",
+  "owner": "Documentation Lead",
+  "module": "All modules",
+  "related": [
+   "BM-IDX-001",
+   "BM-IDX-003",
+   "BM-DOC-001",
+   "BM-DOC-002",
+   "BM-DOC-003",
+   "BM-DOC-004"
+  ],
+  "created": "2026-11-12",
+  "updated": "2026-11-12",
+  "pdf": false
+ }
+]

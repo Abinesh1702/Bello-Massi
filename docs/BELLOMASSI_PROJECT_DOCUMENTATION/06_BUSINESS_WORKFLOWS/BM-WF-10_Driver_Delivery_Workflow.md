@@ -1,0 +1,180 @@
+# WF-10 — Driver Delivery Workflow
+
+## Document control
+
+| Field | Value |
+|---|---|
+| Document title | WF-10 — Driver Delivery Workflow |
+| Document ID | BM-WF-10 |
+| Version | 1.0 |
+| Status | Draft — for client review |
+| Category | Business Workflows |
+| Related module(s) | All modules |
+| Document owner | Business Analyst |
+| Prepared by | Project documentation team (AI-assisted draft prepared from source-code analysis) |
+| Reviewed by | _Pending — not yet reviewed_ |
+| Approval | _Not approved — awaiting client review (no approval has been given)_ |
+| Created date | 2026-11-12 |
+| Last updated date | 2026-11-12 |
+
+> **Status labels used in this document:** VERIFIED (confirmed in the current source code or existing documents) · PROTOTYPE (works in the React/LocalStorage prototype with mock or simulated behaviour) · PROPOSED (recommended production design, not built) · PENDING CONFIRMATION (needs a client decision) · NOT IMPLEMENTED · NOT VERIFIED.
+
+## Purpose
+
+Specify the driver's stop workflow.
+
+## Scope
+
+Workflow WF-10 as implemented in the prototype, with production differences marked.
+
+## Definitions
+
+Other terms: see [BM-GLO-001 — Project Glossary](../22_GLOSSARY_AND_REFERENCE/BM-GLO-001_Project_Glossary.md).
+
+## References
+
+- [BM-WF-00 — Business Workflow Catalogue](BM-WF-00_Business_Workflow_Catalogue.md)
+- [BM-SYS-008 — Requirement Traceability Matrix](../03_SYSTEM_REQUIREMENTS/BM-SYS-008_Requirement_Traceability_Matrix.xlsx)
+
+## Contents
+
+- 1. Workflow summary
+- 2. Step-by-step process
+- 3. Decision points
+- 4. Approval conditions
+- 5. Rejection conditions
+- 6. System actions
+- 7. User actions
+- 8. Status changes
+- 9. Notifications
+- 10. Exception scenarios
+- 11. Workflow diagram
+- 12. Final outcome
+
+## 1. Workflow summary
+
+| Field | Value |
+|---|---|
+| Workflow ID | WF-10 |
+| Workflow name | Driver Delivery Workflow |
+| Business purpose | Specify the driver's stop workflow. |
+| Initiating role | Driver |
+| Trigger | Dispatch CONFIRMED and date reached |
+| Preconditions | Dispatch CONFIRMED; date reached; driver linked to user. |
+| Final outcome | Stop closed with proof. |
+| Related requirements | FR-DRV-001, FR-DRV-002, FR-DRV-003, FR-DRV-004, FR-DRV-005, FR-OTP-002, FR-POD-001 |
+| Related test cases | TC-DRV-001, TC-DRV-002, TC-DRV-N01, TC-DRV-N02, TC-DRV-N03, TC-DRV-003, TC-DRV-004, TC-DRV-005, TC-OTP-002, TC-OTP-N01, TC-OTP-N02, TC-POD-001, TC-POD-N02 |
+| Detailed chapter | `docs/workflow/` chapter 08 |
+
+## 2. Step-by-step process
+
+1. Open Today; tap next stop.
+2. Start delivery (blocked if not next / not confirmed / future).
+3. Drive (DEMO GPS in prototype).
+4. Reach location — OTP issued.
+5. Enter quantities, receiver, optional signature / photo, OTP.
+6. Complete (DELIVERED / PARTIALLY_DELIVERED) or report failure.
+
+## 3. Decision points
+
+Can start? OTP valid? All delivered? Problem?
+
+## 4. Approval conditions
+
+OTP verification.
+
+## 5. Rejection conditions
+
+Failure with reason.
+
+## 6. System actions
+
+Tracking session, OTP, delivery note, notifications, dispatch closing.
+
+## 7. User actions
+
+Driver actions; customer gives OTP.
+
+## 8. Status changes
+
+Delivery DISPATCHED → OUT_FOR_DELIVERY → DELIVERED / PARTIALLY_DELIVERED / FAILED.
+
+## 9. Notifications
+
+Customer and Dispatcher at each step.
+
+## 10. Exception scenarios
+
+Wrong / expired / locked OTP; out of sequence; failure.
+
+## 11. Workflow diagram
+
+```mermaid
+flowchart TD
+    A(["/driver/login"]) --> B{Linked to a driver record?}
+    B -->|No| B1([No driver profile linked])
+    B -->|Yes| C[Today - next stop]
+    C --> E{Can this stop start?}
+    E -->|No| E1(["Blocked: dispatch not confirmed / future date / another stop active / not next in sequence"])
+    E -->|Yes| F[Start delivery]
+    F --> G[OUT_FOR_DELIVERY - dispatch IN_TRANSIT - DEMO GPS]
+    G --> I{Problem?}
+    I -->|Yes| FL[Report issue: reason + remarks]
+    FL --> FL2[FAILED - order DELIVERY_FAILED - Dispatcher reviews]
+    I -->|No| J[Reach location - OTP issued, simulated]
+    J --> L[Enter quantities, received by, optional signature and photo]
+    L --> O{OTP valid?}
+    O -->|Wrong| O1[Retry - max 5 attempts]
+    O1 --> O
+    O -->|Expired or locked| O2[Generate new OTP]
+    O2 --> O
+    O -->|Valid| P{Everything delivered?}
+    P -->|Yes| Q[DELIVERED]
+    P -->|No| R[PARTIALLY_DELIVERED]
+    Q --> S[Delivery note + POD saved, customer notified]
+    R --> S
+    S --> T{More stops?}
+    FL2 --> T
+    T -->|Yes| C
+    T -->|No| U([Dispatch COMPLETED or Closed with exceptions])
+```
+
+```mermaid
+sequenceDiagram
+    actor DR as Driver
+    participant APP as Driver app
+    participant DS as deliveryService
+    participant OTP as otpService
+    actor CU as Customer app
+    actor DP as Dispatcher
+    DR->>APP: Start delivery
+    APP->>DS: startDelivery(id)
+    DS-->>CU: "Out for delivery" + DEMO GPS tracking
+    DS-->>DP: In-transit update
+    DR->>APP: Reach location
+    APP->>DS: markArrived(id)
+    DS->>OTP: generateOtp - simulated, no SMS
+    OTP-->>CU: OTP visible on tracking screen
+    CU-->>DR: Reads out the 6-digit code
+    DR->>APP: Quantities, received by, POD, OTP
+    APP->>DS: confirmDelivery(id, items, receivedBy, otp, pod)
+    DS->>OTP: evaluateOtp
+    alt OTP valid
+        DS-->>CU: Delivered + delivery note
+        DS-->>DP: Stop closed
+    else OTP wrong / expired / locked
+        DS-->>APP: Error - stay on screen
+    end
+```
+
+Implementation label: diagrams describe the **prototype behaviour (VERIFIED in source code)** unless a step is marked PROPOSED / NOT IMPLEMENTED.
+
+## 12. Final outcome
+
+Stop closed with proof.
+
+## Revision history
+
+| Version | Date | Author | Description |
+|---|---|---|---|
+| 1.0 | 2026-11-12 | Documentation team | Initial draft prepared from analysis of the bellomassi-premium-ui source code and existing project documents. |
